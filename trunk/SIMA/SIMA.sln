@@ -9,6 +9,16 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SIMA.DataAccess", "SIMA.Dat
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SIMA.Logic", "SIMA.Logic\SIMA.Logic.csproj", "{3705EB81-6002-484F-82D4-2C3DCA33EB3F}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Presentación", "Presentación", "{E3BB3F8E-ABE9-4476-9A76-63638EFCB7C8}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Lógica", "Lógica", "{E8AFA90F-CA7B-4B32-828F-38B476E4C716}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Acceso a Datos", "Acceso a Datos", "{425C7C2A-6393-4F25-B06B-4878C860ACEA}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Base de Datos", "Base de Datos", "{60690122-2142-46A0-A5C4-4E6BEF8768BD}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Librerias", "Librerias", "{E5BF1F4E-376A-4E28-8B0A-44A8AACBEBD1}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -34,5 +44,11 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{39C7FC77-9EBD-40E0-A219-23C9E3F9779F} = {E3BB3F8E-ABE9-4476-9A76-63638EFCB7C8}
+		{3705EB81-6002-484F-82D4-2C3DCA33EB3F} = {E8AFA90F-CA7B-4B32-828F-38B476E4C716}
+		{66348996-DB50-4531-B8B3-BE8BF79A83CD} = {425C7C2A-6393-4F25-B06B-4878C860ACEA}
+		{55701086-452E-40A4-A8A0-8DDBF02D0469} = {425C7C2A-6393-4F25-B06B-4878C860ACEA}
 	EndGlobalSection
 EndGlobal

@@ -1,6 +1,6 @@
 using System;
 
-namespace SIMA
+namespace SIMA.Entities
 {
 	public class T_C_Area
 	{

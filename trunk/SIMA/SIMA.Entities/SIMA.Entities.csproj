@@ -5,7 +5,7 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>9.0.30729</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>ac72e8f4-7f2d-48f1-a8e8-207d6867fb76</ProjectGuid>
+    <ProjectGuid>{55701086-452E-40A4-A8A0-8DDBF02D0469}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>SIMA.Entities</RootNamespace>
@@ -47,6 +47,32 @@
   <ItemGroup>
     <Compile Include="Class1.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="T_C_Alerta.cs" />
+    <Compile Include="T_C_Area.cs" />
+    <Compile Include="T_C_DetalleOrdenDeTrabajo.cs" />
+    <Compile Include="T_C_DetalleSolicitud.cs" />
+    <Compile Include="T_C_Equipo.cs" />
+    <Compile Include="T_C_Estado.cs" />
+    <Compile Include="T_C_Incidencia.cs" />
+    <Compile Include="T_C_Mantenimiento.cs" />
+    <Compile Include="T_C_Marca.cs" />
+    <Compile Include="T_C_Modelo.cs" />
+    <Compile Include="T_C_MovimientosEquipo.cs" />
+    <Compile Include="T_C_OrdenTrabajo.cs" />
+    <Compile Include="T_C_Pedido.cs" />
+    <Compile Include="T_C_Perfil.cs" />
+    <Compile Include="T_C_Permiso.cs" />
+    <Compile Include="T_C_PermisosXPerfil.cs" />
+    <Compile Include="T_C_Producto.cs" />
+    <Compile Include="T_C_Requerimiento.cs" />
+    <Compile Include="T_C_Solicitud.cs" />
+    <Compile Include="T_C_Tabla.cs" />
+    <Compile Include="T_C_TipoMantenimiento.cs" />
+    <Compile Include="T_C_TipoMantenimientoPorEquipo.cs" />
+    <Compile Include="T_C_Trabajo.cs" />
+    <Compile Include="T_C_TurnoMantenimiento.cs" />
+    <Compile Include="T_C_TurnoTrabajador.cs" />
+    <Compile Include="T_C_Usuario.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

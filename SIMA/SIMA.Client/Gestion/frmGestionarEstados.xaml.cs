@@ -12,6 +12,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using SIMA.Logic;
+using SIMA.Entities;
 
 namespace SIMA.Client.Gestion
 {
@@ -21,6 +22,7 @@ namespace SIMA.Client.Gestion
     public partial class frmGestionarEstados : UserControl
     {
         TablaDataLogic tablaLogic;
+        EstadoDataLogic estadoLogic;
         public frmGestionarEstados()
         {
             InitializeComponent();
@@ -29,7 +31,9 @@ namespace SIMA.Client.Gestion
         private void UserControl_Loaded(object sender, RoutedEventArgs e)
         {
             tablaLogic = new TablaDataLogic();
+            estadoLogic = new EstadoDataLogic();
             cmbTablas.ItemsSource = tablaLogic.ListarTablas();
+            gvEstados.ItemsSource = estadoLogic.ListarEstados();
             btnActualizar.IsEnabled = false;
             btnEliminar.IsEnabled = false;
             btnLimpiar.IsEnabled = false;
@@ -37,12 +41,19 @@ namespace SIMA.Client.Gestion
 
         private void btnRegistrar_Click(object sender, RoutedEventArgs e)
         {
-
+            T_C_Estado estado = new T_C_Estado();
+            estado.Nombre_Estado = txtNombre.Text;
+            estado.Descripcion_Estado = txtDescripcion.Text;
+            estado.Id_Tabla = (cmbTablas.SelectedItem as T_C_Tabla).Id_Tabla;
+            estado.Por_Defecto = (bool)chkPorDefecto.IsChecked;
+            estado.Muestra_Informacion = (bool)chkMuestraInformacion.IsChecked;
+            MessageBox.Show(estadoLogic.AgregarEstado(estado));
+            gvEstados.ItemsSource = estadoLogic.ListarEstados();
         }
 
         private void btnActualizar_Click(object sender, RoutedEventArgs e)
         {
-
+            
         }
 
         private void btnEliminar_Click(object sender, RoutedEventArgs e)
@@ -56,11 +67,38 @@ namespace SIMA.Client.Gestion
             btnActualizar.IsEnabled = false;
             btnEliminar.IsEnabled = false;
             btnLimpiar.IsEnabled = false;
+            txtDescripcion.Text = string.Empty;
+            txtNombre.Text = string.Empty;
+            cmbTablas.SelectedItem = null;
+            chkPorDefecto.IsChecked = false;
+            chkMuestraInformacion.IsChecked = false;
+            gvEstados.SelectedItem = null;
         }
 
         private void gvTablas_SelectionChanged(object sender, Telerik.Windows.Controls.SelectionChangeEventArgs e)
         {
-
+            if (gvEstados.SelectedItem != null)
+            {
+                btnRegistrar.IsEnabled = false;
+                btnActualizar.IsEnabled = true;
+                btnEliminar.IsEnabled = true;
+                btnLimpiar.IsEnabled = true;
+                T_C_Estado temp = gvEstados.SelectedItem as T_C_Estado;
+                txtDescripcion.Text = temp.Descripcion_Estado;
+                txtNombre.Text = temp.Nombre_Estado;
+                for (int i = 0; i <= cmbTablas.Items.Count; i++)
+                {
+                    if ((cmbTablas.Items[i] as T_C_Tabla).Id_Tabla == temp.Id_Tabla)
+                    {
+                        cmbTablas.SelectedIndex = i;
+                        break;
+                    }
+                }
+                cmbTablas.SelectedItem = temp.Tabla;
+                chkPorDefecto.IsChecked = temp.Por_Defecto;
+                chkMuestraInformacion.IsChecked = temp.Muestra_Informacion;
+            }
+            
         }
 
         

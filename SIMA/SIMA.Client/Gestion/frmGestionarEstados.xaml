@@ -68,6 +68,9 @@
                 <telerik:GridViewDataColumn Header="Nombre de Estado" DataMemberBinding="{Binding Nombre_Estado}"/>
                 <telerik:GridViewDataColumn Header="Descripción de Estado" DataMemberBinding="{Binding Descripcion_Estado}"/>
             </telerik:RadGridView.Columns>
+            <telerik:RadGridView.GroupDescriptors>
+                <telerik:GroupDescriptor Member="Tabla.Nombre_Tabla" SortDirection="Ascending" DisplayContent="A Tabla"/>
+            </telerik:RadGridView.GroupDescriptors>
         </telerik:RadGridView>
     </Grid>
 </UserControl>

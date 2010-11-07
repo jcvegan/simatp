@@ -30,6 +30,9 @@ namespace SIMA.Client.Gestion
         {
             tablaLogic = new TablaDataLogic();
             cmbTablas.ItemsSource = tablaLogic.ListarTablas();
+            btnActualizar.IsEnabled = false;
+            btnEliminar.IsEnabled = false;
+            btnLimpiar.IsEnabled = false;
         }
 
         private void btnRegistrar_Click(object sender, RoutedEventArgs e)
@@ -49,7 +52,10 @@ namespace SIMA.Client.Gestion
 
         private void btnLimpiar_Click(object sender, RoutedEventArgs e)
         {
-
+            btnRegistrar.IsEnabled = true;
+            btnActualizar.IsEnabled = false;
+            btnEliminar.IsEnabled = false;
+            btnLimpiar.IsEnabled = false;
         }
 
         private void gvTablas_SelectionChanged(object sender, Telerik.Windows.Controls.SelectionChangeEventArgs e)

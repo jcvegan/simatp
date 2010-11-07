@@ -49,5 +49,10 @@ namespace SIMA.Logic
         {
             return estadoAccess.SeleccionarTodosEstado();
         }
+
+        public List<T_C_Estado> ListarEstadosPorTabla(string nombreTabla)
+        {
+            return estadoAccess.SeleccionarPorTabla(nombreTabla);
+        }
     }
 }

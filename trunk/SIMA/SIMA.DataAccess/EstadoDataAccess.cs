@@ -133,6 +133,77 @@ namespace SIMA.DataAccess
             }
         }
 
+        public List<T_C_Estado> SeleccionarPorTabla(string nombretabla)
+        {
+            try
+            {
+                List<T_C_Estado> estados;
+                using (Command = new System.Data.SqlClient.SqlCommand("T_C_EstadoSelectByNombre_Tabla", Connection))
+                {
+                    Command.Parameters.AddWithValue("@NombreTabla", nombretabla);
+                    Command.CommandType = System.Data.CommandType.StoredProcedure;
+                    Connection.Open();
+                    estados = new List<T_C_Estado>();
+                    SqlDataReader reader = Command.ExecuteReader();
+                    while (reader.Read())
+                    {
+                        T_C_Estado estado = new T_C_Estado();
+                        estado.Id_Estado = Convert.ToInt32(reader.GetValue(reader.GetOrdinal("Id_Estado")).ToString());
+                        estado.Id_Tabla = Convert.ToInt32(reader.GetValue(reader.GetOrdinal("Id_Tabla")).ToString());
+                        estado.Nombre_Estado = reader.GetValue(reader.GetOrdinal("Nombre_Estado")).ToString();
+                        estado.Descripcion_Estado = reader.GetValue(reader.GetOrdinal("Descripcion_Estado")).ToString();
+                        estado.Por_Defecto = Convert.ToBoolean(reader.GetValue(reader.GetOrdinal("Por_Defecto")).ToString());
+                        estado.Muestra_Informacion = Convert.ToBoolean(reader.GetValue(reader.GetOrdinal("Muestra_Informacion")).ToString());
+                        estado.Tabla = tablaAccess.SeleccionarTabla(estado.Id_Tabla);
+                        estados.Add(estado);
+                    }
+                }
+                return estados;
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
+            finally
+            {
+                Connection.Close();
+            }
+        }
+
+        public T_C_Estado Seleccionar(int idEstado)
+        {
+            try
+            {
+                T_C_Estado estado = new T_C_Estado(); 
+                using (Command = new System.Data.SqlClient.SqlCommand("T_C_EstadoSelect", Connection))
+                {
+                    Command.Parameters.AddWithValue("@Id_Estado", idEstado);
+                    Command.CommandType = System.Data.CommandType.StoredProcedure;
+                    Connection.Open();
+                    SqlDataReader reader = Command.ExecuteReader();
+                    while (reader.Read())
+                    {                        
+                        estado.Id_Estado = Convert.ToInt32(reader.GetValue(reader.GetOrdinal("Id_Estado")).ToString());
+                        estado.Id_Tabla = Convert.ToInt32(reader.GetValue(reader.GetOrdinal("Id_Tabla")).ToString());
+                        estado.Nombre_Estado = reader.GetValue(reader.GetOrdinal("Nombre_Estado")).ToString();
+                        estado.Descripcion_Estado = reader.GetValue(reader.GetOrdinal("Descripcion_Estado")).ToString();
+                        estado.Por_Defecto = Convert.ToBoolean(reader.GetValue(reader.GetOrdinal("Por_Defecto")).ToString());
+                        estado.Muestra_Informacion = Convert.ToBoolean(reader.GetValue(reader.GetOrdinal("Muestra_Informacion")).ToString());
+                        estado.Tabla = tablaAccess.SeleccionarTabla(estado.Id_Tabla);
+                    }
+                }
+                return estado;
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
+            finally
+            {
+                Connection.Close();
+            }
+        }
+
         
     }
 }

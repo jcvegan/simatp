@@ -17,6 +17,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Acceso a Datos", "Acceso a 
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Base de Datos", "Base de Datos", "{60690122-2142-46A0-A5C4-4E6BEF8768BD}"
 	ProjectSection(SolutionItems) = preProject
+		SIMA.Sql\SIMA2005.sql = SIMA.Sql\SIMA2005.sql
+		SIMA.Sql\SIMA2008.sql = SIMA.Sql\SIMA2008.sql
 		SIMA.Sql\T_C_AlertaDelete.sql = SIMA.Sql\T_C_AlertaDelete.sql
 		SIMA.Sql\T_C_AlertaDeleteAllById_Equipo.sql = SIMA.Sql\T_C_AlertaDeleteAllById_Equipo.sql
 		SIMA.Sql\T_C_AlertaDeleteAllById_Estado.sql = SIMA.Sql\T_C_AlertaDeleteAllById_Estado.sql

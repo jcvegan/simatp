@@ -46,7 +46,21 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Class1.cs" />
+    <Compile Include="PerfilDataLogic.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\SIMA.DataAccess\SIMA.DataAccess.csproj">
+      <Project>{66348996-DB50-4531-B8B3-BE8BF79A83CD}</Project>
+      <Name>SIMA.DataAccess</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SIMA.Entities\SIMA.Entities.csproj">
+      <Project>{55701086-452E-40A4-A8A0-8DDBF02D0469}</Project>
+      <Name>SIMA.Entities</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Excepciones\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

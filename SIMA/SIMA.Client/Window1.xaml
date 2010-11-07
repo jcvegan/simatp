@@ -3,7 +3,9 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation"
     Title="SIMA - Sistema de Mantenimientos de Equipos" Height="300" Width="300">
-    <Grid>
-        
-    </Grid>
+    <DockPanel>
+        <telerik:RadRibbonBar>
+            
+        </telerik:RadRibbonBar>
+    </DockPanel>
 </Window>

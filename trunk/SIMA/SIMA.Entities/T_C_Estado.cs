@@ -10,8 +10,9 @@ namespace SIMA.Entities
 		private int id_Tabla;
 		private string nombre_Estado;
 		private string descripcion_Estado;
-		private short por_Defecto;
-		private short muestra_Informacion;
+		private bool por_Defecto;
+		private bool muestra_Informacion;
+        private T_C_Tabla tabla;
 
 		#endregion
 
@@ -27,7 +28,7 @@ namespace SIMA.Entities
 		/// <summary>
 		/// Initializes a new instance of the T_C_Estado class.
 		/// </summary>
-		public T_C_Estado(int id_Tabla, string nombre_Estado, string descripcion_Estado, short por_Defecto, short muestra_Informacion)
+		public T_C_Estado(int id_Tabla, string nombre_Estado, string descripcion_Estado, bool por_Defecto, bool muestra_Informacion)
 		{
 			this.id_Tabla = id_Tabla;
 			this.nombre_Estado = nombre_Estado;
@@ -39,7 +40,7 @@ namespace SIMA.Entities
 		/// <summary>
 		/// Initializes a new instance of the T_C_Estado class.
 		/// </summary>
-		public T_C_Estado(int id_Estado, int id_Tabla, string nombre_Estado, string descripcion_Estado, short por_Defecto, short muestra_Informacion)
+		public T_C_Estado(int id_Estado, int id_Tabla, string nombre_Estado, string descripcion_Estado, bool por_Defecto, bool muestra_Informacion)
 		{
 			this.id_Estado = id_Estado;
 			this.id_Tabla = id_Tabla;
@@ -91,7 +92,7 @@ namespace SIMA.Entities
 		/// <summary>
 		/// Gets or sets the Por_Defecto value.
 		/// </summary>
-		public virtual short Por_Defecto
+		public virtual bool Por_Defecto
 		{
 			get { return por_Defecto; }
 			set { por_Defecto = value; }
@@ -100,11 +101,17 @@ namespace SIMA.Entities
 		/// <summary>
 		/// Gets or sets the Muestra_Informacion value.
 		/// </summary>
-		public virtual short Muestra_Informacion
+		public virtual bool Muestra_Informacion
 		{
 			get { return muestra_Informacion; }
 			set { muestra_Informacion = value; }
 		}
+
+        public virtual T_C_Tabla Tabla
+        {
+            get { return tabla; }
+            set { tabla = value; }
+        }
 
 		#endregion
 	}

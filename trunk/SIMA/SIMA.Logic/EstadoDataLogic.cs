@@ -35,5 +35,14 @@ namespace SIMA.Logic
             }
         }
 
+        public List<T_C_Estado> ListarEstados()
+        {
+            return estadoAccess.SeleccionarTodosEstado();
+        }
+
+        public string EliminarEstado(T_C_Estado estado)
+        {
+            return estadoAccess.EliminarEstado(estado);
+        }
     }
 }

@@ -82,6 +82,38 @@ namespace SIMA.DataAccess
             }
         }
 
+        public T_C_Tabla SeleccionarTabla(int idTabla)
+        {
+            try
+            {
+                T_C_Tabla tabla = new T_C_Tabla();
+                using (Command = new System.Data.SqlClient.SqlCommand("T_C_TablaSelect", Connection))
+                {
+                    Command.Parameters.AddWithValue("@IdTabla", idTabla);
+                    Command.CommandType = System.Data.CommandType.StoredProcedure;
+                    Connection.Open();
+                    
+                    SqlDataReader reader = Command.ExecuteReader();
+                    while (reader.Read())
+                    {
+                        
+                        tabla.Id_Tabla = Convert.ToInt32(reader.GetValue(reader.GetOrdinal("Id_Tabla")).ToString());
+                        tabla.Nombre_Tabla = reader.GetValue(reader.GetOrdinal("Nombre_Tabla")).ToString();
+                        tabla.Descripcion_Tabla = reader.GetValue(reader.GetOrdinal("Descripcion_Tabla")).ToString();
+                    }
+                }
+                return tabla;
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
+            finally
+            {
+                Connection.Close();
+            }
+        }
+
         public List<T_C_Tabla> SeleccionarTodosTabla()
         {
             try

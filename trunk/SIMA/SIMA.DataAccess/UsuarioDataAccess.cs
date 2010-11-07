@@ -2,10 +2,18 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using SIMA.DataAccess.Base;
 
 namespace SIMA.DataAccess
 {
-    class UsuarioDataAccess
+    public class UsuarioDataAccess:DataAccessBase
     {
+
+        public UsuarioDataAccess()
+            : base()
+        {
+        }
+
+
     }
 }

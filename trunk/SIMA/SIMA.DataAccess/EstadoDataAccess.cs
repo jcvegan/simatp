@@ -77,7 +77,7 @@ namespace SIMA.DataAccess
         {
             try
             {
-                using (Command = new System.Data.SqlClient.SqlCommand("T_C_EstadoInsert", Connection))
+                using (Command = new System.Data.SqlClient.SqlCommand("T_C_EstadoDelete", Connection))
                 {
                     Command.CommandType = System.Data.CommandType.StoredProcedure;
                     Command.Parameters.AddWithValue("@Id_Estado", estado.Id_Estado);

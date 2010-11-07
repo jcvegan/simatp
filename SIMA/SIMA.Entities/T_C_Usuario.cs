@@ -153,24 +153,6 @@ namespace SIMA.Entities
 			set { id_Perfil = value; }
 		}
 
-		/// <summary>
-		/// Gets or sets the Id_TurnoMantenimiento value.
-		/// </summary>
-		public virtual int Id_TurnoMantenimiento
-		{
-			get { return id_TurnoMantenimiento; }
-			set { id_TurnoMantenimiento = value; }
-		}
-
-		/// <summary>
-		/// Gets or sets the Id_Trabajador value.
-		/// </summary>
-		public virtual int Id_Trabajador
-		{
-			get { return id_Trabajador; }
-			set { id_Trabajador = value; }
-		}
-
 		#endregion
 	}
 }

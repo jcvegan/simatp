@@ -49,7 +49,7 @@ namespace SIMA.Logic
                 {
                     throw new Exception();
                 }
-                return perfilAccess.AgregarPerfil(perfil);
+                return perfilAccess.ActualizarPerfil(perfil);
             }
             catch
             {

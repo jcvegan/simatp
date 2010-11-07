@@ -53,12 +53,20 @@ namespace SIMA.Client.Gestion
 
         private void btnActualizar_Click(object sender, RoutedEventArgs e)
         {
-            
+            T_C_Estado estado = gvEstados.SelectedItem as T_C_Estado;
+            estado.Descripcion_Estado = txtDescripcion.Text;
+            estado.Muestra_Informacion = (bool)chkMuestraInformacion.IsChecked;
+            estado.Nombre_Estado = txtNombre.Text;
+            estado.Por_Defecto = (bool)chkPorDefecto.IsChecked;
+            MessageBox.Show(estadoLogic.ActualizarEstado(estado));
+            gvEstados.ItemsSource = estadoLogic.ListarEstados();
         }
 
         private void btnEliminar_Click(object sender, RoutedEventArgs e)
         {
-
+            T_C_Estado estado = gvEstados.SelectedItem as T_C_Estado;
+            MessageBox.Show(estadoLogic.EliminarEstado(estado));
+            gvEstados.ItemsSource = estadoLogic.ListarEstados();
         }
 
         private void btnLimpiar_Click(object sender, RoutedEventArgs e)

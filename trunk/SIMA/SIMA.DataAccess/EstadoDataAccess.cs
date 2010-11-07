@@ -45,6 +45,34 @@ namespace SIMA.DataAccess
             }
         }
 
+        public string ActualizarEstado(T_C_Estado estado)
+        {
+            try
+            {
+                using (Command = new System.Data.SqlClient.SqlCommand("T_C_EstadoUpdate", Connection))
+                {
+                    Command.CommandType = System.Data.CommandType.StoredProcedure;
+                    Command.Parameters.AddWithValue("@Id_Estado", estado.Id_Estado);
+                    Command.Parameters.AddWithValue("@Id_Tabla", estado.Id_Tabla);
+                    Command.Parameters.AddWithValue("@Nombre_Estado", estado.Nombre_Estado);
+                    Command.Parameters.AddWithValue("@Descripcion_Estado", estado.Descripcion_Estado);
+                    Command.Parameters.AddWithValue("@Por_Defecto", estado.Por_Defecto);
+                    Command.Parameters.AddWithValue("@Muestra_Informacion", estado.Muestra_Informacion);
+                    Connection.Open();
+                    Command.ExecuteNonQuery();
+                }
+                return "Registro actualizado satisfactoriamente.";
+            }
+            catch (Exception ex)
+            {
+                return ex.Message;
+            }
+            finally
+            {
+                Connection.Close();
+            }
+        }
+
         public string EliminarEstado(T_C_Estado estado)
         {
             try
@@ -104,5 +132,7 @@ namespace SIMA.DataAccess
                 Connection.Close();
             }
         }
+
+        
     }
 }

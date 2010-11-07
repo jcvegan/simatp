@@ -8,8 +8,7 @@ namespace SIMA.Entities
 
 		private int id_Tabla;
 		private string nombre_Tabla;
-		private string descripcion_Tabla;
-		private int id_Estado;
+        private string descripcion_Tabla;
 
 		#endregion
 
@@ -25,12 +24,11 @@ namespace SIMA.Entities
 		/// <summary>
 		/// Initializes a new instance of the T_C_Tabla class.
 		/// </summary>
-		public T_C_Tabla(int id_Tabla, string nombre_Tabla, string descripcion_Tabla, int id_Estado)
+		public T_C_Tabla(int id_Tabla, string nombre_Tabla, string descripcion_Tabla)
 		{
 			this.id_Tabla = id_Tabla;
 			this.nombre_Tabla = nombre_Tabla;
 			this.descripcion_Tabla = descripcion_Tabla;
-			this.id_Estado = id_Estado;
 		}
 
 		#endregion
@@ -61,15 +59,6 @@ namespace SIMA.Entities
 		{
 			get { return descripcion_Tabla; }
 			set { descripcion_Tabla = value; }
-		}
-
-		/// <summary>
-		/// Gets or sets the Id_Estado value.
-		/// </summary>
-		public virtual int Id_Estado
-		{
-			get { return id_Estado; }
-			set { id_Estado = value; }
 		}
 
 		#endregion

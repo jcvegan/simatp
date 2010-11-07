@@ -1,0 +1,68 @@
+﻿<UserControl x:Class="SIMA.Client.Gestion.frmGestionarTablas"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation"
+    Loaded="UserControl_Loaded"
+    >
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="24" />
+                <RowDefinition />
+                <RowDefinition Height="24" />
+            </Grid.RowDefinitions>
+            <Border Grid.Row="0" BorderThickness="1" Margin="0" VerticalAlignment="Top" Height="24" CornerRadius="2,2,0,0">
+                <Border.Background>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="#FF5B5B5B" Offset="1"/>
+                        <GradientStop Color="#FF868686" Offset="0.1"/>
+                        <GradientStop Color="#FF4F4F4F" Offset="0.57"/>
+                        <GradientStop Color="#FF0E0E0E" Offset="0.11"/>
+                    </LinearGradientBrush>
+                </Border.Background>
+
+                <Border.BorderBrush>
+                    <LinearGradientBrush EndPoint="1,0.5" StartPoint="0,0.5">
+                        <GradientStop Offset="0"/>
+                        <GradientStop Offset="1"/>
+                        <GradientStop Color="White" Offset="0.5"/>
+                    </LinearGradientBrush>
+                </Border.BorderBrush>
+                <TextBlock Text="Gestión de Tablas del sistema" Foreground="GhostWhite" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="15,0,0,0" FontSize="16"/>
+            </Border>
+            <Grid Grid.Row="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="30"/>
+                    <RowDefinition Height="30"/>
+                    <RowDefinition Height="30"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="120"/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Label Grid.Column="0" Grid.Row="0" Content="Nombre" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="25,0,0,0"/>
+                <Label Grid.Column="0" Grid.Row="1" Content="Descripción" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="25,0,0,0"/>
+                <TextBox Name="txtNombre" Grid.Column="1" Grid.Row="0" Width="150" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="25,0,0,0"/>
+                <TextBox Name="txtDescripción" Grid.Column="1" Grid.Row="1" Width="150" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="25,0,0,0"/>
+                
+            </Grid>
+            <StackPanel Grid.Row="2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Orientation="Horizontal">
+                <telerik:RadButton Name="btnRegistrar" Content="Registrar" Width="100" Click="btnRegistrar_Click" telerik:StyleManager.Theme="Summer"/>
+                <telerik:RadButton Name="btnActualizar" Content="Actualizar" Width="100" Click="btnActualizar_Click" telerik:StyleManager.Theme="Summer"/>
+                <telerik:RadButton Name="btnEliminar" Content="Eliminar" Width="100" Click="btnEliminar_Click" telerik:StyleManager.Theme="Summer"/>
+                <telerik:RadButton Name="btnLimpiar" Content="Limpiar" Width="100" Click="btnLimpiar_Click" telerik:StyleManager.Theme="Summer"/>
+            </StackPanel>
+        </Grid>
+        <telerik:RadGridView Name="gvTablas" Grid.Row="1" AutoGenerateColumns="False" IsReadOnly="True" SelectionChanged="gvTablas_SelectionChanged" telerik:StyleManager.Theme="Summer">
+            <telerik:RadGridView.Columns>
+                <telerik:GridViewDataColumn Header="ID" DataMemberBinding="{Binding Id_Tabla}"/>
+                <telerik:GridViewDataColumn Header="Nombre de Tabla" DataMemberBinding="{Binding Nombre_Tabla}"/>
+                <telerik:GridViewDataColumn Header="Descripción de Tabla" DataMemberBinding="{Binding Descripcion_Tabla}"/>
+            </telerik:RadGridView.Columns>
+        </telerik:RadGridView>
+    </Grid>
+</UserControl>

@@ -2,10 +2,29 @@
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation"
-    Title="SIMA - Sistema de Mantenimientos de Equipos" Height="300" Width="300">
+    Title="SÜD CHEMIE Perú" Height="600" Width="800">
     <DockPanel>
-        <telerik:RadRibbonBar>
-            
+        <telerik:RadRibbonBar DockPanel.Dock="Top" Title="SIMA - Sistema de Mantenimientos de Equipos" telerik:StyleManager.Theme="Summer">
+            <telerik:RadRibbonTab Header="Gestiones" telerik:StyleManager.Theme="Summer">
+                <telerik:RadRibbonGroup Header="Seguridad" telerik:StyleManager.Theme="Summer">
+                    <telerik:RadRibbonToggleButton Name="rbtnGestionarPerfiles" Content="Perfiles" Checked="rbtnChecked" Unchecked="rbtnUnchecked"/>
+                    <telerik:RadRibbonToggleButton Name="rbtnGestionarPermisos" Content="Permisos" Checked="rbtnChecked" Unchecked="rbtnUnchecked"/>
+                    <telerik:RadRibbonToggleButton Name="rbtnGestionarUsuarios" Content="Usuarios" Checked="rbtnChecked" Unchecked="rbtnUnchecked"/>
+                </telerik:RadRibbonGroup>
+                <telerik:RadRibbonGroup Header="Mantenimientos">
+                    <telerik:RadRibbonToggleButton Name="rbtnGestionarEquipos" Content="Perfiles" Checked="rbtnChecked" Unchecked="rbtnUnchecked"/>
+                    <telerik:RadRibbonToggleButton Name="rbtnGestionarMantenimientos" Content="Permisos" Checked="rbtnChecked" Unchecked="rbtnUnchecked"/>
+                    <telerik:RadRibbonToggleButton Name="rbtnGestionarTipoMantenimientos" Content="Usuarios" Checked="rbtnChecked" Unchecked="rbtnUnchecked"/>
+                </telerik:RadRibbonGroup>
+                <telerik:RadRibbonGroup Header="Sistema">
+                    <telerik:RadRibbonToggleButton Name="rbtnGestionarTablas" Content="Tablas" Checked="rbtnChecked" Unchecked="rbtnUnchecked"/>
+                    <telerik:RadRibbonToggleButton Name="rbtnGestionarEstados" Content="Estados" Checked="rbtnChecked" Unchecked="rbtnUnchecked"/>
+                    
+                </telerik:RadRibbonGroup>
+            </telerik:RadRibbonTab>
         </telerik:RadRibbonBar>
+        <telerik:RadTileView Name="TileContainerRoot" MaximizeMode="One" MinimizedItemsPosition="Bottom">
+
+        </telerik:RadTileView>
     </DockPanel>
 </Window>

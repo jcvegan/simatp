@@ -49,6 +49,7 @@
     <Compile Include="Class1.cs" />
     <Compile Include="EstadoDataAccess.cs" />
     <Compile Include="Extensiones\Encripto.cs" />
+    <Compile Include="OrdenTrabajoDataAccess.cs" />
     <Compile Include="PerfilDataAccess.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TablaDataAccess.cs" />

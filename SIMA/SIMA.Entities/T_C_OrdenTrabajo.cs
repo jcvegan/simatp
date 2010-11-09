@@ -13,6 +13,20 @@ namespace SIMA.Entities
 		private DateTime ultimaFechaModificacion;
 		private int id_Estado;
 		private int id_Usuario;
+        private T_C_Usuario usuario;
+        private string nombreCompleto;
+
+        public string NombreCompleto
+        {
+            get { return nombreCompleto; }
+            set { nombreCompleto = value; }
+        }
+
+        public T_C_Usuario Usuario
+        {
+            get { return usuario; }
+            set { usuario = value; }
+        }
 
 		#endregion
 

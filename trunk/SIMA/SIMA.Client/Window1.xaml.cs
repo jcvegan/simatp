@@ -13,6 +13,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Telerik.Windows.Controls;
 using SIMA.Client.Gestion;
+using SIMA.Client.Orden_de_Trabajo;
 
 namespace SIMA.Client
 {
@@ -41,6 +42,12 @@ namespace SIMA.Client
                     break;
                 case "Estados":
                     item.Content = new frmGestionarEstados();
+                    break;
+                case "Equipos":
+                    item.Content = new frmGestionarEquipos();
+                    break;
+                case "Orden de Trabajo":
+                    item.Content = new frmGestionarOrdendeTrabajo();
                     break;
             }
             

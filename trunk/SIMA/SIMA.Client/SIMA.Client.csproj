@@ -111,6 +111,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Page Include="Gestion\frmGestionarEquipos.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Gestion\frmGestionarEstados.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -141,6 +145,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Gestion\frmGestionarEquipos.xaml.cs">
+      <DependentUpon>frmGestionarEquipos.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Gestion\frmGestionarEstados.xaml.cs">
       <DependentUpon>frmGestionarEstados.xaml</DependentUpon>
     </Compile>

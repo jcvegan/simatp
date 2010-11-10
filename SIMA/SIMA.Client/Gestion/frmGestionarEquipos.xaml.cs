@@ -12,19 +12,19 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace SIMA.Client.Orden_de_Trabajo
+namespace SIMA.Client.Gestion
 {
     /// <summary>
-    /// Lógica de interacción para frmGestionarOrdendeTrabajo.xaml
+    /// Lógica de interacción para frmGestionarEquipos.xaml
     /// </summary>
-    public partial class frmGestionarOrdendeTrabajo : UserControl
+    public partial class frmGestionarEquipos : UserControl
     {
-        public frmGestionarOrdendeTrabajo()
+        public frmGestionarEquipos()
         {
             InitializeComponent();
         }
 
-        private void gvOrdenesTrabajo_SelectionChanged(object sender, Telerik.Windows.Controls.SelectionChangeEventArgs e)
+        private void UserControl_Loaded(object sender, RoutedEventArgs e)
         {
 
         }
@@ -50,6 +50,11 @@ namespace SIMA.Client.Orden_de_Trabajo
         }
 
         private void btnVerDetalle_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void gvOrdenesTrabajo_SelectionChanged(object sender, Telerik.Windows.Controls.SelectionChangeEventArgs e)
         {
 
         }

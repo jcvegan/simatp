@@ -1,7 +1,8 @@
-﻿<UserControl x:Class="SIMA.Client.Orden_de_Trabajo.frmGestionarOrdendeTrabajo"
+﻿<UserControl x:Class="SIMA.Client.Gestion.frmGestionarEquipos"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation"
+    Loaded="UserControl_Loaded"
     >
     <Grid>
         <Grid.RowDefinitions>
@@ -31,7 +32,7 @@
                         <GradientStop Color="White" Offset="0.5"/>
                     </LinearGradientBrush>
                 </Border.BorderBrush>
-                <TextBlock Text="Gestión de Orden de Trabajo" Foreground="GhostWhite" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="15,0,0,0" FontSize="16"/>
+                <TextBlock Text="Gestión de Equipos" Foreground="GhostWhite" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="15,0,0,0" FontSize="16"/>
             </Border>
             <Grid Grid.Row="1">
                 <Grid.RowDefinitions>
@@ -47,16 +48,16 @@
                     <ColumnDefinition/>
                 </Grid.ColumnDefinitions>
                 <Label Grid.Column="0" Grid.Row="0" Content="ID Orden" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="25,0,0,0"/>
-                <Label Grid.Column="0" Grid.Row="1" Content="Descripcion" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="25,0,0,0"/>
-                <Label Grid.Column="0" Grid.Row="2" Content="Costo Total" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="25,0,0,0"/>
-                <Label Name="lblEstado" Grid.Column="0" Grid.Row="3" Content="Fecha Registro" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="25,0,0,0" Visibility="Hidden"/>
-                <Label Grid.Column="0" Grid.Row="4" Content="Fecha Modificacion" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="25,0,0,0"/>
+                <Label Grid.Column="0" Grid.Row="1" Content="Área" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="25,0,0,0"/>
+                <Label Grid.Column="0" Grid.Row="2" Content="Nombre" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="25,0,0,0"/>
+                <Label Name="lblEstado" Grid.Column="0" Grid.Row="3" Content="Descripción" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="25,0,0,0" Visibility="Hidden"/>
+                <Label Grid.Column="0" Grid.Row="4" Content="" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="25,0,0,0"/>
                 <Label Margin="25,0,0,0" Grid.Row="5">Usuario</Label>
                 <TextBox Name="txtDescripcion" Grid.Column="1" Grid.Row="1" Width="150" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="25,0,0,0" />
                 <TextBox Name="txtCostoTotal" Grid.Column="1" Grid.Row="2" Width="150" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="25,0,0,0"/>
                 <telerik:DateTimePicker Name="dtFRegistro" Grid.Column="1" Grid.Row="3" Width="210" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="25,0,0,0" Visibility="Hidden" telerik:StyleManager.Theme="Summer"/>
                 <telerik:DateTimePicker Name="dtFModificacion" Grid.Column="1" Grid.Row="4" Width="210" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="25,0,0,0" Visibility="Hidden" telerik:StyleManager.Theme="Summer"/>
-                
+
                 <TextBox Name="Usuario" Grid.Column="1" Grid.Row="5" Width="150" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="25,0,0,0"/>
             </Grid>
             <StackPanel Grid.Row="2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Orientation="Horizontal">
@@ -64,7 +65,7 @@
                 <telerik:RadButton Name="btnActualizar" Content="Actualizar" Width="100" Click="btnActualizar_Click" telerik:StyleManager.Theme="Summer"/>
                 <telerik:RadButton Name="btnEliminar" Content="Eliminar" Width="100" Click="btnEliminar_Click" telerik:StyleManager.Theme="Summer"/>
                 <telerik:RadButton Name="btnLimpiar" Content="Limpiar" Width="100" Click="btnLimpiar_Click" telerik:StyleManager.Theme="Summer"/>
-                <telerik:RadButton Name="btnVerDetalle" Content="Ver Detalle" Width="100" Click="btnVerDetalle_Click" telerik:StyleManager.Theme="Summer"/>
+                
             </StackPanel>
         </Grid>
         <telerik:RadGridView Name="gvOrdenesTrabajo" Grid.Row="1" telerik:StyleManager.Theme="Summer" AutoGenerateColumns="False" SelectionChanged="gvOrdenesTrabajo_SelectionChanged" IsReadOnly="True">

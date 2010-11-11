@@ -45,8 +45,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AreaDataAccess.cs" />
     <Compile Include="Base\DataAccessBase.cs" />
     <Compile Include="Class1.cs" />
+    <Compile Include="EquipoDataAccess.cs" />
     <Compile Include="EstadoDataAccess.cs" />
     <Compile Include="Extensiones\Encripto.cs" />
     <Compile Include="OrdenTrabajoDataAccess.cs" />

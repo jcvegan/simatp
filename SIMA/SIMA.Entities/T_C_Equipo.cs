@@ -18,12 +18,13 @@ namespace SIMA.Entities
 		private DateTime fecha_Adquisicion;
 		private string id_Area;
 		private int maxHoras;
-		private short usoUnico;
+		private bool usoUnico;
 		private int nivel;
 		private int stock;
 		private decimal capacidadOperacion;
 		private decimal diamteroInterno;
 		private string revestimientoInterior;
+        private T_C_Equipo padre;
 
 		#endregion
 
@@ -175,7 +176,7 @@ namespace SIMA.Entities
 		/// <summary>
 		/// Gets or sets the UsoUnico value.
 		/// </summary>
-		public virtual short UsoUnico
+		public virtual bool UsoUnico
 		{
 			get { return usoUnico; }
 			set { usoUnico = value; }
@@ -225,6 +226,12 @@ namespace SIMA.Entities
 			get { return revestimientoInterior; }
 			set { revestimientoInterior = value; }
 		}
+
+        public T_C_Equipo Padre
+        {
+            get { return padre; }
+            set { padre = value; }
+        }
 
 		#endregion
 	}

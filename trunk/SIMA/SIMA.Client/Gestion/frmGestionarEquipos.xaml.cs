@@ -11,6 +11,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using SIMA.Logic;
 
 namespace SIMA.Client.Gestion
 {
@@ -19,6 +20,7 @@ namespace SIMA.Client.Gestion
     /// </summary>
     public partial class frmGestionarEquipos : UserControl
     {
+        AreaDataLogic areaLogic;
         public frmGestionarEquipos()
         {
             InitializeComponent();
@@ -26,7 +28,8 @@ namespace SIMA.Client.Gestion
 
         private void UserControl_Loaded(object sender, RoutedEventArgs e)
         {
-            biIndicador.IsBusy = true;
+            areaLogic = new AreaDataLogic();
+            cmbAreaEquipo.ItemsSource = areaLogic.ListarActivosArea();
         }
 
         private void btnRegistrar_Click(object sender, RoutedEventArgs e)

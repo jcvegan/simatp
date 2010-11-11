@@ -45,6 +45,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AreaDataLogic.cs" />
     <Compile Include="Class1.cs" />
     <Compile Include="EstadoDataLogic.cs" />
     <Compile Include="OrdenTrabajoDataLogic.cs" />

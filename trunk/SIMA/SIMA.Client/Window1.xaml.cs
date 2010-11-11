@@ -54,7 +54,7 @@ namespace SIMA.Client
                     item.Content = new frmGestionarOrdendeTrabajo();
                     break;
             }
-            
+            item.MinimizedHeight = 20;
             TileContainerRoot.Items.Add(item);
             item.Focus();
         }

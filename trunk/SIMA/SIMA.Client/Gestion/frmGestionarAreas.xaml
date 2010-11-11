@@ -31,7 +31,7 @@
                         <GradientStop Color="White" Offset="0.5"/>
                     </LinearGradientBrush>
                 </Border.BorderBrush>
-                <TextBlock Text="Gestión de Perfiles" Foreground="GhostWhite" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="15,0,0,0" FontSize="16"/>
+                <TextBlock Text="Gestión de Áreas" Foreground="GhostWhite" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="15,0,0,0" FontSize="16"/>
             </Border>
             <Grid Grid.Row="1">
                 <Grid.RowDefinitions>

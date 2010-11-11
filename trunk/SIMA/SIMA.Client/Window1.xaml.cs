@@ -34,6 +34,9 @@ namespace SIMA.Client
             item.Header = (sender as RadRibbonToggleButton).Content;
             switch (item.Header.ToString())
             {
+                case "Areas":
+                    item.Content = new frmGestionarAreas();
+                    break;
                 case "Perfiles":
                     item.Content = new frmGestionarPerfiles();
                     break;

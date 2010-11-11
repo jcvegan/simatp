@@ -15,18 +15,13 @@ using System.Windows.Shapes;
 namespace SIMA.Client.Gestion
 {
     /// <summary>
-    /// Lógica de interacción para frmGestionarEquipos.xaml
+    /// Lógica de interacción para frmGestionarAreas.xaml
     /// </summary>
-    public partial class frmGestionarEquipos : UserControl
+    public partial class frmGestionarAreas : UserControl
     {
-        public frmGestionarEquipos()
+        public frmGestionarAreas()
         {
             InitializeComponent();
-        }
-
-        private void UserControl_Loaded(object sender, RoutedEventArgs e)
-        {
-            biIndicador.IsBusy = true;
         }
 
         private void btnRegistrar_Click(object sender, RoutedEventArgs e)
@@ -49,12 +44,7 @@ namespace SIMA.Client.Gestion
 
         }
 
-        private void btnVerDetalle_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void gvOrdenesTrabajo_SelectionChanged(object sender, Telerik.Windows.Controls.SelectionChangeEventArgs e)
+        private void gvAreas_SelectionChanged(object sender, Telerik.Windows.Controls.SelectionChangeEventArgs e)
         {
 
         }

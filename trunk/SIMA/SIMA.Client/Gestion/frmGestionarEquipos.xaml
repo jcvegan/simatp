@@ -4,80 +4,111 @@
     xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation"
     Loaded="UserControl_Loaded"
     >
-    <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition/>
-            <RowDefinition/>
-        </Grid.RowDefinitions>
-        <Grid Grid.Row="0">
+    <telerik:RadBusyIndicator Name="biIndicador" >
+        <Grid>
             <Grid.RowDefinitions>
-                <RowDefinition Height="24" />
-                <RowDefinition />
-                <RowDefinition Height="24" />
+                <RowDefinition/>
+                <RowDefinition/>
             </Grid.RowDefinitions>
-            <Border Grid.Row="0" BorderThickness="1" Margin="0" VerticalAlignment="Top" Height="24" CornerRadius="2,2,0,0">
-                <Border.Background>
-                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                        <GradientStop Color="#FF5B5B5B" Offset="1"/>
-                        <GradientStop Color="#FF868686" Offset="0.1"/>
-                        <GradientStop Color="#FF4F4F4F" Offset="0.57"/>
-                        <GradientStop Color="#FF0E0E0E" Offset="0.11"/>
-                    </LinearGradientBrush>
-                </Border.Background>
-
-                <Border.BorderBrush>
-                    <LinearGradientBrush EndPoint="1,0.5" StartPoint="0,0.5">
-                        <GradientStop Offset="0"/>
-                        <GradientStop Offset="1"/>
-                        <GradientStop Color="White" Offset="0.5"/>
-                    </LinearGradientBrush>
-                </Border.BorderBrush>
-                <TextBlock Text="Gestión de Equipos" Foreground="GhostWhite" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="15,0,0,0" FontSize="16"/>
-            </Border>
-            <Grid Grid.Row="1">
+            <Grid Grid.Row="0">
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="30"/>
-                    <RowDefinition Height="30"/>
-                    <RowDefinition Height="30"/>
-                    <RowDefinition Height="30"/>
-                    <RowDefinition Height="30"/>
-                    <RowDefinition Height="30"/>
+                    <RowDefinition Height="24" />
+                    <RowDefinition />
+                    <RowDefinition Height="24" />
                 </Grid.RowDefinitions>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="120"/>
-                    <ColumnDefinition/>
-                </Grid.ColumnDefinitions>
-                <Label Grid.Column="0" Grid.Row="0" Content="ID Orden" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="25,0,0,0"/>
-                <Label Grid.Column="0" Grid.Row="1" Content="Área" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="25,0,0,0"/>
-                <Label Grid.Column="0" Grid.Row="2" Content="Nombre" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="25,0,0,0"/>
-                <Label Name="lblEstado" Grid.Column="0" Grid.Row="3" Content="Descripción" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="25,0,0,0" Visibility="Hidden"/>
-                <Label Grid.Column="0" Grid.Row="4" Content="" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="25,0,0,0"/>
-                <Label Margin="25,0,0,0" Grid.Row="5">Usuario</Label>
-                <TextBox Name="txtDescripcion" Grid.Column="1" Grid.Row="1" Width="150" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="25,0,0,0" />
-                <TextBox Name="txtCostoTotal" Grid.Column="1" Grid.Row="2" Width="150" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="25,0,0,0"/>
-                <telerik:DateTimePicker Name="dtFRegistro" Grid.Column="1" Grid.Row="3" Width="210" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="25,0,0,0" Visibility="Hidden" telerik:StyleManager.Theme="Summer"/>
-                <telerik:DateTimePicker Name="dtFModificacion" Grid.Column="1" Grid.Row="4" Width="210" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="25,0,0,0" Visibility="Hidden" telerik:StyleManager.Theme="Summer"/>
+                <Border Grid.Row="0" BorderThickness="1" Margin="0" VerticalAlignment="Top" Height="24" CornerRadius="2,2,0,0">
+                    <Border.Background>
+                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                            <GradientStop Color="#FF5B5B5B" Offset="1"/>
+                            <GradientStop Color="#FF868686" Offset="0.1"/>
+                            <GradientStop Color="#FF4F4F4F" Offset="0.57"/>
+                            <GradientStop Color="#FF0E0E0E" Offset="0.11"/>
+                        </LinearGradientBrush>
+                    </Border.Background>
 
-                <TextBox Name="Usuario" Grid.Column="1" Grid.Row="5" Width="150" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="25,0,0,0"/>
+                    <Border.BorderBrush>
+                        <LinearGradientBrush EndPoint="1,0.5" StartPoint="0,0.5">
+                            <GradientStop Offset="0"/>
+                            <GradientStop Offset="1"/>
+                            <GradientStop Color="White" Offset="0.5"/>
+                        </LinearGradientBrush>
+                    </Border.BorderBrush>
+                    <TextBlock Text="Gestión de Equipos" Foreground="GhostWhite" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="15,0,0,0" FontSize="16"/>
+                </Border>
+                <Grid Grid.Row="1">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="30"/>
+                        <RowDefinition Height="30"/>
+                        <RowDefinition Height="30"/>
+                        <RowDefinition Height="30"/>
+                        <RowDefinition Height="30"/>
+                        <RowDefinition Height="30"/>
+                        <RowDefinition Height="30"/>
+                        <RowDefinition Height="30"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="170"/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition Width="170"/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <Label Grid.Column="0" Grid.Row="0" Content="ID Equipo" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="25,0,0,0"/>
+                    <Label Grid.Column="0" Grid.Row="1" Content="Área" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="25,0,0,0"/>
+                    <Label Grid.Column="0" Grid.Row="2" Content="Descripción" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="25,0,0,0"/>
+                    <Label Grid.Column="0" Grid.Row="3" Content="Marca" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="25,0,0,0" />
+                    <Label Grid.Column="0" Grid.Row="4" Content="Modelo" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="25,0,0,0"/>
+                    <Label Margin="25,0,0,0" Grid.Row="5">Serie</Label>
+                    <Label Grid.Column="0" Grid.Row="6" Content="Costo" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="25,0,0,0"/>
+                    <Label Grid.Row="7" Content="Cantidad disponible" Margin="25,0,0,0"/>
+                    <Label Grid.Column="2" Grid.Row="0" Content="Pertenece a" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="25,0,0,0"/>
+                    <Label Grid.Column="2" Grid.Row="1" Content="Fecha adquisición" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="25,0,0,0"/>
+                    <Label Grid.Column="2" Grid.Row="2" Content="Horas permitidas" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="25,0,0,0"/>
+                    <Label Grid.Column="2" Grid.Row="3" Content="Es de uso único" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="25,0,0,0"/>
+                    <Label Grid.Column="2" Grid.Row="4" Content="Capacidad de Operación" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="25,0,0,0"/>
+                    <Label Grid.Column="2" Grid.Row="5" Content="Diametro interno" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="25,0,0,0"/>
+                    <Label Grid.Column="2" Grid.Row="6" Content="Revestimiento Interior" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="25,0,0,0"/>
+                    <Label Name="lblEstado" Grid.Column="2" Grid.Row="7" Content="Estado" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="25,0,0,0"/>
+                    <telerik:RadWatermarkTextBox Name="txtCodigoEquipo" Grid.Column="1" Grid.Row="0" Width="150" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="25,0,0,0" IsEnabled="False" WatermarkContent="(AutoAsignado)"/>
+                    <telerik:RadComboBox Name="cmbAreaEquipo" Grid.Column="1" Grid.Row="1" Width="150" Margin="22,5,63,3" Height="22" telerik:StyleManager.Theme="Summer"/>
+                    <TextBox Name="txtDescripcion" Grid.Column="1" Grid.Row="2" Width="150" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="25,0,0,0"/>
+                    <telerik:RadComboBox Name="cmbMarcaEquipo" Grid.Column="1" Grid.Row="3" Width="150" HorizontalAlignment="Left" Margin="22,5,63,3" Height="22" telerik:StyleManager.Theme="Summer"/>
+                    <telerik:RadComboBox Name="cmbModeloEquipo" Grid.Column="1" Grid.Row="4" Width="150" HorizontalAlignment="Left" Margin="22,5,63,3" Height="22" telerik:StyleManager.Theme="Summer"/>
+                    <telerik:DateTimePicker Name="dtFModificacion" Grid.Column="1" Grid.Row="4" Width="210" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="25,0,0,0" Visibility="Hidden" telerik:StyleManager.Theme="Summer"/>
+                    <TextBox Name="txtSerie" Grid.Column="1" Grid.Row="5" Width="150" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="25,0,0,0"/>
+                    <TextBox Name="txtCostoUnidad" Grid.Column="1" Grid.Row="6" Width="150" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="25,0,0,0"/>
+                    <TextBox Name="txtCantidad" Grid.Column="1" Grid.Row="7" Width="150" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="25,0,0,0"/>
+                    <StackPanel Name="stkPerteneceA" Grid.Column="3" Grid.Row="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Orientation="Horizontal" Margin="25,0,0,0">
+                        <TextBlock Name="DescripcionEquipo" Width="150" Text="(No tiene pertenencia)" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                        <telerik:RadButton Name="btnSelEquipoPadre" Content="Asignar" VerticalAlignment="Center" telerik:StyleManager.Theme="Summer"/>
+                    </StackPanel>                    
+                    <telerik:DateTimePicker Name="dtFRegistro" Grid.Column="3" Grid.Row="1" Width="210" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="25,0,0,0" telerik:StyleManager.Theme="Summer" Height="22" />
+                    <telerik:RadNumericUpDown Name="udMaxHoras" Grid.Column="3" Grid.Row="2" Width="120" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="25,0,6,0" telerik:StyleManager.Theme="Summer" Height="22" Minimum="0" Maximum="23"/>
+                    <CheckBox Name="chkEsUsoUnico" Grid.Column="3" Grid.Row="3" Content="Si" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="25,0,0,0"/>
+                    <TextBox Name="txtCapOper" Grid.Column="3" Grid.Row="4" Width="120" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="25,0,5,0"/>
+                    <TextBox Name="txtDiamtero" Grid.Column="3" Grid.Row="5" Width="120" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="25,0,5,0"/>
+                    <TextBox Name="txtRevestimiento" Grid.Column="3" Grid.Row="6" Width="120" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="25,0,5,0"/>
+                    <telerik:RadComboBox Name="cmbEstado" Grid.Column="3" Grid.Row="7" Width="150" HorizontalAlignment="Left" Margin="25,0,0,0" Height="22" telerik:StyleManager.Theme="Summer"/>
+                </Grid>
+                <StackPanel Grid.Row="2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Orientation="Horizontal">
+                    <telerik:RadButton Name="btnRegistrar" Content="Registrar" Width="100" Click="btnRegistrar_Click" telerik:StyleManager.Theme="Summer"/>
+                    <telerik:RadButton Name="btnActualizar" Content="Actualizar" Width="100" Click="btnActualizar_Click" telerik:StyleManager.Theme="Summer"/>
+                    <telerik:RadButton Name="btnEliminar" Content="Eliminar" Width="100" Click="btnEliminar_Click" telerik:StyleManager.Theme="Summer"/>
+                    <telerik:RadButton Name="btnLimpiar" Content="Limpiar" Width="100" Click="btnLimpiar_Click" telerik:StyleManager.Theme="Summer"/>
+
+                </StackPanel>
             </Grid>
-            <StackPanel Grid.Row="2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Orientation="Horizontal">
-                <telerik:RadButton Name="btnRegistrar" Content="Registrar" Width="100" Click="btnRegistrar_Click" telerik:StyleManager.Theme="Summer"/>
-                <telerik:RadButton Name="btnActualizar" Content="Actualizar" Width="100" Click="btnActualizar_Click" telerik:StyleManager.Theme="Summer"/>
-                <telerik:RadButton Name="btnEliminar" Content="Eliminar" Width="100" Click="btnEliminar_Click" telerik:StyleManager.Theme="Summer"/>
-                <telerik:RadButton Name="btnLimpiar" Content="Limpiar" Width="100" Click="btnLimpiar_Click" telerik:StyleManager.Theme="Summer"/>
-                
-            </StackPanel>
+            <telerik:RadGridView Name="gvOrdenesTrabajo" Grid.Row="1" telerik:StyleManager.Theme="Summer" AutoGenerateColumns="False" SelectionChanged="gvOrdenesTrabajo_SelectionChanged" IsReadOnly="True">
+                <telerik:RadGridView.Columns>
+                    <telerik:GridViewDataColumn Header="ID" DataMemberBinding="{Binding Id_OrdenTrabajo}"/>
+                    <telerik:GridViewDataColumn Header="Descripcion" DataMemberBinding="{Binding Descripcion}"/>
+                    <telerik:GridViewDataColumn Header="Costo" DataMemberBinding="{Binding CostoTotal}"/>
+                    <telerik:GridViewDataColumn Header="Fecha Registro" DataMemberBinding="{Binding FechaRegistro}"/>
+                    <telerik:GridViewDataColumn Header="Fecha Modificacion" DataMemberBinding="{Binding UltimaFechaModificacion}"/>
+                    <telerik:GridViewDataColumn Header="Estado" DataMemberBinding="{Binding Estado.Id_Estado}"/>
+                    <telerik:GridViewDataColumn Header="Usuario" DataMemberBinding="{Binding NombreCompleto}"/>
+                </telerik:RadGridView.Columns>
+            </telerik:RadGridView>
+            
         </Grid>
-        <telerik:RadGridView Name="gvOrdenesTrabajo" Grid.Row="1" telerik:StyleManager.Theme="Summer" AutoGenerateColumns="False" SelectionChanged="gvOrdenesTrabajo_SelectionChanged" IsReadOnly="True">
-            <telerik:RadGridView.Columns>
-                <telerik:GridViewDataColumn Header="ID" DataMemberBinding="{Binding Id_OrdenTrabajo}"/>
-                <telerik:GridViewDataColumn Header="Descripcion" DataMemberBinding="{Binding Descripcion}"/>
-                <telerik:GridViewDataColumn Header="Costo" DataMemberBinding="{Binding CostoTotal}"/>
-                <telerik:GridViewDataColumn Header="Fecha Registro" DataMemberBinding="{Binding FechaRegistro}"/>
-                <telerik:GridViewDataColumn Header="Fecha Modificacion" DataMemberBinding="{Binding UltimaFechaModificacion}"/>
-                <telerik:GridViewDataColumn Header="Estado" DataMemberBinding="{Binding Estado.Id_Estado}"/>
-                <telerik:GridViewDataColumn Header="Usuario" DataMemberBinding="{Binding NombreCompleto}"/>
-            </telerik:RadGridView.Columns>
-        </telerik:RadGridView>
-    </Grid>
+    </telerik:RadBusyIndicator>
 </UserControl>

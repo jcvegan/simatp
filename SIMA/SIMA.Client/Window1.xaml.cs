@@ -36,6 +36,7 @@ namespace SIMA.Client
             {
                 case "Areas":
                     item.Content = new frmGestionarAreas();
+                    
                     break;
                 case "Perfiles":
                     item.Content = new frmGestionarPerfiles();
@@ -55,6 +56,7 @@ namespace SIMA.Client
             }
             
             TileContainerRoot.Items.Add(item);
+            item.Focus();
         }
 
         private void rbtnUnchecked(object sender, RoutedEventArgs e)

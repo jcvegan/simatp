@@ -14,9 +14,9 @@ namespace SIMA.DataAccess
         {
         }
 
-        public List<T_C_Area> SeleccionarAreasActivas()
-        {
+        //public List<T_C_Area> SeleccionarAreasActivas()
+        //{
             
-        }
+        //}
     }
 }

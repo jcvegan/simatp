@@ -40,7 +40,7 @@ namespace SIMA.Entities
 		/// <summary>
 		/// Initializes a new instance of the T_C_Equipo class.
 		/// </summary>
-		public T_C_Equipo(string id_Equipo, string equipoPadre, string descripcion, int id_Marca, short id_Modelo, string serie, float costo, int id_Estado, DateTime fecha_Registro, DateTime fecha_Adquisicion, string id_Area, int maxHoras, short usoUnico, int nivel, int stock, decimal capacidadOperacion, decimal diamteroInterno, string revestimientoInterior)
+		public T_C_Equipo(string id_Equipo, string equipoPadre, string descripcion, int id_Marca, short id_Modelo, string serie, float costo, int id_Estado, DateTime fecha_Registro, DateTime fecha_Adquisicion, string id_Area, int maxHoras, bool usoUnico, int nivel, int stock, decimal capacidadOperacion, decimal diamteroInterno, string revestimientoInterior)
 		{
 			this.id_Equipo = id_Equipo;
 			this.equipoPadre = equipoPadre;

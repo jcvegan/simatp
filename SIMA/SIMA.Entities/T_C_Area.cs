@@ -10,6 +10,7 @@ namespace SIMA.Entities
 		private string descripcion;
 		private string nombre;
 		private int id_Estado;
+        private T_C_Estado estado;
 
 		#endregion
 
@@ -71,6 +72,12 @@ namespace SIMA.Entities
 			get { return id_Estado; }
 			set { id_Estado = value; }
 		}
+
+        public virtual T_C_Estado Estado
+        {
+            get { return estado; }
+            set { estado = value; }
+        }
 
 		#endregion
 	}

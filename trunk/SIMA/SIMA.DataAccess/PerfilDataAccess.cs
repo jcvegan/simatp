@@ -109,6 +109,7 @@ namespace SIMA.DataAccess
                         perfil.Descripcion = reader.GetValue(reader.GetOrdinal("Descripcion")).ToString();
                         perfil.Id_Estado = Convert.ToInt32(reader.GetValue(reader.GetOrdinal("Id_Estado")).ToString());
                         perfil.Estado = estadoAccess.Seleccionar(perfil.Id_Estado);
+                        
                         perfiles.Add(perfil);
                     }
                 }

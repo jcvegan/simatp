@@ -111,6 +111,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Page Include="Auxiliares\frmSelectorEquipos.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Gestion\frmGestionarAreas.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -149,6 +153,10 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Auxiliares\EventArgs\DetalleOrdenTrabajoEventArgs.cs" />
+    <Compile Include="Auxiliares\frmSelectorEquipos.xaml.cs">
+      <DependentUpon>frmSelectorEquipos.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Gestion\frmGestionarAreas.xaml.cs">
       <DependentUpon>frmGestionarAreas.xaml</DependentUpon>
     </Compile>

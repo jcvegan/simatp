@@ -11,6 +11,9 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using SIMA.Entities;
+using SIMA.Logic;
+using SIMA.Client.Auxiliares;
 
 namespace SIMA.Client.Orden_de_Trabajo
 {
@@ -19,6 +22,9 @@ namespace SIMA.Client.Orden_de_Trabajo
     /// </summary>
     public partial class frmGestionarOrdendeTrabajo : UserControl
     {
+        OrdenTrabajoDataLogic ordentrabajoLogic;
+        
+
         public frmGestionarOrdendeTrabajo()
         {
             InitializeComponent();
@@ -31,7 +37,11 @@ namespace SIMA.Client.Orden_de_Trabajo
 
         private void btnRegistrar_Click(object sender, RoutedEventArgs e)
         {
-
+            T_C_OrdenTrabajo ordentrabajo = new T_C_OrdenTrabajo();
+            ordentrabajo.Descripcion = txtCosto.Text;
+            MessageBox.Show(ordentrabajoLogic.AgregarOrdenTrabajo(ordentrabajo));
+            gvOrdenesTrabajo.ItemsSource = ordentrabajoLogic.ListarOrdenesTrabajo();
+            Limpia();
         }
 
         private void btnActualizar_Click(object sender, RoutedEventArgs e)
@@ -52,6 +62,32 @@ namespace SIMA.Client.Orden_de_Trabajo
         private void btnVerDetalle_Click(object sender, RoutedEventArgs e)
         {
 
+        }
+
+        private void btnAgregarDetalle_Click(object sender, RoutedEventArgs e)
+        {
+            frmSelectorEquipos equiposSelector = new frmSelectorEquipos();
+            equiposSelector.Resultado += new EventHandler<SIMA.Client.Auxiliares.EventArgs.DetalleOrdenTrabajoEventArgs>(equiposSelector_Resultado);
+            equiposSelector.Show();
+        }
+
+        void equiposSelector_Resultado(object sender, SIMA.Client.Auxiliares.EventArgs.DetalleOrdenTrabajoEventArgs e)
+        {
+            
+        }
+
+        private void Limpia()
+        {
+            lblEstado.Visibility = Visibility.Hidden;
+            cmbEstado.Visibility = Visibility.Hidden;
+            btnActualizar.IsEnabled = false;
+            btnEliminar.IsEnabled = false;
+            btnLimpiar.IsEnabled = false;
+            btnRegistrar.IsEnabled = true;
+            gvPerfiles.SelectedItem = null;
+            txtDescripción.Text = string.Empty;
+            txtNombre.Text = string.Empty;
+            cmbEstado.SelectedItem = null;
         }
     }
 }

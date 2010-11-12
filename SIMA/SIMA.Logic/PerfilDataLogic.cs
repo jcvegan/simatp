@@ -24,10 +24,6 @@ namespace SIMA.Logic
                 {
                     throw new Exception();
                 }
-                if (perfil.Id_Estado <= 0)
-                {
-                    throw new Exception();
-                }
                 return perfilAccess.AgregarPerfil(perfil);
             }
             catch

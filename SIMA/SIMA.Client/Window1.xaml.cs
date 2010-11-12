@@ -53,10 +53,13 @@ namespace SIMA.Client
                 case "Orden de Trabajo":
                     item.Content = new frmGestionarOrdendeTrabajo();
                     break;
+                case "Marcas":
+                    item.Content = new frmGestionarMarca();
+                    break;
             }
             item.MinimizedHeight = 20;
             TileContainerRoot.Items.Add(item);
-            item.Focus();
+            
         }
 
         private void rbtnUnchecked(object sender, RoutedEventArgs e)

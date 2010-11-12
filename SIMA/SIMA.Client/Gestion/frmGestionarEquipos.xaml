@@ -81,12 +81,12 @@
                         <TextBlock Name="DescripcionEquipo" Width="150" Text="(No tiene pertenencia)" HorizontalAlignment="Left" VerticalAlignment="Center"/>
                         <telerik:RadButton Name="btnSelEquipoPadre" Content="Asignar" VerticalAlignment="Center" telerik:StyleManager.Theme="Summer"/>
                     </StackPanel>                    
-                    <telerik:DateTimePicker Name="dtFRegistro" Grid.Column="3" Grid.Row="1" Width="210" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="25,0,0,0" telerik:StyleManager.Theme="Summer" Height="22" />
-                    <telerik:RadNumericUpDown Name="udMaxHoras" Grid.Column="3" Grid.Row="2" Width="120" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="25,0,6,0" telerik:StyleManager.Theme="Summer" Height="22" Minimum="0" Maximum="23"/>
+                    <telerik:DateTimePicker Name="dtFRegistro" Grid.Column="3" Grid.Row="1" Width="210" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="25,0,0,0" telerik:StyleManager.Theme="Summer" Height="22" />
+                    <telerik:RadNumericUpDown Name="udMaxHoras" Grid.Column="3" Grid.Row="2" Width="120" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="25,0,6,0" telerik:StyleManager.Theme="Summer" Height="22" Minimum="0" Maximum="23"/>
                     <CheckBox Name="chkEsUsoUnico" Grid.Column="3" Grid.Row="3" Content="Si" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="25,0,0,0"/>
-                    <TextBox Name="txtCapOper" Grid.Column="3" Grid.Row="4" Width="120" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="25,0,5,0"/>
-                    <TextBox Name="txtDiamtero" Grid.Column="3" Grid.Row="5" Width="120" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="25,0,5,0"/>
-                    <TextBox Name="txtRevestimiento" Grid.Column="3" Grid.Row="6" Width="120" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="25,0,5,0"/>
+                    <TextBox Name="txtCapOper" Grid.Column="3" Grid.Row="4" Width="120" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="25,0,5,0"/>
+                    <TextBox Name="txtDiamtero" Grid.Column="3" Grid.Row="5" Width="120" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="25,0,5,0"/>
+                    <TextBox Name="txtRevestimiento" Grid.Column="3" Grid.Row="6" Width="120" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="25,0,5,0"/>
                     <telerik:RadComboBox Name="cmbEstado" Grid.Column="3" Grid.Row="7" Width="150" HorizontalAlignment="Left" Margin="25,0,0,0" Height="22" telerik:StyleManager.Theme="Summer"/>
                 </Grid>
                 <StackPanel Grid.Row="2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Orientation="Horizontal">

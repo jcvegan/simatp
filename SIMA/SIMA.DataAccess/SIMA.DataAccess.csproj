@@ -51,6 +51,7 @@
     <Compile Include="EquipoDataAccess.cs" />
     <Compile Include="EstadoDataAccess.cs" />
     <Compile Include="Extensiones\Encripto.cs" />
+    <Compile Include="MarcaDataAccess.cs" />
     <Compile Include="OrdenTrabajoDataAccess.cs" />
     <Compile Include="PerfilDataAccess.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -24,7 +24,6 @@ namespace SIMA.DataAccess
                 using (Command = new System.Data.SqlClient.SqlCommand("T_C_PerfilInsert", Connection))
                 {
                     Command.CommandType = System.Data.CommandType.StoredProcedure;
-                    Command.Parameters.AddWithValue("@Id_Perfil", perfil.Id_Perfil);
                     Command.Parameters.AddWithValue("@Nombre", perfil.Nombre);
                     Command.Parameters.AddWithValue("@Descripcion", perfil.Descripcion);
                     Connection.Open();

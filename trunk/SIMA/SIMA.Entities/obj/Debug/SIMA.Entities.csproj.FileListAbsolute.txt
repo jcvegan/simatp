@@ -1,0 +1,10 @@
+C:\SIMA\SIMA\SIMA.Entities\bin\Debug\SIMA.Entities.dll
+C:\SIMA\SIMA\SIMA.Entities\bin\Debug\SIMA.Entities.pdb
+C:\SIMA\SIMA\SIMA.Entities\obj\Debug\ResolveAssemblyReference.cache
+C:\SIMA\SIMA\SIMA.Entities\obj\Debug\SIMA.Entities.dll
+C:\SIMA\SIMA\SIMA.Entities\obj\Debug\SIMA.Entities.pdb
+C:\SIMA\SIMA.Entities\bin\Debug\SIMA.Entities.dll
+C:\SIMA\SIMA.Entities\bin\Debug\SIMA.Entities.pdb
+C:\SIMA\SIMA.Entities\obj\Debug\ResolveAssemblyReference.cache
+C:\SIMA\SIMA.Entities\obj\Debug\SIMA.Entities.dll
+C:\SIMA\SIMA.Entities\obj\Debug\SIMA.Entities.pdb

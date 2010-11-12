@@ -14,8 +14,15 @@ namespace SIMA.Entities
 		private DateTime fechaRegistro;
 		private int id_Estado;
 		private int cantidad;
-		private int id_OrdenTrabajo;
 		private int id_Solicitud;
+        private string idEquipo;
+
+        public virtual string IdEquipo
+        {
+            get { return idEquipo; }
+            set { idEquipo = value; }
+        }
+        private T_C_Estado estado;
 
 		#endregion
 
@@ -31,7 +38,7 @@ namespace SIMA.Entities
 		/// <summary>
 		/// Initializes a new instance of the T_C_DetalleOrdenDeTrabajo class.
 		/// </summary>
-		public T_C_DetalleOrdenDeTrabajo(int id_DetalleOrdendeTrabajo, int id_OrdendeTrabajo, float costo, float porcentaje, string motivo, DateTime fechaRegistro, int id_Estado, int cantidad, int id_OrdenTrabajo, int id_Solicitud)
+		public T_C_DetalleOrdenDeTrabajo(int id_DetalleOrdendeTrabajo, int id_OrdendeTrabajo, float costo, float porcentaje, string motivo, DateTime fechaRegistro, int id_Estado, int cantidad, int id_Solicitud)
 		{
 			this.id_DetalleOrdendeTrabajo = id_DetalleOrdendeTrabajo;
 			this.id_OrdendeTrabajo = id_OrdendeTrabajo;
@@ -41,7 +48,6 @@ namespace SIMA.Entities
 			this.fechaRegistro = fechaRegistro;
 			this.id_Estado = id_Estado;
 			this.cantidad = cantidad;
-			this.id_OrdenTrabajo = id_OrdenTrabajo;
 			this.id_Solicitud = id_Solicitud;
 		}
 
@@ -118,15 +124,6 @@ namespace SIMA.Entities
 		{
 			get { return cantidad; }
 			set { cantidad = value; }
-		}
-
-		/// <summary>
-		/// Gets or sets the Id_OrdenTrabajo value.
-		/// </summary>
-		public virtual int Id_OrdenTrabajo
-		{
-			get { return id_OrdenTrabajo; }
-			set { id_OrdenTrabajo = value; }
 		}
 
 		/// <summary>

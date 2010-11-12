@@ -53,6 +53,7 @@
     <Compile Include="PerfilDataLogic.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TablaDataLogic.cs" />
+    <Compile Include="TipoMantenimientoDataLogic.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\SIMA.DataAccess\SIMA.DataAccess.csproj">

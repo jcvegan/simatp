@@ -25,6 +25,7 @@ namespace SIMA.Entities
 		private decimal diamteroInterno;
 		private string revestimientoInterior;
         private T_C_Equipo padre;
+        private T_C_Estado estado;
 
 		#endregion
 
@@ -231,6 +232,12 @@ namespace SIMA.Entities
         {
             get { return padre; }
             set { padre = value; }
+        }
+
+        public virtual T_C_Estado Estado
+        {
+            get { return estado; }
+            set { estado = value; }
         }
 
 		#endregion

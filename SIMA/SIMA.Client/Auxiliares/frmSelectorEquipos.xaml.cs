@@ -12,6 +12,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using SIMA.Entities;
 using SIMA.Client.Auxiliares.EventArgs;
+using SIMA.Client.Auxiliares.Enums;
 
 namespace SIMA.Client.Auxiliares
 {
@@ -22,11 +23,16 @@ namespace SIMA.Client.Auxiliares
     {
         List<T_C_DetalleOrdenDeTrabajo> detalles;
         public event EventHandler<DetalleOrdenTrabajoEventArgs> Resultado;
+        public event EventHandler<EquipoPadreEventArgs> SeleccionEquipos;
 
         public frmSelectorEquipos()
         {
             InitializeComponent();
             detalles = new List<T_C_DetalleOrdenDeTrabajo>();
+        }
+
+        public frmSelectorEquipos(TipoSeleccionEquipo tipoSeleccion)
+        {
         }
 
         private void btnAceptar_Click(object sender, RoutedEventArgs e)

@@ -78,9 +78,9 @@ namespace SIMA.Client.Orden_de_Trabajo
 
         private void Limpia()
         {
-<<<<<<< .mine
+
             txtDescripcion.Clear();
-=======
+
             //lblEstado.Visibility = Visibility.Hidden;
             //cmbEstado.Visibility = Visibility.Hidden;
             //btnActualizar.IsEnabled = false;
@@ -91,7 +91,7 @@ namespace SIMA.Client.Orden_de_Trabajo
             //txtDescripción.Text = string.Empty;
             //txtNombre.Text = string.Empty;
             //cmbEstado.SelectedItem = null;
->>>>>>> .r47
+
         }
     }
 }

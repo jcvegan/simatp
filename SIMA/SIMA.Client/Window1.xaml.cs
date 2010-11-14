@@ -14,6 +14,7 @@ using System.Windows.Shapes;
 using Telerik.Windows.Controls;
 using SIMA.Client.Gestion;
 using SIMA.Client.Orden_de_Trabajo;
+using SIMA.Client.Trabajos_de_Mantenimiento;
 
 namespace SIMA.Client
 {
@@ -60,6 +61,9 @@ namespace SIMA.Client
                     break;
                 case "Modelos":
                     item.Content = new frmGestionarModelos();
+                    break;
+                case "Solicitud":
+                    item.Content = new frmGestionarSolicitud();
                     break;
             }
             item.MinimizedHeight = 20;

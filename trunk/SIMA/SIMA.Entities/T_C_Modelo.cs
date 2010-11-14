@@ -6,11 +6,13 @@ namespace SIMA.Entities
 	{
 		#region Fields
 
-		private short id_Modelo;
+		private int id_Modelo;
 		private string descripcion;
 		private int año;
 		private int id_Marca;
 		private int id_Estado;
+        private T_C_Estado estado;
+        private T_C_Marca marca;
 
 		#endregion
 
@@ -41,7 +43,7 @@ namespace SIMA.Entities
 		/// <summary>
 		/// Gets or sets the Id_Modelo value.
 		/// </summary>
-		public virtual short Id_Modelo
+		public virtual int Id_Modelo
 		{
 			get { return id_Modelo; }
 			set { id_Modelo = value; }
@@ -82,6 +84,18 @@ namespace SIMA.Entities
 			get { return id_Estado; }
 			set { id_Estado = value; }
 		}
+
+        public virtual T_C_Estado Estado
+        {
+            get { return estado; }
+            set { estado = value; }
+        }
+
+        public virtual T_C_Marca Marca
+        {
+            get { return marca; }
+            set { marca = value; }
+        }
 
 		#endregion
 	}

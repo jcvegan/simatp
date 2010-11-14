@@ -131,6 +131,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Gestion\frmGestionarModelos.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Gestion\frmGestionarPerfiles.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -172,6 +176,9 @@
     </Compile>
     <Compile Include="Gestion\frmGestionarMarca.xaml.cs">
       <DependentUpon>frmGestionarMarca.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Gestion\frmGestionarModelos.xaml.cs">
+      <DependentUpon>frmGestionarModelos.xaml</DependentUpon>
     </Compile>
     <Compile Include="Gestion\frmGestionarPerfiles.xaml.cs">
       <DependentUpon>frmGestionarPerfiles.xaml</DependentUpon>

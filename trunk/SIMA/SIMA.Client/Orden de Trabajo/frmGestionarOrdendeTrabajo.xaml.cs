@@ -78,16 +78,16 @@ namespace SIMA.Client.Orden_de_Trabajo
 
         private void Limpia()
         {
-            lblEstado.Visibility = Visibility.Hidden;
-            cmbEstado.Visibility = Visibility.Hidden;
-            btnActualizar.IsEnabled = false;
-            btnEliminar.IsEnabled = false;
-            btnLimpiar.IsEnabled = false;
-            btnRegistrar.IsEnabled = true;
-            gvPerfiles.SelectedItem = null;
-            txtDescripción.Text = string.Empty;
-            txtNombre.Text = string.Empty;
-            cmbEstado.SelectedItem = null;
+            //lblEstado.Visibility = Visibility.Hidden;
+            //cmbEstado.Visibility = Visibility.Hidden;
+            //btnActualizar.IsEnabled = false;
+            //btnEliminar.IsEnabled = false;
+            //btnLimpiar.IsEnabled = false;
+            //btnRegistrar.IsEnabled = true;
+            //gvPerfiles.SelectedItem = null;
+            //txtDescripción.Text = string.Empty;
+            //txtNombre.Text = string.Empty;
+            //cmbEstado.SelectedItem = null;
         }
     }
 }

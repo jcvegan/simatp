@@ -12,6 +12,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using SIMA.Logic;
+using SIMA.Entities;
 
 namespace SIMA.Client.Gestion
 {
@@ -21,6 +22,8 @@ namespace SIMA.Client.Gestion
     public partial class frmGestionarEquipos : UserControl
     {
         AreaDataLogic areaLogic;
+        MarcaDataLogic marcaLogic;
+        ModeloDataLogic modeloLogic;
         public frmGestionarEquipos()
         {
             InitializeComponent();
@@ -30,11 +33,14 @@ namespace SIMA.Client.Gestion
         {
             areaLogic = new AreaDataLogic();
             cmbAreaEquipo.ItemsSource = areaLogic.ListarActivosArea();
+            marcaLogic = new MarcaDataLogic();
+            cmbMarcaEquipo.ItemsSource = marcaLogic.ListarActivosMarcas();
+            modeloLogic = new ModeloDataLogic();
         }
 
         private void btnRegistrar_Click(object sender, RoutedEventArgs e)
         {
-
+            
         }
 
         private void btnActualizar_Click(object sender, RoutedEventArgs e)
@@ -60,6 +66,21 @@ namespace SIMA.Client.Gestion
         private void gvOrdenesTrabajo_SelectionChanged(object sender, Telerik.Windows.Controls.SelectionChangeEventArgs e)
         {
 
+        }
+
+        private void cmbMarcaEquipo_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (cmbMarcaEquipo.SelectedItem != null)
+            {
+                lblModelo.Visibility = Visibility.Visible;
+                cmbModeloEquipo.Visibility = Visibility.Visible;
+                cmbModeloEquipo.ItemsSource = modeloLogic.ListarPorMarca((cmbMarcaEquipo.SelectedItem as T_C_Marca).Id_Marca);
+            }
+            else
+            {
+                lblModelo.Visibility = Visibility.Hidden;
+                cmbModeloEquipo.Visibility = Visibility.Hidden;
+            }
         }
     }
 }

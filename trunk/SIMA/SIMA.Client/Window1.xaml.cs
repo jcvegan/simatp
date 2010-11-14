@@ -35,8 +35,7 @@ namespace SIMA.Client
             switch (item.Header.ToString())
             {
                 case "Areas":
-                    item.Content = new frmGestionarAreas();
-                    
+                    item.Content = new frmGestionarAreas();                    
                     break;
                 case "Perfiles":
                     item.Content = new frmGestionarPerfiles();
@@ -49,6 +48,9 @@ namespace SIMA.Client
                     break;
                 case "Equipos":
                     item.Content = new frmGestionarEquipos();
+                    break;
+                case "Tipo Mantenimiento":
+                    item.Content = new frmGestionarTipoMantenimiento();
                     break;
                 case "Orden de Trabajo":
                     item.Content = new frmGestionarOrdendeTrabajo();

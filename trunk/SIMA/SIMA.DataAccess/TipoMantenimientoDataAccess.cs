@@ -22,11 +22,9 @@ namespace SIMA.DataAccess
             {
                 using (Command=new System.Data.SqlClient.SqlCommand("T_C_TipoMantenimientoInsert",Connection))
                 {
-                    Command.CommandType=System.Data.CommandType.StoredProcedure;
-                    Command.Parameters.AddWithValue("@Id_Tipo", TipoMantenimiento.Id_Tipo);
+                    Command.CommandType=System.Data.CommandType.StoredProcedure;                    
                     Command.Parameters.AddWithValue("@Nombre", TipoMantenimiento.Nombre);
-                    Command.Parameters.AddWithValue("@Descripcion", TipoMantenimiento.Descripcion);
-                    Command.Parameters.AddWithValue("@Id_Estado", TipoMantenimiento.Id_Estado);
+                    Command.Parameters.AddWithValue("@Descripcion", TipoMantenimiento.Descripcion);                    
                     Connection.Open();
                     Command.ExecuteNonQuery();
                 }
@@ -109,6 +107,7 @@ namespace SIMA.DataAccess
                         TipoMantenimiento.Nombre = reader.GetValue(reader.GetOrdinal("Nombre")).ToString();
                         TipoMantenimiento.Descripcion = reader.GetValue(reader.GetOrdinal("Descripcion")).ToString();
                         TipoMantenimiento.Id_Estado = Convert.ToInt32(reader.GetValue(reader.GetOrdinal("Id_Estado")).ToString());
+                        TipoMantenimiento.Estado = estadoAccess.Seleccionar(TipoMantenimiento.Id_Estado);
                         TipoMantenimientos.Add(TipoMantenimiento);
                     }
                 }

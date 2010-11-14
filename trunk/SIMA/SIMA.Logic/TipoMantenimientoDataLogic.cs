@@ -28,11 +28,7 @@ namespace SIMA.Logic
                 {
                     throw new Exception("La descripcion esta en blanco");
                 }
-                if (TipoMantenimiento.Id_Estado <= 0)
-                {
-                    throw new Exception("Seleccione un estado");
-                }
-                
+
                 return TipoMantenimientoAccess.AgregarTipoMantenimiento(TipoMantenimiento);
             }
             catch (Exception ex)

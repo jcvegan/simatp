@@ -47,7 +47,7 @@ namespace SIMA.Client.Gestion
             equipo.Costo = (float)udCostoUnidad.Value;
             equipo.Descripcion = txtDescripcion.Text;
             equipo.DiamteroInterno =Convert.ToDecimal(txtDiamtero.Text);
-            equipo.EquipoPadre
+            
             
 
             MessageBox.Show(equipoLogic.AgregarEquipo(equipo));

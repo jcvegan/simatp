@@ -165,7 +165,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Auxiliares\Enums\Enums.cs" />
     <Compile Include="Auxiliares\EventArgs\DetalleOrdenTrabajoEventArgs.cs" />
+    <Compile Include="Auxiliares\EventArgs\EquipoPadreEventArgs.cs" />
     <Compile Include="Auxiliares\frmSelectorEquipos.xaml.cs">
       <DependentUpon>frmSelectorEquipos.xaml</DependentUpon>
     </Compile>

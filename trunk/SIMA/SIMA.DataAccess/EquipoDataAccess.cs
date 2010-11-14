@@ -23,7 +23,7 @@ namespace SIMA.DataAccess
         {
             try
             {
-                using (Command = new System.Data.SqlClient.SqlCommand("T_C_EquipoInsert", Connection))
+                using (Command = new System.Data.SqlClient.SqlCommand("T_C_EquipoUpdate", Connection))
                 {
                     Command.CommandType = System.Data.CommandType.StoredProcedure;
                     Command.Parameters.AddWithValue("@EquipoPadre", equipo.EquipoPadre);
@@ -56,6 +56,11 @@ namespace SIMA.DataAccess
             {
                 Connection.Close();
             }
+
+        }
+
+        public string ActualizarEquipo(T_C_Equipo equipo)
+        {
 
         }
     }

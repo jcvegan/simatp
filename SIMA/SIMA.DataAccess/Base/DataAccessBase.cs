@@ -10,7 +10,7 @@ namespace SIMA.DataAccess.Base
     {
         private SqlConnection _connection;
         private SqlCommand _command;
-        private string _connectionString = "Data Source=.;Initial Catalog=SIMA;Integrated Security=True";        
+        private string _connectionString = "Data Source=USUARIO-PC\\SQLEXPRESS;Initial Catalog=SIMA;Integrated Security=True";        
 
         public SqlConnection Connection
         {

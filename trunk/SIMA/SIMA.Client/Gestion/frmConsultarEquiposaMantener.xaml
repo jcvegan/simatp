@@ -1,0 +1,25 @@
+﻿<UserControl x:Class="SIMA.Client.Gestion.frmConsultarEquiposaMantener"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation"
+    Loaded="UserControl_Loaded"
+    >
+    <telerik:RadBusyIndicator Name="biIndicador" BusyContent="Cargando">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <telerik:RadGridView Name="gvAreas" Grid.Row="1" telerik:StyleManager.Theme="Summer" AutoGenerateColumns="False" SelectionChanged="gvAreas_SelectionChanged" IsReadOnly="True">
+                <telerik:RadGridView.Columns>
+                    <telerik:GridViewDataColumn Header="ID" DataMemberBinding="{Binding Id_Mantenimiento}"/>
+                    <telerik:GridViewDataColumn Header="Nombre" DataMemberBinding="{Binding Nombre}"/>
+                    <telerik:GridViewDataColumn Header="Descripción" DataMemberBinding="{Binding Descripcion}"/>
+                </telerik:RadGridView.Columns>
+                <telerik:RadGridView.GroupDescriptors>
+                    <telerik:GroupDescriptor Member="Estado.Nombre_Estado" DisplayContent="Estados"/>
+                </telerik:RadGridView.GroupDescriptors>
+            </telerik:RadGridView>
+        </Grid>
+    </telerik:RadBusyIndicator>
+</UserControl>

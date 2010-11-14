@@ -44,26 +44,28 @@
                 </Grid.RowDefinitions>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="120"/>
-                    <ColumnDefinition Width="235"/>
-                    <ColumnDefinition Width="100"/>
+                    <ColumnDefinition/>
                 </Grid.ColumnDefinitions>
                 <Label Grid.Column="0" Grid.Row="0" Content="ID Orden" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="25,0,0,0"/>
                 <Label Grid.Column="0" Grid.Row="1" Content="Descripcion" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="25,0,0,0"/>
                 <Label Grid.Column="0" Grid.Row="2" Content="Detalle" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="25,0,0,0"/>
+                <StackPanel Name="stkSinDetalle" Grid.Column="1" Grid.Row="2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Orientation="Horizontal" Margin="25,0,0,0">
+                    <TextBlock Name="DescripcionEquipo" Width="150" Text="No existe ningun detalle" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                    <telerik:RadButton Name="btnAgregarDetalle" Content="Agregar Detalle" VerticalAlignment="Center" Click="btnAgregarDetalle_Click" telerik:StyleManager.Theme="Summer"/> 
+                </StackPanel>
                 <Label Grid.Column="0" Grid.Row="3" Content="Costo Total" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="25,0,0,0" Visibility="Hidden" />
                 <Label Grid.Column="0" Grid.Row="4" Content="Fecha Registro" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="25,0,0,0" Visibility="Hidden"/>
                 <Label Grid.Column="0" Grid.Row="5" Content="Fecha Modificacion" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="25,0,0,0" Visibility="Hidden" />
                 <Label Grid.Column="0" Grid.Row="6" Content="Usuario" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="25,0,0,0" Visibility="Hidden" />
                 
-                <TextBox Name="txtIdOrden" Grid.Column="1" Margin="25,4,62,4" IsEnabled="False" />
-                <TextBox Name="txtDescripcion" Grid.Column="1" Grid.Row="1" VerticalAlignment="Center" Margin="25,0,62,0" Height="21.96" />
-                <Label Grid.Column="1" Grid.Row="2" Content="No existe ningun Detalle" Margin="25,0,6,0" />
-                <TextBox Name="txtCosto" Grid.Column="1" Grid.Row="3" VerticalAlignment="Center" Margin="25,0,62,0" Visibility="Hidden" Height="21.96" />
+                <TextBox Name="txtIdOrden" Grid.Column="1" Grid.Row="0" Width="150" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="25,0,0,0" IsEnabled="False"/>
+                <TextBox Name="txtDescripcion" Grid.Column="1" Grid.Row="1" Width="150" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="25,0,0,0"/>
+                <TextBox Name="txtCosto" Grid.Column="1" Grid.Row="3" Width="150" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="25,0,0,0" Visibility="Hidden"/>
                 <telerik:DateTimePicker Name="dtFRegistro" Grid.Column="1" Grid.Row="4" VerticalAlignment="Center" Margin="25,0,2,0" Visibility="Hidden" telerik:StyleManager.Theme="Summer" Height="22" />
                 <telerik:DateTimePicker Name="dtFModificacion" Grid.Column="1" Grid.Row="5" VerticalAlignment="Center" Margin="25,0,2,0" Visibility="Hidden" telerik:StyleManager.Theme="Summer" Height="22" />
-                <TextBox Name="txtUsuario" Grid.Column="1" Grid.Row="6" VerticalAlignment="Center" Margin="25,0,62,0" Visibility="Hidden" Height="21.96" />
+                <TextBox Name="txtUsuario" Grid.Column="1" Grid.Row="6" Width="150" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="25,0,0,0" Visibility="Hidden"/>
                 
-                <telerik:RadButton Grid.Column="3" Grid.Row="2" Name="btnAgregarDetalle" Content="Agregar Detalle" Click="btnAgregarDetalle_Click"/>
+                
                 
             </Grid>
             <StackPanel Grid.Row="2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Orientation="Horizontal">

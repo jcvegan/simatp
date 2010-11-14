@@ -54,6 +54,7 @@
     <Compile Include="OrdenTrabajoDataLogic.cs" />
     <Compile Include="PerfilDataLogic.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SolicitudDataLogic.cs" />
     <Compile Include="TablaDataLogic.cs" />
     <Compile Include="TipoMantenimientoDataLogic.cs" />
   </ItemGroup>

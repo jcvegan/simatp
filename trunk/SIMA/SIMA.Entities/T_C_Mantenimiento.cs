@@ -22,6 +22,8 @@ namespace SIMA.Entities
 		private int id_OrdenTrabajo;
 		private int id_TipoMantenimientoEquipo;
 		private int id_TurnoMantenimiento;
+        private T_C_Estado estado;
+
 
 		#endregion
 
@@ -203,6 +205,13 @@ namespace SIMA.Entities
 			get { return id_TurnoMantenimiento; }
 			set { id_TurnoMantenimiento = value; }
 		}
+
+
+        public virtual T_C_Estado Estado
+        {
+            get { return Estado; }
+            set { Estado = value; }
+        }
 
 		#endregion
 	}

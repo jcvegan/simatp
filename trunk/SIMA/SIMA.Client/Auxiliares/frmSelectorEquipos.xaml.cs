@@ -21,6 +21,8 @@ namespace SIMA.Client.Auxiliares
     /// </summary>
     public partial class frmSelectorEquipos : Window
     {
+        
+
         List<T_C_DetalleOrdenDeTrabajo> detalles;
         public event EventHandler<DetalleOrdenTrabajoEventArgs> Resultado;
         public event EventHandler<EquipoPadreEventArgs> SeleccionEquipos;

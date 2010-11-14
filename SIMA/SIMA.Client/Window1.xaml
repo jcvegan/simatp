@@ -5,6 +5,11 @@
     Title="SÜD CHEMIE Perú" Height="600" Width="800">
     <DockPanel>
         <telerik:RadRibbonBar DockPanel.Dock="Top" Title="SIMA - Sistema de Mantenimientos de Equipos" telerik:StyleManager.Theme="Summer">
+            <telerik:RadRibbonBar.ApplicationMenu>
+                <telerik:ApplicationMenu>
+                    <telerik:RadRibbonButton Content="Cerrar" />
+                </telerik:ApplicationMenu>
+            </telerik:RadRibbonBar.ApplicationMenu>
             <telerik:RadRibbonTab Header="Gestiones" telerik:StyleManager.Theme="Summer">
                 <telerik:RadRibbonGroup Header="Seguridad" telerik:StyleManager.Theme="Summer">
                     <telerik:RadRibbonToggleButton Name="rbtnGestionarPerfiles" Content="Perfiles" Checked="rbtnChecked" Unchecked="rbtnUnchecked"/>
@@ -15,6 +20,7 @@
                     <telerik:RadRibbonToggleButton Name="rbtnGestionarEquipos" Content="Equipos" Checked="rbtnChecked" Unchecked="rbtnUnchecked"/>
                     <telerik:RadRibbonToggleButton Name="rbtnGestionarAreas" Content="Areas" Checked="rbtnChecked" Unchecked="rbtnUnchecked"/>
                     <telerik:RadRibbonToggleButton Name="rbtnGestionarMarcas" Content="Marcas" Checked="rbtnChecked" Unchecked="rbtnUnchecked"/>
+                    <telerik:RadRibbonToggleButton Name="rbtnGestionarModelos" Content="Modelos" Checked="rbtnChecked" Unchecked="rbtnUnchecked"/>
                     <telerik:RadRibbonToggleButton Name="rbtnGestionarTipoMantenimientos" Content="Usuarios" Checked="rbtnChecked" Unchecked="rbtnUnchecked"/>
                 </telerik:RadRibbonGroup>
                 <telerik:RadRibbonGroup Header="Sistema">

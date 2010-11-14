@@ -56,6 +56,9 @@ namespace SIMA.Client
                 case "Marcas":
                     item.Content = new frmGestionarMarca();
                     break;
+                case "Modelos":
+                    item.Content = new frmGestionarModelos();
+                    break;
             }
             item.MinimizedHeight = 20;
             TileContainerRoot.Items.Add(item);

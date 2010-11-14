@@ -56,7 +56,7 @@
                     <Label Grid.Column="0" Grid.Row="1" Content="Área" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="25,0,0,0"/>
                     <Label Grid.Column="0" Grid.Row="2" Content="Descripción" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="25,0,0,0"/>
                     <Label Grid.Column="0" Grid.Row="3" Content="Marca" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="25,0,0,0" />
-                    <Label Grid.Column="0" Grid.Row="4" Content="Modelo" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="25,0,0,0"/>
+                    <Label Name="lblModelo"  Grid.Column="0" Grid.Row="4" Content="Modelo" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="25,0,0,0" Visibility="Hidden"/>
                     <Label Margin="25,0,0,0" Grid.Row="5">Serie</Label>
                     <Label Grid.Column="0" Grid.Row="6" Content="Costo" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="25,0,0,0"/>
                     <Label Grid.Row="7" Content="Cantidad disponible" Margin="25,0,0,0"/>
@@ -71,11 +71,10 @@
                     <telerik:RadWatermarkTextBox Name="txtCodigoEquipo" Grid.Column="1" Grid.Row="0" Width="150" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="25,0,0,0" IsEnabled="False" WatermarkContent="(AutoAsignado)"/>
                     <telerik:RadComboBox Name="cmbAreaEquipo" Grid.Column="1" Grid.Row="1" Width="150" HorizontalAlignment="Left" Margin="22,5,63,3" Height="22" telerik:StyleManager.Theme="Summer" SelectedValuePath="Id_Area" DisplayMemberPath="Nombre"/>
                     <TextBox Name="txtDescripcion" Grid.Column="1" Grid.Row="2" Width="150" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="25,0,0,0"/>
-                    <telerik:RadComboBox Name="cmbMarcaEquipo" Grid.Column="1" Grid.Row="3" Width="150" HorizontalAlignment="Left" Margin="22,5,63,3" Height="22" telerik:StyleManager.Theme="Summer"/>
-                    <telerik:RadComboBox Name="cmbModeloEquipo" Grid.Column="1" Grid.Row="4" Width="150" HorizontalAlignment="Left" Margin="22,5,63,3" Height="22" telerik:StyleManager.Theme="Summer"/>
-                    <telerik:DateTimePicker Name="dtFModificacion" Grid.Column="1" Grid.Row="4" Width="210" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="25,0,0,0" Visibility="Hidden" telerik:StyleManager.Theme="Summer"/>
+                    <telerik:RadComboBox Name="cmbMarcaEquipo" Grid.Column="1" Grid.Row="3" Width="150" HorizontalAlignment="Left" Margin="22,5,63,3" Height="22" SelectedValuePath="Id_Marca" DisplayMemberPath="Nombre" telerik:StyleManager.Theme="Summer" SelectionChanged="cmbMarcaEquipo_SelectionChanged"/>
+                    <telerik:RadComboBox Name="cmbModeloEquipo" Grid.Column="1" Grid.Row="4" Width="150" HorizontalAlignment="Left" Margin="22,5,63,3" Height="22" telerik:StyleManager.Theme="Summer" Visibility="Hidden"/>
                     <TextBox Name="txtSerie" Grid.Column="1" Grid.Row="5" Width="150" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="25,0,0,0"/>
-                    <TextBox Name="txtCostoUnidad" Grid.Column="1" Grid.Row="6" Width="150" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="25,0,0,0"/>
+                    <telerik:RadNumericUpDown Name="udCostoUnidad" Grid.Column="1" Grid.Row="6" Width="150" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="25,0,0,0"/>
                     <TextBox Name="txtCantidad" Grid.Column="1" Grid.Row="7" Width="150" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="25,0,0,0"/>
                     <StackPanel Name="stkPerteneceA" Grid.Column="3" Grid.Row="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Orientation="Horizontal" Margin="25,0,0,0">
                         <TextBlock Name="DescripcionEquipo" Width="150" Text="(No tiene pertenencia)" HorizontalAlignment="Left" VerticalAlignment="Center"/>

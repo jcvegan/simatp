@@ -23,7 +23,7 @@ namespace SIMA.Client.Gestion
     {
         PerfilDataLogic perfilLogic;
         EstadoDataLogic estadoLogic;
-        TablaDataLogic tablaLogic;
+        
 
         public frmGestionarPerfiles()
         {

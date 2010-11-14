@@ -24,6 +24,7 @@ namespace SIMA.Client.Gestion
         AreaDataLogic areaLogic;
         MarcaDataLogic marcaLogic;
         ModeloDataLogic modeloLogic;
+        EquipoDataLogic equipoLogic;
         public frmGestionarEquipos()
         {
             InitializeComponent();
@@ -36,11 +37,20 @@ namespace SIMA.Client.Gestion
             marcaLogic = new MarcaDataLogic();
             cmbMarcaEquipo.ItemsSource = marcaLogic.ListarActivosMarcas();
             modeloLogic = new ModeloDataLogic();
+            equipoLogic = new EquipoDataLogic();
         }
 
         private void btnRegistrar_Click(object sender, RoutedEventArgs e)
         {
+            T_C_Equipo equipo = new T_C_Equipo();
+            equipo.CapacidadOperacion = Convert.ToDecimal(txtCapOper.Text);
+            equipo.Costo = (float)udCostoUnidad.Value;
+            equipo.Descripcion = txtDescripcion.Text;
+            equipo.DiamteroInterno =Convert.ToDecimal(txtDiamtero.Text);
+            equipo.EquipoPadre
             
+
+            MessageBox.Show(equipoLogic.AgregarEquipo(equipo));
         }
 
         private void btnActualizar_Click(object sender, RoutedEventArgs e)
@@ -81,6 +91,11 @@ namespace SIMA.Client.Gestion
                 lblModelo.Visibility = Visibility.Hidden;
                 cmbModeloEquipo.Visibility = Visibility.Hidden;
             }
+        }
+
+        private void cmbModeloEquipo_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
         }
     }
 }

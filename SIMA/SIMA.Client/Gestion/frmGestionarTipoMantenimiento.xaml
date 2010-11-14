@@ -49,7 +49,7 @@
                 <Label Name="lblEstado" Grid.Column="0" Grid.Row="2" Content="Estado" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="25,0,0,0"/>
                 <TextBox Name="txtNombre" Grid.Column="1" Grid.Row="0" Width="150" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="25,0,0,0"/>
                 <TextBox Name="txtDescripción" Grid.Column="1" Grid.Row="1" Width="150" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="25,0,0,0"/>
-                <telerik:RadComboBox Name="cmbEstado" Grid.Column="1" Grid.Row="2" Width="150" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="25,0,0,0"/>
+                <telerik:RadComboBox Name="cmbEstado" Grid.Column="1" Grid.Row="2" Width="150" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="25,0,0,0" telerik:StyleManager.Theme="Summer" DisplayMemberPath="Nombre_Estado" SelectedValuePath="Id_Estado"/>
 
             </Grid>
             <StackPanel Grid.Row="2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Orientation="Horizontal">
@@ -62,10 +62,12 @@
         <telerik:RadGridView Name="gvTipoMantenimiento" Grid.Row="1" AutoGenerateColumns="False" IsReadOnly="True" SelectionChanged="gvTipoMantenimiento_SelectionChanged" telerik:StyleManager.Theme="Summer">
             <telerik:RadGridView.Columns>
                 <telerik:GridViewDataColumn Header="ID" DataMemberBinding="{Binding Id_Tipo}"/>
-                <telerik:GridViewDataColumn Header="Nombre" DataMemberBinding="{Binding Nombre}"/>
-                <telerik:GridViewDataColumn Header="Descripción" DataMemberBinding="{Binding Descripcion}"/>
-                <telerik:GridViewDataColumn Header="Estado" DataMemberBinding="{Binding Id_Estado}"/>
-            </telerik:RadGridView.Columns>
+                <telerik:GridViewDataColumn Header="Nombre de tipo mantenimiento" DataMemberBinding="{Binding Nombre}"/>
+                <telerik:GridViewDataColumn Header="Descripción de tipo mantenimiento" DataMemberBinding="{Binding Descripcion}"/>
+                </telerik:RadGridView.Columns>
+            <telerik:RadGridView.GroupDescriptors>
+                <telerik:GroupDescriptor Member="Estado.Nombre_Estado" DisplayContent="Estados"/>
+            </telerik:RadGridView.GroupDescriptors>
         </telerik:RadGridView>
     </Grid>
 </UserControl>

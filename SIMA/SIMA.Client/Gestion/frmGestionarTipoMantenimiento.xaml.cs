@@ -23,31 +23,33 @@ namespace SIMA.Client.Gestion
     {
         TipoMantenimientoDataLogic TipoMantenimientoLogic;
         EstadoDataLogic estadoLogic;
-        TablaDataLogic tablaLogic;
 
         public frmGestionarTipoMantenimiento()
         {
             InitializeComponent();
+            lblEstado.Visibility = Visibility.Hidden;
+            cmbEstado.Visibility = Visibility.Hidden;
+
         }
 
         private void gvTipoMantenimiento_SelectionChanged(object sender, Telerik.Windows.Controls.SelectionChangeEventArgs e)
         {
             if (gvTipoMantenimiento.SelectedItem != null)
             {
-                lblEstado.Visibility = Visibility.Visible;
-                cmbEstado.Visibility = Visibility.Visible;
-                T_C_TipoMantenimiento temp = gvTipoMantenimiento.SelectedItem as T_C_TipoMantenimiento;
-                txtNombre.Text = temp.Nombre;
-                txtDescripción.Text = temp.Descripcion;
+                btnRegistrar.IsEnabled = false;
                 btnActualizar.IsEnabled = true;
                 btnEliminar.IsEnabled = true;
                 btnLimpiar.IsEnabled = true;
-                btnRegistrar.IsEnabled = false;
-                for (int i = 0; i <= cmbEstado.Items.Count - 1; i++)
+                lblEstado.Visibility = Visibility.Visible;
+                cmbEstado.Visibility = Visibility.Visible;
+                T_C_TipoMantenimiento temp = gvTipoMantenimiento.SelectedItem as T_C_TipoMantenimiento;
+                txtDescripción.Text = temp.Descripcion;
+                txtNombre.Text = temp.Nombre;
+                for (int i = 0; i <= cmbEstado.Items.Count; i++)
                 {
                     if ((cmbEstado.Items[i] as T_C_Estado).Id_Estado == temp.Id_Estado)
                     {
-                        cmbEstado.SelectedIndex = 1;
+                        cmbEstado.SelectedIndex = i;
                         break;
                     }
                 }

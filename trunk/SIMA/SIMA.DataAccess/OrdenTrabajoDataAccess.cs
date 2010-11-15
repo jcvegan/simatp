@@ -24,12 +24,11 @@ namespace SIMA.DataAccess
                 using (Command = new System.Data.SqlClient.SqlCommand("T_C_OrdenTrabajoInsert", Connection))
                 {
                     Command.CommandType = System.Data.CommandType.StoredProcedure;
-                    Command.Parameters.AddWithValue("@Id_OrdenTrabajo", ordentrabajo.Id_OrdenTrabajo);
                     Command.Parameters.AddWithValue("@Descripcion", ordentrabajo.Descripcion);
                     Command.Parameters.AddWithValue("@CostoTotal", ordentrabajo.CostoTotal);
-                    Command.Parameters.AddWithValue("@FechaRegistro", ordentrabajo.FechaRegistro);
-                    Command.Parameters.AddWithValue("@UltimaFechaModificacion", ordentrabajo.UltimaFechaModificacion);
-                    Command.Parameters.AddWithValue("@Id_Usuario", ordentrabajo.Id_Usuario);
+                    Command.Parameters.AddWithValue("@FechaRegistro", DateTime.Now);
+                    Command.Parameters.AddWithValue("@UltimaFechaModificacion", DateTime.Now);
+                    Command.Parameters.AddWithValue("@Id_Usuario", 1);
                     Connection.Open();
                     Command.ExecuteNonQuery();
                 }

@@ -20,18 +20,18 @@ namespace SIMA.Logic
         {
             try
             {
-                if (ordentrabajo.Descripcion == string.Empty)
-                {
-                    throw new Exception();
-                }
-                if (ordentrabajo.CostoTotal <= 0)
-                {
-                    throw new Exception();
-                }  
-                if (ordentrabajo.Id_Estado <= 0)
-                {
-                    throw new Exception();
-                }
+                //if (ordentrabajo.Descripcion == string.Empty)
+                //{
+                //    throw new Exception();
+                //}
+                //if (ordentrabajo.CostoTotal <= 0)
+                //{
+                //    throw new Exception();
+                //}  
+                //if (ordentrabajo.Id_Estado <= 0)
+                //{
+                //    throw new Exception();
+                //}
                 return ordentrabajoAccess.AgregarOrdenTrabajo(ordentrabajo);
             }
             catch

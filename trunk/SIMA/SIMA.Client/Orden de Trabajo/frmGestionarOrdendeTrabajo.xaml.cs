@@ -23,11 +23,14 @@ namespace SIMA.Client.Orden_de_Trabajo
     public partial class frmGestionarOrdendeTrabajo : UserControl
     {
         OrdenTrabajoDataLogic ordentrabajoLogic;
-        
+        List<T_C_DetalleOrdenDeTrabajo> detalle;
+        bool vezPrimera = true;
 
         public frmGestionarOrdendeTrabajo()
         {
             InitializeComponent();
+            ordentrabajoLogic = new OrdenTrabajoDataLogic();
+            detalle = new List<T_C_DetalleOrdenDeTrabajo>();
         }
 
         private void gvOrdenesTrabajo_SelectionChanged(object sender, Telerik.Windows.Controls.SelectionChangeEventArgs e)
@@ -66,15 +69,27 @@ namespace SIMA.Client.Orden_de_Trabajo
 
         private void btnAgregarDetalle_Click(object sender, RoutedEventArgs e)
         {
-            frmSelectorEquipos equiposSelector = new frmSelectorEquipos();
-            equiposSelector.Resultado += new EventHandler<SIMA.Client.Auxiliares.EventArgs.DetalleOrdenTrabajoEventArgs>(equiposSelector_Resultado);
-            equiposSelector.Show();
+            if (vezPrimera)
+            {
+                frmSelectorEquipos equiposSelector = new frmSelectorEquipos();
+                equiposSelector.Resultado += new EventHandler<SIMA.Client.Auxiliares.EventArgs.DetalleOrdenTrabajoEventArgs>(equiposSelector_Resultado);
+                equiposSelector.Show();
+                vezPrimera = false;
+            }
+            else
+            {
+                frmSelectorEquipos equiposSelector = new frmSelectorEquipos(detalle);
+                equiposSelector.Resultado += new EventHandler<SIMA.Client.Auxiliares.EventArgs.DetalleOrdenTrabajoEventArgs>(equiposSelector_Resultado);
+                equiposSelector.Show();
+                vezPrimera = false;
+            }
         }
 
         void equiposSelector_Resultado(object sender, SIMA.Client.Auxiliares.EventArgs.DetalleOrdenTrabajoEventArgs e)
         {
             if (e.DetalleOrden.Count > 0)
             {
+                detalle = e.DetalleOrden;
                 DescripcionEquipo.Text = "Se cuenta con equipos";
             }
             else

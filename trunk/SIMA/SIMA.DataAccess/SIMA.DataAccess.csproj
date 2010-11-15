@@ -54,7 +54,6 @@
     <Compile Include="MantenimientoDataAccess.cs" />
     <Compile Include="MarcaDataAccess.cs" />
     <Compile Include="ModeloDataAccess.cs" />
-    <Compile Include="OrdendeTrabajoDataAccess.cs" />
     <Compile Include="OrdenTrabajoDataAccess.cs" />
     <Compile Include="PerfilDataAccess.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -203,6 +203,41 @@ namespace SIMA.DataAccess
                 Connection.Close();
             }
         }
+
+        public T_C_Modelo SeleccionarModelo(int idModelo)
+        {
+            try
+            {
+                T_C_Modelo modelo;
+                using (Command = new System.Data.SqlClient.SqlCommand("T_C_ModeloSelect", Connection))
+                {
+                    Command.CommandType = System.Data.CommandType.StoredProcedure;
+                    Command.Parameters.AddWithValue("@Id_Modelo", idModelo);
+                    Connection.Open();
+                    modelo = new T_C_Modelo();
+                    SqlDataReader reader = Command.ExecuteReader();
+                    while (reader.Read())
+                    {
+                        modelo.Id_Modelo = Convert.ToInt32(reader.GetValue(reader.GetOrdinal("Id_Modelo")).ToString());
+                        modelo.Id_Marca = Convert.ToInt32(reader.GetValue(reader.GetOrdinal("Id_Marca")).ToString());
+                        modelo.Descripcion = reader.GetValue(reader.GetOrdinal("Descripcion")).ToString();
+                        modelo.Año = Convert.ToInt32(reader.GetValue(reader.GetOrdinal("Año")).ToString());
+                        modelo.Id_Estado = Convert.ToInt32(reader.GetValue(reader.GetOrdinal("Id_Estado")).ToString());
+                        modelo.Estado = estadoAccess.Seleccionar(modelo.Id_Estado);
+                        modelo.Marca = marcaAccess.SeleccionarMarca(modelo.Id_Marca);
+                    }
+                }
+                return modelo;
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
+            finally
+            {
+                Connection.Close();
+            }
+        }
           
     }
 }

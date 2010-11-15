@@ -12,7 +12,7 @@ namespace SIMA.Entities
 		private int id_Marca;
 		private short id_Modelo;
 		private string serie;
-		private float costo;
+		private double costo;
 		private int id_Estado;
 		private DateTime fecha_Registro;
 		private DateTime fecha_Adquisicion;
@@ -26,6 +26,13 @@ namespace SIMA.Entities
 		private string revestimientoInterior;
         private T_C_Equipo padre;
         private T_C_Estado estado;
+        private int cantidad;
+
+        public virtual int Cantidad
+        {
+            get { return cantidad; }
+            set { cantidad = value; }
+        }
 
 		#endregion
 
@@ -123,7 +130,7 @@ namespace SIMA.Entities
 		/// <summary>
 		/// Gets or sets the Costo value.
 		/// </summary>
-		public virtual float Costo
+		public virtual double Costo
 		{
 			get { return costo; }
 			set { costo = value; }

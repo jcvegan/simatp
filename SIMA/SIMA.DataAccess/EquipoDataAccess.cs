@@ -192,9 +192,9 @@ namespace SIMA.DataAccess
                         equipo.EquipoPadre = reader.GetValue(reader.GetOrdinal("EquipoPadre")).ToString();
 
                         equipo.CapacidadOperacion = Convert.ToDecimal(reader.GetValue(reader.GetOrdinal("CapacidadOperacion")).ToString());
-                        equipo.Costo = (float)reader.GetValue(reader.GetOrdinal("Costo"));
+                        equipo.Costo = Convert.ToDouble(reader.GetValue(reader.GetOrdinal("Costo")).ToString());
                         equipo.Descripcion = reader.GetValue(reader.GetOrdinal("Descripcion")).ToString();
-                        equipo.DiamteroInterno = Convert.ToDecimal(reader.GetValue(reader.GetOrdinal("DiametroInterno")).ToString());
+                        equipo.DiamteroInterno = Convert.ToDecimal(reader.GetValue(reader.GetOrdinal("DiamteroInterno")).ToString());
                         equipo.Fecha_Adquisicion = Convert.ToDateTime(reader.GetValue(reader.GetOrdinal("Fecha_Adquisicion")).ToString());
                         equipo.Fecha_Registro = Convert.ToDateTime(reader.GetValue(reader.GetOrdinal("Fecha_Registro")).ToString());
                         equipo.Id_Area = reader.GetValue(reader.GetOrdinal("Id_Area")).ToString();
@@ -215,7 +215,7 @@ namespace SIMA.DataAccess
                 }
                 return equipos;
             }
-            catch
+            catch (Exception ex)
             {
                 return null;
             }

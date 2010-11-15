@@ -13,6 +13,8 @@ using System.Windows.Shapes;
 using SIMA.Entities;
 using SIMA.Client.Auxiliares.EventArgs;
 using SIMA.Client.Auxiliares.Enums;
+using SIMA.Logic;
+using System.Collections.ObjectModel;
 
 namespace SIMA.Client.Auxiliares
 {
@@ -24,12 +26,15 @@ namespace SIMA.Client.Auxiliares
         
 
         List<T_C_DetalleOrdenDeTrabajo> detalles;
+        List<T_C_Equipo> equipos;
+        EquipoDataLogic equipoLogic;
         public event EventHandler<DetalleOrdenTrabajoEventArgs> Resultado;
         public event EventHandler<EquipoPadreEventArgs> SeleccionEquipos;
 
         public frmSelectorEquipos()
         {
             InitializeComponent();
+            equipoLogic = new EquipoDataLogic();
             detalles = new List<T_C_DetalleOrdenDeTrabajo>();
         }
 
@@ -41,10 +46,26 @@ namespace SIMA.Client.Auxiliares
         {
             if (Resultado != null)
             {
+                ObservableCollection<object> equipoTemps=gvEquipos.SelectedItems;
+                List<T_C_Equipo> equipos = new List<T_C_Equipo>();
+
+                foreach(object obj in equipoTemps){
+                    T_C_Equipo tmp = (T_C_Equipo)obj;
+                    equipos.Add(tmp);
+                    T_C_DetalleOrdenDeTrabajo detTemp = new T_C_DetalleOrdenDeTrabajo();
+                    detTemp.IdEquipo = tmp.Id_Equipo;
+                    detTemp.Cantidad = tmp.Cantidad;
+                    detalles.Add(detTemp);
+                }
                 Resultado(this, new DetalleOrdenTrabajoEventArgs(detalles));
             }
             this.Close();
 
+        }
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            gvEquipos.ItemsSource = equipoLogic.ListarActivos();
         }
     }
 }

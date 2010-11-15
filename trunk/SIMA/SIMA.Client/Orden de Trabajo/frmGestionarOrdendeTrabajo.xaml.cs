@@ -73,25 +73,19 @@ namespace SIMA.Client.Orden_de_Trabajo
 
         void equiposSelector_Resultado(object sender, SIMA.Client.Auxiliares.EventArgs.DetalleOrdenTrabajoEventArgs e)
         {
-            
+            if (e.DetalleOrden.Count > 0)
+            {
+                DescripcionEquipo.Text = "Se cuenta con equipos";
+            }
+            else
+            {
+                DescripcionEquipo.Text = "No cuenta con equipos";
+            }
         }
 
         private void Limpia()
         {
-
             txtDescripcion.Clear();
-
-            //lblEstado.Visibility = Visibility.Hidden;
-            //cmbEstado.Visibility = Visibility.Hidden;
-            //btnActualizar.IsEnabled = false;
-            //btnEliminar.IsEnabled = false;
-            //btnLimpiar.IsEnabled = false;
-            //btnRegistrar.IsEnabled = true;
-            //gvPerfiles.SelectedItem = null;
-            //txtDescripción.Text = string.Empty;
-            //txtNombre.Text = string.Empty;
-            //cmbEstado.SelectedItem = null;
-
         }
     }
 }

@@ -37,6 +37,12 @@ namespace SIMA.Client.Auxiliares
             equipoLogic = new EquipoDataLogic();
             detalles = new List<T_C_DetalleOrdenDeTrabajo>();
         }
+        public frmSelectorEquipos(List<T_C_DetalleOrdenDeTrabajo> detalle)
+        {
+            InitializeComponent();
+            equipoLogic = new EquipoDataLogic();
+            detalles = detalle;
+        }
 
         public frmSelectorEquipos(TipoSeleccionEquipo tipoSeleccion)
         {
@@ -66,6 +72,21 @@ namespace SIMA.Client.Auxiliares
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             gvEquipos.ItemsSource = equipoLogic.ListarActivos();
+            List<T_C_Equipo> equipos = new List<T_C_Equipo>();
+            if (detalles.Count > 0)
+            {
+                foreach (T_C_DetalleOrdenDeTrabajo det in detalles)
+                {
+                    T_C_Equipo eqtemp = new T_C_Equipo();
+                    eqtemp.Id_Equipo = det.IdEquipo;
+                    eqtemp.Cantidad = det.Cantidad;
+                   
+                    equipos.Add(eqtemp);
+                }
+                gvEquipos.ItemsSource = equipos;
+
+
+            }
         }
     }
 }

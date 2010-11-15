@@ -20,5 +20,9 @@ namespace SIMA.Logic
         {
             return equipoAccess.AgregarEquipo(equipo);
         }
+        public List<T_C_Equipo> ListarActivos()
+        {
+            return equipoAccess.ListarEquiposActivos();
+        }
     }
 }

@@ -13,6 +13,8 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using SIMA.Logic;
 using SIMA.Entities;
+using SIMA.Client.Auxiliares;
+using Telerik.Windows.Controls;
 
 namespace SIMA.Client.Gestion
 {
@@ -25,6 +27,9 @@ namespace SIMA.Client.Gestion
         MarcaDataLogic marcaLogic;
         ModeloDataLogic modeloLogic;
         EquipoDataLogic equipoLogic;
+        EstadoDataLogic estadoLogic;
+        T_C_Equipo padre;
+        bool verPrimera = true;
         public frmGestionarEquipos()
         {
             InitializeComponent();
@@ -38,21 +43,57 @@ namespace SIMA.Client.Gestion
             cmbMarcaEquipo.ItemsSource = marcaLogic.ListarActivosMarcas();
             modeloLogic = new ModeloDataLogic();
             equipoLogic = new EquipoDataLogic();
+            estadoLogic = new EstadoDataLogic();
+            gvEquipo.ItemsSource = equipoLogic.ListarTodos();
+            cmbEstado.ItemsSource = estadoLogic.ListarEstadosPorTabla("T_C_Equipo");
+            SoloRegistra();
         }
 
         private void btnRegistrar_Click(object sender, RoutedEventArgs e)
         {
             T_C_Equipo equipo = new T_C_Equipo();
+            equipo.Cantidad = int.Parse(txtCantidad.Text);
             equipo.CapacidadOperacion = Convert.ToDecimal(txtCapOper.Text);
-            equipo.Costo = (float)udCostoUnidad.Value;
+            equipo.Costo = (double)udCostoUnidad.Value;
             equipo.Descripcion = txtDescripcion.Text;
-            equipo.DiamteroInterno =Convert.ToDecimal(txtDiamtero.Text);     
+            equipo.DiamteroInterno =Convert.ToDecimal(txtDiamtero.Text);
+            equipo.Fecha_Adquisicion = (DateTime)dtFAdquisicion.SelectedDateTime;
+            equipo.Fecha_Registro = DateTime.Now;
+            equipo.Id_Area = (cmbAreaEquipo.SelectedItem as T_C_Area).Id_Area;
+            equipo.Id_Marca = (cmbMarcaEquipo.SelectedItem as T_C_Marca).Id_Marca;
+            equipo.Id_Modelo = (cmbModeloEquipo.SelectedItem as T_C_Modelo).Id_Modelo;
+            equipo.MaxHoras = int.Parse(udMaxHoras.Value.ToString());
+            equipo.RevestimientoInterior = txtRevestimiento.Text;
+            equipo.Serie = txtSerie.Text;
+            equipo.Stock = int.Parse(txtCantidad.Text);
+            equipo.UsoUnico = (bool)chkEsUsoUnico.IsChecked;
             MessageBox.Show(equipoLogic.AgregarEquipo(equipo));
+            gvEquipo.ItemsSource = equipoLogic.ListarTodos();
+            Limpia();
+            SoloRegistra();
         }
 
         private void btnActualizar_Click(object sender, RoutedEventArgs e)
         {
-
+            T_C_Equipo equipo = gvEquipo.SelectedItem as T_C_Equipo;
+            equipo.Cantidad = int.Parse(txtCantidad.Text);
+            equipo.CapacidadOperacion = Convert.ToDecimal(txtCapOper.Text);
+            equipo.Costo = (double)udCostoUnidad.Value;
+            equipo.Descripcion = txtDescripcion.Text;
+            equipo.DiamteroInterno = Convert.ToDecimal(txtDiamtero.Text);
+            equipo.Fecha_Adquisicion = (DateTime)dtFAdquisicion.SelectedDateTime;
+            equipo.Fecha_Registro = DateTime.Now;
+            equipo.Id_Area = (cmbAreaEquipo.SelectedItem as T_C_Area).Id_Area;
+            equipo.Id_Marca = (cmbMarcaEquipo.SelectedItem as T_C_Marca).Id_Marca;
+            equipo.Id_Modelo = (cmbModeloEquipo.SelectedItem as T_C_Modelo).Id_Modelo;
+            equipo.MaxHoras = int.Parse(udMaxHoras.Value.ToString());
+            equipo.RevestimientoInterior = txtRevestimiento.Text;
+            equipo.Serie = txtSerie.Text;
+            equipo.Stock = int.Parse(txtCantidad.Text);
+            equipo.UsoUnico = (bool)chkEsUsoUnico.IsChecked;
+            gvEquipo.ItemsSource = equipoLogic.ListarTodos();
+            Limpia();
+            SoloRegistra();
         }
 
         private void btnEliminar_Click(object sender, RoutedEventArgs e)
@@ -93,6 +134,62 @@ namespace SIMA.Client.Gestion
         private void cmbModeloEquipo_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
 
+        }
+
+        private void SoloRegistra()
+        {
+            lblEstado.Visibility = Visibility.Hidden;
+            cmbEstado.Visibility = Visibility.Hidden;
+            btnActualizar.IsEnabled = false;
+            btnEliminar.IsEnabled = false;
+            btnRegistrar.IsEnabled = true;
+        }
+
+        private void Limpia()
+        {
+            gvEquipo.SelectedItem = null;
+            lblEstado.Visibility = Visibility.Hidden;
+            cmbEstado.Visibility = Visibility.Hidden;
+            txtCantidad.Clear();
+            txtCapOper.Clear();
+            udCostoUnidad.Value=udCostoUnidad.Minimum;
+            txtDescripcion.Clear();
+            txtDiamtero.Clear();
+            dtFAdquisicion.SelectedDateTime=DateTime.MinValue;
+            cmbAreaEquipo.SelectedItem = null;
+            cmbMarcaEquipo.SelectedItem = null;
+            cmbModeloEquipo.SelectedItem = null;
+            udMaxHoras.Value = udMaxHoras.Minimum;
+            txtRevestimiento.Clear();
+            txtSerie.Clear() ;
+            txtCantidad.Clear();
+            chkEsUsoUnico.IsChecked=false;
+        }
+
+        private void btnSelEquipoPadre_Click(object sender, RoutedEventArgs e)
+        {
+            frmSelectorEquipo selector;
+            if (verPrimera)
+            {
+                selector = new frmSelectorEquipo();
+                selector.SeleccionaEquipoPadre += new EventHandler<SIMA.Client.Auxiliares.EventArgs.EquipoPadreEventArgs>(selector_SeleccionaEquipoPadre);
+                selector.ShowDialog();
+                verPrimera = false;
+            }
+            else
+            {
+                selector = new frmSelectorEquipo(padre);
+                selector.SeleccionaEquipoPadre += new EventHandler<SIMA.Client.Auxiliares.EventArgs.EquipoPadreEventArgs>(selector_SeleccionaEquipoPadre);
+                selector.ShowDialog();
+            }
+            
+            
+        }
+
+        void selector_SeleccionaEquipoPadre(object sender, SIMA.Client.Auxiliares.EventArgs.EquipoPadreEventArgs e)
+        {
+            padre = e.EquipoSeleccionado;
+            DescripcionEquipo.Text = string.Concat(e.EquipoSeleccionado.Id_Equipo," ",e.EquipoSeleccionado.Descripcion);
         }
     }
 }

@@ -159,6 +159,43 @@ namespace SIMA.DataAccess
                 Connection.Close();
             }
         }
+
+        public T_C_Area SeleccionarArea(string idArea)
+        {
+           
+            try
+            {
+                T_C_Area area;
+                using (Command = new System.Data.SqlClient.SqlCommand("T_C_AreaSelect", Connection))
+                {
+                    Command.CommandType = System.Data.CommandType.StoredProcedure;
+                    Command.Parameters.AddWithValue("@Id_Area", idArea);
+                    Connection.Open();
+                    
+                    SqlDataReader reader = Command.ExecuteReader();
+                    area = new T_C_Area();
+                    while (reader.Read())
+                    {
+                        
+                        area.Id_Area = reader.GetValue(reader.GetOrdinal("Id_Area")).ToString();
+                        area.Nombre = reader.GetValue(reader.GetOrdinal("Nombre")).ToString();
+                        area.Descripcion = reader.GetValue(reader.GetOrdinal("Descripcion")).ToString();
+                        area.Id_Estado = Convert.ToInt32(reader.GetValue(reader.GetOrdinal("Id_Estado")).ToString());
+                        area.Estado = estadoAccess.Seleccionar(area.Id_Estado);
+                        
+                    }
+                }
+                return area;
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
+            finally
+            {
+                Connection.Close();
+            }
+        }
        
     }
 }

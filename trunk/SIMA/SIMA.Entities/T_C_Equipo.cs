@@ -10,7 +10,7 @@ namespace SIMA.Entities
 		private string equipoPadre;
 		private string descripcion;
 		private int id_Marca;
-		private short id_Modelo;
+		private int id_Modelo;
 		private string serie;
 		private double costo;
 		private int id_Estado;
@@ -26,6 +26,28 @@ namespace SIMA.Entities
 		private string revestimientoInterior;
         private T_C_Equipo padre;
         private T_C_Estado estado;
+        private T_C_Area area;
+        private T_C_Marca marca;
+        private T_C_Modelo modelo;
+
+
+        public virtual T_C_Modelo Modelo
+        {
+            get { return modelo; }
+            set { modelo = value; }
+        }
+
+        public virtual T_C_Marca Marca
+        {
+            get { return marca; }
+            set { marca = value; }
+        }
+
+        public virtual T_C_Area Area
+        {
+            get { return area; }
+            set { area = value; }
+        }
         private int cantidad;
 
         public virtual int Cantidad
@@ -112,7 +134,7 @@ namespace SIMA.Entities
 		/// <summary>
 		/// Gets or sets the Id_Modelo value.
 		/// </summary>
-		public virtual short Id_Modelo
+		public virtual int Id_Modelo
 		{
 			get { return id_Modelo; }
 			set { id_Modelo = value; }

@@ -24,5 +24,9 @@ namespace SIMA.Logic
         {
             return equipoAccess.ListarEquiposActivos();
         }
+        public List<T_C_Equipo> ListarTodos()
+        {
+            return equipoAccess.ListarEquipos();
+        }
     }
 }

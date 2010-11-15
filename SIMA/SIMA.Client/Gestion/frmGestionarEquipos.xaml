@@ -96,7 +96,7 @@
 
                 </StackPanel>
             </Grid>
-            <telerik:RadGridView Name="gvEquipo" Grid.Row="1" telerik:StyleManager.Theme="Summer" AutoGenerateColumns="False" SelectionChanged="gvOrdenesTrabajo_SelectionChanged" IsReadOnly="True">
+            <telerik:RadGridView Name="gvEquipo" Grid.Row="1" telerik:StyleManager.Theme="Summer" AutoGenerateColumns="False" SelectionChanged="gvEquipo_SelectionChanged" IsReadOnly="True">
                 <telerik:RadGridView.Columns>
                     <telerik:GridViewDataColumn Header="ID Equipo" DataMemberBinding="{Binding Id_Equipo}"/>
                     <telerik:GridViewDataColumn Header="Descripcion" DataMemberBinding="{Binding Descripcion}"/>

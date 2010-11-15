@@ -113,21 +113,37 @@ namespace SIMA.Client.Gestion
 
         private void gvOrdenesTrabajo_SelectionChanged(object sender, Telerik.Windows.Controls.SelectionChangeEventArgs e)
         {
-
+            if (gvEquipo.SelectedItem != null)
+            {
+                T_C_Equipo equipo = gvEquipo.SelectedItem as T_C_Equipo;
+                txtCantidad.Text = equipo.Cantidad.ToString();
+                txtCapOper.Text = equipo.CapacidadOperacion.ToString();
+                udCostoUnidad.Value = equipo.Costo;
+                equipo.Descripcion = txtDescripcion.Text;
+                //equipo.DiamteroInterno = Convert.ToDecimal(txtDiamtero.Text);
+                //equipo.Fecha_Adquisicion = (DateTime)dtFAdquisicion.SelectedDateTime;
+                //equipo.Fecha_Registro = DateTime.Now;
+                //equipo.Id_Area = (cmbAreaEquipo.SelectedItem as T_C_Area).Id_Area;
+                //equipo.Id_Marca = (cmbMarcaEquipo.SelectedItem as T_C_Marca).Id_Marca;
+                //equipo.Id_Modelo = (cmbModeloEquipo.SelectedItem as T_C_Modelo).Id_Modelo;
+                //equipo.MaxHoras = int.Parse(udMaxHoras.Value.ToString());
+                //equipo.RevestimientoInterior = txtRevestimiento.Text;
+                //equipo.Serie = txtSerie.Text;
+                //equipo.Stock = int.Parse(txtCantidad.Text);
+                //equipo.UsoUnico = (bool)chkEsUsoUnico.IsChecked;
+            }
         }
 
         private void cmbMarcaEquipo_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             if (cmbMarcaEquipo.SelectedItem != null)
             {
-                lblModelo.Visibility = Visibility.Visible;
-                cmbModeloEquipo.Visibility = Visibility.Visible;
+                TodasOperaciones();
                 cmbModeloEquipo.ItemsSource = modeloLogic.ListarPorMarca((cmbMarcaEquipo.SelectedItem as T_C_Marca).Id_Marca);
             }
             else
             {
-                lblModelo.Visibility = Visibility.Hidden;
-                cmbModeloEquipo.Visibility = Visibility.Hidden;
+                SoloRegistra();
             }
         }
 
@@ -142,7 +158,19 @@ namespace SIMA.Client.Gestion
             cmbEstado.Visibility = Visibility.Hidden;
             btnActualizar.IsEnabled = false;
             btnEliminar.IsEnabled = false;
+            btnLimpiar.IsEnabled = false;
             btnRegistrar.IsEnabled = true;
+        }
+
+        private void TodasOperaciones()
+        {
+            lblEstado.Visibility = Visibility.Visible;
+            cmbEstado.Visibility = Visibility.Visible;
+            btnActualizar.IsEnabled = true;
+            btnEliminar.IsEnabled = true;
+            btnLimpiar.IsEnabled = true;
+            btnRegistrar.IsEnabled = false;
+
         }
 
         private void Limpia()
@@ -190,6 +218,34 @@ namespace SIMA.Client.Gestion
         {
             padre = e.EquipoSeleccionado;
             DescripcionEquipo.Text = string.Concat(e.EquipoSeleccionado.Id_Equipo," ",e.EquipoSeleccionado.Descripcion);
+        }
+
+        private void gvEquipo_SelectionChanged(object sender, SelectionChangeEventArgs e)
+        {
+            if (gvEquipo.SelectedItem != null)
+            {
+                TodasOperaciones();
+                T_C_Equipo equipo = gvEquipo.SelectedItem as T_C_Equipo;
+                txtCantidad.Text = equipo.Cantidad.ToString();
+                txtCapOper.Text = equipo.CapacidadOperacion.ToString();
+                udCostoUnidad.Value = equipo.Costo;
+                equipo.Descripcion = txtDescripcion.Text;
+                //equipo.DiamteroInterno = Convert.ToDecimal(txtDiamtero.Text);
+                //equipo.Fecha_Adquisicion = (DateTime)dtFAdquisicion.SelectedDateTime;
+                //equipo.Fecha_Registro = DateTime.Now;
+                //equipo.Id_Area = (cmbAreaEquipo.SelectedItem as T_C_Area).Id_Area;
+                //equipo.Id_Marca = (cmbMarcaEquipo.SelectedItem as T_C_Marca).Id_Marca;
+                //equipo.Id_Modelo = (cmbModeloEquipo.SelectedItem as T_C_Modelo).Id_Modelo;
+                //equipo.MaxHoras = int.Parse(udMaxHoras.Value.ToString());
+                //equipo.RevestimientoInterior = txtRevestimiento.Text;
+                //equipo.Serie = txtSerie.Text;
+                //equipo.Stock = int.Parse(txtCantidad.Text);
+                //equipo.UsoUnico = (bool)chkEsUsoUnico.IsChecked;
+            }
+            else
+            {
+                SoloRegistra();
+            }
         }
     }
 }

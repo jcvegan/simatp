@@ -23,6 +23,8 @@ namespace SIMA.Client.Orden_de_Trabajo
     public partial class frmGestionarOrdendeTrabajo : UserControl
     {
         OrdenTrabajoDataLogic ordentrabajoLogic;
+        EstadoDataLogic estadoLogic;
+
         List<T_C_DetalleOrdenDeTrabajo> detalle;
         bool vezPrimera = true;
 
@@ -35,7 +37,44 @@ namespace SIMA.Client.Orden_de_Trabajo
 
         private void gvOrdenesTrabajo_SelectionChanged(object sender, Telerik.Windows.Controls.SelectionChangeEventArgs e)
         {
+            if (gvOrdenesTrabajo.SelectedItem != null)
+            {
+                estadoLogic = new EstadoDataLogic();
+                cmbEstado.ItemsSource = estadoLogic.ListarEstadosPorTabla("T_C_OrdenTrabajo");
+                lblEstado.Visibility = Visibility.Visible;
+                cmbEstado.Visibility = Visibility.Visible;
+                lblUsuario.Visibility = Visibility.Visible;
+                txtUsuario.Visibility = Visibility.Visible;
+                btnActualizar.Visibility = Visibility.Visible; ;
+                btnEliminar.Visibility = Visibility.Visible; ;
+                btnLimpiar.Visibility = Visibility.Visible; ;
+                btnVerDetalle.Visibility = Visibility.Visible; ;
+                lblFRegistro.Visibility = Visibility.Visible; ;
+                dtFRegistro.Visibility = Visibility.Visible; ;
+                lblFModificacion.Visibility = Visibility.Visible; ;
+                dtFModificacion.Visibility = Visibility.Visible; ;
+            }
+            else
+            {
+                lblEstado.Visibility = Visibility.Hidden;
+                cmbEstado.Visibility = Visibility.Hidden; 
+                lblUsuario.Visibility = Visibility.Hidden;
+                txtUsuario.Visibility = Visibility.Hidden;
+                btnActualizar.Visibility = Visibility.Hidden;
+                btnEliminar.Visibility = Visibility.Hidden;
+                btnLimpiar.Visibility = Visibility.Hidden;
+                btnVerDetalle.Visibility = Visibility.Hidden;
+                lblFRegistro.Visibility = Visibility.Hidden;
+                dtFRegistro.Visibility = Visibility.Hidden;
+                lblFModificacion.Visibility = Visibility.Hidden;
+                dtFModificacion.Visibility = Visibility.Hidden;
+            }
+        }
 
+        private void UserControl_Loaded(object sender, RoutedEventArgs e)
+        {
+            ordentrabajoLogic = new OrdenTrabajoDataLogic();
+            gvOrdenesTrabajo.ItemsSource = ordentrabajoLogic.ListarOrdenesTrabajo();
         }
 
         private void btnRegistrar_Click(object sender, RoutedEventArgs e)

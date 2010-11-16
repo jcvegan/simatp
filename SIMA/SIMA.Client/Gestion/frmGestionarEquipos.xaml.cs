@@ -119,16 +119,33 @@ namespace SIMA.Client.Gestion
                 txtCantidad.Text = equipo.Cantidad.ToString();
                 txtCapOper.Text = equipo.CapacidadOperacion.ToString();
                 udCostoUnidad.Value = equipo.Costo;
-                equipo.Descripcion = txtDescripcion.Text;
-                //equipo.DiamteroInterno = Convert.ToDecimal(txtDiamtero.Text);
-                //equipo.Fecha_Adquisicion = (DateTime)dtFAdquisicion.SelectedDateTime;
-                //equipo.Fecha_Registro = DateTime.Now;
+                txtDescripcion.Text = equipo.Descripcion;
+                txtDiamtero.Text = equipo.DiamteroInterno.ToString();
+                dtFAdquisicion.SelectedDateTime = equipo.Fecha_Adquisicion;
+                txtSerie.Text = equipo.Serie;
+                txtCantidad.Text = equipo.Stock.ToString();
+                for (int i = 0; i <= cmbAreaEquipo.Items.Count; i++)
+                {
+                    if ((cmbAreaEquipo.Items[i] as T_C_Area).Id_Area == equipo.Id_Area)
+                    {
+                        cmbAreaEquipo.SelectedIndex = i;
+                        break;
+                    }
+                }
+                for (int i = 0; i <= cmbEstado.Items.Count; i++)
+                {
+                    if ((cmbEstado.Items[i] as T_C_Estado).Id_Estado == equipo.Id_Estado)
+                    {
+                        cmbEstado.SelectedIndex = i;
+                        break;
+                    }
+                }
                 //equipo.Id_Area = (cmbAreaEquipo.SelectedItem as T_C_Area).Id_Area;
                 //equipo.Id_Marca = (cmbMarcaEquipo.SelectedItem as T_C_Marca).Id_Marca;
                 //equipo.Id_Modelo = (cmbModeloEquipo.SelectedItem as T_C_Modelo).Id_Modelo;
                 //equipo.MaxHoras = int.Parse(udMaxHoras.Value.ToString());
                 //equipo.RevestimientoInterior = txtRevestimiento.Text;
-                //equipo.Serie = txtSerie.Text;
+                
                 //equipo.Stock = int.Parse(txtCantidad.Text);
                 //equipo.UsoUnico = (bool)chkEsUsoUnico.IsChecked;
             }

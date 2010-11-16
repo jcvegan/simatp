@@ -33,9 +33,9 @@
                             <GradientStop Color="White" Offset="0.5"/>
                         </LinearGradientBrush>
                     </Border.BorderBrush>
-                    <TextBlock Text="Gestión de Áreas" Foreground="GhostWhite" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="15,0,0,0" FontSize="16"/>
+                    <TextBlock Text="Consultar equipos a mantener." Foreground="GhostWhite" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="15,0,0,0" FontSize="16"/>
                 </Border>
-                <Grid Grid.Row="1">
+                <!--<Grid Grid.Row="1">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="30"/>
                         <RowDefinition Height="30"/>
@@ -60,11 +60,13 @@
                     <telerik:RadButton Name="btnActualizar" Content="Actualizar" Width="100" Click="btnActualizar_Click" telerik:StyleManager.Theme="Summer"/>
                     <telerik:RadButton Name="btnEliminar" Content="Eliminar" Width="100" Click="btnEliminar_Click" telerik:StyleManager.Theme="Summer"/>
                     <telerik:RadButton Name="btnLimpiar" Content="Limpiar" Width="100" Click="btnLimpiar_Click" telerik:StyleManager.Theme="Summer"/>
-                </StackPanel>
-            </Grid>
-            <Grid>
+                </StackPanel>-->
                 
+                <telerik:RadScheduler Grid.Row="1" ViewMode="Day" telerik:StyleManager.Theme="Summer">
+                    
+                </telerik:RadScheduler>
             </Grid>
+            
         <telerik:RadGridView Name="gvAreas" Grid.Row="1" telerik:StyleManager.Theme="Summer" AutoGenerateColumns="False" SelectionChanged="gvAreas_SelectionChanged" IsReadOnly="True">
                 <telerik:RadGridView.Columns>
                     <telerik:GridViewDataColumn Header="ID" DataMemberBinding="{Binding Id_Area}"/>

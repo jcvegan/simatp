@@ -160,8 +160,8 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Seguridad\frmIniciarSesion.xaml">
-      <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Trabajos de Mantenimiento\frmGestionarSolicitud.xaml">
       <SubType>Designer</SubType>
@@ -235,6 +235,7 @@
     </Compile>
     <Compile Include="Seguridad\frmIniciarSesion.xaml.cs">
       <DependentUpon>frmIniciarSesion.xaml</DependentUpon>
+      <SubType>Code</SubType>
     </Compile>
     <Compile Include="Trabajos de Mantenimiento\frmGestionarSolicitud.xaml.cs">
       <DependentUpon>frmGestionarSolicitud.xaml</DependentUpon>

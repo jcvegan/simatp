@@ -45,6 +45,7 @@
                         <RowDefinition Height="30"/>
                         <RowDefinition Height="30"/>
                         <RowDefinition Height="30"/>
+                        <RowDefinition Height="30"/>
                     </Grid.RowDefinitions>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="170"/>
@@ -67,7 +68,8 @@
                     <Label Grid.Column="2" Grid.Row="4" Content="Capacidad de Operación" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="25,0,0,0"/>
                     <Label Grid.Column="2" Grid.Row="5" Content="Diametro interno" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="25,0,0,0"/>
                     <Label Grid.Column="2" Grid.Row="6" Content="Revestimiento Interior" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="25,0,0,0"/>
-                    <Label Name="lblEstado" Grid.Column="2" Grid.Row="7" Content="Estado" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="25,0,0,0"/>
+                    <Label Name="lblEstado" Grid.Column="2" Grid.Row="8" Content="Estado" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="25,0,0,0"/>
+                    <Label Grid.Column="2" Grid.Row="7" Content="Tipos de Mantenimiento" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="25,0,0,0"/>
                     <telerik:RadWatermarkTextBox Name="txtCodigoEquipo" Grid.Column="1" Grid.Row="0" Width="150" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="25,0,0,0" IsEnabled="False" WatermarkContent="(AutoAsignado)"/>
                     <telerik:RadComboBox Name="cmbAreaEquipo" Grid.Column="1" Grid.Row="1" Width="150" HorizontalAlignment="Left" Margin="22,5,63,3" Height="22" telerik:StyleManager.Theme="Summer" SelectedValuePath="Id_Area" DisplayMemberPath="Nombre"/>
                     <TextBox Name="txtDescripcion" Grid.Column="1" Grid.Row="2" Width="150" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="25,0,0,0"/>
@@ -86,7 +88,11 @@
                     <TextBox Name="txtCapOper" Grid.Column="3" Grid.Row="4" Width="120" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="25,0,5,0"/>
                     <TextBox Name="txtDiamtero" Grid.Column="3" Grid.Row="5" Width="120" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="25,0,5,0"/>
                     <TextBox Name="txtRevestimiento" Grid.Column="3" Grid.Row="6" Width="120" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="25,0,5,0"/>
-                    <telerik:RadComboBox Name="cmbEstado" Grid.Column="3" Grid.Row="7" Width="150" HorizontalAlignment="Left" Margin="25,0,0,0" Height="22" telerik:StyleManager.Theme="Summer"/>
+                    <StackPanel Name="stkTiposMantenimiento" Grid.Column="3" Grid.Row="7" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Orientation="Horizontal" Margin="25,0,0,0">
+                        <TextBlock Name="TipodMantenimiento" Width="150" Text="(No tiene tipo mantenimiento)" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                        <telerik:RadButton Name="btnSelTipoMantenimiento" Content="Asignar" VerticalAlignment="Center" telerik:StyleManager.Theme="Summer" Click="btnSelEquipoPadre_Click" />
+                    </StackPanel>
+                    <telerik:RadComboBox Name="cmbEstado" Grid.Column="3" Grid.Row="8" Width="150" HorizontalAlignment="Left" Margin="25,0,0,0" Height="22" telerik:StyleManager.Theme="Summer"/>
                 </Grid>
                 <StackPanel Grid.Row="2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Orientation="Horizontal">
                     <telerik:RadButton Name="btnRegistrar" Content="Registrar" Width="100" Click="btnRegistrar_Click" telerik:StyleManager.Theme="Summer"/>

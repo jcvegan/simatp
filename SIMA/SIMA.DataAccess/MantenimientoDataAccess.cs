@@ -127,7 +127,6 @@ namespace SIMA.DataAccess
                     {
                         T_C_Mantenimiento Mantenimiento = new T_C_Mantenimiento();
                         Mantenimiento.Id_Mantenimiento = Convert.ToInt32(reader.GetValue(reader.GetOrdinal("Id_Mantenimiento")).ToString());
-                        Mantenimiento.Id_Mantenimiento = Convert.ToInt32(reader.GetValue(reader.GetOrdinal("Id_Mantenimiento")).ToString());
                         Mantenimiento.Id_Turno = Convert.ToInt32(reader.GetValue(reader.GetOrdinal("Id_Turno")).ToString());
                         Mantenimiento.Id_Equipo = reader.GetValue(reader.GetOrdinal("Id_Equipo")).ToString();
                         Mantenimiento.FechaProgramacion =Convert.ToDateTime(reader.GetValue(reader.GetOrdinal("FechaProgramacion")).ToString());
@@ -170,7 +169,6 @@ namespace SIMA.DataAccess
                     while (reader.Read())
                     {
                         T_C_Mantenimiento Mantenimiento = new T_C_Mantenimiento();
-                        Mantenimiento.Id_Mantenimiento = Convert.ToInt32(reader.GetValue(reader.GetOrdinal("Id_Mantenimiento")).ToString());
                         Mantenimiento.Id_Mantenimiento = Convert.ToInt32(reader.GetValue(reader.GetOrdinal("Id_Mantenimiento")).ToString());
                         Mantenimiento.Id_Turno = Convert.ToInt32(reader.GetValue(reader.GetOrdinal("Id_Turno")).ToString());
                         Mantenimiento.Id_Equipo = reader.GetValue(reader.GetOrdinal("Id_Equipo")).ToString();

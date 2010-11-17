@@ -273,6 +273,7 @@ namespace SIMA.DataAccess
                         equipo.Nivel = Convert.ToInt32(reader.GetValue(reader.GetOrdinal("Nivel")).ToString());
                         equipo.RevestimientoInterior = reader.GetValue(reader.GetOrdinal("RevestimientoInterior")).ToString();
                         equipo.Serie = reader.GetValue(reader.GetOrdinal("Serie")).ToString();
+                        equipo.Stock = Convert.ToInt32(reader.GetValue(reader.GetOrdinal("Stock")).ToString());
                     }
                 }
                 return equipo;

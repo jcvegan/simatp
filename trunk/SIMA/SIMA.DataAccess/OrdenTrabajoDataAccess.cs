@@ -17,7 +17,7 @@ namespace SIMA.DataAccess
             estadoAccess = new EstadoDataAccess();
         }
 
-        public string AgregarOrdenTrabajo(T_C_OrdenTrabajo ordentrabajo)
+        public string AgregarOrdenTrabajo(T_C_OrdenTrabajo ordentrabajo,out int id)
         {
             try
             {
@@ -30,12 +30,14 @@ namespace SIMA.DataAccess
                     Command.Parameters.AddWithValue("@UltimaFechaModificacion", DateTime.Now);
                     Command.Parameters.AddWithValue("@Id_Usuario", 1);
                     Connection.Open();
-                    Command.ExecuteNonQuery();
+                    id = (Int32)Command.ExecuteScalar();
+                    //id = (int)p.Value;
                 }
                 return "Registro grabado satisfactoriamente.";
             }
             catch(Exception ex)
             {
+                id = 0;
                 return ex.Message;
             }
             finally

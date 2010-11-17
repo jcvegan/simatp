@@ -8,7 +8,7 @@ namespace SIMA.Entities
 
 		private int id_DetalleOrdendeTrabajo;
 		private int id_OrdendeTrabajo;
-		private float costo;
+		private double costo;
 		private float porcentaje;
 		private string motivo;
 		private DateTime fechaRegistro;
@@ -75,7 +75,7 @@ namespace SIMA.Entities
 		/// <summary>
 		/// Gets or sets the Costo value.
 		/// </summary>
-		public virtual float Costo
+		public virtual double Costo
 		{
 			get { return costo; }
 			set { costo = value; }

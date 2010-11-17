@@ -64,7 +64,7 @@ namespace SIMA.DataAccess
                     while (reader.Read())
                     {
                         T_C_DetalleOrdenDeTrabajo detalleordentrabajo = new T_C_DetalleOrdenDeTrabajo();
-                        detalleordentrabajo.IdEquipo = equipoAccess
+                        detalleordentrabajo.IdEquipo = Convert.ToInt32(reader.GetValue(reader.GetOrdinal("Id_Equipo")).ToString();
                         detalleordentrabajo.Id_DetalleOrdendeTrabajo = Convert.ToInt32(reader.GetValue(reader.GetOrdinal("Costo")).ToString());
                          
                     }

@@ -45,7 +45,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Extensiones\AreaDataLogic.cs" />
     <Compile Include="Class1.cs" />
     <Compile Include="DetalleOrdenTrabajoDataLogic.cs" />
     <Compile Include="EquipoDataLogic.cs" />
@@ -53,6 +52,7 @@
     <Compile Include="MantenimientoDataLogic.cs" />
     <Compile Include="MarcaDataLogic.cs" />
     <Compile Include="ModeloDataLogic.cs" />
+    <Compile Include="AreaDataLogic.cs" />
     <Compile Include="OrdenTrabajoDataLogic.cs" />
     <Compile Include="PerfilDataLogic.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -75,6 +75,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Excepciones\" />
+    <Folder Include="Extensiones\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -11,7 +11,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-
+using SIMA.Logic;
+using SIMA.Entities;
 using Telerik.Windows.Controls.Scheduler;
 using System.Collections.ObjectModel;
 using Telerik.Windows.Controls;
@@ -23,15 +24,17 @@ namespace SIMA.Client.Gestion
     /// </summary>
     public partial class frmConsultarEquiposaMantener : UserControl
     {
+        MantenimientoDataLogic Mantenimientologic;
         public frmConsultarEquiposaMantener()
         {
             InitializeComponent();
+            Mantenimientologic = new MantenimientoDataLogic();
         }
 
         private void UserControl_Loaded(object sender, RoutedEventArgs e)
         {
             schMantenimiento.AppointmentsSource = new Auxiliares.MantenimientoSessionAppCollection(schMantenimiento);
-            
+            gvMantenimientos.ItemsSource = Mantenimientologic.ListarMantenimientos();
                        
         }
 
@@ -43,6 +46,11 @@ namespace SIMA.Client.Gestion
         private void schMantenimiento_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
 
+        }
+
+        private void gvMantenimientos_SelectionChanged(object sender, SelectionChangeEventArgs e)
+        {
+            
         }
     }
 }

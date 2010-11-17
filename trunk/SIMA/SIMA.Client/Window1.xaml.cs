@@ -15,6 +15,7 @@ using Telerik.Windows.Controls;
 using SIMA.Client.Gestion;
 using SIMA.Client.Orden_de_Trabajo;
 using SIMA.Client.Trabajos_de_Mantenimiento;
+using SIMA.Client.Seguridad;
 
 namespace SIMA.Client
 {
@@ -35,6 +36,9 @@ namespace SIMA.Client
             item.Header = (sender as RadRibbonToggleButton).Content;
             switch (item.Header.ToString())
             {
+                case "IniciarSesion":
+                    item.Content = new frmIniciarSesion();
+                    break;
                 case "Areas":
                     item.Content = new frmGestionarAreas();                    
                     break;
@@ -60,7 +64,8 @@ namespace SIMA.Client
                     item.Content = new frmGestionarMarca();
                     break;
                 case "Modelos":
-                    item.Content = new frmGestionarModelos();
+                    item.Content = new frmIniciarSesion();
+                    //item.Content = new frmGestionarModelos();
                     break;
                 case "Solicitud":
                     item.Content = new frmGestionarSolicitud();

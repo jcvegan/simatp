@@ -59,6 +59,7 @@
     <Compile Include="TablaDataLogic.cs" />
     <Compile Include="TipoMantenimientoDataLogic.cs" />
     <Compile Include="TipoMantenimientoPorEquipoDataLogic.cs" />
+    <Compile Include="TurnoMantenimientoDataLogic.cs" />
     <Compile Include="UsuarioDataLogic.cs" />
   </ItemGroup>
   <ItemGroup>

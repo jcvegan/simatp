@@ -11,8 +11,9 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using SIMA.Logic;
 using SIMA.Entities;
+using SIMA.Logic;
+
 
 namespace SIMA.Client.Trabajos_de_Mantenimiento
 {

@@ -27,7 +27,6 @@ namespace SIMA.DataAccess
                 {
                     Command.CommandType = System.Data.CommandType.StoredProcedure;
                     Command.Parameters.AddWithValue("@Id_Mantenimiento", Mantenimiento.Id_Mantenimiento);
-                    Command.Parameters.AddWithValue("@Id_Turno", Mantenimiento.Id_Turno);
                     Command.Parameters.AddWithValue("@Id_Equipo", Mantenimiento.Id_Equipo);
                     Command.Parameters.AddWithValue("@FechaProgramacion", Mantenimiento.FechaProgramacion);
                     Command.Parameters.AddWithValue("@UsuarioRegistro", Mantenimiento.UsuarioRegistro);
@@ -62,7 +61,6 @@ namespace SIMA.DataAccess
                 {
                     Command.CommandType = System.Data.CommandType.StoredProcedure;
                     Command.Parameters.AddWithValue("@Id_Mantenimiento", Mantenimiento.Id_Mantenimiento);
-                    Command.Parameters.AddWithValue("@Id_Turno", Mantenimiento.Id_Turno);
                     Command.Parameters.AddWithValue("@Id_Equipo", Mantenimiento.Id_Equipo);
                     Command.Parameters.AddWithValue("@FechaProgramacion", Mantenimiento.FechaProgramacion);
                     Command.Parameters.AddWithValue("@UsuarioRegistro", Mantenimiento.UsuarioRegistro);
@@ -127,7 +125,6 @@ namespace SIMA.DataAccess
                     {
                         T_C_Mantenimiento Mantenimiento = new T_C_Mantenimiento();
                         Mantenimiento.Id_Mantenimiento = Convert.ToInt32(reader.GetValue(reader.GetOrdinal("Id_Mantenimiento")).ToString());
-                        Mantenimiento.Id_Turno = Convert.ToInt32(reader.GetValue(reader.GetOrdinal("Id_Turno")).ToString());
                         Mantenimiento.Id_Equipo = reader.GetValue(reader.GetOrdinal("Id_Equipo")).ToString();
                         Mantenimiento.FechaProgramacion =Convert.ToDateTime(reader.GetValue(reader.GetOrdinal("FechaProgramacion")).ToString());
                         Mantenimiento.UsuarioRegistro = reader.GetValue(reader.GetOrdinal("UsuarioRegistro")).ToString();
@@ -170,7 +167,6 @@ namespace SIMA.DataAccess
                     {
                         T_C_Mantenimiento Mantenimiento = new T_C_Mantenimiento();
                         Mantenimiento.Id_Mantenimiento = Convert.ToInt32(reader.GetValue(reader.GetOrdinal("Id_Mantenimiento")).ToString());
-                        Mantenimiento.Id_Turno = Convert.ToInt32(reader.GetValue(reader.GetOrdinal("Id_Turno")).ToString());
                         Mantenimiento.Id_Equipo = reader.GetValue(reader.GetOrdinal("Id_Equipo")).ToString();
                         Mantenimiento.FechaProgramacion = Convert.ToDateTime(reader.GetValue(reader.GetOrdinal("FechaProgramacion")).ToString());
                         Mantenimiento.UsuarioRegistro = reader.GetValue(reader.GetOrdinal("UsuarioRegistro")).ToString();
@@ -178,11 +174,15 @@ namespace SIMA.DataAccess
                         Mantenimiento.Id_Incidencia = Convert.ToInt32(reader.GetValue(reader.GetOrdinal("Id_Incidencia")).ToString());
                         Mantenimiento.Id_Pedido = Convert.ToInt32(reader.GetValue(reader.GetOrdinal("Id_Pedido")).ToString());
                         Mantenimiento.Prioridad = Convert.ToInt32(reader.GetValue(reader.GetOrdinal("Prioridad")).ToString());
-                        Mantenimiento.Id_OrdenTrabajo = Convert.ToInt32(reader.GetValue(reader.GetOrdinal("Id_OrdenTrabajo")).ToString());
+                        string x=reader.GetValue(reader.GetOrdinal("Id_OrdenTrabajo")).ToString();
+                        if (x!="")
+                        {
+                            Mantenimiento.Id_OrdenTrabajo = Convert.ToInt32(reader.GetValue(reader.GetOrdinal("Id_OrdenTrabajo")).ToString());
+                        }
                         Mantenimiento.Id_TipoMantenimientoEquipo = Convert.ToInt32(reader.GetValue(reader.GetOrdinal("Id_TipoMantenimientoEquipo")).ToString());
                         Mantenimiento.Id_TurnoMantenimiento = Convert.ToInt32(reader.GetValue(reader.GetOrdinal("Id_TurnoMantenimiento")).ToString());
                         Mantenimiento.Id_Estado = Convert.ToInt32(reader.GetValue(reader.GetOrdinal("Id_Estado")).ToString());
-                        Mantenimiento.Estado = estadoAccess.Seleccionar(Mantenimiento.Id_Estado);
+                        
                         Mantenimiento.FechaTrabajoInicio = Convert.ToDateTime(reader.GetValue(reader.GetOrdinal("FechaTrabajoInicio")).ToString());
                         Mantenimiento.FechaTrabajoFin = Convert.ToDateTime(reader.GetValue(reader.GetOrdinal("FechaTrabajoFin")).ToString());
                         Mantenimiento.FechaRegistro = Convert.ToDateTime(reader.GetValue(reader.GetOrdinal("FechaRegistro")).ToString());

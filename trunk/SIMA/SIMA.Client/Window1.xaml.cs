@@ -79,6 +79,9 @@ namespace SIMA.Client
                 case "Asignar Equipos":
                     item.Content = new frmAsignarEquiposAMantener();
                     break;
+                case "Solicitud Mantenimiento":
+                    item.Content = new frmGestionarSolicitudMantenimiento();
+                    break;                    
             }
             item.MinimizedHeight = 20;
             TileContainerRoot.Items.Add(item);

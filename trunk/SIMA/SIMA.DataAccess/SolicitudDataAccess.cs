@@ -24,13 +24,38 @@ namespace SIMA.DataAccess
                 using (Command = new System.Data.SqlClient.SqlCommand("T_C_SolicitudInsert", Connection))
                 {
                     Command.CommandType = System.Data.CommandType.StoredProcedure;
-                    Command.Parameters.AddWithValue("@Id_Solicitud", solicitud.Id_Solicitud);
+                    
                     Command.Parameters.AddWithValue("@Descripcion", solicitud.Descripcion);
                     Command.Parameters.AddWithValue("@FechaSolicitud", solicitud.FechaSolicitud);
                     Command.Parameters.AddWithValue("@FechaRespuesta", solicitud.FechaRespuesta);
-                    Command.Parameters.AddWithValue("@UsuarioRespuesta", solicitud.UsuarioRespuesta);
-                    Command.Parameters.AddWithValue("@Id_OrdenTrabajo", solicitud.Id_OrdenTrabajo);
-                    Command.Parameters.AddWithValue("@Motivo", solicitud.Motivo);
+                    Command.Parameters.AddWithValue("@UsuarioRespuesta", solicitud.UsuarioRespuesta);                   
+                    
+                    Connection.Open();
+                    Command.ExecuteNonQuery();
+                }
+                return "Registro grabado satisfactoriamente";
+            }
+            catch(Exception ex)
+            {
+                return ex.Message;
+            }
+            finally
+            {
+                Connection.Close();
+            }
+        }
+
+        public string AgregarDetalleSolicitud(T_C_DetalleSolicitud Detallesolicitud)
+        {
+            try
+            {
+                using (Command = new System.Data.SqlClient.SqlCommand("T_C_DetalleSolicitudInsert", Connection))
+                {
+                    Command.CommandType = System.Data.CommandType.StoredProcedure;
+
+                    Command.Parameters.AddWithValue("@Motivo", Detallesolicitud.Motivo);
+                    Command.Parameters.AddWithValue("@ID_Equipo", Detallesolicitud.Id_Equipo);
+                    
                     Connection.Open();
                     Command.ExecuteNonQuery();
                 }
@@ -140,8 +165,7 @@ namespace SIMA.DataAccess
                         solicitud.Descripcion = reader.GetValue(reader.GetOrdinal("Descripcion")).ToString();
                         solicitud.FechaSolicitud = Convert.ToDateTime(reader.GetValue(reader.GetOrdinal("FechaSolicitud")).ToString());
                         solicitud.FechaRespuesta = Convert.ToDateTime(reader.GetValue(reader.GetOrdinal("FechaRespuesta")).ToString());
-                        solicitud.UsuarioRespuesta = reader.GetValue(reader.GetOrdinal("UsuarioRespuesta")).ToString();
-                        solicitud.Id_OrdenTrabajo = Convert.ToInt32(reader.GetValue(reader.GetOrdinal("Id_OrdenTrabajo")).ToString());
+                        solicitud.UsuarioRespuesta = reader.GetValue(reader.GetOrdinal("UsuarioRespuesta")).ToString();                        
                         solicitud.Motivo = reader.GetValue(reader.GetOrdinal("Motivo")).ToString();
                         solicitud.Id_Estado = Convert.ToInt32(reader.GetValue(reader.GetOrdinal("Id_Estado")).ToString());
                         solicitudes.Add(solicitud);
@@ -232,5 +256,6 @@ namespace SIMA.DataAccess
                 Connection.Close();
             }
         }
+                
     }
 }

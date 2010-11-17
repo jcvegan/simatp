@@ -39,20 +39,38 @@ namespace SIMA.Client.Orden_de_Trabajo
         {
             if (gvOrdenesTrabajo.SelectedItem != null)
             {
-                estadoLogic = new EstadoDataLogic();
-                cmbEstado.ItemsSource = estadoLogic.ListarEstadosPorTabla("T_C_OrdenTrabajo");
+                T_C_OrdenTrabajo ordentrabajo = gvOrdenesTrabajo.SelectedItem as T_C_OrdenTrabajo;             
+                txtDescripcion.Text = ordentrabajo.Descripcion;
+                txtCosto.Text=ordentrabajo.CostoTotal.ToString();
+                dtFRegistro.SelectedDateTime = ordentrabajo.FechaRegistro;
+                
+                for (int i = 0; i <= cmbEstado.Items.Count; i++)
+                {
+                    if ((cmbEstado.Items[i] as T_C_Estado).Id_Estado == ordentrabajo.Id_Estado)
+                    {
+                        cmbEstado.SelectedIndex = i;
+                        break;
+                    }
+                }
+
                 lblEstado.Visibility = Visibility.Visible;
                 cmbEstado.Visibility = Visibility.Visible;
                 lblUsuario.Visibility = Visibility.Visible;
                 txtUsuario.Visibility = Visibility.Visible;
-                btnActualizar.Visibility = Visibility.Visible; ;
-                btnEliminar.Visibility = Visibility.Visible; ;
-                btnLimpiar.Visibility = Visibility.Visible; ;
-                btnVerDetalle.Visibility = Visibility.Visible; ;
-                lblFRegistro.Visibility = Visibility.Visible; ;
-                dtFRegistro.Visibility = Visibility.Visible; ;
-                lblFModificacion.Visibility = Visibility.Visible; ;
-                dtFModificacion.Visibility = Visibility.Visible; ;
+
+                btnActualizar.IsEnabled = true;
+                btnEliminar.IsEnabled = true;
+                btnLimpiar.IsEnabled = true;
+                btnVerDetalle.IsEnabled = true;
+
+                lblCosto.Visibility = Visibility.Visible;
+                txtCosto.Visibility = Visibility.Visible;
+                lblFRegistro.Visibility = Visibility.Visible;
+                dtFRegistro.Visibility = Visibility.Visible;
+                lblFModificacion.Visibility = Visibility.Visible;
+                dtFModificacion.Visibility = Visibility.Visible;
+
+                
             }
             else
             {
@@ -64,6 +82,8 @@ namespace SIMA.Client.Orden_de_Trabajo
                 btnEliminar.Visibility = Visibility.Hidden;
                 btnLimpiar.Visibility = Visibility.Hidden;
                 btnVerDetalle.Visibility = Visibility.Hidden;
+                lblCosto.Visibility = Visibility.Hidden;
+                txtCosto.Visibility = Visibility.Hidden;
                 lblFRegistro.Visibility = Visibility.Hidden;
                 dtFRegistro.Visibility = Visibility.Hidden;
                 lblFModificacion.Visibility = Visibility.Hidden;
@@ -75,12 +95,15 @@ namespace SIMA.Client.Orden_de_Trabajo
         {
             ordentrabajoLogic = new OrdenTrabajoDataLogic();
             gvOrdenesTrabajo.ItemsSource = ordentrabajoLogic.ListarOrdenesTrabajo();
+            estadoLogic = new EstadoDataLogic();
+            cmbEstado.ItemsSource = estadoLogic.ListarEstadosPorTabla("T_C_OrdenTrabajo");
         }
 
         private void btnRegistrar_Click(object sender, RoutedEventArgs e)
         {
             T_C_OrdenTrabajo ordentrabajo = new T_C_OrdenTrabajo();
-            ordentrabajo.Descripcion = txtCosto.Text;
+            ordentrabajo.Descripcion = txtDescripcion.Text;
+            ordentrabajo.FechaRegistro = DateTime.Now;
             MessageBox.Show(ordentrabajoLogic.AgregarOrdenTrabajo(ordentrabajo));
             gvOrdenesTrabajo.ItemsSource = ordentrabajoLogic.ListarOrdenesTrabajo();
             Limpia();

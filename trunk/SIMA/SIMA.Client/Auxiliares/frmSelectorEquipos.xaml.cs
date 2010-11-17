@@ -79,8 +79,8 @@ namespace SIMA.Client.Auxiliares
                 {
                     T_C_Equipo eqtemp = new T_C_Equipo();
                     eqtemp.Id_Equipo = det.IdEquipo;
+                    eqtemp.Descripcion = equipoLogic.SeleccionarEquipo(eqtemp.Id_Equipo).Descripcion;
                     eqtemp.Cantidad = det.Cantidad;
-                   
                     equipos.Add(eqtemp);
                 }
                 gvEquipos.ItemsSource = equipos;

@@ -28,5 +28,9 @@ namespace SIMA.Logic
         {
             return equipoAccess.ListarEquipos();
         }
+        public T_C_Equipo SeleccionarEquipo(string Id_Equipo)
+        {
+            return equipoAccess.SeleccionarEquipo(Id_Equipo);
+        }
     }
 }

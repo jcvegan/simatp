@@ -211,7 +211,7 @@ namespace SIMA.Entities
         {
             get { return Estado; }
             set { Estado = value; }
-        }
+        }   
 
 		#endregion
 	}

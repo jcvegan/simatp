@@ -68,24 +68,24 @@
 
                             </telerik:RadScheduler>
                         </telerik:RadTabItem>
-                        <telerik:RadTabItem Header="Vista Lista">
-                            
+                        <telerik:RadTabItem Header="Vista Lista"  >
+                            <telerik:RadGridView Name="gvMantenimientos" Grid.Row="1" telerik:StyleManager.Theme="Summer" AutoGenerateColumns="False" SelectionChanged="gvMantenimientos_SelectionChanged" IsReadOnly="True" Visibility="Visible">
+                                <telerik:RadGridView.Columns>
+                                    <telerik:GridViewDataColumn Header="ID" DataMemberBinding="{Binding Id_Mantenimiento}"/>
+                                    <telerik:GridViewDataColumn Header="Descrípcion" DataMemberBinding="{Binding Id_Equipo}"/>
+                                    <telerik:GridViewDataColumn Header="Hora inicio" DataMemberBinding="{Binding UsuarioRegistro}"/>
+                                </telerik:RadGridView.Columns>
+                                <telerik:RadGridView.GroupDescriptors>
+                                    <telerik:GroupDescriptor Member="Estado.Nombre_Estado" DisplayContent="Estados"/>
+                                </telerik:RadGridView.GroupDescriptors>
+                            </telerik:RadGridView>
+
                         </telerik:RadTabItem>
                     </telerik:RadTabControl.Items>
                 </telerik:RadTabControl>
                 
             </Grid>
             
-        <telerik:RadGridView Name="gvAreas" Grid.Row="1" telerik:StyleManager.Theme="Summer" AutoGenerateColumns="False" SelectionChanged="gvAreas_SelectionChanged" IsReadOnly="True" Visibility="Hidden">
-                <telerik:RadGridView.Columns>
-                    <telerik:GridViewDataColumn Header="ID" DataMemberBinding="{Binding Id_Area}"/>
-                    <telerik:GridViewDataColumn Header="Nombre de Área" DataMemberBinding="{Binding Nombre}"/>
-                    <telerik:GridViewDataColumn Header="Descripción de Área" DataMemberBinding="{Binding Descripcion}"/>
-                </telerik:RadGridView.Columns>
-                <telerik:RadGridView.GroupDescriptors>
-                    <telerik:GroupDescriptor Member="Estado.Nombre_Estado" DisplayContent="Estados"/>
-                </telerik:RadGridView.GroupDescriptors>
-            </telerik:RadGridView>
         </Grid>
     </telerik:RadBusyIndicator>
 </UserControl>

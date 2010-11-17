@@ -24,7 +24,7 @@ namespace SIMA.Client.Orden_de_Trabajo
     {
         OrdenTrabajoDataLogic ordentrabajoLogic;
         EstadoDataLogic estadoLogic;
-        DetalleOrdenTrabajoDataLogic detalleordentrabajoLogic;
+        Logic.DetalleOrdenTrabajoDataLogic detalleordentrabajoLogic;
 
         List<T_C_DetalleOrdenDeTrabajo> detalle;
         bool vezPrimera = true;

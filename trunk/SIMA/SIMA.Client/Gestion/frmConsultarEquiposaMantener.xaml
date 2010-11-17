@@ -8,7 +8,6 @@
         <Grid>
             <Grid.RowDefinitions>
                 <RowDefinition/>
-                <RowDefinition/>
             </Grid.RowDefinitions>
             <Grid Grid.Row="0">
                 <Grid.RowDefinitions>
@@ -62,12 +61,22 @@
                     <telerik:RadButton Name="btnLimpiar" Content="Limpiar" Width="100" Click="btnLimpiar_Click" telerik:StyleManager.Theme="Summer"/>
                 </StackPanel>-->
                 
-                <telerik:RadScheduler Grid.Row="1" ViewMode="Day" telerik:StyleManager.Theme="Summer">
-                    
-                </telerik:RadScheduler>
+                <telerik:RadTabControl Grid.Row="1"  TabStripPlacement="Bottom" telerik:StyleManager.Theme="Summer">
+                    <telerik:RadTabControl.Items>
+                        <telerik:RadTabItem Header="Vista Calendario">
+                            <telerik:RadScheduler Grid.Row="1" ViewMode="Day" telerik:StyleManager.Theme="Summer" IsReadOnly="True">
+
+                            </telerik:RadScheduler>
+                        </telerik:RadTabItem>
+                        <telerik:RadTabItem Header="Vista Lista">
+                            
+                        </telerik:RadTabItem>
+                    </telerik:RadTabControl.Items>
+                </telerik:RadTabControl>
+                
             </Grid>
             
-        <telerik:RadGridView Name="gvAreas" Grid.Row="1" telerik:StyleManager.Theme="Summer" AutoGenerateColumns="False" SelectionChanged="gvAreas_SelectionChanged" IsReadOnly="True">
+        <!--<telerik:RadGridView Name="gvAreas" Grid.Row="1" telerik:StyleManager.Theme="Summer" AutoGenerateColumns="False" SelectionChanged="gvAreas_SelectionChanged" IsReadOnly="True">
                 <telerik:RadGridView.Columns>
                     <telerik:GridViewDataColumn Header="ID" DataMemberBinding="{Binding Id_Area}"/>
                     <telerik:GridViewDataColumn Header="Nombre de Área" DataMemberBinding="{Binding Nombre}"/>
@@ -76,7 +85,7 @@
                 <telerik:RadGridView.GroupDescriptors>
                     <telerik:GroupDescriptor Member="Estado.Nombre_Estado" DisplayContent="Estados"/>
                 </telerik:RadGridView.GroupDescriptors>
-            </telerik:RadGridView>
+            </telerik:RadGridView>-->
         </Grid>
     </telerik:RadBusyIndicator>
 </UserControl>

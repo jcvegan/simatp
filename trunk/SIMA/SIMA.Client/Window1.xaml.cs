@@ -68,8 +68,8 @@ namespace SIMA.Client
                 case "Mantenimientos programados":
                     item.Content = new frmConsultarEquiposaMantener();
                     break;
-                case "Asignar Equipos":
-                    item.Content = new frmAsignarEquiposAMantener();
+                case "Equipos a mantener":
+                    item.Content = new frmConsultarEquiposaMantener();
                     break;
             }
             item.MinimizedHeight = 20;

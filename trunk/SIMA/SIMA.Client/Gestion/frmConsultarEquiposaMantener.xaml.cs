@@ -12,6 +12,10 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
+using Telerik.Windows.Controls.Scheduler;
+using System.Collections.ObjectModel;
+using Telerik.Windows.Controls;
+
 namespace SIMA.Client.Gestion
 {
     /// <summary>
@@ -26,7 +30,8 @@ namespace SIMA.Client.Gestion
 
         private void UserControl_Loaded(object sender, RoutedEventArgs e)
         {
-
+            schMantenimiento.AppointmentsSource = new Auxiliares.MantenimientoSessionAppCollection(schMantenimiento);
+            
         }
 
         private void gvAreas_SelectionChanged(object sender, Telerik.Windows.Controls.SelectionChangeEventArgs e)

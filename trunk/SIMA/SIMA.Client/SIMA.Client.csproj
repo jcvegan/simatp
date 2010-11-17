@@ -168,8 +168,8 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Trabajos de Mantenimiento\frmAsignarEquiposAMantener.xaml">
-      <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="Trabajos de Mantenimiento\frmGestionarSolicitud.xaml">
       <SubType>Designer</SubType>
@@ -198,6 +198,8 @@
     <Compile Include="Auxiliares\frmSelectorEquipos.xaml.cs">
       <DependentUpon>frmSelectorEquipos.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Auxiliares\MantenimientoSessionApp.cs" />
+    <Compile Include="Auxiliares\MantenimientoSessionAppCollection.cs" />
     <Compile Include="Gestion\frmConsultarEquiposaMantener.xaml.cs">
       <DependentUpon>frmConsultarEquiposaMantener.xaml</DependentUpon>
     </Compile>

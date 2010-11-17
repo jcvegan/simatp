@@ -40,9 +40,11 @@ namespace SIMA.Logic
                         }
                         else
                         {
-                            
+                            return "";
                         }
                     }
+                    
+                    return "";
                 
             }
             catch

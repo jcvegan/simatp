@@ -104,7 +104,7 @@ namespace SIMA.Client.Orden_de_Trabajo
             T_C_OrdenTrabajo ordentrabajo = new T_C_OrdenTrabajo();
             ordentrabajo.Descripcion = txtDescripcion.Text;
             ordentrabajo.FechaRegistro = DateTime.Now;
-            MessageBox.Show(ordentrabajoLogic.AgregarOrdenTrabajo(ordentrabajo));
+            MessageBox.Show(ordentrabajoLogic.AgregarOrdenTrabajo(ordentrabajo,null));
             gvOrdenesTrabajo.ItemsSource = ordentrabajoLogic.ListarOrdenesTrabajo();
             Limpia();
         }

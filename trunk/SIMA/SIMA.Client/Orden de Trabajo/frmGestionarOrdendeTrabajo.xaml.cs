@@ -24,6 +24,7 @@ namespace SIMA.Client.Orden_de_Trabajo
     {
         OrdenTrabajoDataLogic ordentrabajoLogic;
         EstadoDataLogic estadoLogic;
+        DetalleOrdenTrabajoDataLogic detalleordentrabajoLogic;
 
         List<T_C_DetalleOrdenDeTrabajo> detalle;
         bool vezPrimera = true;
@@ -33,12 +34,14 @@ namespace SIMA.Client.Orden_de_Trabajo
             InitializeComponent();
             ordentrabajoLogic = new OrdenTrabajoDataLogic();
             detalle = new List<T_C_DetalleOrdenDeTrabajo>();
+            detalleordentrabajoLogic = new DetalleOrdenTrabajoDataLogic();
         }
 
         private void gvOrdenesTrabajo_SelectionChanged(object sender, Telerik.Windows.Controls.SelectionChangeEventArgs e)
         {
             if (gvOrdenesTrabajo.SelectedItem != null)
             {
+                
                 T_C_OrdenTrabajo ordentrabajo = gvOrdenesTrabajo.SelectedItem as T_C_OrdenTrabajo;             
                 txtDescripcion.Text = ordentrabajo.Descripcion;
                 txtCosto.Text=ordentrabajo.CostoTotal.ToString();
@@ -52,6 +55,8 @@ namespace SIMA.Client.Orden_de_Trabajo
                         break;
                     }
                 }
+
+                
 
                 lblEstado.Visibility = Visibility.Visible;
                 cmbEstado.Visibility = Visibility.Visible;
@@ -102,9 +107,11 @@ namespace SIMA.Client.Orden_de_Trabajo
         private void btnRegistrar_Click(object sender, RoutedEventArgs e)
         {
             T_C_OrdenTrabajo ordentrabajo = new T_C_OrdenTrabajo();
+            T_C_DetalleOrdenDeTrabajo detalleordentrabajo = new T_C_DetalleOrdenDeTrabajo();
             ordentrabajo.Descripcion = txtDescripcion.Text;
             ordentrabajo.FechaRegistro = DateTime.Now;
-            MessageBox.Show(ordentrabajoLogic.AgregarOrdenTrabajo(ordentrabajo,null));
+
+            MessageBox.Show(ordentrabajoLogic.AgregarOrdenTrabajo(ordentrabajo,detalle));
             gvOrdenesTrabajo.ItemsSource = ordentrabajoLogic.ListarOrdenesTrabajo();
             Limpia();
         }
@@ -163,6 +170,8 @@ namespace SIMA.Client.Orden_de_Trabajo
         private void Limpia()
         {
             txtDescripcion.Clear();
+            DescripcionEquipo.Text = "No cuenta con equipos";
+            detalle.Clear();
         }
     }
 }

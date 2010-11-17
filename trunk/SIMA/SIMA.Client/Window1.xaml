@@ -32,12 +32,13 @@
             </telerik:RadRibbonTab>
             <telerik:RadRibbonTab Header="Ordenes de Trabajo" telerik:StyleManager.Theme="Summer">
                 <telerik:RadRibbonGroup Header="Sistema">
-                    <telerik:RadRibbonToggleButton Name="rbtnGestionarOrdenDeTrabajo" Content="Orden de Trabajo" Checked="rbtnChecked" Unchecked="rbtnUnchecked"/>
+                    <telerik:RadRibbonToggleButton Name="rbtnGestionarOrdenDeTrabajo" Content="Orden de Trabajo" Checked="rbtnChecked" Unchecked="rbtnUnchecked"/>                                        
                 </telerik:RadRibbonGroup>
             </telerik:RadRibbonTab>
             <telerik:RadRibbonTab Header="Solicitudes" telerik:StyleManager.Theme="Summer">
                 <telerik:RadRibbonGroup Header="Sistema">
                     <telerik:RadRibbonToggleButton Name="rbtnGestionarSolicitudes" Content="Solicitud" Checked="rbtnChecked" Unchecked="rbtnUnchecked"/>
+                    <telerik:RadRibbonToggleButton Name="rbtnSolicitudesMantenimiento" Content="Solicitud Mantenimiento" Checked="rbtnChecked" Unchecked="rbtnUnchecked"/>
                 </telerik:RadRibbonGroup>
             </telerik:RadRibbonTab>
             <telerik:RadRibbonTab Header="Trabajos de Mantenimiento">

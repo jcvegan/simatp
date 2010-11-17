@@ -45,8 +45,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AreaDataLogic.cs" />
+    <Compile Include="Extensiones\AreaDataLogic.cs" />
     <Compile Include="Class1.cs" />
+    <Compile Include="DetalleOrdenTrabajoDataLogic.cs" />
     <Compile Include="EquipoDataLogic.cs" />
     <Compile Include="EstadoDataLogic.cs" />
     <Compile Include="MantenimientoDataLogic.cs" />
@@ -74,7 +75,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Excepciones\" />
-    <Folder Include="Extensiones\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

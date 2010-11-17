@@ -10,42 +10,39 @@ namespace SIMA.Logic
     public class OrdenTrabajoDataLogic 
     {
         private OrdenTrabajoDataAccess ordentrabajoAccess;
+        private DetalleOrdenDeTrabajoDataAccess detalleOrdenAccess;
         private EquipoDataAccess equipoAccess;
-        private 
         T_C_Equipo equipo = new T_C_Equipo();
-
+        
         public OrdenTrabajoDataLogic()
         {
             ordentrabajoAccess = new OrdenTrabajoDataAccess();
             equipoAccess = new EquipoDataAccess();
+            detalleOrdenAccess = new DetalleOrdenDeTrabajoDataAccess();
         }
 
         public string AgregarOrdenTrabajo(T_C_OrdenTrabajo ordentrabajo,List<T_C_DetalleOrdenDeTrabajo> detalles)
         {
             try
-            {
-                //if (equipo.Stock < equipo.Cantidad)
-                //{
-                    
-                //}
-                //else
-                //{
-                    ordentrabajoAccess.AgregarOrdenTrabajo(ordentrabajo);
+            { int id=0;
+                ordentrabajoAccess.AgregarOrdenTrabajo(ordentrabajo, out id);
 
-                    foreach (T_C_DetalleOrdenDeTrabajo detalle in detalles)
+                foreach (T_C_DetalleOrdenDeTrabajo detalle in detalles)
+                {
+                    detalle.Id_OrdendeTrabajo = id;
+                    if (detalle.Cantidad > equipoAccess.SeleccionarEquipo(detalle.IdEquipo).Stock)
                     {
-                        if (detalle.Cantidad > equipoAccess.SeleccionarEquipo(detalle.IdEquipo).Stock)
-                        {
-                            return "La cantidad no debe ser mayor a stock.";
-                        }
-                        else
-                        {
-                            return "";
-                        }
+                        return "La cantidad no debe ser mayor a stock.";
+                        break;
                     }
-                    
-                    return "";
-                
+                    else
+                    {
+                        detalle.Costo = detalle.Cantidad * equipoAccess.SeleccionarEquipo(detalle.IdEquipo).Costo;
+                        detalleOrdenAccess.AgregarDetalleOrdenDeTrabajo(detalle);
+                    }
+                }
+                return "Orden de trabajo registrado satisfactoriamente";
+
             }
             catch
             {

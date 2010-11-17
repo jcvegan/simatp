@@ -167,6 +167,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Trabajos de Mantenimiento\frmAsignarEquiposAMantener.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Trabajos de Mantenimiento\frmGestionarSolicitud.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -240,6 +244,9 @@
     <Compile Include="Seguridad\frmIniciarSesion.xaml.cs">
       <DependentUpon>frmIniciarSesion.xaml</DependentUpon>
       <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Trabajos de Mantenimiento\frmAsignarEquiposAMantener.xaml.cs">
+      <DependentUpon>frmAsignarEquiposAMantener.xaml</DependentUpon>
     </Compile>
     <Compile Include="Trabajos de Mantenimiento\frmGestionarSolicitud.xaml.cs">
       <DependentUpon>frmGestionarSolicitud.xaml</DependentUpon>

@@ -158,7 +158,7 @@ namespace SIMA.DataAccess
 
                         T_C_OrdenTrabajo ordentrabajo = new T_C_OrdenTrabajo();
                         ordentrabajo.Id_OrdenTrabajo = Convert.ToInt32(reader.GetValue(reader.GetOrdinal("Id_OrdenTrabajo")).ToString());
-                        ordentrabajo.Descripcion = reader.GetValue(reader.GetOrdinal("Id_OrdenTrabajo")).ToString();
+                        ordentrabajo.Descripcion = reader.GetValue(reader.GetOrdinal("Descripcion")).ToString();
                         ordentrabajo.CostoTotal = Convert.ToInt32(reader.GetValue(reader.GetOrdinal("CostoTotal")).ToString());
                         ordentrabajo.FechaRegistro = Convert.ToDateTime(reader.GetValue(reader.GetOrdinal("FechaRegistro")).ToString());
                         ordentrabajo.UltimaFechaModificacion = Convert.ToDateTime(reader.GetValue(reader.GetOrdinal("UltimaFechaModificacion")).ToString());

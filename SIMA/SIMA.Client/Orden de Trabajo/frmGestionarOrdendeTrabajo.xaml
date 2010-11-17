@@ -67,7 +67,7 @@
                 <telerik:DateTimePicker Name="dtFRegistro" Grid.Column="1" Grid.Row="4" VerticalAlignment="Center" Margin="25,0,2,0" Visibility="Hidden" telerik:StyleManager.Theme="Summer" Height="22" />
                 <telerik:DateTimePicker Name="dtFModificacion" Grid.Column="1" Grid.Row="5" Margin="25,3,2,5" Visibility="Hidden" telerik:StyleManager.Theme="Summer" />
                 <TextBox Name="txtUsuario" Grid.Column="3" Grid.Row="0" Width="150" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="25,0,0,0" Visibility="Hidden"/>
-                <telerik:RadComboBox Name="cmbEstado" Grid.Column="3" Grid.Row="1" Width="150" HorizontalAlignment="Left" Margin="25,0,0,0" Height="22" telerik:StyleManager.Theme="Summer" Visibility="Hidden"/>
+                <telerik:RadComboBox Name="cmbEstado" Grid.Column="3" Grid.Row="1" Width="150" HorizontalAlignment="Left" Margin="25,0,0,0" Height="22" telerik:StyleManager.Theme="Summer" Visibility="Hidden" DisplayMemberPath="Nombre_Estado" />
                 
                 
             </Grid>

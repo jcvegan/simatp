@@ -10,29 +10,40 @@ namespace SIMA.Logic
     public class OrdenTrabajoDataLogic 
     {
         private OrdenTrabajoDataAccess ordentrabajoAccess;
+        private EquipoDataAccess equipoAccess;
+        private 
+        T_C_Equipo equipo = new T_C_Equipo();
 
         public OrdenTrabajoDataLogic()
         {
             ordentrabajoAccess = new OrdenTrabajoDataAccess();
+            equipoAccess = new EquipoDataAccess();
         }
 
-        public string AgregarOrdenTrabajo(T_C_OrdenTrabajo ordentrabajo)
+        public string AgregarOrdenTrabajo(T_C_OrdenTrabajo ordentrabajo,List<T_C_DetalleOrdenDeTrabajo> detalles)
         {
             try
             {
-                //if (ordentrabajo.Descripcion == string.Empty)
+                //if (equipo.Stock < equipo.Cantidad)
                 //{
-                //    throw new Exception();
+                    
                 //}
-                //if (ordentrabajo.CostoTotal <= 0)
+                //else
                 //{
-                //    throw new Exception();
-                //}  
-                //if (ordentrabajo.Id_Estado <= 0)
-                //{
-                //    throw new Exception();
-                //}
-                return ordentrabajoAccess.AgregarOrdenTrabajo(ordentrabajo);
+                    ordentrabajoAccess.AgregarOrdenTrabajo(ordentrabajo);
+
+                    foreach (T_C_DetalleOrdenDeTrabajo detalle in detalles)
+                    {
+                        if (detalle.Cantidad > equipoAccess.SeleccionarEquipo(detalle.IdEquipo).Stock)
+                        {
+                            return "La cantidad no debe ser mayor a stock.";
+                        }
+                        else
+                        {
+                            
+                        }
+                    }
+                
             }
             catch
             {

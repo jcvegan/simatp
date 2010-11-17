@@ -58,6 +58,8 @@
     <Compile Include="SolicitudDataLogic.cs" />
     <Compile Include="TablaDataLogic.cs" />
     <Compile Include="TipoMantenimientoDataLogic.cs" />
+    <Compile Include="TipoMantenimientoPorEquipoDataLogic.cs" />
+    <Compile Include="UsuarioDataLogic.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\SIMA.DataAccess\SIMA.DataAccess.csproj">

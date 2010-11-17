@@ -32,7 +32,7 @@ namespace SIMA.Client.Auxiliares
             {
                 MantenimientoSessionApp MantenimientoApp = new MantenimientoSessionApp();
                 MantenimientoApp.Subject = EquipoLogic.SeleccionarEquipo(Mantenimiento.Id_Equipo.ToString()).Descripcion;
-                MantenimientoApp.Body = "mantenimiento de equipo fn17";
+                MantenimientoApp.Body = "mantenimiento de equipo "+MantenimientoApp.Subject;
                 string horaminutoinicio,horaminutofin, horainicio, minutoinicio, horafin, minutofin="";
                 horaminutoinicio = TurnoLogic.SeleccionarTurnoMantenimiento(Mantenimiento.Id_TurnoMantenimiento).HoraInicio.ToString();
                 horaminutofin = TurnoLogic.SeleccionarTurnoMantenimiento(Mantenimiento.Id_TurnoMantenimiento).HoraFin.ToString();
@@ -57,7 +57,7 @@ namespace SIMA.Client.Auxiliares
                 }
                 MantenimientoApp.Start = Convert.ToDateTime(Mantenimiento.FechaProgramacion.Year + "-" + Mantenimiento.FechaProgramacion.Month + "-" + Mantenimiento.FechaProgramacion.Day + " " + horainicio + ":" + minutoinicio + ":00.000");
                 MantenimientoApp.End = Convert.ToDateTime(Mantenimiento.FechaProgramacion.Year + "-" + Mantenimiento.FechaProgramacion.Month + "-" + Mantenimiento.FechaProgramacion.Day + " " + horafin+ ":" + minutofin+ ":00.000");
-                MantenimientoApp.Equipo = "FN17";
+                MantenimientoApp.Equipo = Mantenimiento.Id_Equipo;
                 MantenimientoApp.Category = scheduler.Categories.GetCategoryByName("MANTE");
                 Add(MantenimientoApp);
             }

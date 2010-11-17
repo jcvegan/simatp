@@ -97,11 +97,12 @@ namespace SIMA.DataAccess
             try
             {
                 T_C_TurnoMantenimiento TurnoMantenimiento;
-                using (Command = new System.Data.SqlClient.SqlCommand("T_C_TurnoMantenimientoselectAll", Connection))
+                using (Command = new System.Data.SqlClient.SqlCommand("T_C_TurnoMantenimientoSelect", Connection))
                 {
                     Command.CommandType = System.Data.CommandType.StoredProcedure;
                     Connection.Open();
                     TurnoMantenimiento = new T_C_TurnoMantenimiento();
+                    Command.Parameters.AddWithValue("@Id_TurnoMantenimiento", idMantenimiento);
                     SqlDataReader reader = Command.ExecuteReader();
                     while (reader.Read())
                     {

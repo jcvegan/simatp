@@ -64,7 +64,7 @@
                 <telerik:RadTabControl Grid.Row="1"  TabStripPlacement="Bottom" telerik:StyleManager.Theme="Summer">
                     <telerik:RadTabControl.Items>
                         <telerik:RadTabItem Header="Vista Calendario">
-                            <telerik:RadScheduler Name="schMantenimiento"  Grid.Row="1" ViewMode="Day" telerik:StyleManager.Theme="Summer" IsReadOnly="True">
+                            <telerik:RadScheduler Name="schMantenimiento"  Grid.Row="1" ViewMode="Day" telerik:StyleManager.Theme="Summer" IsReadOnly="True" MouseDoubleClick="schMantenimiento_MouseDoubleClick">
 
                             </telerik:RadScheduler>
                         </telerik:RadTabItem>
@@ -76,7 +76,7 @@
                 
             </Grid>
             
-        <!--<telerik:RadGridView Name="gvAreas" Grid.Row="1" telerik:StyleManager.Theme="Summer" AutoGenerateColumns="False" SelectionChanged="gvAreas_SelectionChanged" IsReadOnly="True">
+        <telerik:RadGridView Name="gvAreas" Grid.Row="1" telerik:StyleManager.Theme="Summer" AutoGenerateColumns="False" SelectionChanged="gvAreas_SelectionChanged" IsReadOnly="True" Visibility="Hidden">
                 <telerik:RadGridView.Columns>
                     <telerik:GridViewDataColumn Header="ID" DataMemberBinding="{Binding Id_Area}"/>
                     <telerik:GridViewDataColumn Header="Nombre de Área" DataMemberBinding="{Binding Nombre}"/>
@@ -85,7 +85,7 @@
                 <telerik:RadGridView.GroupDescriptors>
                     <telerik:GroupDescriptor Member="Estado.Nombre_Estado" DisplayContent="Estados"/>
                 </telerik:RadGridView.GroupDescriptors>
-            </telerik:RadGridView>-->
+            </telerik:RadGridView>
         </Grid>
     </telerik:RadBusyIndicator>
 </UserControl>

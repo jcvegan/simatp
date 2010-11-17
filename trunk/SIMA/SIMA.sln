@@ -1,22 +1,15 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 10.00
 # Visual Studio 2008
-# SharpDevelop 3.2.1.6466
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Presentación", "Presentación", "{E3BB3F8E-ABE9-4476-9A76-63638EFCB7C8}"
-	ProjectSection(SolutionItems) = postProject
-	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SIMA.Client", "SIMA.Client\SIMA.Client.csproj", "{39C7FC77-9EBD-40E0-A219-23C9E3F9779F}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Lógica", "Lógica", "{E8AFA90F-CA7B-4B32-828F-38B476E4C716}"
-	ProjectSection(SolutionItems) = postProject
-	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SIMA.Logic", "SIMA.Logic\SIMA.Logic.csproj", "{3705EB81-6002-484F-82D4-2C3DCA33EB3F}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Acceso a Datos", "Acceso a Datos", "{425C7C2A-6393-4F25-B06B-4878C860ACEA}"
-	ProjectSection(SolutionItems) = postProject
-	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SIMA.Entities", "SIMA.Entities\SIMA.Entities.csproj", "{55701086-452E-40A4-A8A0-8DDBF02D0469}"
 EndProject
@@ -206,6 +199,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Base de Datos", "Base de Da
 		SIMA.Sql\T_C_TipoMantenimientoPorEquipoDeleteAllById_Tipo.sql = SIMA.Sql\T_C_TipoMantenimientoPorEquipoDeleteAllById_Tipo.sql
 		SIMA.Sql\T_C_TipoMantenimientoPorEquipoInsert.sql = SIMA.Sql\T_C_TipoMantenimientoPorEquipoInsert.sql
 		SIMA.Sql\T_C_TipoMantenimientoPorEquipoSelect.sql = SIMA.Sql\T_C_TipoMantenimientoPorEquipoSelect.sql
+		SIMA.Sql\T_C_TipoMantenimientoPorEquipoSelectActivo.sql = SIMA.Sql\T_C_TipoMantenimientoPorEquipoSelectActivo.sql
 		SIMA.Sql\T_C_TipoMantenimientoPorEquipoSelectAll.sql = SIMA.Sql\T_C_TipoMantenimientoPorEquipoSelectAll.sql
 		SIMA.Sql\T_C_TipoMantenimientoPorEquipoSelectAllById_Equipo.sql = SIMA.Sql\T_C_TipoMantenimientoPorEquipoSelectAllById_Equipo.sql
 		SIMA.Sql\T_C_TipoMantenimientoPorEquipoSelectAllById_Estado.sql = SIMA.Sql\T_C_TipoMantenimientoPorEquipoSelectAllById_Estado.sql
@@ -276,6 +270,10 @@ Global
 		{39C7FC77-9EBD-40E0-A219-23C9E3F9779F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{39C7FC77-9EBD-40E0-A219-23C9E3F9779F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{39C7FC77-9EBD-40E0-A219-23C9E3F9779F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3705EB81-6002-484F-82D4-2C3DCA33EB3F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3705EB81-6002-484F-82D4-2C3DCA33EB3F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3705EB81-6002-484F-82D4-2C3DCA33EB3F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3705EB81-6002-484F-82D4-2C3DCA33EB3F}.Release|Any CPU.Build.0 = Release|Any CPU
 		{55701086-452E-40A4-A8A0-8DDBF02D0469}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{55701086-452E-40A4-A8A0-8DDBF02D0469}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{55701086-452E-40A4-A8A0-8DDBF02D0469}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -284,10 +282,6 @@ Global
 		{66348996-DB50-4531-B8B3-BE8BF79A83CD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{66348996-DB50-4531-B8B3-BE8BF79A83CD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{66348996-DB50-4531-B8B3-BE8BF79A83CD}.Release|Any CPU.Build.0 = Release|Any CPU
-		{3705EB81-6002-484F-82D4-2C3DCA33EB3F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{3705EB81-6002-484F-82D4-2C3DCA33EB3F}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{3705EB81-6002-484F-82D4-2C3DCA33EB3F}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{3705EB81-6002-484F-82D4-2C3DCA33EB3F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -295,7 +289,7 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{39C7FC77-9EBD-40E0-A219-23C9E3F9779F} = {E3BB3F8E-ABE9-4476-9A76-63638EFCB7C8}
 		{3705EB81-6002-484F-82D4-2C3DCA33EB3F} = {E8AFA90F-CA7B-4B32-828F-38B476E4C716}
-		{66348996-DB50-4531-B8B3-BE8BF79A83CD} = {425C7C2A-6393-4F25-B06B-4878C860ACEA}
 		{55701086-452E-40A4-A8A0-8DDBF02D0469} = {425C7C2A-6393-4F25-B06B-4878C860ACEA}
+		{66348996-DB50-4531-B8B3-BE8BF79A83CD} = {425C7C2A-6393-4F25-B06B-4878C860ACEA}
 	EndGlobalSection
 EndGlobal

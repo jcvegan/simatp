@@ -41,7 +41,7 @@
         <TextBlock Text="Tipo mantenimiento" Grid.Column="0" Grid.Row="2" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="25,0,0,0"/>
         <TextBlock Text="Fecha de trabajo" Grid.Column="0" Grid.Row="3" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="25,0,0,0"/>
         <TextBlock Text="Hora de inicio" Grid.Column="0" Grid.Row="4" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="25,0,0,0"/>
-        <telerik:RadComboBox Name="cmbEquipos" Grid.Column="1" Grid.Row="1" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="25,0,0,0" Width="170" telerik:StyleManager.Theme="Summer" SelectedValuePath="Id_Equipo" DisplayMemberPath="Descripcion"/>
+        <telerik:RadComboBox Name="cmbEquipos" Grid.Column="1" Grid.Row="1" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="25,0,0,0" Width="170" telerik:StyleManager.Theme="Summer" SelectedValuePath="Id_Equipo" DisplayMemberPath="Descripcion" SelectionChanged="cmbEquipos_SelectionChanged" />
         <telerik:RadComboBox Name="cmbTipoMantenimientos" Grid.Column="1" Grid.Row="2" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="25,0,0,0" Width="170" telerik:StyleManager.Theme="Summer" SelectedValuePath="Id_Equipo" DisplayMemberPath="Descripcion"/>
         <telerik:RadDatePicker Name="dpFechaInicio" Grid.Column="1" Grid.Row="3" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="25,0,0,0" Width="170" telerik:StyleManager.Theme="Summer"/>
         <telerik:RadTimePicker Name="tpHoraInicio" Grid.Column="1" Grid.Row="4" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="25,0,0,0" Width="170" telerik:StyleManager.Theme="Summer"/>

@@ -32,9 +32,15 @@ namespace SIMA.Client.Gestion
         {
             schMantenimiento.AppointmentsSource = new Auxiliares.MantenimientoSessionAppCollection(schMantenimiento);
             
+                       
         }
 
         private void gvAreas_SelectionChanged(object sender, Telerik.Windows.Controls.SelectionChangeEventArgs e)
+        {
+
+        }
+
+        private void schMantenimiento_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
 
         }

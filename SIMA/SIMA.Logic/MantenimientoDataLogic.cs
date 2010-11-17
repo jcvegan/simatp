@@ -7,7 +7,7 @@ using SIMA.Entities;
 
 namespace SIMA.Logic
 {
-    class MantenimientoDataLogic
+    public class MantenimientoDataLogic
     {
         private MantenimientoDataAccess MantenimientoAccess;
 

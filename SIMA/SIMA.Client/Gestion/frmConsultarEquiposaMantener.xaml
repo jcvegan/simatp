@@ -64,7 +64,7 @@
                 <telerik:RadTabControl Grid.Row="1"  TabStripPlacement="Bottom" telerik:StyleManager.Theme="Summer">
                     <telerik:RadTabControl.Items>
                         <telerik:RadTabItem Header="Vista Calendario">
-                            <telerik:RadScheduler Grid.Row="1" ViewMode="Day" telerik:StyleManager.Theme="Summer" IsReadOnly="True">
+                            <telerik:RadScheduler Name="schMantenimiento"  Grid.Row="1" ViewMode="Day" telerik:StyleManager.Theme="Summer" IsReadOnly="True">
 
                             </telerik:RadScheduler>
                         </telerik:RadTabItem>

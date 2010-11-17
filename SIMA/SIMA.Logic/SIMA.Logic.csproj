@@ -49,6 +49,7 @@
     <Compile Include="Class1.cs" />
     <Compile Include="EquipoDataLogic.cs" />
     <Compile Include="EstadoDataLogic.cs" />
+    <Compile Include="HistoricodeMantenimientoDataLogic.cs" />
     <Compile Include="MantenimientoDataLogic.cs" />
     <Compile Include="MarcaDataLogic.cs" />
     <Compile Include="ModeloDataLogic.cs" />

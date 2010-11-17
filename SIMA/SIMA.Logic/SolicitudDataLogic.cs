@@ -15,5 +15,20 @@ namespace SIMA.Logic
         {
             solicitudAccess = new SolicitudDataAccess();
         }
+        
+        public string AgregarSolicitud(T_C_Solicitud solicitud)
+        {
+            return solicitudAccess.AgregarSolicitud(solicitud);
+        }
+
+        public string AgregarDetalleSolicitud(T_C_DetalleSolicitud Detallesolicitud)
+        {
+            return solicitudAccess.AgregarDetalleSolicitud(Detallesolicitud);
+        }
+
+        public List<T_C_Solicitud> SeleccionarTodosSolicitud()         
+        {
+            return solicitudAccess.SeleccionarTodosSolicitud();
+        }
     }
 }

@@ -127,10 +127,6 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Gestion\frmConsultarHistoricodeMantenimiento.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="Gestion\frmGestionarAreas.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -206,9 +202,6 @@
     <Compile Include="Auxiliares\MantenimientoSessionAppCollection.cs" />
     <Compile Include="Gestion\frmConsultarEquiposaMantener.xaml.cs">
       <DependentUpon>frmConsultarEquiposaMantener.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Gestion\frmConsultarHistoricodeMantenimiento.xaml.cs">
-      <DependentUpon>frmConsultarHistoricodeMantenimiento.xaml</DependentUpon>
     </Compile>
     <Compile Include="Gestion\frmGestionarAreas.xaml.cs">
       <DependentUpon>frmGestionarAreas.xaml</DependentUpon>

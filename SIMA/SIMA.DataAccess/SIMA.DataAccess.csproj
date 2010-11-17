@@ -62,6 +62,7 @@
     <Compile Include="TablaDataAccess.cs" />
     <Compile Include="TipoMantenimientoDataAccess.cs" />
     <Compile Include="TipoMantenimientoPorEquipoDataAccess.cs" />
+    <Compile Include="TurnoMantenimientoDataAccess.cs" />
     <Compile Include="UsuarioDataAccess.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -8,10 +8,10 @@ namespace SIMA.Entities
 
 		private int id_TurnoMantenimiento;
 		private string descripcion;
-		private float horaInicio;
-		private float horaFin;
+		private double horaInicio;
+		private double horaFin;
 		private int id_Estado;
-
+        private T_C_Estado estado;
 		#endregion
 
 		#region Constructors
@@ -59,7 +59,7 @@ namespace SIMA.Entities
 		/// <summary>
 		/// Gets or sets the HoraInicio value.
 		/// </summary>
-		public virtual float HoraInicio
+		public virtual double HoraInicio
 		{
 			get { return horaInicio; }
 			set { horaInicio = value; }
@@ -68,7 +68,7 @@ namespace SIMA.Entities
 		/// <summary>
 		/// Gets or sets the HoraFin value.
 		/// </summary>
-		public virtual float HoraFin
+        public virtual double HoraFin
 		{
 			get { return horaFin; }
 			set { horaFin = value; }
@@ -83,6 +83,11 @@ namespace SIMA.Entities
 			set { id_Estado = value; }
 		}
 
+        public virtual T_C_Estado Estado
+        {
+            get { return estado; }
+            set { estado = value; }
+        }
 		#endregion
 	}
 }

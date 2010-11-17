@@ -12,6 +12,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using SIMA.Logic;
+using SIMA.Entities;
 
 namespace SIMA.Client.Trabajos_de_Mantenimiento
 {
@@ -21,6 +22,7 @@ namespace SIMA.Client.Trabajos_de_Mantenimiento
     public partial class frmAsignarEquiposAMantener : UserControl
     {
         private EquipoDataLogic equipoLogic;
+        private TipoMantenimientoPorEquipoDataLogic tipoMantenimientoLogic;
         public frmAsignarEquiposAMantener()
         {
             InitializeComponent();
@@ -30,6 +32,12 @@ namespace SIMA.Client.Trabajos_de_Mantenimiento
         {
             equipoLogic = new EquipoDataLogic();
             cmbEquipos.ItemsSource = equipoLogic.ListarActivos();
+            tipoMantenimientoLogic = new TipoMantenimientoPorEquipoDataLogic();
+        }
+
+        private void cmbEquipos_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            cmbTipoMantenimientos.ItemsSource = tipoMantenimientoLogic.ListarMantenimientosActivosPorEquipo((cmbEquipos.SelectedItem as T_C_Equipo).Id_Equipo);
         }
     }
 }

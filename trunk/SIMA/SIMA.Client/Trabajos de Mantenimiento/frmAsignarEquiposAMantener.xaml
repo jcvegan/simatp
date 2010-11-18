@@ -48,7 +48,7 @@
         <telerik:RadDatePicker Name="dpFechaInicio" Grid.Column="1" Grid.Row="3" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="25,0,0,0" Width="170" telerik:StyleManager.Theme="Summer"/>
         <telerik:RadTimePicker Name="tpHoraInicio" Grid.Column="1" Grid.Row="4" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="25,0,0,0" Width="170" telerik:StyleManager.Theme="Summer"/>
         <telerik:RadTimePicker Name="tpHoraFin" Grid.Column="1" Grid.Row="5" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="25,0,0,0" Width="170" telerik:StyleManager.Theme="Summer"/>
-        <telerik:RadButton Name="btnAgregar" Content="Agregar" Grid.Column="1" Grid.Row="6" Margin="25,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Center" Width="100" telerik:StyleManager.Theme="Summer"/>
+        <telerik:RadButton Name="btnAgregar" Content="Agregar" Grid.Column="1" Grid.Row="6" Margin="25,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Center" Width="100" telerik:StyleManager.Theme="Summer" Click="btnAgregar_Click" />
         
         <telerik:RadGridView Name="gvMantenimientosAsignados" Grid.Row="7" Grid.ColumnSpan="2" telerik:StyleManager.Theme="Summer" ShowGroupPanel="False" GridLinesVisibility="Horizontal" ShowColumnFooters="False" ShowInsertRow="False" AutoGenerateColumns="False">
                         

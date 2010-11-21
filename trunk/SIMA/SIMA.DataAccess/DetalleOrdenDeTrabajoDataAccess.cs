@@ -52,7 +52,7 @@ namespace SIMA.DataAccess
 
         public List<T_C_DetalleOrdenDeTrabajo> SeleccionarDetallePorEstado()
         {
-            try 
+            try
             {
                 List<T_C_DetalleOrdenDeTrabajo> detalles;
                 using (Command = new System.Data.SqlClient.SqlCommand("T_C_DetalleOrdenDeTrabajoSelectAllById_OrdenTrabajo", Connection))
@@ -64,16 +64,33 @@ namespace SIMA.DataAccess
                     while (reader.Read())
                     {
                         T_C_DetalleOrdenDeTrabajo detalleordentrabajo = new T_C_DetalleOrdenDeTrabajo();
+<<<<<<< .mine
+                        detalleordentrabajo.Id_DetalleOrdendeTrabajo = Convert.ToInt32(reader.GetValue(reader.GetOrdinal("Id_DetalleOrdendeTrabajo")).ToString());
+                        detalles.Add(detalleordentrabajo);
+=======
                         detalleordentrabajo.IdEquipo = reader.GetValue(reader.GetOrdinal("Id_Equipo")).ToString();
                         detalleordentrabajo.Id_DetalleOrdendeTrabajo = Convert.ToInt32(reader.GetValue(reader.GetOrdinal("Costo")).ToString());
                          
+>>>>>>> .r99
                     }
                     return detalles;
                 }
+                return detalles;
             }
+<<<<<<< .mine
+            catch (Exception ex)
+            {
+                return null;
+            }
+            finally
+            {
+                Connection.Close();
+            }
+=======
             catch(Exception ex){
                 return null;
             }
+>>>>>>> .r99
         }
     }
 }

@@ -82,7 +82,7 @@
                 <telerik:GridViewDataColumn Header="Fecha Respuesta" DataMemberBinding="{Binding FechaRespuesta}"/>
                 <telerik:GridViewDataColumn Header="Respuesta de Usuario" DataMemberBinding="{Binding UsuarioRespuesta}"/>                
                 <telerik:GridViewDataColumn Header="Motivo" DataMemberBinding="{Binding Motivo}"/>
-                <telerik:GridViewDataColumn Header="Estado" DataMemberBinding="{Binding Estado.Id_Estado}"/>
+                <telerik:GridViewDataColumn Header="Estado" DataMemberBinding="{Binding Id_Estado}"/>
             </telerik:RadGridView.Columns>
         </telerik:RadGridView>
     </Grid>

@@ -45,6 +45,7 @@
                 <telerik:RadRibbonGroup Header="Consulta">
                     <telerik:RadRibbonToggleButton Name="rbtnConsultarMantenimientos" Content="Mantenimientos programados" Checked="rbtnChecked" Unchecked="rbtnUnchecked"/>
                     <telerik:RadRibbonToggleButton Name="rbtnAsignarEquipos" Content="Asignar Equipos" Checked="rbtnChecked" Unchecked="rbtnUnchecked"/>
+                    <telerik:RadRibbonToggleButton Name="rbtnAperturaMantenimiento" Content="Apertura Mantenimiento" Checked="rbtnChecked" Unchecked="rbtnUnchecked"/>
                 </telerik:RadRibbonGroup>
             </telerik:RadRibbonTab>
         </telerik:RadRibbonBar>

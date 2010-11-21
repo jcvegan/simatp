@@ -14,6 +14,7 @@ using Telerik.Windows.Controls;
 using SIMA.Client.Auxiliares;
 using SIMA.Entities;
 using SIMA.Logic;
+using System.Collections.Generic;
 
 namespace SIMA.Client.Auxiliares
 {
@@ -22,13 +23,11 @@ namespace SIMA.Client.Auxiliares
         public MantenimientoSessionAppCollection(RadScheduler scheduler)
         {
             MantenimientoDataLogic MantenimientoLogic = new MantenimientoDataLogic();
+            List<T_C_Mantenimiento> ListaMantenimiento= new List<T_C_Mantenimiento>(MantenimientoLogic.ListarActivosMantenimientos());
             EquipoDataLogic EquipoLogic = new EquipoDataLogic();
             TurnoMantenimientoDataLogic TurnoLogic = new TurnoMantenimientoDataLogic();
             int month = DateTime.Now.Month;
-            DateTime mondayDate = CalendarHelper.GetFirstDayOfWeek(DateTime.Today, DayOfWeek.Monday);
-            DateTime satDate = CalendarHelper.GetFirstDayOfWeek(DateTime.Today, DayOfWeek.Saturday);
-            DateTime lastsundayDate = CalendarHelper.GetEndOfMonth(DateTime.Today);
-            foreach (T_C_Mantenimiento Mantenimiento in MantenimientoLogic.ListarActivosMantenimientos())
+            foreach (T_C_Mantenimiento Mantenimiento in ListaMantenimiento)
             {
                 MantenimientoSessionApp MantenimientoApp = new MantenimientoSessionApp();
                 MantenimientoApp.Subject = EquipoLogic.SeleccionarEquipo(Mantenimiento.Id_Equipo.ToString()).Descripcion;

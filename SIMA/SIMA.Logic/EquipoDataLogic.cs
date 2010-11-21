@@ -32,5 +32,10 @@ namespace SIMA.Logic
         {
             return equipoAccess.SeleccionarEquipo(Id_Equipo);
         }
+        public List<T_C_Equipo> ListarEquiposEnMantenimiento()
+        {
+            return equipoAccess.ListarEquiposEnMantenimiento();
+        }
+
     }
 }

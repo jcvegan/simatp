@@ -84,7 +84,7 @@ namespace SIMA.Client
                     item.Content = new frmGestionarSolicitud();
                     break;
                 case "Apertura Mantenimiento":
-                    item.Content = new frmAperturaMantenimiento();
+                    
                     break;
                 case "Consultar Historico Mantenimiento":
                     item.Content = new frmConsultarHistoricodeMantenimiento();

@@ -175,10 +175,6 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Seguridad\frmAdicionarUsuario.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="Seguridad\frmIniciarSesion.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -190,6 +186,10 @@
     <Page Include="Trabajos de Mantenimiento\frmAsignarEquiposAMantener.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Trabajos de Mantenimiento\frmCerrarMantenimiento.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Trabajos de Mantenimiento\frmGestionarSolicitud.xaml">
       <SubType>Designer</SubType>
@@ -277,9 +277,6 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <Compile Include="Seguridad\frmAdicionarUsuario.xaml.cs">
-      <DependentUpon>frmAdicionarUsuario.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Seguridad\frmIniciarSesion.xaml.cs">
       <DependentUpon>frmIniciarSesion.xaml</DependentUpon>
       <SubType>Code</SubType>
@@ -290,6 +287,9 @@
     <Compile Include="Trabajos de Mantenimiento\frmAsignarEquiposAMantener.xaml.cs">
       <DependentUpon>frmAsignarEquiposAMantener.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Trabajos de Mantenimiento\frmCerrarMantenimiento.xaml.cs">
+      <DependentUpon>frmCerrarMantenimiento.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Trabajos de Mantenimiento\frmGestionarSolicitud.xaml.cs">
       <DependentUpon>frmGestionarSolicitud.xaml</DependentUpon>
     </Compile>
@@ -299,6 +299,7 @@
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

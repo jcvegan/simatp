@@ -31,5 +31,10 @@ namespace SIMA.Logic
                 return "Error al ingresar datos.";
             }
         }
+
+        public List<T_C_DetalleOrdenDeTrabajo> ListarDetalles()
+        {
+            return detallerordentrabajoAccess.SeleccionarDetallePorEstado();
+        }
     }
 }

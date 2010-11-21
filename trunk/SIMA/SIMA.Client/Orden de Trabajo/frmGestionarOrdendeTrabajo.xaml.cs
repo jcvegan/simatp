@@ -14,6 +14,7 @@ using System.Windows.Shapes;
 using SIMA.Entities;
 using SIMA.Logic;
 using SIMA.Client.Auxiliares;
+using System.Data.SqlClient;
 
 namespace SIMA.Client.Orden_de_Trabajo
 {
@@ -44,9 +45,9 @@ namespace SIMA.Client.Orden_de_Trabajo
                 
                 T_C_OrdenTrabajo ordentrabajo = gvOrdenesTrabajo.SelectedItem as T_C_OrdenTrabajo;             
                 txtDescripcion.Text = ordentrabajo.Descripcion;
-                txtCosto.Text=ordentrabajo.CostoTotal.ToString();
+                txtCosto.Text = ordentrabajo.CostoTotal.ToString();
                 dtFRegistro.SelectedDateTime = ordentrabajo.FechaRegistro;
-                
+
                 for (int i = 0; i <= cmbEstado.Items.Count; i++)
                 {
                     if ((cmbEstado.Items[i] as T_C_Estado).Id_Estado == ordentrabajo.Id_Estado)
@@ -56,7 +57,7 @@ namespace SIMA.Client.Orden_de_Trabajo
                     }
                 }
 
-                
+                DescripcionEquipo.Text = "Se cuenta con equipos";
 
                 lblEstado.Visibility = Visibility.Visible;
                 cmbEstado.Visibility = Visibility.Visible;
@@ -70,15 +71,16 @@ namespace SIMA.Client.Orden_de_Trabajo
 
                 lblCosto.Visibility = Visibility.Visible;
                 txtCosto.Visibility = Visibility.Visible;
+                txtCosto.IsEnabled = false;
+
                 lblFRegistro.Visibility = Visibility.Visible;
                 dtFRegistro.Visibility = Visibility.Visible;
-                lblFModificacion.Visibility = Visibility.Visible;
-                dtFModificacion.Visibility = Visibility.Visible;
-
-                
+                                          
             }
             else
             {
+                DescripcionEquipo.Text = "No cuenta con equipos";
+                
                 lblEstado.Visibility = Visibility.Hidden;
                 cmbEstado.Visibility = Visibility.Hidden; 
                 lblUsuario.Visibility = Visibility.Hidden;
@@ -106,24 +108,48 @@ namespace SIMA.Client.Orden_de_Trabajo
 
         private void btnRegistrar_Click(object sender, RoutedEventArgs e)
         {
-            T_C_OrdenTrabajo ordentrabajo = new T_C_OrdenTrabajo();
-            T_C_DetalleOrdenDeTrabajo detalleordentrabajo = new T_C_DetalleOrdenDeTrabajo();
-            ordentrabajo.Descripcion = txtDescripcion.Text;
-            ordentrabajo.FechaRegistro = DateTime.Now;
+            if (txtDescripcion.Text == "")
+            {
+                MessageBox.Show("Ingresar Descripcion");
+            }
+            else
+            {
+                if (DescripcionEquipo.Text == "No existe ningun detalle")
+                {
+                    MessageBox.Show("Agregar nuevos Detalles");
+                    Limpia();
+                }
+                else
+                {
+                    T_C_OrdenTrabajo ordentrabajo = new T_C_OrdenTrabajo();
+                    ordentrabajo.Descripcion = txtDescripcion.Text;
+                    ordentrabajo.FechaRegistro = DateTime.Now;
 
-            MessageBox.Show(ordentrabajoLogic.AgregarOrdenTrabajo(ordentrabajo,detalle));
-            gvOrdenesTrabajo.ItemsSource = ordentrabajoLogic.ListarOrdenesTrabajo();
-            Limpia();
+                    MessageBox.Show(ordentrabajoLogic.AgregarOrdenTrabajo(ordentrabajo, detalle));
+                    gvOrdenesTrabajo.ItemsSource = ordentrabajoLogic.ListarOrdenesTrabajo();
+                    
+                }
+            }
         }
 
         private void btnActualizar_Click(object sender, RoutedEventArgs e)
         {
-
+            T_C_OrdenTrabajo orden = gvOrdenesTrabajo.SelectedItem as T_C_OrdenTrabajo;
+            orden.Descripcion = txtDescripcion.Text;
+            orden.UltimaFechaModificacion = DateTime.Now;
+            orden.Id_Estado = (cmbEstado.SelectedItem as T_C_Estado).Id_Estado;
+            MessageBox.Show(ordentrabajoLogic.ActualizarOrdenTrabajo(orden));
+            gvOrdenesTrabajo.ItemsSource = ordentrabajoLogic.ListarOrdenesTrabajo();
+            cmbEstado.SelectedItem = null;
+            Limpia();            
         }
 
         private void btnEliminar_Click(object sender, RoutedEventArgs e)
         {
-
+            T_C_OrdenTrabajo ordentrabajo = gvOrdenesTrabajo.SelectedItem as T_C_OrdenTrabajo;
+            MessageBox.Show(ordentrabajoLogic.EliminarOrdenTrabajo(ordentrabajo));
+            gvOrdenesTrabajo.ItemsSource = ordentrabajoLogic.ListarOrdenesTrabajo();
+            Limpia();
         }
 
         private void btnLimpiar_Click(object sender, RoutedEventArgs e)
@@ -134,6 +160,7 @@ namespace SIMA.Client.Orden_de_Trabajo
         private void btnVerDetalle_Click(object sender, RoutedEventArgs e)
         {
 
+            
         }
 
         private void btnAgregarDetalle_Click(object sender, RoutedEventArgs e)
@@ -170,7 +197,7 @@ namespace SIMA.Client.Orden_de_Trabajo
         private void Limpia()
         {
             txtDescripcion.Clear();
-            DescripcionEquipo.Text = "No cuenta con equipos";
+            DescripcionEquipo.Text = "No existe ningun detalle.";
             detalle.Clear();
         }
     }

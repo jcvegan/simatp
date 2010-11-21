@@ -248,5 +248,76 @@ namespace SIMA.DataAccess
                 Connection.Close();
             }
         }
+
+
+        public List<T_C_Mantenimiento> SeleccionarMantenimientoEquipo()
+        {
+            try
+            {
+                List<T_C_Mantenimiento> Mantenimientos;
+                using (Command = new System.Data.SqlClient.SqlCommand("T_C_MantenimientoEquipo", Connection))
+                {
+                    Command.CommandType = System.Data.CommandType.StoredProcedure;
+                    Connection.Open();
+                    Mantenimientos = new List<T_C_Mantenimiento>();
+                    SqlDataReader reader = Command.ExecuteReader();
+                    while (reader.Read())
+                    {
+                        T_C_Mantenimiento Mantenimiento = new T_C_Mantenimiento();
+                        Mantenimiento.Id_Mantenimiento = Convert.ToInt32(reader.GetValue(reader.GetOrdinal("Id_Mantenimiento")).ToString());
+                        Mantenimiento.Id_Equipo = reader.GetValue(reader.GetOrdinal("Id_Equipo")).ToString();
+                        Mantenimiento.FechaProgramacion = Convert.ToDateTime(reader.GetValue(reader.GetOrdinal("FechaProgramacion")).ToString());
+                        Mantenimiento.FechaTrabajoInicio = Convert.ToDateTime(reader.GetValue(reader.GetOrdinal("FechaTrabajoInicio")).ToString());
+                        Mantenimiento.FechaTrabajoFin = Convert.ToDateTime(reader.GetValue(reader.GetOrdinal("FechaTrabajoFin")).ToString());
+                        Mantenimiento.UsuarioRegistro = reader.GetValue(reader.GetOrdinal("UsuarioRegistro")).ToString();
+                        Mantenimiento.FechaRegistro = Convert.ToDateTime(reader.GetValue(reader.GetOrdinal("FechaRegistro")).ToString());
+                        Mantenimiento.Id_Estado = Convert.ToInt32(reader.GetValue(reader.GetOrdinal("Id_Estado")).ToString());
+                        Mantenimiento.Id_TipoMantenimiento = Convert.ToInt32(reader.GetValue(reader.GetOrdinal("Id_TipoMantenimiento")).ToString());
+                        Mantenimiento.Id_Incidencia = Convert.ToInt32(reader.GetValue(reader.GetOrdinal("Id_Incidencia")).ToString());
+                        Mantenimiento.Id_Pedido = Convert.ToInt32(reader.GetValue(reader.GetOrdinal("Id_Pedido")).ToString());
+                        Mantenimiento.Prioridad = Convert.ToInt32(reader.GetValue(reader.GetOrdinal("Prioridad")).ToString());
+                        Mantenimiento.Id_OrdenTrabajo = Convert.ToInt32(reader.GetValue(reader.GetOrdinal("Id_OrdenTrabajo")).ToString());
+                        Mantenimiento.Id_TipoMantenimientoEquipo = Convert.ToInt32(reader.GetValue(reader.GetOrdinal("Id_TipoMantenimientoEquipo")).ToString());
+                        Mantenimiento.Id_TurnoMantenimiento = Convert.ToInt32(reader.GetValue(reader.GetOrdinal("Id_TurnoMantenimiento")).ToString());
+                                                
+                        Mantenimientos.Add(Mantenimiento);
+                    }
+                }
+                return Mantenimientos;
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
+            finally
+            {
+                Connection.Close();
+            }
+        }
+
+        public string ActualizarMantenimientoEquipo(T_C_Mantenimiento Mantenimiento)
+        {
+            try
+            {
+                using (Command = new System.Data.SqlClient.SqlCommand("T_C_MantenimientoActualizar", Connection))
+                {
+                    Command.CommandType = System.Data.CommandType.StoredProcedure;
+                    Command.Parameters.AddWithValue("@Id_Mantenimiento", Mantenimiento.Id_Mantenimiento);
+                    Command.Parameters.AddWithValue("@FechaTrabajoInicio", Mantenimiento.FechaTrabajoInicio);
+                    Command.Parameters.AddWithValue("@FechaTrabajoFin", Mantenimiento.FechaTrabajoFin);
+                    Connection.Open();
+                    Command.ExecuteNonQuery();
+                }
+                return "Registro actualizado satisfactoriamente.";
+            }
+            catch (Exception ex)
+            {
+                return ex.Message;
+            }
+            finally
+            {
+                Connection.Close();
+            }
+        }
     }
 }

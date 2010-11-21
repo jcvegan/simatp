@@ -10,6 +10,7 @@ namespace SIMA.Logic
     public class DetalleOrdenTrabajoDataLogic
     {
         private DetalleOrdenDeTrabajoDataAccess detallerordentrabajoAccess;
+        private EquipoDataAccess equipoAccess;
 
         public DetalleOrdenTrabajoDataLogic()
         {
@@ -24,7 +25,19 @@ namespace SIMA.Logic
                 {
                     throw new Exception();
                 }
+
+                if (detalleordentrabajo.Cantidad > equipoAccess.SeleccionarEquipo(detalleordentrabajo.IdEquipo).Stock)
+                {
+                    return "La cantidad no debe ser mayor a stock.";
+                }
+
+                if (detalleordentrabajo.Cantidad <= 0)
+                {
+                    return "Ingresar una cantidad mayor a 0.";
+                }
+
                 return detallerordentrabajoAccess.AgregarDetalleOrdenDeTrabajo(detalleordentrabajo);
+
             }
             catch
             {

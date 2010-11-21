@@ -28,7 +28,8 @@ namespace SIMA.Client.Auxiliares
         List<T_C_DetalleOrdenDeTrabajo> detalles;
         List<T_C_Equipo> equipos;
         EquipoDataLogic equipoLogic;
-        
+        T_C_Equipo equipo;
+
         public event EventHandler<DetalleOrdenTrabajoEventArgs> Resultado;
         public event EventHandler<EquipoPadreEventArgs> SeleccionEquipos;
 
@@ -52,22 +53,47 @@ namespace SIMA.Client.Auxiliares
 
         private void btnAceptar_Click(object sender, RoutedEventArgs e)
         {
-            if (Resultado != null)
+            if (gvEquipos.SelectedItem != null)
             {
-                ObservableCollection<object> equipoTemps=gvEquipos.SelectedItems;
-                List<T_C_Equipo> equipos = new List<T_C_Equipo>();
+                ObservableCollection<object> equipoTemps = gvEquipos.SelectedItems;
+                List<T_C_Equipo> equipos = new List<T_C_Equipo>();                
 
-                foreach(object obj in equipoTemps){
+
+                foreach (object obj in equipoTemps)
+                {
                     T_C_Equipo tmp = (T_C_Equipo)obj;
-                    equipos.Add(tmp);
                     T_C_DetalleOrdenDeTrabajo detTemp = new T_C_DetalleOrdenDeTrabajo();
+                    equipos.Add(tmp);
                     detTemp.IdEquipo = tmp.Id_Equipo;
                     detTemp.Cantidad = tmp.Cantidad;
                     detalles.Add(detTemp);
-                }
-                Resultado(this, new DetalleOrdenTrabajoEventArgs(detalles));
+                    equipo = equipoLogic.SeleccionarEquipo(detTemp.IdEquipo);
+
+                    if (detTemp.Cantidad <= 0)
+                    {
+                        MessageBox.Show("Ingresar una cantidad mayor a 0.");
+                        gvEquipos.ItemsSource = equipoLogic.ListarActivos();
+                    }
+                    else
+                    {
+                        
+                        if (detTemp.Cantidad > equipo.Stock)
+                        {
+                            MessageBox.Show("La cantidad no debe ser mayor a stock.");
+                            gvEquipos.ItemsSource = equipoLogic.ListarActivos();
+                        }
+                        else
+                        {
+                            Resultado(this, new DetalleOrdenTrabajoEventArgs(detalles));
+                            this.Close();
+                        }
+                    }
+                }                
             }
-            this.Close();
+            else
+            {
+                MessageBox.Show("Seleccionar Equipos");
+            }
 
         }
 

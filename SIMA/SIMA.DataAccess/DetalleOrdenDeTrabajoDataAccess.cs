@@ -64,14 +64,23 @@ namespace SIMA.DataAccess
                     while (reader.Read())
                     {
                         T_C_DetalleOrdenDeTrabajo detalleordentrabajo = new T_C_DetalleOrdenDeTrabajo();
+<<<<<<< .mine
+=======
 
+>>>>>>> .r122
                         detalleordentrabajo.Id_DetalleOrdendeTrabajo = Convert.ToInt32(reader.GetValue(reader.GetOrdinal("Id_DetalleOrdendeTrabajo")).ToString());
                         detalles.Add(detalleordentrabajo);
+<<<<<<< .mine
+=======
 
+>>>>>>> .r122
                         detalleordentrabajo.IdEquipo = reader.GetValue(reader.GetOrdinal("Id_Equipo")).ToString();
                         detalleordentrabajo.Id_DetalleOrdendeTrabajo = Convert.ToInt32(reader.GetValue(reader.GetOrdinal("Costo")).ToString());
+<<<<<<< .mine
+=======
                          
 
+>>>>>>> .r122
                     }
                     return detalles;
                 }
@@ -85,7 +94,10 @@ namespace SIMA.DataAccess
             {
                 Connection.Close();
             }
+<<<<<<< .mine
+=======
 
+>>>>>>> .r122
         }
     }
 }

@@ -6,8 +6,8 @@
     <DockPanel>
         <telerik:RadRibbonBar DockPanel.Dock="Top" Title="SIMA - Sistema de Mantenimientos de Equipos" telerik:StyleManager.Theme="Summer">
             <telerik:RadRibbonBar.ApplicationMenu>
-                <telerik:ApplicationMenu>
-                    <telerik:RadRibbonButton Content="Cerrar" />
+                <telerik:ApplicationMenu> 
+                 <telerik:RadRibbonButton Text="Cerrar Sesion"/>
                 </telerik:ApplicationMenu>
             </telerik:RadRibbonBar.ApplicationMenu>
             <telerik:RadRibbonTab Header="Gestiones" telerik:StyleManager.Theme="Summer">

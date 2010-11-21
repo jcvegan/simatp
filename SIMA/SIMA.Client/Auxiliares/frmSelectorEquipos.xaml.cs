@@ -28,6 +28,7 @@ namespace SIMA.Client.Auxiliares
         List<T_C_DetalleOrdenDeTrabajo> detalles;
         List<T_C_Equipo> equipos;
         EquipoDataLogic equipoLogic;
+        
         public event EventHandler<DetalleOrdenTrabajoEventArgs> Resultado;
         public event EventHandler<EquipoPadreEventArgs> SeleccionEquipos;
 
@@ -37,6 +38,7 @@ namespace SIMA.Client.Auxiliares
             equipoLogic = new EquipoDataLogic();
             detalles = new List<T_C_DetalleOrdenDeTrabajo>();
         }
+
         public frmSelectorEquipos(List<T_C_DetalleOrdenDeTrabajo> detalle)
         {
             InitializeComponent();
@@ -84,9 +86,12 @@ namespace SIMA.Client.Auxiliares
                     equipos.Add(eqtemp);
                 }
                 gvEquipos.ItemsSource = equipos;
-
-
             }
+        }
+
+        private void btnCancelar_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();            
         }
     }
 }

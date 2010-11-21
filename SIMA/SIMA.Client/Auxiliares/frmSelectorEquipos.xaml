@@ -20,7 +20,7 @@
         </telerik:RadGridView>
         <StackPanel HorizontalAlignment="Right" VerticalAlignment="Stretch" Grid.Row="1" Orientation="Horizontal">
             <telerik:RadButton Name="btnAceptar" Width="100" Content="Aceptar" VerticalAlignment="Stretch" telerik:StyleManager.Theme="Summer" Click="btnAceptar_Click"/>
-            <telerik:RadButton Name="btnCancelar" Width="100" Content="Cancelar" VerticalAlignment="Stretch" telerik:StyleManager.Theme="Summer"/>
+            <telerik:RadButton Name="btnCancelar" Width="100" Content="Cancelar" VerticalAlignment="Stretch" telerik:StyleManager.Theme="Summer" Click="btnCancelar_Click" />
         </StackPanel>
     </Grid>
 </Window>

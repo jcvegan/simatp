@@ -24,29 +24,40 @@ namespace SIMA.Logic
         public string AgregarOrdenTrabajo(T_C_OrdenTrabajo ordentrabajo,List<T_C_DetalleOrdenDeTrabajo> detalles)
         {
             try
-            { int id=0;
+            {
+                int id = 0;
                 ordentrabajoAccess.AgregarOrdenTrabajo(ordentrabajo, out id);
+
+                double CostoTotal = 0;
 
                 foreach (T_C_DetalleOrdenDeTrabajo detalle in detalles)
                 {
                     detalle.Id_OrdendeTrabajo = id;
+
                     if (detalle.Cantidad > equipoAccess.SeleccionarEquipo(detalle.IdEquipo).Stock)
                     {
                         return "La cantidad no debe ser mayor a stock.";
-                        break;
                     }
+
                     else
                     {
                         detalle.Costo = detalle.Cantidad * equipoAccess.SeleccionarEquipo(detalle.IdEquipo).Costo;
                         detalleOrdenAccess.AgregarDetalleOrdenDeTrabajo(detalle);
+                        CostoTotal = CostoTotal + detalle.Costo;
                     }
+                    
                 }
-                return "Orden de trabajo registrado satisfactoriamente";
 
+                ordentrabajo = ordentrabajoAccess.SeleccionarOrdenTrabajo(id);
+                ordentrabajo.UltimaFechaModificacion = DateTime.Now;
+                ordentrabajo.CostoTotal = CostoTotal;
+
+                ordentrabajoAccess.ActualizarOrdenTrabajo(ordentrabajo);
+                return "Orden de trabajo registrado satisfactoriamente";
             }
-            catch
+            catch (Exception ex)
             {
-                return "Error al ingresar datos.";
+                return "";
             } 
         }
 
@@ -58,10 +69,10 @@ namespace SIMA.Logic
                 {
                     throw new Exception();
                 }
-                if (ordentrabajo.CostoTotal <= 0)
-                {
-                    throw new Exception();
-                }
+                //if (ordentrabajo.CostoTotal < 0)
+                //{
+                //    throw new Exception();
+                //}
                 if (ordentrabajo.Id_Estado <= 0)
                 {
                     throw new Exception();

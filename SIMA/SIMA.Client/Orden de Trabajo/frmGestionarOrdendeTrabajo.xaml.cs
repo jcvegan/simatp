@@ -117,10 +117,10 @@ namespace SIMA.Client.Orden_de_Trabajo
                 if (DescripcionEquipo.Text == "No existe ningun detalle")
                 {
                     MessageBox.Show("Agregar nuevos Detalles");
-                    Limpia();
                 }
                 else
                 {
+                    
                     T_C_OrdenTrabajo ordentrabajo = new T_C_OrdenTrabajo();
                     ordentrabajo.Descripcion = txtDescripcion.Text;
                     ordentrabajo.FechaRegistro = DateTime.Now;
@@ -169,14 +169,14 @@ namespace SIMA.Client.Orden_de_Trabajo
             {
                 frmSelectorEquipos equiposSelector = new frmSelectorEquipos();
                 equiposSelector.Resultado += new EventHandler<SIMA.Client.Auxiliares.EventArgs.DetalleOrdenTrabajoEventArgs>(equiposSelector_Resultado);
-                equiposSelector.Show();
+                equiposSelector.ShowDialog();
                 vezPrimera = false;
             }
             else
             {
                 frmSelectorEquipos equiposSelector = new frmSelectorEquipos(detalle);
                 equiposSelector.Resultado += new EventHandler<SIMA.Client.Auxiliares.EventArgs.DetalleOrdenTrabajoEventArgs>(equiposSelector_Resultado);
-                equiposSelector.Show();
+                equiposSelector.ShowDialog();
                 vezPrimera = false;
             }
         }

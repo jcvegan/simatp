@@ -157,7 +157,6 @@ namespace SIMA.DataAccess
                     SqlDataReader reader = Command.ExecuteReader();
                     while (reader.Read())
                     {
-
                         T_C_OrdenTrabajo ordentrabajo = new T_C_OrdenTrabajo();
                         ordentrabajo.Id_OrdenTrabajo = Convert.ToInt32(reader.GetValue(reader.GetOrdinal("Id_OrdenTrabajo")).ToString());
                         ordentrabajo.Descripcion = reader.GetValue(reader.GetOrdinal("Descripcion")).ToString();
@@ -281,6 +280,43 @@ namespace SIMA.DataAccess
                     }
                 }
                 return ordenestrabajos;
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
+            finally
+            {
+                Connection.Close();
+            }
+        }
+
+        public T_C_OrdenTrabajo SeleccionarOrdenTrabajo(int id)
+        {
+            try
+            {
+                T_C_OrdenTrabajo ordentrabajo;
+                using (Command = new System.Data.SqlClient.SqlCommand("T_C_OrdenTrabajoSelect", Connection))
+                {
+                    Command.CommandType = System.Data.CommandType.StoredProcedure;
+                    Command.Parameters.AddWithValue("@Id_OrdenTrabajo", id);
+                    Connection.Open();
+                    ordentrabajo = new T_C_OrdenTrabajo();
+                    SqlDataReader reader = Command.ExecuteReader();
+                    while (reader.Read())
+                    {
+                        
+                        ordentrabajo.Id_OrdenTrabajo = Convert.ToInt32(reader.GetValue(reader.GetOrdinal("Id_OrdenTrabajo")).ToString());
+                        ordentrabajo.Descripcion = reader.GetValue(reader.GetOrdinal("Descripcion")).ToString();
+                        ordentrabajo.CostoTotal = Convert.ToInt32(reader.GetValue(reader.GetOrdinal("CostoTotal")).ToString());
+                        ordentrabajo.FechaRegistro = Convert.ToDateTime(reader.GetValue(reader.GetOrdinal("FechaRegistro")).ToString());
+                        ordentrabajo.UltimaFechaModificacion = Convert.ToDateTime(reader.GetValue(reader.GetOrdinal("UltimaFechaModificacion")).ToString());
+                        ordentrabajo.Id_Estado = Convert.ToInt32(reader.GetValue(reader.GetOrdinal("Id_Estado")).ToString());
+                        ordentrabajo.Id_Usuario = Convert.ToInt32(reader.GetValue(reader.GetOrdinal("Id_Usuario")).ToString());
+                        
+                    }
+                }
+                return ordentrabajo;
             }
             catch (Exception ex)
             {

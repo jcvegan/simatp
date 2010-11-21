@@ -264,5 +264,10 @@ namespace SIMA.Client.Gestion
                 SoloRegistra();
             }
         }
+
+        private void btnSelTipoMantenimiento_Click(object sender, RoutedEventArgs e)
+        {
+            frmSelectorTipoMantenimiento selector;
+        }
     }
 }

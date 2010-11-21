@@ -103,6 +103,12 @@ namespace SIMA.Client
             }
         }
 
+        private void RadRibbonButton_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("Desea usted cerrar sesion", "Informativo", MessageBoxButton.YesNoCancel, MessageBoxImage.Information);
+            this.Close();
+        }
+
         
     }
 }

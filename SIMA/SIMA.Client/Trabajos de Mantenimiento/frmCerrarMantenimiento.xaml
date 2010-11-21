@@ -10,11 +10,6 @@
             <RowDefinition/>
         </Grid.RowDefinitions>
         <Grid Grid.Row="0">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="24" />
-                <RowDefinition />
-                <RowDefinition Height="24" />
-            </Grid.RowDefinitions>
             <Border Grid.Row="0" BorderThickness="1" Margin="0" VerticalAlignment="Top" Height="24" CornerRadius="2,2,0,0">
                 <Border.Background>
                     <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
@@ -24,44 +19,25 @@
                         <GradientStop Color="#FF0E0E0E" Offset="0.11"/>
                     </LinearGradientBrush>
                 </Border.Background>
-
-                <Border.BorderBrush>
-                    <LinearGradientBrush EndPoint="1,0.5" StartPoint="0,0.5">
-                        <GradientStop Offset="0"/>
-                        <GradientStop Offset="1"/>
-                        <GradientStop Color="White" Offset="0.5"/>
-                    </LinearGradientBrush>
-                </Border.BorderBrush>
-                <TextBlock Text="Gestión de Tipos de Mantenimiento" Foreground="GhostWhite" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="15,0,0,0" FontSize="16"/>
+                <TextBlock Text="Cerrar Mantenimiento" Foreground="GhostWhite" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="15,0,0,0" FontSize="16"/>
             </Border>
-            <Grid Grid.Row="1">
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="30"/>
-                    <RowDefinition Height="30"/>
-                    <RowDefinition Height="30"/>
-                </Grid.RowDefinitions>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="120"/>
-                    <ColumnDefinition/>
-                </Grid.ColumnDefinitions>
-                <Label Grid.Column="0" Grid.Row="0" Content="Nombre" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="25,0,0,0"/>
-                <Label Grid.Column="0" Grid.Row="1" Content="Descripción" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="25,0,0,0"/>
-                <Label Name="lblEstado" Grid.Column="0" Grid.Row="2" Content="Estado" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="25,0,0,0"/>
-                <TextBox Name="txtNombre" Grid.Column="1" Grid.Row="0" Width="150" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="25,0,0,0"/>
-                <TextBox Name="txtDescripción" Grid.Column="1" Grid.Row="1" Width="150" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="25,0,0,0"/>
-                <telerik:RadComboBox Name="cmbEstado" Grid.Column="1" Grid.Row="2" Width="150" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="25,0,0,0" telerik:StyleManager.Theme="Summer" DisplayMemberPath="Nombre_Estado" SelectedValuePath="Id_Estado"/>
-
-            </Grid>
+            
             </Grid>
         <telerik:RadGridView Name="gvCerrarMantenimiento" Grid.Row="1" AutoGenerateColumns="False" IsReadOnly="True" telerik:StyleManager.Theme="Summer">
             <telerik:RadGridView.Columns>
-                <telerik:GridViewDataColumn Header="ID" DataMemberBinding="{Binding Id_Tipo}"/>
-                <telerik:GridViewDataColumn Header="Nombre de tipo mantenimiento" DataMemberBinding="{Binding Nombre}"/>
-                <telerik:GridViewDataColumn Header="Descripción de tipo mantenimiento" DataMemberBinding="{Binding Descripcion}"/>
+                <telerik:GridViewDataColumn Header="Fecha trabajo inicio" DataMemberBinding="{Binding FechaInicioFin}"/>
+                <telerik:GridViewDataColumn Header="Id equipo" DataMemberBinding="{Binding Id_Equipo}"/>
+                <telerik:GridViewDataColumn Header="Descripción de equipo" DataMemberBinding="{Binding Descripcion}"/>
+                <telerik:GridViewDataColumn Header="Usuario responsable" DataMemberBinding="{Binding Id_Usuario}"/>
+                <telerik:GridViewDataColumn Header="Fecha trabajo fin" DataMemberBinding="{Binding FechaTrabajoFin}"/>
             </telerik:RadGridView.Columns>
-            <telerik:RadGridView.GroupDescriptors>
-                <telerik:GroupDescriptor Member="Estado.Nombre_Estado" DisplayContent="Estados"/>
-            </telerik:RadGridView.GroupDescriptors>
+
         </telerik:RadGridView>
+        
+        <Grid>
+            <StackPanel Grid.Column="3" Grid.Row="3" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Orientation="Horizontal"></StackPanel>
+        </Grid>
+        <telerik:RadButton Name="btnCerrarMantenimiento" Content="Cerrar Mantenimiento" Click="btnCerrarMantenimiento_Click" Width="100" telerik:StyleManager.Theme="Summer" Height="24" HorizontalAlignment="Right" Grid.Row="1" VerticalAlignment="Bottom" />
     </Grid>
+
 </UserControl>

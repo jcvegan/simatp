@@ -40,7 +40,7 @@ namespace SIMA.Client.Gestion
             List<object> obj = new List<object> { };
             foreach (T_C_Mantenimiento Mantenimiento in listamantenimiento)
             {
-                              string horaminutoinicio,horaminutofin, horainicio, minutoinicio, horafin, minutofin="";
+                string horaminutoinicio,horaminutofin, horainicio, minutoinicio, horafin, minutofin="";
                 horaminutoinicio = TurnoMantenimientologic.SeleccionarTurnoMantenimiento(Mantenimiento.Id_TurnoMantenimiento).HoraInicio.ToString();
                 horaminutofin = TurnoMantenimientologic.SeleccionarTurnoMantenimiento(Mantenimiento.Id_TurnoMantenimiento).HoraFin.ToString();
                 if (horaminutoinicio.Length == 4)
@@ -63,7 +63,7 @@ namespace SIMA.Client.Gestion
                     minutofin = horaminutofin.Substring(1, 3);
                 }
                 string fecha = Mantenimiento.FechaProgramacion.Year + "-" + Mantenimiento.FechaProgramacion.Month + "-" + Mantenimiento.FechaProgramacion.Day;
-                var x = new
+                var Anom = new
                 {
                     Mantenimiento.Id_Mantenimiento,
                     Equipologic.SeleccionarEquipo(Mantenimiento.Id_Equipo).Id_Equipo,
@@ -73,7 +73,7 @@ namespace SIMA.Client.Gestion
                     fecha
                 };
 
-                    obj.Add(x);
+                    obj.Add(Anom);
             }
 
             gvMantenimientos.ItemsSource = obj;

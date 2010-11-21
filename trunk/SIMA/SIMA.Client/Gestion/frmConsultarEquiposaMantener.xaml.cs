@@ -75,7 +75,9 @@ namespace SIMA.Client.Gestion
 
                     obj.Add(x);
             }
+
             gvMantenimientos.ItemsSource = obj;
+            
         }
         
         private void UserControl_Loaded(object sender, RoutedEventArgs e)

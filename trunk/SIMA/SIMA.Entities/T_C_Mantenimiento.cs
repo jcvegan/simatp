@@ -23,7 +23,8 @@ namespace SIMA.Entities
 		private int id_TipoMantenimientoEquipo;
 		private int id_TurnoMantenimiento;
         private T_C_Estado estado;
-
+        private T_C_Equipo e_id_Equipo = new T_C_Equipo();
+        private T_C_TipoMantenimiento e_id_TipoMantenimiento = new T_C_TipoMantenimiento();
 
 		#endregion
 
@@ -34,12 +35,13 @@ namespace SIMA.Entities
 		/// </summary>
 		public T_C_Mantenimiento()
 		{
+          
 		}
 
 		/// <summary>
 		/// Initializes a new instance of the T_C_Mantenimiento class.
 		/// </summary>
-		public T_C_Mantenimiento(int id_Mantenimiento, int id_Turno, string id_Equipo, DateTime fechaProgramacion, DateTime fechaTrabajoInicio, DateTime fechaTrabajoFin, string usuarioRegistro, DateTime fechaRegistro, int id_Estado, int id_TipoMantenimiento, int id_Incidencia, int id_Pedido, int prioridad, int id_OrdenTrabajo, int id_TipoMantenimientoEquipo, int id_TurnoMantenimiento)
+        public T_C_Mantenimiento(int id_Mantenimiento, int id_Turno, string id_Equipo, DateTime fechaProgramacion, DateTime fechaTrabajoInicio, DateTime fechaTrabajoFin, string usuarioRegistro, DateTime fechaRegistro, int id_Estado, int id_TipoMantenimiento, int id_Incidencia, int id_Pedido, int prioridad, int id_OrdenTrabajo, int id_TipoMantenimientoEquipo, int id_TurnoMantenimiento)
 		{
 			this.id_Mantenimiento = id_Mantenimiento;
 			this.id_Turno = id_Turno;
@@ -56,7 +58,7 @@ namespace SIMA.Entities
 			this.prioridad = prioridad;
 			this.id_OrdenTrabajo = id_OrdenTrabajo;
 			this.id_TipoMantenimientoEquipo = id_TipoMantenimientoEquipo;
-			this.id_TurnoMantenimiento = id_TurnoMantenimiento;
+			this.id_TurnoMantenimiento = id_TurnoMantenimiento;            
 		}
 
 		#endregion
@@ -211,7 +213,21 @@ namespace SIMA.Entities
         {
             get { return Estado; }
             set { Estado = value; }
-        }   
+        }
+
+
+        public virtual T_C_Equipo E_id_Equipo
+        {
+            get { return e_id_Equipo; }
+            set { e_id_Equipo = value; }
+        }
+
+        public virtual T_C_TipoMantenimiento E_id_TipoMantenimiento
+        {
+            get { return e_id_TipoMantenimiento; }
+            set { e_id_TipoMantenimiento = value; }
+        }  
+       
 
 		#endregion
 	}

@@ -115,6 +115,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Page Include="Auxiliares\frmConfirmarMantenimiento.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Auxiliares\frmSelectorEquipo.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -128,6 +132,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Gestion\frmConsultarEquiposaMantener.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Gestion\frmConsultarHistoricodeMantenimiento.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -175,6 +183,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Trabajos de Mantenimiento\frmAperturaMantenimiento.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Trabajos de Mantenimiento\frmAsignarEquiposAMantener.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -182,6 +194,10 @@
     <Page Include="Trabajos de Mantenimiento\frmGestionarSolicitud.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Trabajos de Mantenimiento\frmGestionarSolicitudMantenimiento.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="Window1.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -197,8 +213,12 @@
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
     <Compile Include="Auxiliares\Enums\Enums.cs" />
+    <Compile Include="Auxiliares\EventArgs\ConfirmarMantenimientoEventArgs.cs" />
     <Compile Include="Auxiliares\EventArgs\DetalleOrdenTrabajoEventArgs.cs" />
     <Compile Include="Auxiliares\EventArgs\EquipoPadreEventArgs.cs" />
+    <Compile Include="Auxiliares\frmConfirmarMantenimiento.xaml.cs">
+      <DependentUpon>frmConfirmarMantenimiento.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Auxiliares\frmSelectorEquipo.xaml.cs">
       <DependentUpon>frmSelectorEquipo.xaml</DependentUpon>
     </Compile>
@@ -210,8 +230,12 @@
     </Compile>
     <Compile Include="Auxiliares\MantenimientoSessionApp.cs" />
     <Compile Include="Auxiliares\MantenimientoSessionAppCollection.cs" />
+    <Compile Include="Auxiliares\MantenimientoSessionAppCollectionFecha.cs" />
     <Compile Include="Gestion\frmConsultarEquiposaMantener.xaml.cs">
       <DependentUpon>frmConsultarEquiposaMantener.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Gestion\frmConsultarHistoricodeMantenimiento.xaml.cs">
+      <DependentUpon>frmConsultarHistoricodeMantenimiento.xaml</DependentUpon>
     </Compile>
     <Compile Include="Gestion\frmGestionarAreas.xaml.cs">
       <DependentUpon>frmGestionarAreas.xaml</DependentUpon>
@@ -260,11 +284,17 @@
       <DependentUpon>frmIniciarSesion.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Trabajos de Mantenimiento\frmAperturaMantenimiento.xaml.cs">
+      <DependentUpon>frmAperturaMantenimiento.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Trabajos de Mantenimiento\frmAsignarEquiposAMantener.xaml.cs">
       <DependentUpon>frmAsignarEquiposAMantener.xaml</DependentUpon>
     </Compile>
     <Compile Include="Trabajos de Mantenimiento\frmGestionarSolicitud.xaml.cs">
       <DependentUpon>frmGestionarSolicitud.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Trabajos de Mantenimiento\frmGestionarSolicitudMantenimiento.xaml.cs">
+      <DependentUpon>frmGestionarSolicitudMantenimiento.xaml</DependentUpon>
     </Compile>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

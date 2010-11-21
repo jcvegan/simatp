@@ -50,7 +50,12 @@ namespace SIMA.Logic
         {
             return MantenimientoAccess.ActualizarMantenimientoEquipo(Mantenimiento);
         }
-        
+
+        public List<T_C_Mantenimiento> SeleccionarActivosMantenimientoPorFecha(T_C_Mantenimiento Mantenimiento)
+        {
+            return MantenimientoAccess.SeleccionarActivosMantenimientoPorFecha(Mantenimiento);
+        }
+                
         
     }
 }

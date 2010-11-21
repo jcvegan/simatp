@@ -63,6 +63,7 @@ namespace SIMA.Client.Auxiliares
             }
             
         }
+
         #region IAppointmentFactory Members
 
         public IAppointment CreateNewAppointment()

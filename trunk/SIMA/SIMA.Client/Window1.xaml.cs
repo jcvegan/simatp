@@ -80,7 +80,7 @@ namespace SIMA.Client
                     item.Content = new frmAsignarEquiposAMantener();
                     break;
                 case "Solicitud Mantenimiento":
-                    item.Content = new frmGestionarSolicitudMantenimiento();
+                    item.Content = new frmGestionarSolicitud();
                     break;                    
             }
             item.MinimizedHeight = 20;

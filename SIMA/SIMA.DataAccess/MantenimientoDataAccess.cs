@@ -12,11 +12,15 @@ namespace SIMA.DataAccess
     public class MantenimientoDataAccess : Base.DataAccessBase
     { 
         EstadoDataAccess estadoAccess;
+        EquipoDataAccess equipoAccess;
+        TipoMantenimientoDataAccess tipoMantenimientoAccess;
 
         public MantenimientoDataAccess()
             : base()
         {
             estadoAccess = new EstadoDataAccess();
+            equipoAccess = new EquipoDataAccess();
+            tipoMantenimientoAccess = new TipoMantenimientoDataAccess();
         }
 
         public string AgregarMantenimiento(T_C_Mantenimiento Mantenimiento)
@@ -187,6 +191,45 @@ namespace SIMA.DataAccess
                         Mantenimiento.FechaRegistro = Convert.ToDateTime(reader.GetValue(reader.GetOrdinal("FechaRegistro")).ToString());
                         Mantenimientos.Add(Mantenimiento);
                         
+                    }
+                }
+                return Mantenimientos;
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
+            finally
+            {
+                Connection.Close();
+            }
+        }
+
+        public List<T_C_Mantenimiento> SeleccionarActivosMantenimientoPorFecha(T_C_Mantenimiento Mantenimiento)
+        {
+            try
+            {
+                List<T_C_Mantenimiento> Mantenimientos;
+                //T_C_Equipo E_id_Equipo;
+                using (Command = new System.Data.SqlClient.SqlCommand("T_C_MantenimientoselectActivoFecha", Connection))
+                {
+                    Command.Parameters.AddWithValue("@FechaTrabajoInicio", Mantenimiento.FechaTrabajoInicio);
+                    Command.Parameters.AddWithValue("@FechaTrabajoFin", Mantenimiento.FechaTrabajoFin);
+                    Command.CommandType = System.Data.CommandType.StoredProcedure;
+                    Connection.Open();
+                    Mantenimientos = new List<T_C_Mantenimiento>();
+                    //E_id_Equipo = new T_C_Equipo();
+                    SqlDataReader reader = Command.ExecuteReader();
+                    while (reader.Read())
+                    {
+                        Mantenimiento = new T_C_Mantenimiento();
+
+                        Mantenimiento.Id_Mantenimiento = Convert.ToInt32(reader.GetValue(reader.GetOrdinal("Id_Mantenimiento")).ToString());
+                        Mantenimiento.Id_Equipo = reader.GetValue(reader.GetOrdinal("Id_Equipo")).ToString();
+                        Mantenimiento.FechaProgramacion = Convert.ToDateTime(reader.GetValue(reader.GetOrdinal("FechaProgramacion")).ToString());
+                        Mantenimiento.E_id_Equipo.Descripcion = equipoAccess.SeleccionarEquipo(Mantenimiento.Id_Equipo).Descripcion;
+                        Mantenimiento.E_id_TipoMantenimiento.Nombre = tipoMantenimientoAccess.SeleccionarTipoMantenimiento(Mantenimiento.Id_Mantenimiento).Nombre;
+                        Mantenimientos.Add(Mantenimiento);
                     }
                 }
                 return Mantenimientos;

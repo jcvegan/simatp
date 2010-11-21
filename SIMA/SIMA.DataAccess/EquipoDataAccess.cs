@@ -259,6 +259,7 @@ namespace SIMA.DataAccess
                         equipo.Costo = Convert.ToDouble(reader.GetValue(reader.GetOrdinal("Costo")).ToString());
                         equipo.Descripcion = reader.GetValue(reader.GetOrdinal("Descripcion")).ToString();
                         equipo.DiamteroInterno = Convert.ToDecimal(reader.GetValue(reader.GetOrdinal("DiamteroInterno")).ToString());
+
                         equipo.Fecha_Adquisicion = Convert.ToDateTime(reader.GetValue(reader.GetOrdinal("Fecha_Adquisicion")).ToString());
                         equipo.Fecha_Registro = Convert.ToDateTime(reader.GetValue(reader.GetOrdinal("Fecha_Registro")).ToString());
                         equipo.Id_Area = reader.GetValue(reader.GetOrdinal("Id_Area")).ToString();

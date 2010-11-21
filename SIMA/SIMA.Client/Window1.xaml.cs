@@ -85,7 +85,11 @@ namespace SIMA.Client
                     break;
                 case "Apertura Mantenimiento":
                     item.Content = new frmAperturaMantenimiento();
-                    break;                        
+                    break;
+                case "Consultar Historico Mantenimiento":
+                    item.Content = new frmConsultarHistoricodeMantenimiento();
+                    break;     
+                    
 
             }
             item.MinimizedHeight = 20;

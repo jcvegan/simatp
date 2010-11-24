@@ -73,5 +73,10 @@ namespace SIMA.Client.Auxiliares
         {
             this.Close();
         }
+
+        private void RadDataPager_PageIndexChanged(object sender, Telerik.Windows.Controls.PageIndexChangedEventArgs e)
+        {
+            
+        }
     }
 }

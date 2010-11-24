@@ -22,6 +22,7 @@ namespace SIMA.DataAccess
         {
             try
             {
+                Connection = new SqlConnection(ConnectionString);
                 using (Command = new System.Data.SqlClient.SqlCommand("T_C_AreaInsert", Connection))
                 {
                     Command.CommandType = System.Data.CommandType.StoredProcedure;
@@ -47,6 +48,7 @@ namespace SIMA.DataAccess
         {
             try
             {
+                Connection = new SqlConnection(ConnectionString);
                 using (Command = new System.Data.SqlClient.SqlCommand("T_C_AreaUpdate", Connection))
                 {
                     Command.CommandType = System.Data.CommandType.StoredProcedure;
@@ -96,6 +98,7 @@ namespace SIMA.DataAccess
         {
             try
             {
+                Connection = new SqlConnection(ConnectionString);
                 List<T_C_Area> areas;
                 using (Command = new System.Data.SqlClient.SqlCommand("T_C_AreaSelectAll", Connection))
                 {
@@ -130,6 +133,7 @@ namespace SIMA.DataAccess
         {
             try
             {
+                Connection = new SqlConnection(ConnectionString);
                 List<T_C_Area> areas;
                 using (Command = new System.Data.SqlClient.SqlCommand("T_C_AreaSelectActivo", Connection))
                 {
@@ -165,6 +169,7 @@ namespace SIMA.DataAccess
            
             try
             {
+                Connection = new SqlConnection(ConnectionString);
                 T_C_Area area;
                 using (Command = new System.Data.SqlClient.SqlCommand("T_C_AreaSelect", Connection))
                 {

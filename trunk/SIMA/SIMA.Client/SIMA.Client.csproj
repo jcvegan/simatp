@@ -3,7 +3,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProductVersion>9.0.21022</ProductVersion>
+    <ProductVersion>9.0.30729</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{39C7FC77-9EBD-40E0-A219-23C9E3F9779F}</ProjectGuid>
     <OutputType>WinExe</OutputType>
@@ -135,10 +135,6 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Gestion\frmConsultarHistoricodeMantenimiento.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="Gestion\frmGestionarAreas.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -216,6 +212,7 @@
     <Compile Include="Auxiliares\EventArgs\ConfirmarMantenimientoEventArgs.cs" />
     <Compile Include="Auxiliares\EventArgs\DetalleOrdenTrabajoEventArgs.cs" />
     <Compile Include="Auxiliares\EventArgs\EquipoPadreEventArgs.cs" />
+    <Compile Include="Auxiliares\EventArgs\TipoMantenimientoEventArgs.cs" />
     <Compile Include="Auxiliares\frmConfirmarMantenimiento.xaml.cs">
       <DependentUpon>frmConfirmarMantenimiento.xaml</DependentUpon>
     </Compile>
@@ -230,12 +227,8 @@
     </Compile>
     <Compile Include="Auxiliares\MantenimientoSessionApp.cs" />
     <Compile Include="Auxiliares\MantenimientoSessionAppCollection.cs" />
-    <Compile Include="Auxiliares\MantenimientoSessionAppCollectionFecha.cs" />
     <Compile Include="Gestion\frmConsultarEquiposaMantener.xaml.cs">
       <DependentUpon>frmConsultarEquiposaMantener.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Gestion\frmConsultarHistoricodeMantenimiento.xaml.cs">
-      <DependentUpon>frmConsultarHistoricodeMantenimiento.xaml</DependentUpon>
     </Compile>
     <Compile Include="Gestion\frmGestionarAreas.xaml.cs">
       <DependentUpon>frmGestionarAreas.xaml</DependentUpon>

@@ -32,17 +32,17 @@ namespace SIMA.Client.Trabajos_de_Mantenimiento
         }
         private void UserControl_Loaded(object sender, RoutedEventArgs e)
         {
-            foreach (T_C_Equipo equipos in Equipologic.ListarEquiposEnMantenimiento())
-            {
+            //foreach (T_C_Equipo equipos in Equipologic.ListarEquiposEnMantenimiento())
+            //{
 
-                var anom = new {
-                    FechaInicioFin,
-                    Id_Equipo=equipos.Id_Equipo,
-                    Descripcion=equipos.Descripcion,
-                    Id_Usuario,
-                    FechaTrabajoFin
-                };
-            }
+            //    var anom = new {
+            //        FechaInicioFin,
+            //        Id_Equipo=equipos.Id_Equipo,
+            //        Descripcion=equipos.Descripcion,
+            //        Id_Usuario,
+            //        FechaTrabajoFin
+            //    };
+            //}
         }
 
         private void btnCerrarMantenimiento_Click(object sender, RoutedEventArgs e)

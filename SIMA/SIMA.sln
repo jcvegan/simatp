@@ -258,6 +258,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Librerias", "Librerias", "{
 		SIMA.Librerias\Telerik.Windows.Controls.RibbonBar.dll = SIMA.Librerias\Telerik.Windows.Controls.RibbonBar.dll
 		SIMA.Librerias\Telerik.Windows.Controls.Scheduler.dll = SIMA.Librerias\Telerik.Windows.Controls.Scheduler.dll
 		SIMA.Librerias\Telerik.Windows.Data.dll = SIMA.Librerias\Telerik.Windows.Data.dll
+		SIMA.Librerias\WPFToolkit.dll = SIMA.Librerias\WPFToolkit.dll
+		SIMA.Librerias\WPFToolkit.Extended.dll = SIMA.Librerias\WPFToolkit.Extended.dll
 	EndProjectSection
 EndProject
 Global

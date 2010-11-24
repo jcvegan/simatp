@@ -116,8 +116,13 @@ namespace SIMA.Client
 
         private void RadRibbonButton_Click(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("Desea usted cerrar sesion", "Informativo", MessageBoxButton.YesNoCancel, MessageBoxImage.Information);
-            this.Close();
+            if (MessageBox.Show("¿Está seguro que desea cerrar la sesión?", "Informativo", MessageBoxButton.YesNoCancel, MessageBoxImage.Information) == MessageBoxResult.Yes)
+            {
+                this.DataContext = null;
+                dialogIniciarSesion.Owner = this;
+                dialogIniciarSesion.ShowDialog(); 
+            }
+            
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
@@ -129,8 +134,6 @@ namespace SIMA.Client
         private void dialogIniciarSesion_UsuarioValidado(object sender, SIMA.Client.Auxiliares.EventArgs.UsuarioEventArgs e)
         {
             this.DataContext = e;
-            //biProcesando.BusyContent = "Validando permisos";
-            //biProcesando.IsBusy = true;
         }
 
         

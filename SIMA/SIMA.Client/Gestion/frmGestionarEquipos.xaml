@@ -111,6 +111,7 @@
                     <telerik:GridViewDataColumn Header="Costo" DataMemberBinding="{Binding Costo}" DataFormatString="{}{0:c}"/>
                     <telerik:GridViewDataColumn Header="Inventario" DataMemberBinding="{Binding Stock}"/>
                 </telerik:RadGridView.Columns>
+
             </telerik:RadGridView>
             
         </Grid>

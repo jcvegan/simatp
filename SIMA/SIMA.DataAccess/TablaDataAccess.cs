@@ -86,6 +86,7 @@ namespace SIMA.DataAccess
         {
             try
             {
+                Connection = new SqlConnection(ConnectionString);
                 T_C_Tabla tabla = new T_C_Tabla();
                 using (Command = new System.Data.SqlClient.SqlCommand("T_C_TablaSelect", Connection))
                 {

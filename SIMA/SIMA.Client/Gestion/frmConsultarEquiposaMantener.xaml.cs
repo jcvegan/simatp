@@ -72,7 +72,6 @@ namespace SIMA.Client.Gestion
                     Fin= horafin + ":" + minutoinicio,
                     fecha
                 };
-
                     obj.Add(Anom);
             }
 

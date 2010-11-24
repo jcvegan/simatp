@@ -101,6 +101,7 @@ namespace SIMA.DataAccess
         {
             try
             {
+                Connection = new SqlConnection(ConnectionString);
                 List<T_C_Estado> estados;
                 using (Command = new System.Data.SqlClient.SqlCommand("T_C_EstadoSelectAll", Connection))
                 {
@@ -137,6 +138,7 @@ namespace SIMA.DataAccess
         {
             try
             {
+                Connection = new SqlConnection(ConnectionString);
                 List<T_C_Estado> estados;
                 using (Command = new System.Data.SqlClient.SqlCommand("T_C_EstadoSelectByNombre_Tabla", Connection))
                 {
@@ -174,6 +176,7 @@ namespace SIMA.DataAccess
         {
             try
             {
+                Connection = new SqlConnection(ConnectionString);
                 T_C_Estado estado = new T_C_Estado(); 
                 using (Command = new System.Data.SqlClient.SqlCommand("T_C_EstadoSelect", Connection))
                 {

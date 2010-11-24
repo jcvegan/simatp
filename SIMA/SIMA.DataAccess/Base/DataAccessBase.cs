@@ -31,7 +31,7 @@ namespace SIMA.DataAccess.Base
 
         public DataAccessBase()
         {
-            _connection = new SqlConnection(_connectionString);
+            //_connection = new SqlConnection(_connectionString);
         }
     }
 }

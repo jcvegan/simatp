@@ -72,5 +72,9 @@ namespace SIMA.Logic
             return TipoMantenimientoAccess.SeleccionarTodosTipoMantenimiento();
         }
 
+        public List<T_C_TipoMantenimiento> ListarTipoMantenimientoActivo()
+        {
+            return TipoMantenimientoAccess.SeleccionarActivosTipoMantenimiento();
+        }
     }
 }

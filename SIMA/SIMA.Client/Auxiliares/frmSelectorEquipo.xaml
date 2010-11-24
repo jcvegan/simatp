@@ -4,18 +4,19 @@
         xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation"
         Loaded="Window_Loaded"
         Title="Selector de Equipo al que pertenece el registro" 
-        Height="300" Width="600"
+        SizeToContent="WidthAndHeight"
         WindowStyle="ToolWindow"
-         WindowStartupLocation="CenterScreen"
+        WindowStartupLocation="CenterScreen"
         >
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="20"/>
             <RowDefinition />
+            <RowDefinition Height="40"/>
             <RowDefinition Height="35"/>
         </Grid.RowDefinitions>
         <TextBlock Text="Seleccione equipo" Grid.Row="0" HorizontalAlignment="Left" Margin="5,0,0,0" VerticalAlignment="Center"/>
-        <telerik:RadGridView Grid.Row="1" AutoGenerateColumns="False" IsReadOnly="True"  Name="gvEquipos" ShowGroupPanel="False" telerik:StyleManager.Theme="Summer">
+        <telerik:RadGridView Grid.Row="1" AutoGenerateColumns="False" IsReadOnly="True"  Name="gvEquipos" ShowGroupPanel="False" telerik:StyleManager.Theme="Summer" Margin="5,5,5,0" Height="250">
             <telerik:RadGridView.Columns>
                 <telerik:GridViewDataColumn DataMemberBinding="{Binding Id_Equipo}" Header="Id Equipo" IsReadOnly="True" />
                 <telerik:GridViewDataColumn DataMemberBinding="{Binding Descripcion}" Header="Descripción de Equipo" IsReadOnly="True" />
@@ -24,7 +25,8 @@
                 <telerik:GridViewDataColumn DataMemberBinding="{Binding Serie}" Header="Serie" />
             </telerik:RadGridView.Columns>
         </telerik:RadGridView>
-        <StackPanel HorizontalAlignment="Right" VerticalAlignment="Stretch" Grid.Row="2" Orientation="Horizontal">
+        <telerik:RadDataPager Grid.Row="2" telerik:StyleManager.Theme="Summer" Margin="5,0,5,0" PageSize="10" VerticalAlignment="Top" Source="{Binding Items, ElementName=gvEquipos}" DisplayMode="All" PageIndexChanged="RadDataPager_PageIndexChanged"/>
+        <StackPanel HorizontalAlignment="Right" VerticalAlignment="Stretch" Grid.Row="3" Orientation="Horizontal">
             <telerik:RadButton Name="btnAceptar" Width="100" Content="Aceptar" VerticalAlignment="Center" telerik:StyleManager.Theme="Summer" Click="btnAceptar_Click"/>
             <telerik:RadButton Name="btnCancelar" Width="100" Content="Cancelar" Margin="5,0,5,0" VerticalAlignment="Center" telerik:StyleManager.Theme="Summer" Click="btnCancelar_Click" />
         </StackPanel>

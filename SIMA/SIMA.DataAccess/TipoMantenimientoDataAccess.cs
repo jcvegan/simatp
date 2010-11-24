@@ -156,5 +156,40 @@ namespace SIMA.DataAccess
             }
         }
 
+        public List<T_C_TipoMantenimiento> SeleccionarActivosTipoMantenimiento()
+        {
+            try
+            {
+                Connection = new SqlConnection(ConnectionString);
+                List<T_C_TipoMantenimiento> TipoMantenimientos;
+                using (Command = new System.Data.SqlClient.SqlCommand("T_C_TipoMantenimientoSelectActivo", Connection))
+                {
+                    Command.CommandType = System.Data.CommandType.StoredProcedure;
+                    Connection.Open();
+                    TipoMantenimientos = new List<T_C_TipoMantenimiento>();
+                    SqlDataReader reader = Command.ExecuteReader();
+                    while (reader.Read())
+                    {
+                        T_C_TipoMantenimiento TipoMantenimiento = new T_C_TipoMantenimiento();
+                        TipoMantenimiento.Id_Tipo = Convert.ToInt32(reader.GetValue(reader.GetOrdinal("Id_Tipo")).ToString());
+                        TipoMantenimiento.Nombre = reader.GetValue(reader.GetOrdinal("Nombre")).ToString();
+                        TipoMantenimiento.Descripcion = reader.GetValue(reader.GetOrdinal("Descripcion")).ToString();
+                        TipoMantenimiento.Id_Estado = Convert.ToInt32(reader.GetValue(reader.GetOrdinal("Id_Estado")).ToString());
+                        TipoMantenimiento.Estado = estadoAccess.Seleccionar(TipoMantenimiento.Id_Estado);
+                        TipoMantenimientos.Add(TipoMantenimiento);
+                    }
+                }
+                return TipoMantenimientos;
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
+            finally
+            {
+                Connection.Close();
+            }
+        }
+
     }
 }

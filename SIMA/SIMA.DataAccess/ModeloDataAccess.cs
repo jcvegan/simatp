@@ -171,6 +171,7 @@ namespace SIMA.DataAccess
         {
             try
             {
+                Connection = new SqlConnection(ConnectionString);
                 List<T_C_Modelo> modelos;
                 using (Command = new System.Data.SqlClient.SqlCommand("T_C_ModeloSelectById_Marca", Connection))
                 {
@@ -208,6 +209,7 @@ namespace SIMA.DataAccess
         {
             try
             {
+                Connection = new SqlConnection(ConnectionString);
                 T_C_Modelo modelo;
                 using (Command = new System.Data.SqlClient.SqlCommand("T_C_ModeloSelect", Connection))
                 {

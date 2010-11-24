@@ -27,10 +27,18 @@ namespace SIMA.DataAccess
         {
             try
             {
+                Connection = new SqlConnection(ConnectionString);
                 using (Command = new System.Data.SqlClient.SqlCommand("T_C_EquipoInsert", Connection))
                 {
                     Command.CommandType = System.Data.CommandType.StoredProcedure;
-                    Command.Parameters.AddWithValue("@EquipoPadre", equipo.EquipoPadre);
+                    if (equipo.Padre == null)
+                    {
+                        Command.Parameters.AddWithValue("@EquipoPadre", "SinPadre");
+                    }
+                    else
+                    {
+                        Command.Parameters.AddWithValue("@EquipoPadre", equipo.EquipoPadre);
+                    }
                     Command.Parameters.AddWithValue("@Descripcion", equipo.Descripcion);
                     Command.Parameters.AddWithValue("@Id_Marca", equipo.Id_Marca);
                     Command.Parameters.AddWithValue("@Id_Modelo", equipo.Id_Modelo);
@@ -67,6 +75,7 @@ namespace SIMA.DataAccess
         {
             try
             {
+                Connection = new SqlConnection(ConnectionString);
                 using (Command = new System.Data.SqlClient.SqlCommand("T_C_EquipoUpdate", Connection))
                 {
                     Command.CommandType = System.Data.CommandType.StoredProcedure;
@@ -107,6 +116,7 @@ namespace SIMA.DataAccess
         {
             try
             {
+                Connection = new SqlConnection(ConnectionString);
                 using (Command = new System.Data.SqlClient.SqlCommand("T_C_EquipoDelete", Connection))
                 {
                     Command.CommandType = System.Data.CommandType.StoredProcedure;
@@ -130,6 +140,7 @@ namespace SIMA.DataAccess
         {
             try
             {
+                Connection = new SqlConnection(ConnectionString);
                 List<T_C_Equipo> equipos;
                 using (Command = new System.Data.SqlClient.SqlCommand("T_C_EquipoSelectAll", Connection))
                 {
@@ -146,7 +157,8 @@ namespace SIMA.DataAccess
                         {
                             equipo.Padre = SeleccionarEquipo(equipo.EquipoPadre);
                         }
-                        equipo.CapacidadOperacion = Convert.ToDecimal(reader.GetValue(reader.GetOrdinal("CapacidadOperacion")).ToString());
+                        string sss = reader.GetValue(reader.GetOrdinal("CapacidadOperacion")).ToString();
+                        equipo.CapacidadOperacion = Convert.ToDecimal(sss);//Convert.ToDecimal(reader.GetValue(reader.GetOrdinal("CapacidadOperacion")).ToString());
                         equipo.Costo = Convert.ToDouble(reader.GetValue(reader.GetOrdinal("Costo")).ToString());
                         equipo.Descripcion = reader.GetValue(reader.GetOrdinal("Descripcion")).ToString();
                         equipo.DiamteroInterno = Convert.ToDecimal(reader.GetValue(reader.GetOrdinal("DiamteroInterno")).ToString());
@@ -164,6 +176,7 @@ namespace SIMA.DataAccess
                         equipo.Nivel = Convert.ToInt32(reader.GetValue(reader.GetOrdinal("Nivel")).ToString());
                         equipo.RevestimientoInterior = reader.GetValue(reader.GetOrdinal("RevestimientoInterior")).ToString();
                         equipo.Serie = reader.GetValue(reader.GetOrdinal("Serie")).ToString();
+                        equipo.Stock = Convert.ToInt32(reader.GetValue(reader.GetOrdinal("Stock")).ToString());
                         equipos.Add(equipo);
                     }
                 }
@@ -183,6 +196,7 @@ namespace SIMA.DataAccess
         {
             try
             {
+                Connection = new SqlConnection(ConnectionString);
                 List<T_C_Equipo> equipos;
                 using (Command = new System.Data.SqlClient.SqlCommand("T_C_EquipoSelectActivo", Connection))
                 {
@@ -217,6 +231,7 @@ namespace SIMA.DataAccess
                         equipo.Nivel = Convert.ToInt32(reader.GetValue(reader.GetOrdinal("Nivel")).ToString());
                         equipo.RevestimientoInterior = reader.GetValue(reader.GetOrdinal("RevestimientoInterior")).ToString();
                         equipo.Serie = reader.GetValue(reader.GetOrdinal("Serie")).ToString();
+                        equipo.Stock = Convert.ToInt32(reader.GetValue(reader.GetOrdinal("Stock")).ToString());
                         equipos.Add(equipo);
                     }
                 }
@@ -237,6 +252,7 @@ namespace SIMA.DataAccess
         {
             try
             {
+                Connection = new SqlConnection(ConnectionString);
                 List<T_C_Equipo> equipos;
                 using (Command = new System.Data.SqlClient.SqlCommand("T_C_EquipoSelectEnMantenimiento", Connection))
                 {
@@ -271,6 +287,7 @@ namespace SIMA.DataAccess
                         equipo.Nivel = Convert.ToInt32(reader.GetValue(reader.GetOrdinal("Nivel")).ToString());
                         equipo.RevestimientoInterior = reader.GetValue(reader.GetOrdinal("RevestimientoInterior")).ToString();
                         equipo.Serie = reader.GetValue(reader.GetOrdinal("Serie")).ToString();
+                        equipo.Stock = Convert.ToInt32(reader.GetValue(reader.GetOrdinal("Stock")).ToString());
                         equipos.Add(equipo);
                     }
                 }
@@ -291,6 +308,7 @@ namespace SIMA.DataAccess
         {
             try
             {
+                Connection = new SqlConnection(ConnectionString);
                 T_C_Equipo equipo;
                 using (Command = new System.Data.SqlClient.SqlCommand("T_C_EquipoSelectAllById_Equipo", Connection))
                 {

@@ -15,6 +15,8 @@ using SIMA.Logic;
 using SIMA.Entities;
 using SIMA.Client.Auxiliares;
 using Telerik.Windows.Controls;
+using System.ComponentModel;
+using System.Threading;
 
 namespace SIMA.Client.Gestion
 {
@@ -29,10 +31,26 @@ namespace SIMA.Client.Gestion
         EquipoDataLogic equipoLogic;
         EstadoDataLogic estadoLogic;
         T_C_Equipo padre;
+        T_C_Equipo equipo;
+        List<T_C_TipoMantenimiento> tipoMantenimiento;
+        BackgroundWorker worker = new BackgroundWorker();
         bool verPrimera = true;
+        bool vezPrimeraTipo = true;
         public frmGestionarEquipos()
         {
             InitializeComponent();
+            worker.DoWork += new DoWorkEventHandler(worker_DoWork);
+            worker.RunWorkerCompleted += new RunWorkerCompletedEventHandler(worker_RunWorkerCompleted);
+        }
+
+        void worker_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
+        {
+            Dispatcher.BeginInvoke(new Action<string>(this.ActualizarRegistro), e.Result);
+        }
+
+        void worker_DoWork(object sender, DoWorkEventArgs e)
+        {
+            e.Result = RegistrarEquipo();
         }
 
         private void UserControl_Loaded(object sender, RoutedEventArgs e)
@@ -51,30 +69,34 @@ namespace SIMA.Client.Gestion
 
         private void btnRegistrar_Click(object sender, RoutedEventArgs e)
         {
-            T_C_Equipo equipo = new T_C_Equipo();
-            equipo.Cantidad = int.Parse(txtCantidad.Text);
-            equipo.CapacidadOperacion = Convert.ToDecimal(txtCapOper.Text);
-            equipo.Costo = (double)udCostoUnidad.Value;
-            equipo.Descripcion = txtDescripcion.Text;
-            equipo.DiamteroInterno =Convert.ToDecimal(txtDiamtero.Text);
-            equipo.Fecha_Adquisicion = (DateTime)dtFAdquisicion.SelectedDateTime;
-            equipo.Fecha_Registro = DateTime.Now;
-            equipo.Id_Area = (cmbAreaEquipo.SelectedItem as T_C_Area).Id_Area;
-            equipo.Id_Marca = (cmbMarcaEquipo.SelectedItem as T_C_Marca).Id_Marca;
-            equipo.Id_Modelo = (cmbModeloEquipo.SelectedItem as T_C_Modelo).Id_Modelo;
-            equipo.MaxHoras = int.Parse(udMaxHoras.Value.ToString());
-            equipo.RevestimientoInterior = txtRevestimiento.Text;
-            equipo.Serie = txtSerie.Text;
-            equipo.Stock = int.Parse(txtCantidad.Text);
-            equipo.UsoUnico = (bool)chkEsUsoUnico.IsChecked;
-            MessageBox.Show(equipoLogic.AgregarEquipo(equipo));
-            gvEquipo.ItemsSource = equipoLogic.ListarTodos();
-            Limpia();
-            SoloRegistra();
+
+            if (!worker.IsBusy)
+            {
+                biIndicador.BusyContent = "Registrando Información";
+                equipo = new T_C_Equipo();
+                equipo.Cantidad = int.Parse(txtCantidad.Text);
+                equipo.CapacidadOperacion = Convert.ToDecimal(txtCapOper.Text);
+                equipo.Costo = (double)udCostoUnidad.Value;
+                equipo.Descripcion = txtDescripcion.Text;
+                equipo.DiamteroInterno = Convert.ToDecimal(txtDiamtero.Text);
+                equipo.Fecha_Adquisicion = (DateTime)dtFAdquisicion.SelectedDateTime;
+                equipo.Fecha_Registro = DateTime.Now;
+                equipo.Id_Area = (cmbAreaEquipo.SelectedItem as T_C_Area).Id_Area;
+                equipo.Id_Marca = (cmbMarcaEquipo.SelectedItem as T_C_Marca).Id_Marca;
+                equipo.Id_Modelo = (cmbModeloEquipo.SelectedItem as T_C_Modelo).Id_Modelo;
+                equipo.MaxHoras = int.Parse(udMaxHoras.Value.ToString());
+                equipo.RevestimientoInterior = txtRevestimiento.Text;
+                equipo.Serie = txtSerie.Text;
+                equipo.Stock = int.Parse(txtCantidad.Text);
+                equipo.UsoUnico = (bool)chkEsUsoUnico.IsChecked;
+                biIndicador.IsBusy = true;
+                worker.RunWorkerAsync();
+            }
         }
 
         private void btnActualizar_Click(object sender, RoutedEventArgs e)
         {
+            biIndicador.BusyContent = "Actualizando Información";
             T_C_Equipo equipo = gvEquipo.SelectedItem as T_C_Equipo;
             equipo.Cantidad = int.Parse(txtCantidad.Text);
             equipo.CapacidadOperacion = Convert.ToDecimal(txtCapOper.Text);
@@ -94,6 +116,7 @@ namespace SIMA.Client.Gestion
             gvEquipo.ItemsSource = equipoLogic.ListarTodos();
             Limpia();
             SoloRegistra();
+
         }
 
         private void btnEliminar_Click(object sender, RoutedEventArgs e)
@@ -155,8 +178,10 @@ namespace SIMA.Client.Gestion
         {
             if (cmbMarcaEquipo.SelectedItem != null)
             {
-                TodasOperaciones();
+                //TodasOperaciones();
                 cmbModeloEquipo.ItemsSource = modeloLogic.ListarPorMarca((cmbMarcaEquipo.SelectedItem as T_C_Marca).Id_Marca);
+                cmbModeloEquipo.Visibility = Visibility.Visible;
+                lblModelo.Visibility = Visibility.Visible;
             }
             else
             {
@@ -268,6 +293,50 @@ namespace SIMA.Client.Gestion
         private void btnSelTipoMantenimiento_Click(object sender, RoutedEventArgs e)
         {
             frmSelectorTipoMantenimiento selector;
+            if (vezPrimeraTipo)
+            {
+                vezPrimeraTipo = false;
+                selector = new frmSelectorTipoMantenimiento();
+                selector.resultado += new EventHandler<SIMA.Client.Auxiliares.EventArgs.TipoMantenimientoEventArgs>(selector_resultado);
+                selector.ShowDialog();
+            }
+            else
+            {
+                selector = new frmSelectorTipoMantenimiento(tipoMantenimiento);
+                selector.resultado += new EventHandler<SIMA.Client.Auxiliares.EventArgs.TipoMantenimientoEventArgs>(selector_resultado);
+                selector.ShowDialog();
+            }
+        }
+
+        void selector_resultado(object sender, SIMA.Client.Auxiliares.EventArgs.TipoMantenimientoEventArgs e)
+        {
+            tipoMantenimiento = e.TiposDeMantenimiento;
+        }
+
+        private string RegistrarEquipo()
+        {
+            string msg = string.Empty;
+            
+            if (padre != null)
+            {
+                equipo.EquipoPadre = padre.Id_Equipo;
+            }
+            msg = equipoLogic.AgregarEquipo(equipo);
+            if (msg == "Registro grabado satisfactoriamente.")
+            {
+                Thread.Sleep(1000);
+            }
+
+            return msg;
+        }
+
+        private void ActualizarRegistro(string msg)
+        {
+            
+            gvEquipo.ItemsSource = equipoLogic.ListarTodos();
+            Limpia();
+            MessageBox.Show(msg);
+            biIndicador.IsBusy = false;
         }
     }
 }

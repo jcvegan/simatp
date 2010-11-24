@@ -221,6 +221,7 @@
     <Compile Include="Auxiliares\EventArgs\DetalleOrdenTrabajoEventArgs.cs" />
     <Compile Include="Auxiliares\EventArgs\EquipoPadreEventArgs.cs" />
     <Compile Include="Auxiliares\EventArgs\TipoMantenimientoEventArgs.cs" />
+    <Compile Include="Auxiliares\EventArgs\UsuarioEventArgs.cs" />
     <Compile Include="Auxiliares\frmConfirmarMantenimiento.xaml.cs">
       <DependentUpon>frmConfirmarMantenimiento.xaml</DependentUpon>
     </Compile>

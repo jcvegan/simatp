@@ -21,6 +21,7 @@ namespace SIMA.DataAccess
         {
             try
             {
+                Connection = new SqlConnection(ConnectionString);
                 using (Command = new System.Data.SqlClient.SqlCommand("T_C_UsuarioInsert", Connection))
                 {
                     Command.CommandType = System.Data.CommandType.StoredProcedure;
@@ -113,7 +114,7 @@ namespace SIMA.DataAccess
             }
         }
 
-        public T_C_Usuario ValidarUsuario(string id_Usuario, string contraseña)
+        public T_C_Usuario ValidarUsuario(int id_Usuario, string contraseña)
         {
             Connection = new SqlConnection(ConnectionString);
             try
@@ -150,7 +151,7 @@ namespace SIMA.DataAccess
                     throw new Exception();
                 }
             }
-            catch
+            catch(Exception ex)
             {
                 return null;
             }

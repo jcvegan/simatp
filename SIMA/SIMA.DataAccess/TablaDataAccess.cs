@@ -119,6 +119,7 @@ namespace SIMA.DataAccess
         {
             try
             {
+                Connection = new SqlConnection(ConnectionString);
                 List<T_C_Tabla> tablas;
                 using (Command = new System.Data.SqlClient.SqlCommand("T_C_TablaSelectAll", Connection))
                 {

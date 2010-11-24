@@ -82,8 +82,6 @@ namespace SIMA.DataAccess
             }
         }
 
-
-
         public T_C_Usuario SeleccionarTabla(string Id_Usuario, string Contrasenia)
         {
             try
@@ -106,6 +104,53 @@ namespace SIMA.DataAccess
                 return usuario;
             }
             catch (Exception ex)
+            {
+                return null;
+            }
+            finally
+            {
+                Connection.Close();
+            }
+        }
+
+        public T_C_Usuario ValidarUsuario(string id_Usuario, string contraseña)
+        {
+            Connection = new SqlConnection(ConnectionString);
+            try
+            {
+                T_C_Usuario usuario = new T_C_Usuario();
+
+                using (Command = new System.Data.SqlClient.SqlCommand("T_C_UsuarioIniciarSesion", Connection))
+                {
+                    Command.Parameters.AddWithValue("@Id_Usuario", id_Usuario);
+                    
+                    Command.CommandType = System.Data.CommandType.StoredProcedure;
+                    Connection.Open();
+
+                    SqlDataReader reader = Command.ExecuteReader();
+                    while (reader.Read())
+                    {
+                        usuario.Id_Usuario = Convert.ToInt32(reader.GetValue(reader.GetOrdinal("Id_Usuario")).ToString());
+                        usuario.Nombres = reader.GetValue(reader.GetOrdinal("Nombres")).ToString();
+                        usuario.Apellidos = reader.GetValue(reader.GetOrdinal("Apellidos")).ToString();
+                        usuario.Telefono = Convert.ToInt32(reader.GetValue(reader.GetOrdinal("Telefono")).ToString());
+                        usuario.Direccion = reader.GetValue(reader.GetOrdinal("Direccion")).ToString();
+                        usuario.Fecha_Nacimiento = Convert.ToDateTime(reader.GetValue(reader.GetOrdinal("Fecha_Nacimiento")).ToString());
+                        usuario.Email = reader.GetValue(reader.GetOrdinal("Email")).ToString();
+                        usuario.Contraseña = reader.GetValue(reader.GetOrdinal("Contraseña")).ToString().Desencriptar();
+                        usuario.Id_Perfil = Convert.ToInt32(reader.GetValue(reader.GetOrdinal("Id_Perfil")).ToString());                        
+                    }
+                }
+                if (usuario.Contraseña == contraseña)
+                {
+                    return usuario;
+                }
+                else
+                {
+                    throw new Exception();
+                }
+            }
+            catch
             {
                 return null;
             }

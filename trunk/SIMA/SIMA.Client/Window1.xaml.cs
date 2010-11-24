@@ -16,6 +16,8 @@ using SIMA.Client.Gestion;
 using SIMA.Client.Orden_de_Trabajo;
 using SIMA.Client.Trabajos_de_Mantenimiento;
 using SIMA.Client.Seguridad;
+using SIMA.Entities;
+using SIMA.Logic;
 
 namespace SIMA.Client
 {
@@ -24,9 +26,12 @@ namespace SIMA.Client
     /// </summary>
     public partial class Window1 : Window
     {
+        UsuarioDataLogic usuarioLogic;
+        
         public Window1()
         {
             InitializeComponent();
+            usuarioLogic = new UsuarioDataLogic();
         }
 
         private void rbtnChecked(object sender, RoutedEventArgs e)
@@ -113,6 +118,19 @@ namespace SIMA.Client
         {
             MessageBox.Show("Desea usted cerrar sesion", "Informativo", MessageBoxButton.YesNoCancel, MessageBoxImage.Information);
             this.Close();
+        }
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            dialogIniciarSesion.Owner = this;
+            dialogIniciarSesion.ShowDialog();            
+        }
+
+        private void dialogIniciarSesion_UsuarioValidado(object sender, SIMA.Client.Auxiliares.EventArgs.UsuarioEventArgs e)
+        {
+            this.DataContext = e;
+            //biProcesando.BusyContent = "Validando permisos";
+            //biProcesando.IsBusy = true;
         }
 
         

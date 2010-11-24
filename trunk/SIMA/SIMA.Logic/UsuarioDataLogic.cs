@@ -21,9 +21,9 @@ namespace SIMA.Logic
             return usuarioAccess.SeleccionarTabla(Id_usuario, Contrasenia);
         }
 
-        public T_C_Usuario ValidaUsuairo(string Id_Usuario, string Contraseña)
+        public T_C_Usuario ValidaUsuario(int Id_Usuario, string Contraseña)
         {
-            if (Id_Usuario == string.Empty && Contraseña == string.Empty)
+            if (Id_Usuario == 0 && Contraseña == string.Empty)
             {
                 return null;
             }
@@ -32,6 +32,9 @@ namespace SIMA.Logic
                 return usuarioAccess.ValidarUsuario(Id_Usuario, Contraseña);
             }
         }
-
+        public string AgregarUsuario(T_C_Usuario usuario)
+        {
+            return usuarioAccess.AgregarUsuario(usuario);
+        }
     }
 }

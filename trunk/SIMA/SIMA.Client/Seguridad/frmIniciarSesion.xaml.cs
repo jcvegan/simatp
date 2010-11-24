@@ -48,6 +48,8 @@ namespace SIMA.Client.Seguridad
                         if (UsuarioValidado != null)
                         {
                             UsuarioValidado(this, new UsuarioEventArgs(usuario));
+                            txtContraseña.Clear();
+                            txtUsuario.Clear();
                             this.Close();
                         }
                         else

@@ -128,5 +128,37 @@ namespace SIMA.DataAccess
                 Connection.Close();
             }
         }
+
+        public T_C_Perfil Seleccionar(int idPerfil)
+        {
+            try
+            {
+                Connection = new SqlConnection(ConnectionString);
+                T_C_Perfil perfil = new T_C_Perfil();
+                using (Command = new System.Data.SqlClient.SqlCommand("T_C_PerfilSelect", Connection))
+                {
+                    Command.Parameters.AddWithValue("@Id_Estado", idPerfil);
+                    Command.CommandType = System.Data.CommandType.StoredProcedure;
+                    Connection.Open();
+                    SqlDataReader reader = Command.ExecuteReader();
+                    while (reader.Read())
+                    {
+                        perfil.Id_Estado = Convert.ToInt32(reader.GetValue(reader.GetOrdinal("Id_Estado")).ToString());
+                        perfil.Id_Perfil = Convert.ToInt32(reader.GetValue(reader.GetOrdinal("Id_Perfil")).ToString());
+                        perfil.Nombre = reader.GetValue(reader.GetOrdinal("Nombre")).ToString();
+                        perfil.Descripcion = reader.GetValue(reader.GetOrdinal("Descripcion")).ToString();
+                    }
+                }
+                return perfil;
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
+            finally
+            {
+                Connection.Close();
+            }
+        }
     }
 }

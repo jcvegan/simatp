@@ -36,5 +36,10 @@ namespace SIMA.Logic
         {
             return usuarioAccess.AgregarUsuario(usuario);
         }
+
+        public List<T_C_Usuario> ListarUsuarios()
+        {
+            return usuarioAccess.SeleccionarTodosUsuario();
+        }
     }
 }

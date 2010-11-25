@@ -96,6 +96,7 @@ namespace SIMA.DataAccess
         {
             try
             {
+                Connection = new SqlConnection(ConnectionString);
                 List<T_C_Marca> marcas;
                 using (Command = new System.Data.SqlClient.SqlCommand("T_C_MarcaSelectAll", Connection))
                 {

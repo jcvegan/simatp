@@ -3,7 +3,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProductVersion>9.0.21022</ProductVersion>
+    <ProductVersion>9.0.30729</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{66348996-DB50-4531-B8B3-BE8BF79A83CD}</ProjectGuid>
     <OutputType>Library</OutputType>
@@ -57,6 +57,8 @@
     <Compile Include="ModeloDataAccess.cs" />
     <Compile Include="OrdenTrabajoDataAccess.cs" />
     <Compile Include="PerfilDataAccess.cs" />
+    <Compile Include="PermisoDataAccess.cs" />
+    <Compile Include="PermisosPorPerfilDataAccess.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SolicitudDataAccess.cs" />
     <Compile Include="TablaDataAccess.cs" />

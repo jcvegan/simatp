@@ -8,13 +8,20 @@
                    ModalBackground="Gray"
                    WindowStartupLocation="CenterScreen"
                    Header="Iniciar Sesión"
-                   telerik:StyleManager.Theme="Summer"
+                   telerik:StyleManager.Theme="Summer"                   
                    HorizontalContentAlignment="Center"
                    VerticalContentAlignment="Center"
+                   MaxHeight="120"
+                   MaxWidth="340"
+                   Height="120"
+                   Width="340"
+                   CanClose="False"
+                   CanMove="False"
+                   
                    >
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition/>
+            <ColumnDefinition Width="120"/>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>

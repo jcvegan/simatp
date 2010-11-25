@@ -10,6 +10,14 @@ namespace SIMA.Entities
 		private string nombre;
 		private string descripcion;
 		private int id_Estado;
+        private T_C_Estado estado;
+
+
+        public virtual T_C_Estado Estado
+        {
+            get { return estado; }
+            set { estado = value; }
+        }
 
 		#endregion
 

@@ -8,7 +8,7 @@
         >
     <telerik:RadBusyIndicator Name="biProcesando">
         <DockPanel>
-            <telerik:RadRibbonBar DockPanel.Dock="Top" Title="SIMA - Sistema de Mantenimientos de Equipos" telerik:StyleManager.Theme="Summer">
+            <telerik:RadRibbonBar x:Name="ribbonTabPrincipal" DockPanel.Dock="Top" Title="SIMA - Sistema de Mantenimientos de Equipos" telerik:StyleManager.Theme="Summer">
                 <telerik:RadRibbonBar.ApplicationMenu>
                     <telerik:ApplicationMenu> 
                      <telerik:RadRibbonButton Text="Cerrar Sesion" Click="RadRibbonButton_Click"/>
@@ -16,41 +16,41 @@
                 </telerik:RadRibbonBar.ApplicationMenu>
                 <telerik:RadRibbonTab Header="Gestiones" telerik:StyleManager.Theme="Summer">
                     <telerik:RadRibbonGroup Header="Seguridad" telerik:StyleManager.Theme="Summer">
-                        <telerik:RadRibbonToggleButton Name="rbtnGestionarPerfiles" Content="Perfiles" Checked="rbtnChecked" Unchecked="rbtnUnchecked"/>
-                        <telerik:RadRibbonToggleButton Name="rbtnGestionarPermisos" Content="Permisos" Checked="rbtnChecked" Unchecked="rbtnUnchecked"/>
-                        <telerik:RadRibbonToggleButton Name="rbtnGestionarUsuarios" Content="Usuarios" Checked="rbtnChecked" Unchecked="rbtnUnchecked"/>
+                        <telerik:RadRibbonToggleButton Name="rbtnGestionarPerfiles" Tag="Gestionar Perfiles"  Content="Perfiles" Checked="rbtnChecked" Unchecked="rbtnUnchecked"/>
+                        <telerik:RadRibbonToggleButton Name="rbtnGestionarPermisos" Tag="Gestionar Permisos" Content="Permisos" Checked="rbtnChecked" Unchecked="rbtnUnchecked"/>
+                        <telerik:RadRibbonToggleButton Name="rbtnGestionarUsuarios" Tag="Gestionar Usuarios" Content="Usuarios" Checked="rbtnChecked" Unchecked="rbtnUnchecked"/>
                     </telerik:RadRibbonGroup>
                     <telerik:RadRibbonGroup Header="Mantenimientos">
-                        <telerik:RadRibbonToggleButton Name="rbtnGestionarEquipos" Content="Equipos" Checked="rbtnChecked" Unchecked="rbtnUnchecked"/>
-                        <telerik:RadRibbonToggleButton Name="rbtnGestionarAreas" Content="Areas" Checked="rbtnChecked" Unchecked="rbtnUnchecked"/>
-                        <telerik:RadRibbonToggleButton Name="rbtnGestionarMarcas" Content="Marcas" Checked="rbtnChecked" Unchecked="rbtnUnchecked"/>
-                        <telerik:RadRibbonToggleButton Name="rbtnGestionarModelos" Content="Modelos" Checked="rbtnChecked" Unchecked="rbtnUnchecked"/>
-                        <telerik:RadRibbonToggleButton Name="rbtnGestionarTipoMantenimientos" Content="Tipo Mantenimiento" Checked="rbtnChecked" Unchecked="rbtnUnchecked"/>
+                        <telerik:RadRibbonToggleButton Name="rbtnGestionarEquipos" Tag="Gestionar Equipos" Content="Equipos" Checked="rbtnChecked" Unchecked="rbtnUnchecked"/>
+                        <telerik:RadRibbonToggleButton Name="rbtnGestionarAreas" Tag="Gestionar Áreas" Content="Areas" Checked="rbtnChecked" Unchecked="rbtnUnchecked"/>
+                        <telerik:RadRibbonToggleButton Name="rbtnGestionarMarcas" Tag="Gestionar Marcas" Content="Marcas" Checked="rbtnChecked" Unchecked="rbtnUnchecked"/>
+                        <telerik:RadRibbonToggleButton Name="rbtnGestionarModelos" Tag="Gestionar Modelos" Content="Modelos" Checked="rbtnChecked" Unchecked="rbtnUnchecked"/>
+                        <telerik:RadRibbonToggleButton Name="rbtnGestionarTipoMantenimientos" Tag="Gestionar Tipos de Mantenimiento" Content="Tipo Mantenimiento" Checked="rbtnChecked" Unchecked="rbtnUnchecked"/>
                         
                     </telerik:RadRibbonGroup>
                     <telerik:RadRibbonGroup Header="Sistema">
-                        <telerik:RadRibbonToggleButton Name="rbtnGestionarTablas" Content="Tablas" Checked="rbtnChecked" Unchecked="rbtnUnchecked"/>
-                        <telerik:RadRibbonToggleButton Name="rbtnGestionarEstados" Content="Estados" Checked="rbtnChecked" Unchecked="rbtnUnchecked"/>
+                        <!--<telerik:RadRibbonToggleButton Name="rbtnGestionarTablas" Content="Tablas" Checked="rbtnChecked" Unchecked="rbtnUnchecked"/>
+                        <telerik:RadRibbonToggleButton Name="rbtnGestionarEstados" Content="Estados" Checked="rbtnChecked" Unchecked="rbtnUnchecked"/>-->
                         
                     </telerik:RadRibbonGroup>
                 </telerik:RadRibbonTab>
                 <telerik:RadRibbonTab Header="Ordenes de Trabajo" telerik:StyleManager.Theme="Summer">
                     <telerik:RadRibbonGroup Header="Sistema">
-                        <telerik:RadRibbonToggleButton Name="rbtnGestionarOrdenDeTrabajo" Content="Orden de Trabajo" Checked="rbtnChecked" Unchecked="rbtnUnchecked"/>                                        
+                        <!--<telerik:RadRibbonToggleButton Name="rbtnGestionarOrdenDeTrabajo" Content="Orden de Trabajo" Checked="rbtnChecked" Unchecked="rbtnUnchecked"/>-->                                        
                     </telerik:RadRibbonGroup>
                 </telerik:RadRibbonTab>
                 <telerik:RadRibbonTab Header="Solicitudes" telerik:StyleManager.Theme="Summer">
                     <telerik:RadRibbonGroup Header="Sistema">
-                        <telerik:RadRibbonToggleButton Name="rbtnGestionarSolicitudes" Content="Solicitud" Checked="rbtnChecked" Unchecked="rbtnUnchecked"/>
-                        <telerik:RadRibbonToggleButton Name="rbtnSolicitudesMantenimiento" Content="Solicitud Mantenimiento" Checked="rbtnChecked" Unchecked="rbtnUnchecked"/>
+                        <!--<telerik:RadRibbonToggleButton Name="rbtnGestionarSolicitudes" Content="Solicitud" Checked="rbtnChecked" Unchecked="rbtnUnchecked"/>
+                        <telerik:RadRibbonToggleButton Name="rbtnSolicitudesMantenimiento" Content="Solicitud Mantenimiento" Checked="rbtnChecked" Unchecked="rbtnUnchecked"/>-->
                     </telerik:RadRibbonGroup>
                 </telerik:RadRibbonTab>
                 <telerik:RadRibbonTab Header="Trabajos de Mantenimiento">
                     <telerik:RadRibbonGroup Header="Consulta">
-                        <telerik:RadRibbonToggleButton Name="rbtnConsultarMantenimientos" Content="Mantenimientos programados" Checked="rbtnChecked" Unchecked="rbtnUnchecked"/>
+                        <!--<telerik:RadRibbonToggleButton Name="rbtnConsultarMantenimientos" Content="Mantenimientos programados" Checked="rbtnChecked" Unchecked="rbtnUnchecked"/>
                         <telerik:RadRibbonToggleButton Name="rbtnAsignarEquipos" Content="Asignar Equipos" Checked="rbtnChecked" Unchecked="rbtnUnchecked"/>
                         <telerik:RadRibbonToggleButton Name="rbtnAperturaMantenimiento" Content="Apertura Mantenimiento" Checked="rbtnChecked" Unchecked="rbtnUnchecked"/>
-                        <telerik:RadRibbonToggleButton Name="rbtnConsultarHistoricoMante" Content="Consultar Historico Mantenimiento" Checked="rbtnChecked" Unchecked="rbtnUnchecked"/>
+                        <telerik:RadRibbonToggleButton Name="rbtnConsultarHistoricoMante" Content="Consultar Historico Mantenimiento" Checked="rbtnChecked" Unchecked="rbtnUnchecked"/>-->
                     </telerik:RadRibbonGroup>
                 </telerik:RadRibbonTab>
             </telerik:RadRibbonBar>
@@ -58,7 +58,7 @@
             <telerik:RadTileView Name="TileContainerRoot" MaximizeMode="One" MinimizedItemsPosition="Bottom">
 
             </telerik:RadTileView>
-            <seguridad:frmIniciarSesion x:Name="dialogIniciarSesion"  UsuarioValidado="dialogIniciarSesion_UsuarioValidado" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            <seguridad:frmIniciarSesion x:Name="dialogIniciarSesion" WindowStartupLocation="CenterOwner" UsuarioValidado="dialogIniciarSesion_UsuarioValidado" HorizontalAlignment="Center" VerticalAlignment="Center"/>
         </DockPanel>
     </telerik:RadBusyIndicator>
 </Window>

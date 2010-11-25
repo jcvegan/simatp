@@ -18,6 +18,8 @@ using SIMA.Client.Trabajos_de_Mantenimiento;
 using SIMA.Client.Seguridad;
 using SIMA.Entities;
 using SIMA.Logic;
+using System.Threading;
+using System.ComponentModel;
 
 namespace SIMA.Client
 {
@@ -26,12 +28,27 @@ namespace SIMA.Client
     /// </summary>
     public partial class Window1 : Window
     {
-        UsuarioDataLogic usuarioLogic;
+        T_C_Usuario usuarioValido;
+        T_C_Perfil perfilUsuario;
+        List<T_C_Permiso> permisosUsuario;
+        BackgroundWorker worker = new BackgroundWorker();
         
         public Window1()
         {
             InitializeComponent();
-            usuarioLogic = new UsuarioDataLogic();
+            OcultaRibbon();
+            worker.DoWork += new DoWorkEventHandler(worker_DoWork);
+            worker.RunWorkerCompleted += new RunWorkerCompletedEventHandler(worker_RunWorkerCompleted);
+        }
+
+        void worker_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
+        {
+            Dispatcher.BeginInvoke(new Action<List<T_C_Permiso>>(this.ActualizarPermisosEnSistema), e.Result);
+        }
+
+        void worker_DoWork(object sender, DoWorkEventArgs e)
+        {
+            e.Result = CargarSeguridadDeUsuario();
         }
 
         private void rbtnChecked(object sender, RoutedEventArgs e)
@@ -120,9 +137,10 @@ namespace SIMA.Client
             {
                 this.DataContext = null;
                 dialogIniciarSesion.Owner = this;
+                TileContainerRoot.Items.Clear();
+                OcultaRibbon();
                 dialogIniciarSesion.ShowDialog(); 
-            }
-            
+            }            
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
@@ -134,8 +152,82 @@ namespace SIMA.Client
         private void dialogIniciarSesion_UsuarioValidado(object sender, SIMA.Client.Auxiliares.EventArgs.UsuarioEventArgs e)
         {
             this.DataContext = e;
+            usuarioValido = e.Usuario;
+            biProcesando.BusyContent = "Cargando permisos de usuario";
+            biProcesando.IsBusy = true;
+            worker.RunWorkerAsync();
         }
 
-        
+        private void OcultaRibbon()
+        {
+            foreach (RadRibbonTab tab in ribbonTabPrincipal.Items)
+            {
+                foreach(RadRibbonGroup group in tab.Items)
+                {
+                    foreach (RadRibbonToggleButton tbtn in group.Items)
+                    {
+                        if (tbtn.IsChecked == true)
+                        {
+                            tbtn.IsChecked = false;                            
+                        }
+                        tbtn.Visibility = Visibility.Collapsed;
+                    }
+                    group.Visibility = Visibility.Collapsed;
+                }
+                tab.Visibility = Visibility.Collapsed;
+            }
+        }
+
+        private void MuestraPermisos()
+        {
+            foreach (RadRibbonTab tab in ribbonTabPrincipal.Items)
+            {
+                bool flagt = false;
+                foreach (RadRibbonGroup group in tab.Items)
+                {
+                    bool flagg = false;
+                    foreach (RadRibbonToggleButton tbtn in group.Items)
+                    {
+                        
+                        foreach (T_C_Permiso per in permisosUsuario)
+                        {
+                            if (tbtn.Tag.ToString() == per.Nombre)
+                            {
+                                if (tbtn.IsChecked == true)
+                                {
+                                    tbtn.IsChecked = false;
+                                }
+                                tbtn.Visibility = Visibility.Visible;
+                                flagg = true;
+                            }
+                        }
+                    }
+                    if (flagg)
+                    {
+                        group.Visibility = Visibility.Visible;
+                        flagt = true;
+                    }
+                }
+                if (flagt)
+                {
+                    tab.Visibility = Visibility.Visible;
+                }
+            }
+        }
+
+        private List<T_C_Permiso> CargarSeguridadDeUsuario()
+        {
+            List<T_C_Permiso> permis;
+            Thread.Sleep(1000);
+            permis = new PermisosPorPerfilDataLogic().ListarPermisosPorPerfil(usuarioValido.Id_Perfil);
+            return permis;
+        }
+
+        private void ActualizarPermisosEnSistema(List<T_C_Permiso> msg)
+        {
+            permisosUsuario = msg;
+            MuestraPermisos();
+            biProcesando.IsBusy = false;
+        }
     }
 }

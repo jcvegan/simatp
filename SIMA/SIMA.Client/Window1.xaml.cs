@@ -180,37 +180,41 @@ namespace SIMA.Client
 
         private void MuestraPermisos()
         {
-            foreach (RadRibbonTab tab in ribbonTabPrincipal.Items)
+            foreach (T_C_Permiso per in permisosUsuario)
             {
-                bool flagt = false;
-                foreach (RadRibbonGroup group in tab.Items)
+                foreach (RadRibbonTab tab in ribbonTabPrincipal.Items)
                 {
-                    bool flagg = false;
-                    foreach (RadRibbonToggleButton tbtn in group.Items)
+                    bool flagt = false;
+                    foreach (RadRibbonGroup group in tab.Items)
                     {
-                        
-                        foreach (T_C_Permiso per in permisosUsuario)
+                        bool flagg = false;
+                        foreach (RadRibbonToggleButton tbtn in group.Items)
                         {
-                            if (tbtn.Tag.ToString() == per.Nombre)
-                            {
-                                if (tbtn.IsChecked == true)
+
+                            //foreach (T_C_Permiso per in permisosUsuario)
+                            //{
+                                if (tbtn.Tag.ToString() == per.Nombre)
                                 {
-                                    tbtn.IsChecked = false;
+                                    if (tbtn.IsChecked == true)
+                                    {
+                                        tbtn.IsChecked = false;
+                                    }
+                                    tbtn.Visibility = Visibility.Visible;
+                                    flagg = true;
+                                    break;
                                 }
-                                tbtn.Visibility = Visibility.Visible;
-                                flagg = true;
-                            }
+                            //}
+                        }
+                        if (flagg)
+                        {
+                            group.Visibility = Visibility.Visible;
+                            flagt = true;
                         }
                     }
-                    if (flagg)
+                    if (flagt)
                     {
-                        group.Visibility = Visibility.Visible;
-                        flagt = true;
+                        tab.Visibility = Visibility.Visible;
                     }
-                }
-                if (flagt)
-                {
-                    tab.Visibility = Visibility.Visible;
                 }
             }
         }

@@ -21,6 +21,7 @@ namespace SIMA.DataAccess
         {
             try
             {
+                Connection = new SqlConnection(ConnectionString);
                 using (Command = new System.Data.SqlClient.SqlCommand("T_C_PerfilInsert", Connection))
                 {
                     Command.CommandType = System.Data.CommandType.StoredProcedure;
@@ -45,6 +46,7 @@ namespace SIMA.DataAccess
         {
             try
             {
+                Connection = new SqlConnection(ConnectionString);
                 using (Command = new System.Data.SqlClient.SqlCommand("T_C_PerfilUpdate", Connection))
                 {
                     Command.CommandType = System.Data.CommandType.StoredProcedure;
@@ -71,6 +73,7 @@ namespace SIMA.DataAccess
         {
             try
             {
+                Connection = new SqlConnection(ConnectionString);
                 using (Command = new System.Data.SqlClient.SqlCommand("T_C_PerfilDelete", Connection))
                 {
                     Command.CommandType = System.Data.CommandType.StoredProcedure;
@@ -94,6 +97,7 @@ namespace SIMA.DataAccess
         {
             try
             {
+                Connection = new SqlConnection(ConnectionString);
                 List<T_C_Perfil> perfiles;
                 using (Command = new System.Data.SqlClient.SqlCommand("T_C_PerfilSelectAll", Connection))
                 {

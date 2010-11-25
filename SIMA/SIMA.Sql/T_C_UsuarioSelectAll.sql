@@ -18,8 +18,6 @@ SELECT [Id_Usuario],
 	[Email],
 	[Contraseña],
 	[Id_Estado],
-	[Id_Perfil],
-	[Id_TurnoMantenimiento],
-	[Id_Trabajador]
+	[Id_Perfil]
 FROM [T_C_Usuario]
 GO

@@ -11,10 +11,13 @@ namespace SIMA.DataAccess
 {
     public class UsuarioDataAccess:DataAccessBase
     {
-
+        private EstadoDataAccess estadoAccess;
+        private PerfilDataAccess perfilAccess;
         public UsuarioDataAccess()
             : base()
         {
+            estadoAccess = new EstadoDataAccess();
+            perfilAccess = new PerfilDataAccess();
         }
 
         public string AgregarUsuario(T_C_Usuario usuario)
@@ -34,7 +37,7 @@ namespace SIMA.DataAccess
                     Command.Parameters.AddWithValue("@Fecha_Nacimiento", usuario.Fecha_Nacimiento);
                     Command.Parameters.AddWithValue("@Email", usuario.Email);
                     Command.Parameters.AddWithValue("@Contraseña", usuario.Contraseña.Encriptar());
-                    Command.Parameters.AddWithValue("@Id_Perfil", usuario.Id_Perfil);
+                    Command.Parameters.AddWithValue("@Id_Usuario", usuario.Id_Usuario);
                     Connection.Open();
                     Command.ExecuteNonQuery();
                 }
@@ -67,7 +70,7 @@ namespace SIMA.DataAccess
                     Command.Parameters.AddWithValue("@Email", usuario.Email);
                     Command.Parameters.AddWithValue("@Contraseña", usuario.Contraseña.Encriptar());
                     Command.Parameters.AddWithValue("@Id_Estado", usuario.Id_Estado);
-                    Command.Parameters.AddWithValue("@Id_Perfil", usuario.Id_Perfil);
+                    Command.Parameters.AddWithValue("@Id_Usuario", usuario.Id_Usuario);
                     Connection.Open();
                     Command.ExecuteNonQuery();
                 }
@@ -99,7 +102,7 @@ namespace SIMA.DataAccess
                     SqlDataReader reader = Command.ExecuteReader();
                     while (reader.Read())
                     {
-                        usuario.Id_Perfil = Convert.ToInt32(reader.GetValue(reader.GetOrdinal("Id_Perfil")).ToString());
+                        usuario.Id_Usuario = Convert.ToInt32(reader.GetValue(reader.GetOrdinal("Id_Usuario")).ToString());
                     }
                 }
                 return usuario;
@@ -139,7 +142,7 @@ namespace SIMA.DataAccess
                         usuario.Fecha_Nacimiento = Convert.ToDateTime(reader.GetValue(reader.GetOrdinal("Fecha_Nacimiento")).ToString());
                         usuario.Email = reader.GetValue(reader.GetOrdinal("Email")).ToString();
                         usuario.Contraseña = reader.GetValue(reader.GetOrdinal("Contraseña")).ToString().Desencriptar();
-                        usuario.Id_Perfil = Convert.ToInt32(reader.GetValue(reader.GetOrdinal("Id_Perfil")).ToString());                        
+                        usuario.Id_Usuario = Convert.ToInt32(reader.GetValue(reader.GetOrdinal("Id_Usuario")).ToString());                        
                     }
                 }
                 if (usuario.Contraseña == contraseña)
@@ -160,7 +163,51 @@ namespace SIMA.DataAccess
                 Connection.Close();
             }
         }
-     
- 
+
+
+        public List<T_C_Usuario> SeleccionarTodosUsuario()
+        {
+            try
+            {
+                Connection = new SqlConnection(ConnectionString);
+                List<T_C_Usuario> usuarios;
+                using (Command = new System.Data.SqlClient.SqlCommand("T_C_UsuarioSelectAll", Connection))
+                {
+                    Command.CommandType = System.Data.CommandType.StoredProcedure;
+                    Connection.Open();
+                    usuarios = new List<T_C_Usuario>();
+                    SqlDataReader reader = Command.ExecuteReader();
+                    while (reader.Read())
+                    {
+                        T_C_Usuario usuario = new T_C_Usuario();
+                        usuario.Id_Usuario = Convert.ToInt32(reader.GetValue(reader.GetOrdinal("Id_Usuario")).ToString());
+                        usuario.Nombres = reader.GetValue(reader.GetOrdinal("Nombres")).ToString();
+                        usuario.Apellidos = reader.GetValue(reader.GetOrdinal("Apellidos")).ToString();
+                        usuario.Contraseña = reader.GetValue(reader.GetOrdinal("Contraseña")).ToString();
+                        usuario.Direccion = reader.GetValue(reader.GetOrdinal("Direccion")).ToString();
+                        usuario.Email = reader.GetValue(reader.GetOrdinal("Email")).ToString();
+                        usuario.Fecha_Nacimiento = Convert.ToDateTime(reader.GetValue(reader.GetOrdinal("Fecha_Nacimiento")));
+                        usuario.Fecha_Registro = Convert.ToDateTime(reader.GetValue(reader.GetOrdinal("Fecha_Registro")));
+                        usuario.Telefono = Convert.ToInt32(reader.GetValue(reader.GetOrdinal("Telefono")));
+
+                        usuario.Id_Perfil = Convert.ToInt32(reader.GetValue(reader.GetOrdinal("Id_Perfil")).ToString());
+                        usuario.Id_Estado = Convert.ToInt32(reader.GetValue(reader.GetOrdinal("Id_Estado")).ToString());
+                        usuario.Perfil = perfilAccess.Seleccionar(usuario.Id_Perfil);
+                        usuario.Estado = estadoAccess.Seleccionar(usuario.Id_Estado);
+
+                        usuarios.Add(usuario);
+                    }
+                }
+                return usuarios;
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
+            finally
+            {
+                Connection.Close();
+            }
+        }
     }
 }

@@ -18,7 +18,9 @@ namespace SIMA.Entities
 		private int id_Estado;
 		private int id_Perfil;
 		private int id_TurnoMantenimiento;
-		private int id_Trabajador;
+        private int id_Trabajador;
+        private T_C_Estado estado;
+        private T_C_Perfil perfil;
 
 		#endregion
 
@@ -152,6 +154,18 @@ namespace SIMA.Entities
 			get { return id_Perfil; }
 			set { id_Perfil = value; }
 		}
+
+        public virtual T_C_Estado Estado
+        {
+            get { return estado; }
+            set { estado = value; }
+        }
+
+        public virtual T_C_Perfil Perfil
+        {
+            get { return perfil; }
+            set { perfil = value; }
+        }
 
 		#endregion
 	}

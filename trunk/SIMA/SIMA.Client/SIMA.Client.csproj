@@ -179,6 +179,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="Gestion\frmGestionarUsuarios.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Orden de Trabajo\frmGestionarOrdendeTrabajo.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -277,6 +281,9 @@
     </Compile>
     <Compile Include="Gestion\frmGestionarTipoMantenimiento.xaml.cs">
       <DependentUpon>frmGestionarTipoMantenimiento.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Gestion\frmGestionarUsuarios.xaml.cs">
+      <DependentUpon>frmGestionarUsuarios.xaml</DependentUpon>
     </Compile>
     <Compile Include="Orden de Trabajo\frmGestionarOrdendeTrabajo.xaml.cs">
       <DependentUpon>frmGestionarOrdendeTrabajo.xaml</DependentUpon>

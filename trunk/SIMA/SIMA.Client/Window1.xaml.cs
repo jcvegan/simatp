@@ -118,7 +118,9 @@ namespace SIMA.Client
                 //case "Consultar Historico Mantenimiento":
                 //    item.Content = new frmConsultarHistoricodeMantenimiento();
                 //    break;     
-                    
+                case "Usuarios":
+                    item.Content = new frmGestionarUsuarios();
+                    break;
 
             }
             item.MinimizedHeight = 20;

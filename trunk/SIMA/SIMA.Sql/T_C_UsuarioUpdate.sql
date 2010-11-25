@@ -14,9 +14,7 @@ CREATE PROCEDURE [dbo].[T_C_UsuarioUpdate]
 	@Email varchar(255),
 	@Contraseña varchar(255),
 	@Id_Estado int,
-	@Id_Perfil int,
-	@Id_TurnoMantenimiento int,
-	@Id_Trabajador int
+	@Id_Perfil int
 )
 
 AS
@@ -33,8 +31,6 @@ SET [Nombres] = @Nombres,
 	[Email] = @Email,
 	[Contraseña] = @Contraseña,
 	[Id_Estado] = @Id_Estado,
-	[Id_Perfil] = @Id_Perfil,
-	[Id_TurnoMantenimiento] = @Id_TurnoMantenimiento,
-	[Id_Trabajador] = @Id_Trabajador
+	[Id_Perfil] = @Id_Perfil
 WHERE [Id_Usuario] = @Id_Usuario
 GO

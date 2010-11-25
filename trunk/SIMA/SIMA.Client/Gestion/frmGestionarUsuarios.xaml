@@ -6,13 +6,13 @@
     >
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition/>
+            <RowDefinition Height="348"/>
             <RowDefinition/>
         </Grid.RowDefinitions>
         <Grid Grid.Row="0">
             <Grid.RowDefinitions>
                 <RowDefinition Height="24" />
-                <RowDefinition />
+                <RowDefinition Height="300"  />
                 <RowDefinition Height="24" />
             </Grid.RowDefinitions>
             <Border Grid.Row="0" BorderThickness="1" Margin="0" VerticalAlignment="Top" Height="24" CornerRadius="2,2,0,0">
@@ -48,7 +48,7 @@
                     <RowDefinition Height="30"/>
                 </Grid.RowDefinitions>
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="120"/>
+                    <ColumnDefinition Width="122"/>
                     <ColumnDefinition/>
                 </Grid.ColumnDefinitions>
                 <Label Grid.Column="0" Grid.Row="0" Content="Nombres" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="25,0,0,0"/>
@@ -71,7 +71,7 @@
                 <telerik:DateTimePicker Name="dtpFechaNacimiento" Grid.Column="1" Grid.Row="5" Width="150" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="25,0,0,0" TimePickerVisibility="Collapsed" />
                 <TextBox Name="txtEmail" Grid.Column="1" Grid.Row="6" Width="150" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="25,0,0,0"/>
                 <TextBox Name="txtContraseña" Grid.Column="1" Grid.Row="7" Width="150" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="25,0,0,0"/>
-                <telerik:RadComboBox Name="cmbPerfil" Grid.Column="1" Grid.Row="8" Width="150" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="25,0,0,0" Visibility="Visible" telerik:StyleManager.Theme="Summer" DisplayMemberPath="Nombre_Perfil" SelectedValuePath="Id_Perfil"/>
+                <telerik:RadComboBox Name="cmbPerfil" Grid.Column="1" Grid.Row="8" Width="150" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="25,0,0,0" Visibility="Visible" telerik:StyleManager.Theme="Summer" DisplayMemberPath="Nombre" SelectedValuePath="Id_Perfil"/>
                 <telerik:RadComboBox Name="cmbEstado" Grid.Column="1" Grid.Row="9" Width="150" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="25,0,0,0" Visibility="Hidden" telerik:StyleManager.Theme="Summer" DisplayMemberPath="Nombre_Estado" SelectedValuePath="Id_Estado"/>
             </Grid>
             <StackPanel Grid.Row="2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Orientation="Horizontal">
@@ -81,7 +81,7 @@
                 <telerik:RadButton Name="btnLimpiar" Content="Limpiar" Width="100" Click="btnLimpiar_Click" telerik:StyleManager.Theme="Summer"/>
             </StackPanel>
         </Grid>
-        <telerik:RadGridView Name="gvUsuarios" Grid.Row="1" telerik:StyleManager.Theme="Summer" AutoGenerateColumns="False" SelectionChanged="gvUsuarios_SelectionChanged" IsReadOnly="True">
+        <telerik:RadGridView Name="gvUsuarios" Grid.Row="1" telerik:StyleManager.Theme="Summer" AutoGenerateColumns="False" SelectionChanged="gvUsuarios_SelectionChanged" IsReadOnly="True" Height="Auto" >
             <telerik:RadGridView.Columns>
                 <telerik:GridViewDataColumn Header="ID" DataMemberBinding="{Binding Id_Perfil}"/>
                 <telerik:GridViewDataColumn Header="Nombres" DataMemberBinding="{Binding Nombres}"/>

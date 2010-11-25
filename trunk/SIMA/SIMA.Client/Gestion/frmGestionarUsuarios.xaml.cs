@@ -81,7 +81,7 @@ namespace SIMA.Client.Gestion
             usuario.Id_Estado = (cmbEstado.SelectedItem as T_C_Estado).Id_Estado;
             usuario.Id_Perfil = (cmbPerfil.SelectedItem as T_C_Perfil).Id_Perfil;
 
-            //MessageBox.Show(usuarioLogic.ActualizarUsuario(usuario));
+            MessageBox.Show(usuarioLogic.ActualizarUsuario(usuario));
             gvUsuarios.ItemsSource = usuarioLogic.ListarUsuarios();
             Limpia();
         }
@@ -89,7 +89,7 @@ namespace SIMA.Client.Gestion
         private void btnEliminar_Click(object sender, RoutedEventArgs e)
         {
             T_C_Usuario usuario = gvUsuarios.SelectedItem as T_C_Usuario;
-            //MessageBox.Show(usuarioLogic.EliminarUsuario(usuario));
+            MessageBox.Show(usuarioLogic.EliminarUsuario(usuario));
             gvUsuarios.ItemsSource = usuarioLogic.ListarUsuarios();
             Limpia();
         }
@@ -144,7 +144,7 @@ namespace SIMA.Client.Gestion
                 {
                     if ((cmbEstado.Items[i] as T_C_Estado) == temp.Estado)
                     {
-                        cmbEstado.SelectedIndex = 1;
+                        cmbEstado.SelectedIndex = i;
                         break;
                     }
                 }
@@ -152,7 +152,7 @@ namespace SIMA.Client.Gestion
                 {
                     if ((cmbPerfil.Items[i] as T_C_Perfil) == temp.Perfil)
                     {
-                        cmbPerfil.SelectedIndex = 1;
+                        cmbPerfil.SelectedIndex = i;
                         break;
                     }
                 }

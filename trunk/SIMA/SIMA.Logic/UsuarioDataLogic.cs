@@ -41,5 +41,34 @@ namespace SIMA.Logic
         {
             return usuarioAccess.SeleccionarTodosUsuario();
         }
+
+        public string ActualizarUsuario(T_C_Usuario usuario)
+        {
+            try
+            {
+                if (usuario.Nombres == string.Empty || usuario.Apellidos == string.Empty)
+                {
+                    throw new Exception();
+                }
+                if (usuario.Id_Perfil <= 0)
+                {
+                    throw new Exception();
+                }
+                if (usuario.Id_Estado <= 0)
+                {
+                    throw new Exception();
+                }
+                return usuarioAccess.ActualizarUsuario(usuario);
+            }
+            catch
+            {
+                return "Error al ingresar datos.";
+            }
+        }
+
+        public string EliminarUsuario(T_C_Usuario usuario)
+        {
+            return usuarioAccess.EliminarUsuario(usuario);
+        }
     }
 }

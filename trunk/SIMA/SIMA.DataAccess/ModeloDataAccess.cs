@@ -24,6 +24,7 @@ namespace SIMA.DataAccess
         {
             try
             {
+                Connection = new SqlConnection(ConnectionString);
                 using (Command = new System.Data.SqlClient.SqlCommand("T_C_ModeloInsert", Connection))
                 {
                     Command.CommandType = System.Data.CommandType.StoredProcedure;
@@ -49,6 +50,7 @@ namespace SIMA.DataAccess
         {
             try
             {
+                Connection = new SqlConnection(ConnectionString);
                 using (Command = new System.Data.SqlClient.SqlCommand("T_C_ModeloUpdate", Connection))
                 {
                     Command.CommandType = System.Data.CommandType.StoredProcedure;
@@ -76,6 +78,7 @@ namespace SIMA.DataAccess
         {
             try
             {
+                Connection = new SqlConnection(ConnectionString);
                 using (Command = new System.Data.SqlClient.SqlCommand("T_C_ModeloDelete", Connection))
                 {
                     Command.CommandType = System.Data.CommandType.StoredProcedure;
@@ -99,6 +102,7 @@ namespace SIMA.DataAccess
         {
             try
             {
+                Connection = new SqlConnection(ConnectionString);
                 List<T_C_Modelo> modelos;
                 using (Command = new System.Data.SqlClient.SqlCommand("T_C_ModeloSelectAll", Connection))
                 {
@@ -135,6 +139,7 @@ namespace SIMA.DataAccess
         {
             try
             {
+                Connection = new SqlConnection(ConnectionString);
                 List<T_C_Modelo> modelos;
                 using (Command = new System.Data.SqlClient.SqlCommand("T_C_ModeloSelectActivo", Connection))
                 {

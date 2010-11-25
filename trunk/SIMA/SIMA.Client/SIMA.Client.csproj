@@ -167,6 +167,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Gestion\frmGestionarProducto.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Gestion\frmGestionarTablas.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -176,6 +180,14 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="Orden de Trabajo\frmGestionarOrdendeTrabajo.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Orden de Trabajo\frmRegistrarOrdenTrabajo.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Programacion\frmConsultarEquiposAMantener.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -257,6 +269,9 @@
     <Compile Include="Gestion\frmGestionarPerfiles.xaml.cs">
       <DependentUpon>frmGestionarPerfiles.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Gestion\frmGestionarProducto.xaml.cs">
+      <DependentUpon>frmGestionarProducto.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Gestion\frmGestionarTablas.xaml.cs">
       <DependentUpon>frmGestionarTablas.xaml</DependentUpon>
     </Compile>
@@ -265,6 +280,12 @@
     </Compile>
     <Compile Include="Orden de Trabajo\frmGestionarOrdendeTrabajo.xaml.cs">
       <DependentUpon>frmGestionarOrdendeTrabajo.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Orden de Trabajo\frmRegistrarOrdenTrabajo.xaml.cs">
+      <DependentUpon>frmRegistrarOrdenTrabajo.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Programacion\frmConsultarEquiposAMantener.xaml.cs">
+      <DependentUpon>frmConsultarEquiposAMantener.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>

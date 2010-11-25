@@ -75,6 +75,7 @@ namespace SIMA.DataAccess
         {
             try
             {
+                Connection = new SqlConnection(ConnectionString);
                 using (Command = new System.Data.SqlClient.SqlCommand("T_C_AreaDelete", Connection))
                 {
                     Command.CommandType = System.Data.CommandType.StoredProcedure;

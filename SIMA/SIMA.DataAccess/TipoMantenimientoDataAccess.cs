@@ -126,6 +126,7 @@ namespace SIMA.DataAccess
         {
             try
             {
+                Connection = new SqlConnection(ConnectionString);
                 List<T_C_TipoMantenimiento> TipoMantenimientos;
                 using (Command = new System.Data.SqlClient.SqlCommand("T_C_TipoMantenimientoSelectAll", Connection))
                 {

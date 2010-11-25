@@ -86,8 +86,10 @@ namespace SIMA.Client
                     item.Content = new frmGestionarMarca();
                     break;
                 case "Modelos":
-                    item.Content = new frmIniciarSesion();
-                    //item.Content = new frmGestionarModelos();
+                    item.Content = new frmGestionarModelos();
+                    break;
+                case "Productos":
+                    item.Content = new frmGestionarProducto();
                     break;
                 case "Solicitud":
                     item.Content = new frmGestionarSolicitud();
@@ -108,6 +110,11 @@ namespace SIMA.Client
                 case "Apertura Mantenimiento":
                     
                     break;
+                case "Contraseña":
+                    break;
+
+                case "Registro Orden":
+                    break;
                 //case "Consultar Historico Mantenimiento":
                 //    item.Content = new frmConsultarHistoricodeMantenimiento();
                 //    break;     
@@ -115,7 +122,9 @@ namespace SIMA.Client
 
             }
             item.MinimizedHeight = 20;
+            item.TileState = TileViewItemState.Maximized;
             TileContainerRoot.Items.Add(item);
+            
             
         }
 

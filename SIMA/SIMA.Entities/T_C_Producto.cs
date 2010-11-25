@@ -8,8 +8,14 @@ namespace SIMA.Entities
 
 		private int id_Producto;
 		private string descripción;
-		private int id_Requerimiento;
 		private int id_Estado;
+        private T_C_Estado estado;
+
+        public virtual T_C_Estado Estado
+        {
+            get { return estado; }
+            set { estado = value; }
+        }
 
 		#endregion
 
@@ -29,7 +35,7 @@ namespace SIMA.Entities
 		{
 			this.id_Producto = id_Producto;
 			this.descripción = descripción;
-			this.id_Requerimiento = id_Requerimiento;
+			
 			this.id_Estado = id_Estado;
 		}
 
@@ -52,15 +58,6 @@ namespace SIMA.Entities
 		{
 			get { return descripción; }
 			set { descripción = value; }
-		}
-
-		/// <summary>
-		/// Gets or sets the Id_Requerimiento value.
-		/// </summary>
-		public virtual int Id_Requerimiento
-		{
-			get { return id_Requerimiento; }
-			set { id_Requerimiento = value; }
 		}
 
 		/// <summary>

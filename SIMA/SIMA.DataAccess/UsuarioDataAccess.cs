@@ -37,7 +37,7 @@ namespace SIMA.DataAccess
                     Command.Parameters.AddWithValue("@Fecha_Nacimiento", usuario.Fecha_Nacimiento);
                     Command.Parameters.AddWithValue("@Email", usuario.Email);
                     Command.Parameters.AddWithValue("@Contraseña", usuario.Contraseña.Encriptar());
-                    Command.Parameters.AddWithValue("@Id_Usuario", usuario.Id_Usuario);
+                    Command.Parameters.AddWithValue("@Id_Perfil", usuario.Id_Perfil);
                     Connection.Open();
                     Command.ExecuteNonQuery();
                 }
@@ -70,7 +70,7 @@ namespace SIMA.DataAccess
                     Command.Parameters.AddWithValue("@Email", usuario.Email);
                     Command.Parameters.AddWithValue("@Contraseña", usuario.Contraseña.Encriptar());
                     Command.Parameters.AddWithValue("@Id_Estado", usuario.Id_Estado);
-                    Command.Parameters.AddWithValue("@Id_Usuario", usuario.Id_Usuario);
+                    Command.Parameters.AddWithValue("@Id_Perfil", usuario.Id_Perfil);
                     Connection.Open();
                     Command.ExecuteNonQuery();
                 }
@@ -204,6 +204,30 @@ namespace SIMA.DataAccess
             catch (Exception ex)
             {
                 return null;
+            }
+            finally
+            {
+                Connection.Close();
+            }
+        }
+
+        public string EliminarUsuario(T_C_Usuario usuario)
+        {
+            try
+            {
+                Connection = new SqlConnection(ConnectionString);
+                using (Command = new System.Data.SqlClient.SqlCommand("T_C_UsuarioDelete", Connection))
+                {
+                    Command.CommandType = System.Data.CommandType.StoredProcedure;
+                    Command.Parameters.AddWithValue("@Id_Usuario", usuario.Id_Usuario);
+                    Connection.Open();
+                    Command.ExecuteNonQuery();
+                }
+                return "Registro eliminado satisfactoriamente.";
+            }
+            catch (Exception ex)
+            {
+                return ex.Message;
             }
             finally
             {

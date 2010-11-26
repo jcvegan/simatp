@@ -144,5 +144,10 @@ namespace SIMA.Client.Gestion
             lblEstado.Visibility = Visibility.Visible;
             cmbEstado.Visibility = Visibility.Visible;
         }
+
+        private void cmbEstado_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
     }
 }

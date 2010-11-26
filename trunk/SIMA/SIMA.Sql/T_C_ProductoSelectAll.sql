@@ -10,7 +10,6 @@ SET NOCOUNT ON
 
 SELECT [Id_Producto],
 	[Descripción],
-	[Id_Requerimiento],
 	[Id_Estado]
 FROM [T_C_Producto]
 GO

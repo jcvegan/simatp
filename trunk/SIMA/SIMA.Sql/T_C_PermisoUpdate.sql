@@ -1,8 +1,11 @@
-if exists (select * from dbo.sysobjects where id = object_id(N'[dbo].[T_C_PermisoUpdate]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-	drop procedure [dbo].[T_C_PermisoUpdate]
+USE [SIMA]
 GO
-
-CREATE PROCEDURE [dbo].[T_C_PermisoUpdate]
+/****** Object:  StoredProcedure [dbo].[T_C_PermisoUpdate]     ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+create PROCEDURE [dbo].[T_C_PermisoUpdate]
 (
 	@Id_Permiso int,
 	@Nombre varchar(255),
@@ -19,4 +22,3 @@ SET [Nombre] = @Nombre,
 	[Descripcion] = @Descripcion,
 	[Id_Estado] = @Id_Estado
 WHERE [Id_Permiso] = @Id_Permiso
-GO

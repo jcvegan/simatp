@@ -5,12 +5,12 @@ GO
 CREATE PROCEDURE [dbo].[T_C_ProductoInsert]
 (
 	@Id_Producto int,
-	@Descripción varchar(255),
-	@Id_Requerimiento int,
-	@Id_Estado int
+	@Descripción varchar(255)
 )
 
 AS
+DECLARE @Id_Estado int
+
 
 SET NOCOUNT ON
 
@@ -18,14 +18,13 @@ INSERT INTO [T_C_Producto]
 (
 	[Id_Producto],
 	[Descripción],
-	[Id_Requerimiento],
 	[Id_Estado]
+	
 )
 VALUES
 (
 	@Id_Producto,
 	@Descripción,
-	@Id_Requerimiento,
 	@Id_Estado
 )
 GO

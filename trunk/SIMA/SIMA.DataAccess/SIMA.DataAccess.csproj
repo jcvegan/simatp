@@ -58,6 +58,7 @@
     <Compile Include="PerfilDataAccess.cs" />
     <Compile Include="PermisoDataAccess.cs" />
     <Compile Include="PermisosPorPerfilDataAccess.cs" />
+    <Compile Include="ProductoDataAccess.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SolicitudDataAccess.cs" />
     <Compile Include="TablaDataAccess.cs" />

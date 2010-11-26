@@ -1,8 +1,11 @@
-if exists (select * from dbo.sysobjects where id = object_id(N'[dbo].[T_C_PermisoSelectAll]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-	drop procedure [dbo].[T_C_PermisoSelectAll]
+USE [SIMA]
 GO
-
-CREATE PROCEDURE [dbo].[T_C_PermisoSelectAll]
+/****** Object:  StoredProcedure [dbo].[T_C_PermisoSelectAll]     ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+cReate PROCEDURE [dbo].[T_C_PermisoSelectAll]
 
 AS
 
@@ -13,4 +16,3 @@ SELECT [Id_Permiso],
 	[Descripcion],
 	[Id_Estado]
 FROM [T_C_Permiso]
-GO

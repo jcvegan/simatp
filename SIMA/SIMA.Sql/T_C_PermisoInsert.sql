@@ -1,31 +1,32 @@
-if exists (select * from dbo.sysobjects where id = object_id(N'[dbo].[T_C_PermisoInsert]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-	drop procedure [dbo].[T_C_PermisoInsert]
+USE [SIMA]
 GO
-
-CREATE PROCEDURE [dbo].[T_C_PermisoInsert]
+/****** Object:  StoredProcedure [dbo].[T_C_PermisoInsert]    ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+ALTER PROCEDURE [dbo].[T_C_PermisoInsert]
 (
-	@Id_Permiso int,
 	@Nombre varchar(255),
-	@Descripcion varchar(255),
-	@Id_Estado int
+	@Descripcion varchar(255)
 )
 
 AS
 
 SET NOCOUNT ON
+DECLARE @Id_Estado int
+
+exec spHelperAsignaEstado 'T_C_Permiso',@Id_Estado OUT
 
 INSERT INTO [T_C_Permiso]
 (
-	[Id_Permiso],
 	[Nombre],
 	[Descripcion],
 	[Id_Estado]
 )
 VALUES
 (
-	@Id_Permiso,
 	@Nombre,
 	@Descripcion,
 	@Id_Estado
 )
-GO

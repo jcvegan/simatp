@@ -58,6 +58,10 @@ namespace SIMA.Client
             item.Header = (sender as RadRibbonToggleButton).Content;
             switch (item.Header.ToString())
             {
+                case "Permisos":
+                    item.Content = new frmGestionarPermisos();
+                    break;
+
                 case "IniciarSesion":
                     item.Content = new frmIniciarSesion();
                     break;

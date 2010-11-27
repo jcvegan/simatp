@@ -65,13 +65,9 @@
         </Grid>
         <telerik:RadGridView Name="gvProductos" Grid.Row="1" telerik:StyleManager.Theme="Summer" AutoGenerateColumns="False" SelectionChanged="gvProductos_SelectionChanged" IsReadOnly="True">
             <telerik:RadGridView.Columns>
-                <telerik:GridViewDataColumn Header="ID" DataMemberBinding="{Binding Id_OrdenTrabajo}"/>
+                <telerik:GridViewDataColumn Header="ID" DataMemberBinding="{Binding Id_Producto}"/>
                 <telerik:GridViewDataColumn Header="Descripcion" DataMemberBinding="{Binding Descripcion}"/>
-                <telerik:GridViewDataColumn Header="Costo" DataMemberBinding="{Binding CostoTotal}"/>
-                <telerik:GridViewDataColumn Header="Fecha Registro" DataMemberBinding="{Binding FechaRegistro}"/>
-                <telerik:GridViewDataColumn Header="Fecha Modificacion" DataMemberBinding="{Binding UltimaFechaModificacion}"/>
-                <telerik:GridViewDataColumn Header="Estado" DataMemberBinding="{Binding Estado.Id_Estado}"/>
-                <telerik:GridViewDataColumn Header="Usuario" DataMemberBinding="{Binding NombreCompleto}"/>
+                <telerik:GridViewDataColumn Header="Estado" DataMemberBinding="{Binding Estado.Id_Estado}"/>                
             </telerik:RadGridView.Columns>
         </telerik:RadGridView>
     </Grid>

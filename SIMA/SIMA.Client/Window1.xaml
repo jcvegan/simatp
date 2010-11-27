@@ -64,7 +64,7 @@
             <telerik:RadTileView Name="TileContainerRoot" MaximizeMode="One" MinimizedItemsPosition="Bottom">
 
             </telerik:RadTileView>
-            <seguridad:frmIniciarSesion x:Name="dialogIniciarSesion" WindowStartupLocation="CenterOwner" UsuarioValidado="dialogIniciarSesion_UsuarioValidado" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            <seguridad:frmIniciarSesion x:Name="dialogIniciarSesion" WindowStartupLocation="CenterOwner" UsuarioValidado="dialogIniciarSesion_UsuarioValidado" HorizontalAlignment="Center" VerticalAlignment="Center" Closed="dialogIniciarSesion_Closed"/>
         </DockPanel>
     </telerik:RadBusyIndicator>
 </Window>

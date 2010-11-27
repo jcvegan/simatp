@@ -127,6 +127,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="Auxiliares\frmMuestraDetalles.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Auxiliares\frmSelectorEquipo.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -164,10 +168,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Gestion\frmGestionarPerfiles.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Gestion\frmGestionarPermisos.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -245,6 +245,9 @@
     <Compile Include="Auxiliares\frmConfirmarMantenimiento.xaml.cs">
       <DependentUpon>frmConfirmarMantenimiento.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Auxiliares\frmMuestraDetalles.xaml.cs">
+      <DependentUpon>frmMuestraDetalles.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Auxiliares\frmSelectorEquipo.xaml.cs">
       <DependentUpon>frmSelectorEquipo.xaml</DependentUpon>
     </Compile>
@@ -276,9 +279,6 @@
     </Compile>
     <Compile Include="Gestion\frmGestionarPerfiles.xaml.cs">
       <DependentUpon>frmGestionarPerfiles.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Gestion\frmGestionarPermisos.xaml.cs">
-      <DependentUpon>frmGestionarPermisos.xaml</DependentUpon>
     </Compile>
     <Compile Include="Gestion\frmGestionarProducto.xaml.cs">
       <DependentUpon>frmGestionarProducto.xaml</DependentUpon>

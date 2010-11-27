@@ -14,10 +14,8 @@
                    MaxHeight="120"
                    MaxWidth="340"
                    Height="120"
-                   Width="340"
-                   CanClose="False"
-                   CanMove="False"
-                   
+                   Width="340"                   
+                   CanMove="False"                   
                    >
     <Grid>
         <Grid.ColumnDefinitions>

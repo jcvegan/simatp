@@ -58,9 +58,9 @@ namespace SIMA.Client
             item.Header = (sender as RadRibbonToggleButton).Content;
             switch (item.Header.ToString())
             {
-                case "Permisos":
-                    item.Content = new frmGestionarPermisos();
-                    break;
+                //case "Permisos":
+                //    item.Content = new frmGestionarPermisos();
+                //    break;
 
                 case "IniciarSesion":
                     item.Content = new frmIniciarSesion();
@@ -153,6 +153,8 @@ namespace SIMA.Client
                 this.DataContext = null;
                 dialogIniciarSesion.Owner = this;
                 TileContainerRoot.Items.Clear();
+                usuarioValido = null;
+                permisosUsuario = null;
                 OcultaRibbon();
                 dialogIniciarSesion.ShowDialog(); 
             }            
@@ -247,6 +249,14 @@ namespace SIMA.Client
             permisosUsuario = msg;
             MuestraPermisos();
             biProcesando.IsBusy = false;
+        }
+
+        private void dialogIniciarSesion_Closed(object sender, WindowClosedEventArgs e)
+        {
+            if (usuarioValido == null)
+            {
+                this.Close();
+            } 
         }
     }
 }

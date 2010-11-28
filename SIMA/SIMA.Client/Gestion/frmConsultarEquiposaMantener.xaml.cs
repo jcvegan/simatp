@@ -27,7 +27,9 @@ namespace SIMA.Client.Gestion
         MantenimientoDataLogic Mantenimientologic;
         EquipoDataLogic Equipologic;
         TurnoMantenimientoDataLogic TurnoMantenimientologic;
-        
+        Auxiliares.ClaseConsultarEquiposaMantener tempconsultar;
+        List<Auxiliares.ClaseConsultarEquiposaMantener> listaconsulta;
+
         public frmConsultarEquiposaMantener()
         {
             InitializeComponent();
@@ -37,10 +39,11 @@ namespace SIMA.Client.Gestion
         }
 
         public void llenargridview(List<T_C_Mantenimiento> listamantenimiento) {
-            List<object> obj = new List<object> { };
+            listaconsulta = new List<Auxiliares.ClaseConsultarEquiposaMantener>() { };
+
             foreach (T_C_Mantenimiento Mantenimiento in listamantenimiento)
             {
-                string horaminutoinicio,horaminutofin, horainicio, minutoinicio, horafin, minutofin="";
+                string horaminutoinicio, horaminutofin, horainicio, minutoinicio, horafin, minutofin = "";
                 horaminutoinicio = TurnoMantenimientologic.SeleccionarTurnoMantenimiento(Mantenimiento.Id_TurnoMantenimiento).HoraInicio.ToString();
                 horaminutofin = TurnoMantenimientologic.SeleccionarTurnoMantenimiento(Mantenimiento.Id_TurnoMantenimiento).HoraFin.ToString();
                 if (horaminutoinicio.Length == 4)
@@ -48,7 +51,8 @@ namespace SIMA.Client.Gestion
                     horainicio = horaminutoinicio.Substring(0, 2);
                     minutoinicio = horaminutoinicio.Substring(2, 2);
                 }
-                else {
+                else
+                {
                     horainicio = horaminutoinicio.Substring(0, 1);
                     minutoinicio = horaminutoinicio.Substring(1, 3);
                 }
@@ -63,19 +67,17 @@ namespace SIMA.Client.Gestion
                     minutofin = horaminutofin.Substring(1, 3);
                 }
                 string fecha = Mantenimiento.FechaProgramacion.Year + "-" + Mantenimiento.FechaProgramacion.Month + "-" + Mantenimiento.FechaProgramacion.Day;
-                var Anom = new
-                {
-                    Mantenimiento.Id_Mantenimiento,
-                    Equipologic.SeleccionarEquipo(Mantenimiento.Id_Equipo).Id_Equipo,
-                    Equipologic.SeleccionarEquipo(Mantenimiento.Id_Equipo).Descripcion,
-                    Inicio = horainicio + ":" + minutoinicio,
-                    Fin= horafin + ":" + minutoinicio,
-                    fecha
-                };
-                    obj.Add(Anom);
+                tempconsultar=new SIMA.Client.Auxiliares.ClaseConsultarEquiposaMantener();    
+                   tempconsultar.id_Mantenimiento= Mantenimiento.Id_Mantenimiento;
+                   tempconsultar.id_Equipo= Equipologic.SeleccionarEquipo(Mantenimiento.Id_Equipo).Id_Equipo;
+                   tempconsultar.descripcion= Equipologic.SeleccionarEquipo(Mantenimiento.Id_Equipo).Descripcion;
+                   tempconsultar.inicio = horainicio + ":" + minutoinicio;
+                   tempconsultar.fin = horafin + ":" + minutoinicio;
+                   tempconsultar.fecha = fecha;
+                   listaconsulta.Add(tempconsultar);
             }
 
-            gvMantenimientos.ItemsSource = obj;
+            gvMantenimientos.ItemsSource = listaconsulta;
             
         }
         

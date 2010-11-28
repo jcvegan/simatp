@@ -1,22 +1,18 @@
-if exists (select * from dbo.sysobjects where id = object_id(N'[dbo].[T_C_MantenimientoSelectAllById_Estado]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
-	drop procedure [dbo].[T_C_MantenimientoSelectAllById_Estado]
-GO
-
-CREATE PROCEDURE [dbo].[T_C_MantenimientoSelectAllById_Estado]
+CREATE PROCEDURE [dbo].[T_C_MantenimientoSelectPorEquipoEnMantenimiento]
 (
-	@Id_Estado int
+	@Id_Equipo char(4)
 )
 
 AS
-
+DECLARE @Id_Estado int  
+EXEC spHelperAsignaEstado 'T_C_Mantenimiento',@Id_Estado OUT  
 SET NOCOUNT ON
 
 SELECT [Id_Mantenimiento],
-	[Id_Turno],
 	[Id_Equipo],
 	[FechaProgramacion],
-	[FechaTrabajoInicio],
-	[FechaTrabajoFin],
+	isnull([FechaTrabajoInicio],'') as FechaTrabajoInicio,
+	isnull([FechaTrabajoFin],'') as FechaTrabajoFin,  
 	[UsuarioRegistro],
 	[FechaRegistro],
 	[Id_Estado],
@@ -24,9 +20,9 @@ SELECT [Id_Mantenimiento],
 	[Id_Incidencia],
 	[Id_Pedido],
 	[Prioridad],
-	[Id_OrdenTrabajo],
+	isnull([Id_OrdenTrabajo],'') as Id_OrdenTrabajo,
 	[Id_TipoMantenimientoEquipo],
 	[Id_TurnoMantenimiento]
 FROM [T_C_Mantenimiento]
-WHERE [Id_Estado] = @Id_Estado
+WHERE [Id_Equipo] = @Id_Equipo and [Id_Estado] = @Id_Estado
 GO

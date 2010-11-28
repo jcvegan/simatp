@@ -74,7 +74,6 @@ namespace SIMA.DataAccess
                     }
                     return detalles;
                 }
-                return detalles;
             }
             catch (Exception ex)
             {

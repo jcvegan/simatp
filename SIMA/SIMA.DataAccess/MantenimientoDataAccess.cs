@@ -27,6 +27,7 @@ namespace SIMA.DataAccess
         {
             try
             {
+                Connection = new SqlConnection(ConnectionString);
                 using (Command = new System.Data.SqlClient.SqlCommand("T_C_MantenimientoInsert", Connection))
                 {
                     Command.CommandType = System.Data.CommandType.StoredProcedure;
@@ -61,6 +62,7 @@ namespace SIMA.DataAccess
         {
             try
             {
+                Connection = new SqlConnection(ConnectionString);
                 using (Command = new System.Data.SqlClient.SqlCommand("T_C_MantenimientoUpdate", Connection))
                 {
                     Command.CommandType = System.Data.CommandType.StoredProcedure;
@@ -99,6 +101,7 @@ namespace SIMA.DataAccess
         {
             try
             {
+                Connection = new SqlConnection(ConnectionString);
                 using (Command = new System.Data.SqlClient.SqlCommand("T_C_MantenimientoDelete", Connection))
                 {
                     Command.CommandType = System.Data.CommandType.StoredProcedure;
@@ -122,6 +125,7 @@ namespace SIMA.DataAccess
         {
             try
             {
+                Connection = new SqlConnection(ConnectionString);
                 List<T_C_Mantenimiento> Mantenimientos;
                 using (Command = new System.Data.SqlClient.SqlCommand("T_C_MantenimientoselectAll", Connection))
                 {
@@ -214,6 +218,7 @@ namespace SIMA.DataAccess
         {
             try
             {
+                Connection = new SqlConnection(ConnectionString);
                 List<T_C_Mantenimiento> Mantenimientos;
                 //T_C_Equipo E_id_Equipo;
                 using (Command = new System.Data.SqlClient.SqlCommand("T_C_MantenimientoselectActivoFecha", Connection))
@@ -394,6 +399,7 @@ namespace SIMA.DataAccess
         {
             try
             {
+                Connection = new SqlConnection(ConnectionString);
                 using (Command = new System.Data.SqlClient.SqlCommand("T_C_MantenimientoActualizar", Connection))
                 {
                     Command.CommandType = System.Data.CommandType.StoredProcedure;
@@ -425,12 +431,13 @@ namespace SIMA.DataAccess
             }
         }
 
-        public int BuscarEstadoActivo()
+        public int BuscarEstadoInactivo()
         {
             try
             {
+                Connection = new SqlConnection(ConnectionString);
                 int estado=0;
-                using (Command = new System.Data.SqlClient.SqlCommand("T_C_MantenimientoBuscarEstadoTerminado", Connection))
+                using (Command = new System.Data.SqlClient.SqlCommand("T_C_MantenimientoBuscarEstadoInactivo", Connection))
                 {
                     Command.CommandType = System.Data.CommandType.StoredProcedure;
                     Connection.Open();

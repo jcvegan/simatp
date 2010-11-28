@@ -366,6 +366,7 @@ namespace SIMA.DataAccess
         {
             try
             {
+                Connection = new SqlConnection(ConnectionString);
                 int estado=0;
                 using (Command = new System.Data.SqlClient.SqlCommand("T_C_EquipoBuscarEstadoActivo", Connection))
                 {

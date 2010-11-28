@@ -31,8 +31,11 @@ namespace SIMA.Client.Trabajos_de_Mantenimiento
         List<Auxiliares.ClaseCerrarManenimiento> listaclasecerrar;
         T_C_Equipo equipo;
         EstadoDataLogic estadologic;
+        T_C_OrdenTrabajo ordentrabajo;
+        OrdenTrabajoDataLogic ordenlogic;
         public frmCerrarMantenimiento()
         {
+
             InitializeComponent();
             Equipologic = new EquipoDataLogic();
             Mantenimientologic=new MantenimientoDataLogic();
@@ -42,10 +45,13 @@ namespace SIMA.Client.Trabajos_de_Mantenimiento
             listaclasecerrar = new List<SIMA.Client.Auxiliares.ClaseCerrarManenimiento>();
             equipo = new T_C_Equipo();
             estadologic = new EstadoDataLogic();
+            ordenlogic = new OrdenTrabajoDataLogic();
+            ordentrabajo = new T_C_OrdenTrabajo();
         }
         private void UserControl_Loaded(object sender, RoutedEventArgs e)
         {
             llenargridview();
+            btnCerrarMantenimiento.Visibility = Visibility.Hidden;
         }
 
         private void llenargridview()
@@ -76,12 +82,18 @@ namespace SIMA.Client.Trabajos_de_Mantenimiento
                 mantenimiento = Mantenimientologic.SeleccionarMantenimiento((gvCerrarMantenimiento.SelectedItem as Auxiliares.ClaseCerrarManenimiento).id_mantenimiento);
                 equipo = new T_C_Equipo();
                 equipo = Equipologic.SeleccionarEquipo((gvCerrarMantenimiento.SelectedItem as Auxiliares.ClaseCerrarManenimiento).id_equipo);
-                mantenimiento.Id_Estado = Mantenimientologic.BuscaEstadoActivo();
+                ordentrabajo = new T_C_OrdenTrabajo();
+                ordentrabajo=ordenlogic.SeleccionarOrdenTrabajo(mantenimiento.Id_OrdenTrabajo);
+                mantenimiento.Id_Estado = Mantenimientologic.BuscaEstadoInactivo();
                 equipo.Id_Estado = Equipologic.BuscaEstadoActivo();
+                ordentrabajo.Id_Estado = ordenlogic.BuscaEstadoTerminado();
                 Mantenimientologic.ActualizarMantenimiento(mantenimiento);
                 Equipologic.ActualizarEquipo(equipo);
+                ordenlogic.ActualizarOrdenTrabajo(ordentrabajo);
+
                 MessageBox.Show("Mantenimiento cerrado exitosamente.");
                 llenargridview();
+                btnCerrarMantenimiento.Visibility = Visibility.Hidden;
 
             }
             catch(Exception ex)

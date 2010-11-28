@@ -322,7 +322,7 @@ namespace SIMA.DataAccess
                         Mantenimiento.Id_OrdenTrabajo = Convert.ToInt32(reader.GetValue(reader.GetOrdinal("Id_OrdenTrabajo")).ToString());
                         Mantenimiento.Id_TipoMantenimientoEquipo = Convert.ToInt32(reader.GetValue(reader.GetOrdinal("Id_TipoMantenimientoEquipo")).ToString());
                         Mantenimiento.Id_TurnoMantenimiento = Convert.ToInt32(reader.GetValue(reader.GetOrdinal("Id_TurnoMantenimiento")).ToString());
-                                                
+                        Mantenimiento.E_id_Equipo.Descripcion = equipoAccess.SeleccionarEquipo(Mantenimiento.Id_Equipo).Descripcion;
                         Mantenimientos.Add(Mantenimiento);
                     }
                 }

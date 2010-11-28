@@ -70,8 +70,6 @@ namespace SIMA.Client.Gestion
             btnActualizar.IsEnabled = false;
             btnEliminar.IsEnabled = false;
             btnLimpiar.IsEnabled = false;
-            //cmbEstado.Visibility = Visibility.Visible;
-            //lblEstado.Visibility = Visibility.Visible;
             cmbEstado.ItemsSource = estadoLogic.ListarEstadosPorTabla("T_C_Perfil");
             gvPerfiles.ItemsSource = perfilLogic.ListarPerfiles();
         }

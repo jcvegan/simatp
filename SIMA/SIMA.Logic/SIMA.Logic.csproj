@@ -55,7 +55,6 @@
     <Compile Include="OrdenTrabajoDataLogic.cs" />
     <Compile Include="PerfilDataLogic.cs" />
     <Compile Include="PermisosPorPerfilDataLogic.cs" />
-    <Compile Include="ProductoDataLogic.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SolicitudDataLogic.cs" />
     <Compile Include="TablaDataLogic.cs" />

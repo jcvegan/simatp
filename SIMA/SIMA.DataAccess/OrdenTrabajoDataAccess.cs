@@ -11,6 +11,8 @@ namespace SIMA.DataAccess
     public class OrdenTrabajoDataAccess:DataAccessBase
     {
         private EstadoDataAccess estadoAccess;
+        private UsuarioDataAccess usuarioAccess;
+
         public OrdenTrabajoDataAccess()
             : base()
         {
@@ -163,7 +165,7 @@ namespace SIMA.DataAccess
                         ordentrabajo.CostoTotal = Convert.ToInt32(reader.GetValue(reader.GetOrdinal("CostoTotal")).ToString());
                         ordentrabajo.FechaRegistro = Convert.ToDateTime(reader.GetValue(reader.GetOrdinal("FechaRegistro")).ToString());
                         ordentrabajo.UltimaFechaModificacion = Convert.ToDateTime(reader.GetValue(reader.GetOrdinal("UltimaFechaModificacion")).ToString());
-                        ordentrabajo.Id_Estado = Convert.ToInt32(reader.GetValue(reader.GetOrdinal("Id_Estado")).ToString());
+                        ordentrabajo.Estado = estadoAccess.Seleccionar(ordentrabajo.Id_Estado);
                         ordentrabajo.Id_Usuario = Convert.ToInt32(reader.GetValue(reader.GetOrdinal("Id_Usuario")).ToString());
                         ordenestrabajos.Add(ordentrabajo);
                     }

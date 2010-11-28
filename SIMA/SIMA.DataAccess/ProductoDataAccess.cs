@@ -125,7 +125,8 @@ namespace SIMA.DataAccess
                 Connection.Close();
             }
         }
-
+        
+        /*
         public List<T_C_Producto> SeleccionarProductosActivos()
         {
         }
@@ -133,5 +134,6 @@ namespace SIMA.DataAccess
         public T_C_Producto SeleccionarProducto(int idProducto)
         {
         }
+         */
     }
 }

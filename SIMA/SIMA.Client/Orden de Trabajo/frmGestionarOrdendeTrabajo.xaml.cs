@@ -42,11 +42,14 @@ namespace SIMA.Client.Orden_de_Trabajo
         {
             if (gvOrdenesTrabajo.SelectedItem != null)
             {
-                
-                T_C_OrdenTrabajo ordentrabajo = gvOrdenesTrabajo.SelectedItem as T_C_OrdenTrabajo;             
+                lblEstado.Visibility = Visibility.Visible;
+                cmbEstado.Visibility = Visibility.Visible;
+
+                T_C_OrdenTrabajo ordentrabajo = gvOrdenesTrabajo.SelectedItem as T_C_OrdenTrabajo;
                 txtDescripcion.Text = ordentrabajo.Descripcion;
                 txtCosto.Text = ordentrabajo.CostoTotal.ToString();
                 dtFRegistro.SelectedDateTime = ordentrabajo.FechaRegistro;
+                txtIdOrden.Text = Convert.ToString(ordentrabajo.Id_OrdenTrabajo);
 
                 for (int i = 0; i <= cmbEstado.Items.Count; i++)
                 {
@@ -58,9 +61,7 @@ namespace SIMA.Client.Orden_de_Trabajo
                 }
 
                 DescripcionEquipo.Text = "Se cuenta con equipos";
-
-                lblEstado.Visibility = Visibility.Visible;
-                cmbEstado.Visibility = Visibility.Visible;
+                
                 lblUsuario.Visibility = Visibility.Visible;
                 txtUsuario.Visibility = Visibility.Visible;
 
@@ -73,16 +74,19 @@ namespace SIMA.Client.Orden_de_Trabajo
                 txtCosto.Visibility = Visibility.Visible;
                 txtCosto.IsEnabled = false;
 
+                dtFRegistro.IsEnabled = false;
+                
                 lblFRegistro.Visibility = Visibility.Visible;
-                dtFRegistro.Visibility = Visibility.Visible;
-                                          
+                dtFRegistro.Visibility = Visibility.Visible;                
             }
+
+
             else
             {
                 DescripcionEquipo.Text = "No cuenta con equipos";
-                
+
                 lblEstado.Visibility = Visibility.Hidden;
-                cmbEstado.Visibility = Visibility.Hidden; 
+                cmbEstado.Visibility = Visibility.Hidden;
                 lblUsuario.Visibility = Visibility.Hidden;
                 txtUsuario.Visibility = Visibility.Hidden;
                 btnActualizar.Visibility = Visibility.Hidden;
@@ -92,18 +96,19 @@ namespace SIMA.Client.Orden_de_Trabajo
                 lblCosto.Visibility = Visibility.Hidden;
                 txtCosto.Visibility = Visibility.Hidden;
                 lblFRegistro.Visibility = Visibility.Hidden;
-                dtFRegistro.Visibility = Visibility.Hidden;
+                
                 lblFModificacion.Visibility = Visibility.Hidden;
                 dtFModificacion.Visibility = Visibility.Hidden;
             }
+            
         }
 
         private void UserControl_Loaded(object sender, RoutedEventArgs e)
         {
-            ordentrabajoLogic = new OrdenTrabajoDataLogic();
-            gvOrdenesTrabajo.ItemsSource = ordentrabajoLogic.ListarOrdenesTrabajo();
+            ordentrabajoLogic = new OrdenTrabajoDataLogic();            
             estadoLogic = new EstadoDataLogic();
             cmbEstado.ItemsSource = estadoLogic.ListarEstadosPorTabla("T_C_OrdenTrabajo");
+            gvOrdenesTrabajo.ItemsSource = ordentrabajoLogic.ListarOrdenesTrabajo();
         }
 
         private void btnRegistrar_Click(object sender, RoutedEventArgs e)
@@ -127,7 +132,9 @@ namespace SIMA.Client.Orden_de_Trabajo
 
                     MessageBox.Show(ordentrabajoLogic.AgregarOrdenTrabajo(ordentrabajo, detalle));
                     gvOrdenesTrabajo.ItemsSource = ordentrabajoLogic.ListarOrdenesTrabajo();
-                    
+
+                    txtDescripcion.Clear();
+                    DescripcionEquipo.Text = "No existe ningun detalle";
                 }
             }
         }
@@ -159,8 +166,12 @@ namespace SIMA.Client.Orden_de_Trabajo
 
         private void btnVerDetalle_Click(object sender, RoutedEventArgs e)
         {
-
-            
+            if (vezPrimera == true)
+            {
+                frmSelectorEquipos equiposSelector = new frmSelectorEquipos();
+                equiposSelector.Resultado += new EventHandler<SIMA.Client.Auxiliares.EventArgs.DetalleOrdenTrabajoEventArgs>(equiposSelector_Resultado);
+                equiposSelector.ShowDialog();
+            }
         }
 
         private void btnAgregarDetalle_Click(object sender, RoutedEventArgs e)
@@ -199,6 +210,17 @@ namespace SIMA.Client.Orden_de_Trabajo
             txtDescripcion.Clear();
             DescripcionEquipo.Text = "No existe ningun detalle.";
             detalle.Clear();
+            txtCosto.Clear();
+            txtCosto.Visibility = Visibility.Hidden;
+            lblCosto.Visibility = Visibility.Hidden;
+            lblFRegistro.Visibility = Visibility.Hidden;
+            lblFModificacion.Visibility = Visibility.Hidden;
+            dtFRegistro.Visibility = Visibility.Hidden;
+            dtFModificacion.Visibility = Visibility.Hidden;
+            lblUsuario.Visibility = Visibility.Hidden;
+            txtUsuario.Visibility = Visibility.Hidden;
+            lblEstado.Visibility = Visibility.Hidden;
+            cmbEstado.Visibility = Visibility.Hidden;
         }
     }
 }

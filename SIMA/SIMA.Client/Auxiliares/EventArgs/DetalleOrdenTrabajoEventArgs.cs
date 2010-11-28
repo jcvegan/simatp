@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using SIMA.Entities;
+using SIMA.Logic;
 
 namespace SIMA.Client.Auxiliares.EventArgs
 {
@@ -19,6 +20,5 @@ namespace SIMA.Client.Auxiliares.EventArgs
         {
             detalleOrden = _detalleOrden;
         }
-
     }
 }

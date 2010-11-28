@@ -9,8 +9,7 @@
         </Grid.RowDefinitions>
         <Grid Grid.Row="0">
             <Grid.RowDefinitions>
-                <RowDefinition Height="24" />
-                <RowDefinition />
+                <RowDefinition Height="24" />                
                 <RowDefinition Height="24" />
             </Grid.RowDefinitions>
             <Border Grid.Row="0" BorderThickness="1" Margin="0" VerticalAlignment="Top" Height="24" CornerRadius="2,2,0,0">
@@ -32,22 +31,12 @@
                 </Border.BorderBrush>
                 <TextBlock Text="Apertura Mantenimiento" Foreground="GhostWhite" HorizontalAlignment="Right" VerticalAlignment="Center" FontSize="16"/>
             </Border>
-            <Grid Grid.Row="1">
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="30"/>                   
-                </Grid.RowDefinitions>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="120"/>
-                    <ColumnDefinition/>
-                </Grid.ColumnDefinitions>
-               
-                <StackPanel Name="stkSinDetalle" Grid.Column="1" Grid.Row="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Orientation="Horizontal" Margin="25,0,0,0">                   
-                    <telerik:RadButton Name="btnAgregarDetalle" Content="Confirmacion" VerticalAlignment="Center" Click="btnAgregarDetalle_Click" telerik:StyleManager.Theme="Summer"/> 
-                </StackPanel>
-
-            </Grid>
+            
             <StackPanel Grid.Row="2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Orientation="Horizontal">
-                <telerik:RadButton Name="btnBuscar" Content="Buscar" Width="100" telerik:StyleManager.Theme="Summer" Click="btnBuscar_Click" />                
+                <telerik:RadButton Name="btnBuscar" Content="Buscar" Width="100" telerik:StyleManager.Theme="Summer" Click="btnBuscar_Click" />
+                <StackPanel Name="stkSinDetalle" Grid.Column="1" Grid.Row="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Orientation="Horizontal" Margin="25,0,0,0">
+                    <telerik:RadButton Name="btnAgregarDetalle" Content="Confirmacion" VerticalAlignment="Center" Click="btnAgregarDetalle_Click" telerik:StyleManager.Theme="Summer"/>
+                </StackPanel>
             </StackPanel>
         </Grid>
 
@@ -55,6 +44,7 @@
             <telerik:RadGridView.Columns>
                 <telerik:GridViewDataColumn Header="ID Mantenimiento" DataMemberBinding="{Binding Id_Mantenimiento}"/>
                 <telerik:GridViewDataColumn Header="ID Equipo" DataMemberBinding="{Binding Id_Equipo}"/>
+                <telerik:GridViewDataColumn Header="Equipo" DataMemberBinding="{Binding E_id_Equipo.Descripcion}"/>                
                 <telerik:GridViewDataColumn Header="Fecha Programacion" DataMemberBinding="{Binding FechaProgramacion}"/>
                 <telerik:GridViewDataColumn Header="Fecha Trabajo Inicio" DataMemberBinding="{Binding FechaTrabajoInicio}"/>
                 <telerik:GridViewDataColumn Header="Fecha Trabajo Fin" DataMemberBinding="{Binding FechaTrabajoFin}"/>                

@@ -1,0 +1,26 @@
+﻿<Window x:Class="SIMA.Client.Auxiliares.frmMuestraDetalles"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation"
+        Title="Vista de detalles para la Orden de Trabajo"
+        SizeToContent="WidthAndHeight"
+        >
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition Height="35"/>
+        </Grid.RowDefinitions>
+        <telerik:RadGridView Grid.Row="0" AutoGenerateColumns="False" IsReadOnly="True"  Name="gvDetalleOrden" ShowGroupPanel="False" telerik:StyleManager.Theme="Summer" Margin="5,5,5,0" Height="250">
+            <telerik:RadGridView.Columns>
+                <telerik:GridViewDataColumn Header="ID Equipo"/>
+                <telerik:GridViewDataColumn Header="Descripción"/>
+                <telerik:GridViewDataColumn Header="Cantidad"/>
+                <telerik:GridViewDataColumn Header="Costo Total"/>
+            </telerik:RadGridView.Columns>
+        </telerik:RadGridView>
+        <StackPanel Grid.Row="1" HorizontalAlignment="Right" VerticalAlignment="Stretch" Orientation="Horizontal">
+            <telerik:RadButton Content="Aceptar" Width="120" telerik:StyleManager.Theme="Summer" VerticalAlignment="Center" Click="btnAceptar_Click"/>
+            
+        </StackPanel>
+    </Grid>
+</Window>

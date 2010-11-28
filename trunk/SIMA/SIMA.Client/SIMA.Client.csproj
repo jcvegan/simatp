@@ -3,7 +3,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProductVersion>9.0.21022</ProductVersion>
+    <ProductVersion>9.0.30729</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{39C7FC77-9EBD-40E0-A219-23C9E3F9779F}</ProjectGuid>
     <OutputType>WinExe</OutputType>
@@ -199,6 +199,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Seguridad\frmAsignarPermisos.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Seguridad\frmIniciarSesion.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -316,6 +320,9 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <Compile Include="Seguridad\frmAsignarPermisos.xaml.cs">
+      <DependentUpon>frmAsignarPermisos.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Seguridad\frmIniciarSesion.xaml.cs">
       <DependentUpon>frmIniciarSesion.xaml</DependentUpon>
       <SubType>Code</SubType>
@@ -357,7 +364,15 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Imagenes\" />
+    <Resource Include="Imagenes\AreaPrivada.png" />
+    <Resource Include="Imagenes\contenido.png" />
+    <Resource Include="Imagenes\equipment%2520hire.png" />
+    <Resource Include="Imagenes\eventos.png" />
+    <Resource Include="Imagenes\HomeProductSearch.png" />
+    <Resource Include="Imagenes\newsletter.png" />
+    <Resource Include="Imagenes\portfolio.png" />
+    <Resource Include="Imagenes\productos.png" />
+    <Resource Include="Imagenes\Table.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -131,6 +131,41 @@ namespace SIMA.DataAccess
             }
         }
 
+        public List<T_C_Permiso> SeleccionarPermisosActivos()
+        {
+            try
+            {
+                Connection = new SqlConnection(ConnectionString);
+                List<T_C_Permiso> permisos;
+                using (Command = new System.Data.SqlClient.SqlCommand("T_C_PermisoSelectActivo", Connection))
+                {
+                    Command.CommandType = System.Data.CommandType.StoredProcedure;
+                    Connection.Open();
+                    permisos = new List<T_C_Permiso>();
+                    SqlDataReader reader = Command.ExecuteReader();
+                    while (reader.Read())
+                    {
+                        T_C_Permiso permiso = new T_C_Permiso();
+                        permiso.Id_Permiso = Convert.ToInt32(reader.GetValue(reader.GetOrdinal("Id_Permiso")).ToString());
+                        permiso.Nombre = reader.GetValue(reader.GetOrdinal("Nombre")).ToString();
+                        permiso.Descripcion = reader.GetValue(reader.GetOrdinal("Descripcion")).ToString();
+                        permiso.Id_Estado = Convert.ToInt32(reader.GetValue(reader.GetOrdinal("Id_Estado")).ToString());
+                        permiso.Estado = estadoAccess.Seleccionar(permiso.Id_Estado);
+
+                        permisos.Add(permiso);
+                    }
+                }
+                return permisos;
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
+            finally
+            {
+                Connection.Close();
+            }
+        }
        
 
         public T_C_Permiso SeleccionarPermiso(int idPermiso)

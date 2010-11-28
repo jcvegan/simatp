@@ -23,13 +23,13 @@
             </Border>
             
             </Grid>
-        <telerik:RadGridView Name="gvCerrarMantenimiento" Grid.Row="1" AutoGenerateColumns="False" IsReadOnly="True" telerik:StyleManager.Theme="Summer">
+        <telerik:RadGridView Name="gvCerrarMantenimiento" Grid.Row="1" AutoGenerateColumns="False" IsReadOnly="True" telerik:StyleManager.Theme="Summer" SelectionChanged="gvCerrarMantenimiento_SelectionChanged">
             <telerik:RadGridView.Columns>
-                <telerik:GridViewDataColumn Header="Fecha trabajo inicio" DataMemberBinding="{Binding FechaInicioFin}"/>
-                <telerik:GridViewDataColumn Header="Id equipo" DataMemberBinding="{Binding Id_Equipo}"/>
-                <telerik:GridViewDataColumn Header="Descripción de equipo" DataMemberBinding="{Binding Descripcion}"/>
-                <telerik:GridViewDataColumn Header="Usuario responsable" DataMemberBinding="{Binding Id_Usuario}"/>
-                <telerik:GridViewDataColumn Header="Fecha trabajo fin" DataMemberBinding="{Binding FechaTrabajoFin}"/>
+                <telerik:GridViewDataColumn Header="Fecha trabajo inicio" DataMemberBinding="{Binding fechatrabajoinicio}"/>
+                <telerik:GridViewDataColumn Header="Id equipo" DataMemberBinding="{Binding id_equipo}"/>
+                <telerik:GridViewDataColumn Header="Descripción de equipo" DataMemberBinding="{Binding descripcion}"/>
+                <telerik:GridViewDataColumn Header="Usuario responsable" DataMemberBinding="{Binding usuario}"/>
+                <telerik:GridViewDataColumn Header="Fecha trabajo fin" DataMemberBinding="{Binding fechatrabajofin}"/>
             </telerik:RadGridView.Columns>
 
         </telerik:RadGridView>
@@ -37,7 +37,7 @@
         <Grid>
             <StackPanel Grid.Column="3" Grid.Row="3" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Orientation="Horizontal"></StackPanel>
         </Grid>
-        <telerik:RadButton Name="btnCerrarMantenimiento" Content="Cerrar Mantenimiento" Click="btnCerrarMantenimiento_Click" Width="100" telerik:StyleManager.Theme="Summer" Height="24" HorizontalAlignment="Right" Grid.Row="1" VerticalAlignment="Bottom" />
+        <telerik:RadButton Name="btnCerrarMantenimiento" Content="Cerrar Mantenimiento" Click="btnCerrarMantenimiento_Click" Width="128" telerik:StyleManager.Theme="Summer" Height="24" HorizontalAlignment="Right" Grid.Row="1" VerticalAlignment="Bottom" />
     </Grid>
 
 </UserControl>

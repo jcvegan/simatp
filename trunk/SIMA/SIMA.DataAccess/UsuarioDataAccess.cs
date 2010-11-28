@@ -234,5 +234,50 @@ namespace SIMA.DataAccess
                 Connection.Close();
             }
         }
+
+        public T_C_Usuario SeleccionarUsuario(int Id_Usuario)
+        {
+            try
+            {
+                Connection = new SqlConnection(ConnectionString);
+                T_C_Usuario usuario;
+                using (Command = new System.Data.SqlClient.SqlCommand("T_C_UsuarioSelect", Connection))
+                {
+                    Command.CommandType = System.Data.CommandType.StoredProcedure;
+                    Command.Parameters.AddWithValue("@Id_Usuario", Id_Usuario);
+                    Connection.Open();
+                    usuario = new T_C_Usuario();
+                    SqlDataReader reader = Command.ExecuteReader();
+                    while (reader.Read())
+                    {
+                        usuario.Id_Usuario = Convert.ToInt32(reader.GetValue(reader.GetOrdinal("Id_Usuario")).ToString());
+                        usuario.Nombres = reader.GetValue(reader.GetOrdinal("Nombres")).ToString();
+                        usuario.Apellidos = reader.GetValue(reader.GetOrdinal("Apellidos")).ToString();
+                        usuario.Contraseña = reader.GetValue(reader.GetOrdinal("Contraseña")).ToString();
+                        usuario.Direccion = reader.GetValue(reader.GetOrdinal("Direccion")).ToString();
+                        usuario.Email = reader.GetValue(reader.GetOrdinal("Email")).ToString();
+                        usuario.Fecha_Nacimiento = Convert.ToDateTime(reader.GetValue(reader.GetOrdinal("Fecha_Nacimiento")));
+                        usuario.Fecha_Registro = Convert.ToDateTime(reader.GetValue(reader.GetOrdinal("Fecha_Registro")));
+                        usuario.Telefono = Convert.ToInt32(reader.GetValue(reader.GetOrdinal("Telefono")));
+
+                        usuario.Id_Perfil = Convert.ToInt32(reader.GetValue(reader.GetOrdinal("Id_Perfil")).ToString());
+                        usuario.Id_Estado = Convert.ToInt32(reader.GetValue(reader.GetOrdinal("Id_Estado")).ToString());
+                        usuario.Perfil = perfilAccess.Seleccionar(usuario.Id_Perfil);
+                        usuario.Estado = estadoAccess.Seleccionar(usuario.Id_Estado);
+
+                    }
+                }
+                return usuario;
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
+            finally
+            {
+                Connection.Close();
+            }
+        }
+
     }
 }

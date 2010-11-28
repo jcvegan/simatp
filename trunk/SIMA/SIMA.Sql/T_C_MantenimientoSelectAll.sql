@@ -9,11 +9,10 @@ AS
 SET NOCOUNT ON
 
 SELECT [Id_Mantenimiento],
-	[Id_Turno],
 	[Id_Equipo],
 	[FechaProgramacion],
-	[FechaTrabajoInicio],
-	[FechaTrabajoFin],
+	isnull([FechaTrabajoInicio],'') as FechaTrabajoInicio,
+	isnull([FechaTrabajoFin],'') as FechaTrabajoFin,  
 	[UsuarioRegistro],
 	[FechaRegistro],
 	[Id_Estado],
@@ -21,7 +20,7 @@ SELECT [Id_Mantenimiento],
 	[Id_Incidencia],
 	[Id_Pedido],
 	[Prioridad],
-	[Id_OrdenTrabajo],
+	isnull([Id_OrdenTrabajo],'') as Id_OrdenTrabajo,
 	[Id_TipoMantenimientoEquipo],
 	[Id_TurnoMantenimiento]
 FROM [T_C_Mantenimiento]

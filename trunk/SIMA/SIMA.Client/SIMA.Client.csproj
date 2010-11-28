@@ -232,6 +232,8 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Auxiliares\ClaseCerrarManenimiento.cs" />
+    <Compile Include="Auxiliares\ClaseConsultarEquiposaMantener.cs" />
     <Compile Include="Auxiliares\Enums\Enums.cs" />
     <Compile Include="Auxiliares\EventArgs\ConfirmarMantenimientoEventArgs.cs" />
     <Compile Include="Auxiliares\EventArgs\DetalleOrdenTrabajoEventArgs.cs" />

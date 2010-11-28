@@ -70,5 +70,10 @@ namespace SIMA.Logic
         {
             return usuarioAccess.EliminarUsuario(usuario);
         }
+
+        public T_C_Usuario SeleccionarUsuario(int p)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

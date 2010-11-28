@@ -23,15 +23,16 @@ namespace SIMA.Client.Auxiliares
         public MantenimientoSessionAppCollection(RadScheduler scheduler)
         {
             MantenimientoDataLogic MantenimientoLogic = new MantenimientoDataLogic();
-            List<T_C_Mantenimiento> ListaMantenimiento= new List<T_C_Mantenimiento>(MantenimientoLogic.ListarActivosMantenimientos());
+            List<T_C_Mantenimiento> ListaMantenimiento= new List<T_C_Mantenimiento>();
             EquipoDataLogic EquipoLogic = new EquipoDataLogic();
             TurnoMantenimientoDataLogic TurnoLogic = new TurnoMantenimientoDataLogic();
-            int month = DateTime.Now.Month;
+            ListaMantenimiento.AddRange(MantenimientoLogic.ListarActivosMantenimientos());
             foreach (T_C_Mantenimiento Mantenimiento in ListaMantenimiento)
             {
+                
                 MantenimientoSessionApp MantenimientoApp = new MantenimientoSessionApp();
-                MantenimientoApp.Subject = EquipoLogic.SeleccionarEquipo(Mantenimiento.Id_Equipo.ToString()).Descripcion;
-                MantenimientoApp.Body = "mantenimiento de equipo "+MantenimientoApp.Subject;
+                MantenimientoApp.Subject = "Mantenimiento de equipo " +Mantenimiento.Id_Equipo+ " " + EquipoLogic.SeleccionarEquipo(Mantenimiento.Id_Equipo.ToString()).Descripcion;
+                MantenimientoApp.Body = MantenimientoApp.Subject;
                 string horaminutoinicio,horaminutofin, horainicio, minutoinicio, horafin, minutofin="";
                 horaminutoinicio = TurnoLogic.SeleccionarTurnoMantenimiento(Mantenimiento.Id_TurnoMantenimiento).HoraInicio.ToString();
                 horaminutofin = TurnoLogic.SeleccionarTurnoMantenimiento(Mantenimiento.Id_TurnoMantenimiento).HoraFin.ToString();
@@ -57,8 +58,9 @@ namespace SIMA.Client.Auxiliares
                 MantenimientoApp.Start = Convert.ToDateTime(Mantenimiento.FechaProgramacion.Year + "-" + Mantenimiento.FechaProgramacion.Month + "-" + Mantenimiento.FechaProgramacion.Day + " " + horainicio + ":" + minutoinicio + ":00.000");
                 MantenimientoApp.End = Convert.ToDateTime(Mantenimiento.FechaProgramacion.Year + "-" + Mantenimiento.FechaProgramacion.Month + "-" + Mantenimiento.FechaProgramacion.Day + " " + horafin+ ":" + minutofin+ ":00.000");
                 MantenimientoApp.Equipo = Mantenimiento.Id_Equipo;
-                MantenimientoApp.Category = scheduler.Categories.GetCategoryByName("MANTE");
+                MantenimientoApp.Category = scheduler.Categories.GetCategoryByName(Mantenimiento.Id_Equipo);
                 Add(MantenimientoApp);
+                
             }
             
         }

@@ -96,6 +96,7 @@ namespace SIMA.DataAccess
         {
             try
             {
+                Connection = new SqlConnection(ConnectionString);
                 T_C_TurnoMantenimiento TurnoMantenimiento;
                 using (Command = new System.Data.SqlClient.SqlCommand("T_C_TurnoMantenimientoSelect", Connection))
                 {

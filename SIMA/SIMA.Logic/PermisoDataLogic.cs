@@ -63,5 +63,10 @@ namespace SIMA.Logic
             return permisoAccess.SeleccionarTodosPermisos();
         }
 
+        public List<T_C_Permiso> SeleccionarActivos()
+        {
+            return permisoAccess.SeleccionarPermisosActivos();
+        }
+
     }
 }

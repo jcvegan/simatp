@@ -141,7 +141,7 @@ namespace SIMA.DataAccess
                         usuario.Direccion = reader.GetValue(reader.GetOrdinal("Direccion")).ToString();
                         usuario.Fecha_Nacimiento = Convert.ToDateTime(reader.GetValue(reader.GetOrdinal("Fecha_Nacimiento")).ToString());
                         usuario.Email = reader.GetValue(reader.GetOrdinal("Email")).ToString();
-                        usuario.Contraseña = reader.GetValue(reader.GetOrdinal("Contraseña")).ToString().Desencriptar();
+                        usuario.Contraseña = reader.GetValue(reader.GetOrdinal("Contraseña")).ToString();//.Desencriptar();
                         usuario.Id_Perfil = Convert.ToInt32(reader.GetValue(reader.GetOrdinal("Id_Perfil")).ToString());
                        
                     }

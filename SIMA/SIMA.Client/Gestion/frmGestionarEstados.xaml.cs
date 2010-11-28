@@ -47,6 +47,7 @@ namespace SIMA.Client.Gestion
             estado.Id_Tabla = (cmbTablas.SelectedItem as T_C_Tabla).Id_Tabla;
             estado.Por_Defecto = (bool)chkPorDefecto.IsChecked;
             estado.Muestra_Informacion = (bool)chkMuestraInformacion.IsChecked;
+            estado.NoElimina = (bool)chkNoElimina.IsChecked;
             MessageBox.Show(estadoLogic.AgregarEstado(estado));
             gvEstados.ItemsSource = estadoLogic.ListarEstados();
         }
@@ -58,6 +59,7 @@ namespace SIMA.Client.Gestion
             estado.Muestra_Informacion = (bool)chkMuestraInformacion.IsChecked;
             estado.Nombre_Estado = txtNombre.Text;
             estado.Por_Defecto = (bool)chkPorDefecto.IsChecked;
+            estado.NoElimina = (bool)chkNoElimina.IsChecked;
             MessageBox.Show(estadoLogic.ActualizarEstado(estado));
             gvEstados.ItemsSource = estadoLogic.ListarEstados();
         }
@@ -80,6 +82,7 @@ namespace SIMA.Client.Gestion
             cmbTablas.SelectedItem = null;
             chkPorDefecto.IsChecked = false;
             chkMuestraInformacion.IsChecked = false;
+            chkNoElimina.IsChecked = false;
             gvEstados.SelectedItem = null;
         }
 
@@ -105,6 +108,7 @@ namespace SIMA.Client.Gestion
                 cmbTablas.SelectedItem = temp.Tabla;
                 chkPorDefecto.IsChecked = temp.Por_Defecto;
                 chkMuestraInformacion.IsChecked = temp.Muestra_Informacion;
+                chkNoElimina.IsChecked = temp.NoElimina;
             }
             
         }

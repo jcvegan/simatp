@@ -54,6 +54,7 @@
                 <TextBox Name="txtDescripcion" Grid.Column="1" Grid.Row="2" Width="150" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="25,0,0,0"/>
                 <CheckBox Name="chkPorDefecto" Grid.Column="2" Content="Por Defecto" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="25,0,0,0"/>
                 <CheckBox Name="chkMuestraInformacion" Grid.Column="2" Grid.Row="1" Content="Muestra información" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="25,0,0,0"/>
+                <CheckBox Name="chkNoElimina" Grid.Column="2" Grid.Row="2" Content="No se puede eliminar" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="25,0,0,0"/>
             </Grid>
             <StackPanel Grid.Row="2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Orientation="Horizontal">
                 <telerik:RadButton Name="btnRegistrar" Content="Registrar" Width="100" Click="btnRegistrar_Click" telerik:StyleManager.Theme="Summer"/>

@@ -12,6 +12,7 @@ namespace SIMA.Entities
 		private string descripcion_Estado;
 		private bool por_Defecto;
 		private bool muestra_Informacion;
+        private bool noElimina;
         private T_C_Tabla tabla;
 
 		#endregion
@@ -106,6 +107,12 @@ namespace SIMA.Entities
 			get { return muestra_Informacion; }
 			set { muestra_Informacion = value; }
 		}
+
+        public virtual bool NoElimina
+        {
+            get { return noElimina; }
+            set { noElimina = value; }
+        }
 
         public virtual T_C_Tabla Tabla
         {

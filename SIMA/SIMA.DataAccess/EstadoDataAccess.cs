@@ -30,6 +30,7 @@ namespace SIMA.DataAccess
                     Command.Parameters.AddWithValue("@Descripcion_Estado", estado.Descripcion_Estado);
                     Command.Parameters.AddWithValue("@Por_Defecto", estado.Por_Defecto);
                     Command.Parameters.AddWithValue("@Muestra_Informacion", estado.Muestra_Informacion);
+                    Command.Parameters.AddWithValue("@NoElimina", estado.NoElimina);
                     Connection.Open();
                     Command.ExecuteNonQuery();
                 }
@@ -58,6 +59,7 @@ namespace SIMA.DataAccess
                     Command.Parameters.AddWithValue("@Descripcion_Estado", estado.Descripcion_Estado);
                     Command.Parameters.AddWithValue("@Por_Defecto", estado.Por_Defecto);
                     Command.Parameters.AddWithValue("@Muestra_Informacion", estado.Muestra_Informacion);
+                    Command.Parameters.AddWithValue("@NoElimina", estado.NoElimina);
                     Connection.Open();
                     Command.ExecuteNonQuery();
                 }
@@ -118,6 +120,7 @@ namespace SIMA.DataAccess
                         estado.Descripcion_Estado = reader.GetValue(reader.GetOrdinal("Descripcion_Estado")).ToString();
                         estado.Por_Defecto = Convert.ToBoolean(reader.GetValue(reader.GetOrdinal("Por_Defecto")).ToString());
                         estado.Muestra_Informacion = Convert.ToBoolean(reader.GetValue(reader.GetOrdinal("Muestra_Informacion")).ToString());
+                        estado.NoElimina = Convert.ToBoolean(reader.GetValue(reader.GetOrdinal("NoElimina")));
                         estado.Tabla = tablaAccess.SeleccionarTabla(estado.Id_Tabla);
                         estados.Add(estado);
                     }
@@ -156,6 +159,7 @@ namespace SIMA.DataAccess
                         estado.Descripcion_Estado = reader.GetValue(reader.GetOrdinal("Descripcion_Estado")).ToString();
                         estado.Por_Defecto = Convert.ToBoolean(reader.GetValue(reader.GetOrdinal("Por_Defecto")).ToString());
                         estado.Muestra_Informacion = Convert.ToBoolean(reader.GetValue(reader.GetOrdinal("Muestra_Informacion")).ToString());
+                        estado.NoElimina = Convert.ToBoolean(reader.GetValue(reader.GetOrdinal("NoElimina")));
                         estado.Tabla = tablaAccess.SeleccionarTabla(estado.Id_Tabla);
                         estados.Add(estado);
                     }
@@ -192,6 +196,7 @@ namespace SIMA.DataAccess
                         estado.Descripcion_Estado = reader.GetValue(reader.GetOrdinal("Descripcion_Estado")).ToString();
                         estado.Por_Defecto = Convert.ToBoolean(reader.GetValue(reader.GetOrdinal("Por_Defecto")).ToString());
                         estado.Muestra_Informacion = Convert.ToBoolean(reader.GetValue(reader.GetOrdinal("Muestra_Informacion")).ToString());
+                        estado.NoElimina = Convert.ToBoolean(reader.GetValue(reader.GetOrdinal("NoElimina")));
                         estado.Tabla = tablaAccess.SeleccionarTabla(estado.Id_Tabla);
                     }
                 }

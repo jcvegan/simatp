@@ -49,9 +49,9 @@
                 <telerik:RadRibbonTab Header="Trabajos de Mantenimiento">
                     <telerik:RadRibbonGroup Header="Consulta">
                         <!--<telerik:RadRibbonToggleButton Name="rbtnConsultarMantenimientos" Content="Mantenimientos programados" Checked="rbtnChecked" Unchecked="rbtnUnchecked"/>
-                        <telerik:RadRibbonToggleButton Name="rbtnAsignarEquipos" Content="Asignar Equipos" Checked="rbtnChecked" Unchecked="rbtnUnchecked"/>
-                        <telerik:RadRibbonToggleButton Name="rbtnAperturaMantenimiento" Content="Apertura Mantenimiento" Checked="rbtnChecked" Unchecked="rbtnUnchecked"/>
-                        <telerik:RadRibbonToggleButton Name="rbtnConsultarHistoricoMante" Content="Consultar Historico Mantenimiento" Checked="rbtnChecked" Unchecked="rbtnUnchecked"/>-->
+                        <telerik:RadRibbonToggleButton Name="rbtnAsignarEquipos" Content="Asignar Equipos" Checked="rbtnChecked" Unchecked="rbtnUnchecked"/>-->
+                        <telerik:RadRibbonToggleButton Name="rbtnAperturaMantenimiento" Tag="Aperturar Mantenimiento" Content="Apertura Mantenimiento" Checked="rbtnChecked" Unchecked="rbtnUnchecked"/>
+                        <!--<telerik:RadRibbonToggleButton Name="rbtnConsultarHistoricoMante" Content="Consultar Historico Mantenimiento" Checked="rbtnChecked" Unchecked="rbtnUnchecked"/>-->
                     </telerik:RadRibbonGroup>
                 </telerik:RadRibbonTab>
                 <telerik:RadRibbonTab Header="Seguridad">

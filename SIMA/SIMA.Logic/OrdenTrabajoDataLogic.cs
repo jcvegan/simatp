@@ -41,9 +41,7 @@ namespace SIMA.Logic
 
                     else
                     {
-                        detalle.Costo = detalle.Cantidad * equipoAccess.SeleccionarEquipo(detalle.IdEquipo).Costo;
-                        detalleOrdenAccess.AgregarDetalleOrdenDeTrabajo(detalle);
-                        CostoTotal = CostoTotal + detalle.Costo;
+                       
                     }
                     
                 }

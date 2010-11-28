@@ -10,12 +10,13 @@ namespace SIMA.Entities
 		private int id_OrdendeTrabajo;
 		private double costo;
 		private float porcentaje;
-		private string motivo;
+		private string descrippcion;
 		private DateTime fechaRegistro;
 		private int id_Estado;
 		private int cantidad;
 		private int id_Solicitud;
         private string idEquipo;
+        private bool flag;
 
         public virtual string IdEquipo
         {
@@ -38,17 +39,18 @@ namespace SIMA.Entities
 		/// <summary>
 		/// Initializes a new instance of the T_C_DetalleOrdenDeTrabajo class.
 		/// </summary>
-		public T_C_DetalleOrdenDeTrabajo(int id_DetalleOrdendeTrabajo, int id_OrdendeTrabajo, float costo, float porcentaje, string motivo, DateTime fechaRegistro, int id_Estado, int cantidad, int id_Solicitud)
+		public T_C_DetalleOrdenDeTrabajo(int id_DetalleOrdendeTrabajo, int id_OrdendeTrabajo, float costo, float porcentaje, string descrippcion, DateTime fechaRegistro, int id_Estado, int cantidad, int id_Solicitud, bool flag)
 		{
 			this.id_DetalleOrdendeTrabajo = id_DetalleOrdendeTrabajo;
 			this.id_OrdendeTrabajo = id_OrdendeTrabajo;
 			this.costo = costo;
 			this.porcentaje = porcentaje;
-			this.motivo = motivo;
+			this.descrippcion = descrippcion;
 			this.fechaRegistro = fechaRegistro;
 			this.id_Estado = id_Estado;
 			this.cantidad = cantidad;
 			this.id_Solicitud = id_Solicitud;
+            this.flag = flag;
 		}
 
 		#endregion
@@ -93,10 +95,10 @@ namespace SIMA.Entities
 		/// <summary>
 		/// Gets or sets the Motivo value.
 		/// </summary>
-		public virtual string Motivo
+		public virtual string Descrippcion
 		{
-			get { return motivo; }
-			set { motivo = value; }
+            get { return descrippcion; }
+            set { descrippcion = value; }
 		}
 
 		/// <summary>
@@ -134,6 +136,12 @@ namespace SIMA.Entities
 			get { return id_Solicitud; }
 			set { id_Solicitud = value; }
 		}
+
+        public  bool Flag
+        {
+            get { return flag; }
+            set { flag = value; }
+        }
 
 		#endregion
 	}

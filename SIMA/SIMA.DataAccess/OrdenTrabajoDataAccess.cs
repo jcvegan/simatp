@@ -157,6 +157,7 @@ namespace SIMA.DataAccess
             {
                 Connection = new SqlConnection(ConnectionString);
                 List<T_C_OrdenTrabajo> ordenestrabajos;
+                Connection = new SqlConnection(ConnectionString);
                 using (Command = new System.Data.SqlClient.SqlCommand("T_C_OrdenTrabajoSelectAll", Connection))
                 {
                     Command.CommandType = System.Data.CommandType.StoredProcedure;

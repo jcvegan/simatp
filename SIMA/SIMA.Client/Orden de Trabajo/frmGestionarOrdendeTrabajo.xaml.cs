@@ -125,16 +125,16 @@ namespace SIMA.Client.Orden_de_Trabajo
                 }
                 else
                 {
-                    
                     T_C_OrdenTrabajo ordentrabajo = new T_C_OrdenTrabajo();
                     ordentrabajo.Descripcion = txtDescripcion.Text;
                     ordentrabajo.FechaRegistro = DateTime.Now;
 
-                    MessageBox.Show(ordentrabajoLogic.AgregarOrdenTrabajo(ordentrabajo, detalle));
-                    gvOrdenesTrabajo.ItemsSource = ordentrabajoLogic.ListarOrdenesTrabajo();
 
+                    MessageBox.Show(ordentrabajoLogic.AgregarOrdenTrabajo(ordentrabajo, detalle));
                     txtDescripcion.Clear();
                     DescripcionEquipo.Text = "No existe ningun detalle";
+                    gvOrdenesTrabajo.ItemsSource = ordentrabajoLogic.ListarOrdenesTrabajo();
+
                 }
             }
         }
@@ -176,33 +176,14 @@ namespace SIMA.Client.Orden_de_Trabajo
 
         private void btnAgregarDetalle_Click(object sender, RoutedEventArgs e)
         {
-            if (vezPrimera)
-            {
-                frmSelectorEquipos equiposSelector = new frmSelectorEquipos();
-                equiposSelector.Resultado += new EventHandler<SIMA.Client.Auxiliares.EventArgs.DetalleOrdenTrabajoEventArgs>(equiposSelector_Resultado);
-                equiposSelector.ShowDialog();
-                vezPrimera = false;
-            }
-            else
-            {
-                frmSelectorEquipos equiposSelector = new frmSelectorEquipos(detalle);
-                equiposSelector.Resultado += new EventHandler<SIMA.Client.Auxiliares.EventArgs.DetalleOrdenTrabajoEventArgs>(equiposSelector_Resultado);
-                equiposSelector.ShowDialog();
-                vezPrimera = false;
-            }
+            frmRegistrarDetalles regDetalles = new frmRegistrarDetalles();
+            regDetalles.ShowDialog();
+
         }
 
         void equiposSelector_Resultado(object sender, SIMA.Client.Auxiliares.EventArgs.DetalleOrdenTrabajoEventArgs e)
         {
-            if (e.DetalleOrden.Count > 0)
-            {
-                detalle = e.DetalleOrden;
-                DescripcionEquipo.Text = "Se cuenta con equipos";
-            }
-            else
-            {
-                DescripcionEquipo.Text = "No cuenta con equipos";
-            }
+
         }
 
         private void Limpia()

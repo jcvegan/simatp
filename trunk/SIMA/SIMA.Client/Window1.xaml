@@ -16,12 +16,15 @@
                 </telerik:RadRibbonBar.ApplicationMenu>
                 <telerik:RadRibbonTab Header="Gestiones" telerik:StyleManager.Theme="Summer">
                     <telerik:RadRibbonGroup Header="Seguridad" telerik:StyleManager.Theme="Summer">
-                        <telerik:RadRibbonGroup.Variants>
+                        <!--<telerik:RadRibbonGroup.Variants>
                             <telerik:GroupVariant Variant="Medium" Priority="0"/>
-                        </telerik:RadRibbonGroup.Variants>
+                        </telerik:RadRibbonGroup.Variants>-->
                         <telerik:RadRibbonToggleButton Name="rbtnGestionarUsuarios" Tag="Gestionar Usuarios" Size="Large"  Content="Usuarios" Checked="rbtnChecked" Unchecked="rbtnUnchecked"/>
-                        <telerik:RadRibbonToggleButton Name="rbtnGestionarPerfiles" Tag="Gestionar Perfiles" Size="Small" Content="Perfiles" Checked="rbtnChecked" Unchecked="rbtnUnchecked" CollapseToMedium="WhenGroupIsMedium"/>
-                        <telerik:RadRibbonToggleButton Name="rbtnGestionarPermisos" CollapseToSmall="WhenGroupIsMedium" Tag="Gestionar Permisos" Size="Small" Content="Permisos" Checked="rbtnChecked" Unchecked="rbtnUnchecked" CollapseToMedium="WhenGroupIsMedium"/>                        
+                        <!--<StackPanel Height="Auto">-->
+                            <telerik:RadRibbonToggleButton Name="rbtnGestionarPerfiles" Tag="Gestionar Perfiles" Size="Large" VerticalContentAlignment="Bottom" Content="Perfiles" Checked="rbtnChecked" Unchecked="rbtnUnchecked" CollapseToMedium="WhenGroupIsMedium" SmallImage="Imagenes\AreaPrivada.png" LargeImage="Imagenes\AreaPrivada.png"/>
+                            <telerik:RadRibbonToggleButton Name="rbtnGestionarPermisos" CollapseToSmall="WhenGroupIsMedium" Tag="Gestionar Permisos" Size="Small" Content="Permisos" Checked="rbtnChecked" Unchecked="rbtnUnchecked" CollapseToMedium="WhenGroupIsMedium"/>
+                        <!--</StackPanel>-->
+                        
                     </telerik:RadRibbonGroup>
                     <telerik:RadRibbonGroup Header="Mantenimientos">
                         <telerik:RadRibbonToggleButton Name="rbtnGestionarProductos" Tag="Gestionar Productos" Content="Productos" Checked="rbtnChecked" Unchecked="rbtnUnchecked"/>

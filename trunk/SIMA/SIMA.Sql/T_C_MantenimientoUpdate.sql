@@ -5,7 +5,6 @@ GO
 CREATE PROCEDURE [dbo].[T_C_MantenimientoUpdate]
 (
 	@Id_Mantenimiento int,
-	@Id_Turno int,
 	@Id_Equipo char(4),
 	@FechaProgramacion datetime,
 	@FechaTrabajoInicio datetime,
@@ -27,7 +26,7 @@ AS
 SET NOCOUNT ON
 
 UPDATE [T_C_Mantenimiento]
-SET [Id_Turno] = @Id_Turno,
+SET 
 	[Id_Equipo] = @Id_Equipo,
 	[FechaProgramacion] = @FechaProgramacion,
 	[FechaTrabajoInicio] = @FechaTrabajoInicio,

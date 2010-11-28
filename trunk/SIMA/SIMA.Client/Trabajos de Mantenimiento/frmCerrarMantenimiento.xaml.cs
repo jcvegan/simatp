@@ -11,8 +11,9 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using SIMA.Logic;
 using SIMA.Entities;
+using SIMA.Logic;
+using Telerik.Windows.Controls;
 
 namespace SIMA.Client.Trabajos_de_Mantenimiento
 {
@@ -28,6 +29,8 @@ namespace SIMA.Client.Trabajos_de_Mantenimiento
         UsuarioDataLogic usuariologic;
         T_C_Usuario usuario;
         List<Auxiliares.ClaseCerrarManenimiento> listaclasecerrar;
+        T_C_Equipo equipo;
+        EstadoDataLogic estadologic;
         public frmCerrarMantenimiento()
         {
             InitializeComponent();
@@ -37,13 +40,12 @@ namespace SIMA.Client.Trabajos_de_Mantenimiento
             usuario = new T_C_Usuario();
             usuariologic = new UsuarioDataLogic();
             listaclasecerrar = new List<SIMA.Client.Auxiliares.ClaseCerrarManenimiento>();
+            equipo = new T_C_Equipo();
+            estadologic = new EstadoDataLogic();
         }
         private void UserControl_Loaded(object sender, RoutedEventArgs e)
         {
-
             llenargridview();
-
-
         }
 
         private void llenargridview()
@@ -68,11 +70,24 @@ namespace SIMA.Client.Trabajos_de_Mantenimiento
 
         private void btnCerrarMantenimiento_Click(object sender, RoutedEventArgs e)
         {
-            mantenimiento=new T_C_Mantenimiento();
-            mantenimiento=Mantenimientologic.SeleccionarMantenimiento((gvCerrarMantenimiento.SelectedItem as Auxiliares.ClaseCerrarManenimiento).id_mantenimiento);
-            mantenimiento.Id_Estado = 23;
-            Mantenimientologic.ActualizarMantenimiento(mantenimiento);
-            llenargridview();
+            try
+            {
+                mantenimiento = new T_C_Mantenimiento();
+                mantenimiento = Mantenimientologic.SeleccionarMantenimiento((gvCerrarMantenimiento.SelectedItem as Auxiliares.ClaseCerrarManenimiento).id_mantenimiento);
+                equipo = new T_C_Equipo();
+                equipo = Equipologic.SeleccionarEquipo((gvCerrarMantenimiento.SelectedItem as Auxiliares.ClaseCerrarManenimiento).id_equipo);
+                mantenimiento.Id_Estado = Mantenimientologic.BuscaEstadoActivo();
+                equipo.Id_Estado = Equipologic.BuscaEstadoActivo();
+                Mantenimientologic.ActualizarMantenimiento(mantenimiento);
+                Equipologic.ActualizarEquipo(equipo);
+                MessageBox.Show("Mantenimiento cerrado exitosamente.");
+                llenargridview();
+
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         private void gvCerrarMantenimiento_SelectionChanged(object sender, Telerik.Windows.Controls.SelectionChangeEventArgs e)

@@ -19,7 +19,7 @@
                         <!--<telerik:RadRibbonGroup.Variants>
                             <telerik:GroupVariant Variant="Medium" Priority="0"/>
                         </telerik:RadRibbonGroup.Variants>-->
-                        <telerik:RadRibbonToggleButton Name="rbtnGestionarUsuarios" Tag="Gestionar Usuarios" Size="Large"  Content="Usuarios" Checked="rbtnChecked" Unchecked="rbtnUnchecked"/>
+                        <telerik:RadRibbonToggleButton Name="rbtnGestionarUsuarios" Tag="Gestionar Usuarios" Size="Large" VerticalContentAlignment="Bottom" Content="Usuarios" Checked="rbtnChecked" Unchecked="rbtnUnchecked" SmallImage="Imagenes\User-icon.png" LargeImage="Imagenes\User-icon.png"/>
                         <!--<StackPanel Height="Auto">-->
                             <telerik:RadRibbonToggleButton Name="rbtnGestionarPerfiles" Tag="Gestionar Perfiles" Size="Large" VerticalContentAlignment="Bottom" Content="Perfiles" Checked="rbtnChecked" Unchecked="rbtnUnchecked" CollapseToMedium="WhenGroupIsMedium" SmallImage="Imagenes\AreaPrivada.png" LargeImage="Imagenes\AreaPrivada.png"/>
                             <telerik:RadRibbonToggleButton Name="rbtnGestionarPermisos" CollapseToSmall="WhenGroupIsMedium" Tag="Gestionar Permisos" Size="Small" Content="Permisos" Checked="rbtnChecked" Unchecked="rbtnUnchecked" CollapseToMedium="WhenGroupIsMedium"/>

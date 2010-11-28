@@ -13,6 +13,7 @@ namespace SIMA.Entities
 		private DateTime ultimaFechaModificacion;
 		private int id_Estado;
 		private int id_Usuario;
+        private T_C_Estado estado;
         private T_C_Usuario usuario;
         private string nombreCompleto;
 
@@ -20,12 +21,6 @@ namespace SIMA.Entities
         {
             get { return nombreCompleto; }
             set { nombreCompleto = value; }
-        }
-
-        public T_C_Usuario Usuario
-        {
-            get { return usuario; }
-            set { usuario = value; }
         }
 
 		#endregion
@@ -110,6 +105,12 @@ namespace SIMA.Entities
 			set { id_Estado = value; }
 		}
 
+        public virtual T_C_Estado Estado
+        {
+            get { return estado; }
+            set { estado = value; }
+        }
+
 		/// <summary>
 		/// Gets or sets the Id_Usuario value.
 		/// </summary>
@@ -118,6 +119,12 @@ namespace SIMA.Entities
 			get { return id_Usuario; }
 			set { id_Usuario = value; }
 		}
+
+        public T_C_Usuario Usuario
+        {
+            get { return usuario; }
+            set { usuario = value; }
+        }
 
 		#endregion
 	}

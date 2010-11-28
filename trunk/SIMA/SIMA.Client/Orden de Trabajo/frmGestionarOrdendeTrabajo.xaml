@@ -64,7 +64,7 @@
                 <TextBox Name="txtIdOrden" Grid.Column="1" Grid.Row="0" Width="150" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="25,0,0,0" IsEnabled="False"/>
                 <TextBox Name="txtDescripcion" Grid.Column="1" Grid.Row="1" Width="150" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="25,0,0,0"/>
                 <TextBox Name="txtCosto" Grid.Column="1" Grid.Row="3" Width="150" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="25,0,0,0" Visibility="Hidden"/>
-                <telerik:DateTimePicker Name="dtFRegistro" Grid.Column="1" Grid.Row="4" VerticalAlignment="Center" Margin="25,0,2,0" Visibility="Hidden" telerik:StyleManager.Theme="Summer" Height="22" />
+                <telerik:DateTimePicker Name="dtFRegistro" Grid.Column="1" Grid.Row="4" VerticalAlignment="Center" Margin="25,0,2,0" Visibility="Hidden" telerik:StyleManager.Theme="Summer" Height="22" IsHitTestVisible="True" IsTabStop="False" OverridesDefaultStyle="False" />
                 <telerik:DateTimePicker Name="dtFModificacion" Grid.Column="1" Grid.Row="5" Margin="25,3,2,5" Visibility="Hidden" telerik:StyleManager.Theme="Summer" />
                 <TextBox Name="txtUsuario" Grid.Column="3" Grid.Row="0" Width="150" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="25,0,0,0" Visibility="Hidden"/>
                 <telerik:RadComboBox Name="cmbEstado" Grid.Column="3" Grid.Row="1" Width="150" HorizontalAlignment="Left" Margin="25,0,0,0" Height="22" telerik:StyleManager.Theme="Summer" Visibility="Hidden" DisplayMemberPath="Nombre_Estado" />
@@ -87,8 +87,7 @@
                 <telerik:GridViewDataColumn Header="Costo" DataMemberBinding="{Binding CostoTotal}"/>
                 <telerik:GridViewDataColumn Header="Fecha Registro" DataMemberBinding="{Binding FechaRegistro}"/>
                 <telerik:GridViewDataColumn Header="Fecha Modificacion" DataMemberBinding="{Binding UltimaFechaModificacion}"/>
-                <telerik:GridViewDataColumn Header="Estado" DataMemberBinding="{Binding Estado.Id_Estado}"/>
-                <telerik:GridViewDataColumn Header="Usuario" DataMemberBinding="{Binding NombreCompleto}"/>
+                <telerik:GridViewDataColumn Header="Estado" DataMemberBinding="{Binding Estado.Nombre_Estado}"/>
             </telerik:RadGridView.Columns>
         </telerik:RadGridView>
     </Grid>

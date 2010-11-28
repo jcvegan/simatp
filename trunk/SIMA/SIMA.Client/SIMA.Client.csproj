@@ -127,10 +127,6 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Auxiliares\frmMuestraDetalles.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
     <Page Include="Auxiliares\frmSelectorEquipo.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -237,7 +233,6 @@
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
     <Compile Include="Auxiliares\Enums\Enums.cs" />
-    <Compile Include="Auxiliares\EventArgs\Class1.cs" />
     <Compile Include="Auxiliares\EventArgs\ConfirmarMantenimientoEventArgs.cs" />
     <Compile Include="Auxiliares\EventArgs\DetalleOrdenTrabajoEventArgs.cs" />
     <Compile Include="Auxiliares\EventArgs\EquipoPadreEventArgs.cs" />
@@ -245,9 +240,6 @@
     <Compile Include="Auxiliares\EventArgs\UsuarioEventArgs.cs" />
     <Compile Include="Auxiliares\frmConfirmarMantenimiento.xaml.cs">
       <DependentUpon>frmConfirmarMantenimiento.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Auxiliares\frmMuestraDetalles.xaml.cs">
-      <DependentUpon>frmMuestraDetalles.xaml</DependentUpon>
     </Compile>
     <Compile Include="Auxiliares\frmSelectorEquipo.xaml.cs">
       <DependentUpon>frmSelectorEquipo.xaml</DependentUpon>

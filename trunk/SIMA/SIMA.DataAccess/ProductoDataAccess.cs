@@ -106,8 +106,42 @@ namespace SIMA.DataAccess
                     while (reader.Read())
                     {
                         T_C_Producto producto = new T_C_Producto();
-                        producto.Id_Producto = Convert.ToInt32(reader.GetValue(reader.GetOrdinal("Id_Area")).ToString());
-                        
+                        producto.Id_Producto = Convert.ToInt32(reader.GetValue(reader.GetOrdinal("Id_Producto")).ToString());                        
+                        producto.Descripción = reader.GetValue(reader.GetOrdinal("Descripción")).ToString();
+                        producto.Id_Estado = Convert.ToInt32(reader.GetValue(reader.GetOrdinal("Id_Estado")).ToString());
+                        producto.Estado = estadoAccess.Seleccionar(producto.Id_Estado);
+                        productos.Add(producto);
+                    }
+                }
+                return productos;
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
+            finally
+            {
+                Connection.Close();
+            }
+        }
+
+        public List<T_C_Producto> SeleccionarActivos()
+        {
+            try
+            {
+                Connection = new SqlConnection(ConnectionString);
+                List<T_C_Producto> productos;
+                using (Command = new System.Data.SqlClient.SqlCommand("T_C_AreaSelectActivo", Connection))
+                {
+                    Command.CommandType = System.Data.CommandType.StoredProcedure;
+                    Connection.Open();
+                    productos = new List<T_C_Producto>();
+                    SqlDataReader reader = Command.ExecuteReader();
+                    while (reader.Read())
+                    {
+                        T_C_Producto producto = new T_C_Producto();
+                        producto.Id_Producto = Convert.ToInt32(reader.GetValue(reader.GetOrdinal("Id_Producto")).ToString());
+
                         producto.Descripción = reader.GetValue(reader.GetOrdinal("Descripción")).ToString();
                         producto.Id_Estado = Convert.ToInt32(reader.GetValue(reader.GetOrdinal("Id_Estado")).ToString());
                         producto.Estado = estadoAccess.Seleccionar(producto.Id_Estado);

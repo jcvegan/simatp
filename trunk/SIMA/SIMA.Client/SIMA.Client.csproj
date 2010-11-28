@@ -127,6 +127,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="Auxiliares\frmRegistrarDetalles.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Auxiliares\frmSelectorEquipo.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -246,10 +250,14 @@
     <Compile Include="Auxiliares\EventArgs\ConfirmarMantenimientoEventArgs.cs" />
     <Compile Include="Auxiliares\EventArgs\DetalleOrdenTrabajoEventArgs.cs" />
     <Compile Include="Auxiliares\EventArgs\EquipoPadreEventArgs.cs" />
+    <Compile Include="Auxiliares\EventArgs\RegistrarDetalleOrdenTrabajo.cs" />
     <Compile Include="Auxiliares\EventArgs\TipoMantenimientoEventArgs.cs" />
     <Compile Include="Auxiliares\EventArgs\UsuarioEventArgs.cs" />
     <Compile Include="Auxiliares\frmConfirmarMantenimiento.xaml.cs">
       <DependentUpon>frmConfirmarMantenimiento.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Auxiliares\frmRegistrarDetalles.xaml.cs">
+      <DependentUpon>frmRegistrarDetalles.xaml</DependentUpon>
     </Compile>
     <Compile Include="Auxiliares\frmSelectorEquipo.xaml.cs">
       <DependentUpon>frmSelectorEquipo.xaml</DependentUpon>

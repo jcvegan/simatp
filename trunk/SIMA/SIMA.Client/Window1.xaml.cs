@@ -118,6 +118,7 @@ namespace SIMA.Client
                     break;
 
                 case "Registro Orden":
+                    item.Content = new frmGestionarOrdendeTrabajo();
                     break;
                 //case "Consultar Historico Mantenimiento":
                 //    item.Content = new frmConsultarHistoricodeMantenimiento();

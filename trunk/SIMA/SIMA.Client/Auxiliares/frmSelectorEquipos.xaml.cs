@@ -24,7 +24,6 @@ namespace SIMA.Client.Auxiliares
     public partial class frmSelectorEquipos : Window
     {
         
-
         List<T_C_DetalleOrdenDeTrabajo> detalles;
         List<T_C_Equipo> equipos;
         EquipoDataLogic equipoLogic;

@@ -20,28 +20,31 @@ namespace SIMA.DataAccess
             equipoAccess = new EquipoDataAccess();
         }
 
-        public string AgregarDetalleOrdenDeTrabajo(T_C_DetalleOrdenDeTrabajo detalleordentrabajo)
+        public string AgregarDetalleOrdenDeTrabajo(T_C_DetalleOrdenDeTrabajo detalleordentrabajo, out int id)
         {
             try
             {
+                Connection = new SqlConnection(ConnectionString);
                 using (Command = new System.Data.SqlClient.SqlCommand("T_C_DetalleOrdenDeTrabajoInsert", Connection))
                 {
                     Command.CommandType = System.Data.CommandType.StoredProcedure;
                     Command.Parameters.AddWithValue("@Id_OrdendeTrabajo", detalleordentrabajo.Id_OrdendeTrabajo);
                     Command.Parameters.AddWithValue("@Costo", detalleordentrabajo.Costo);
                     Command.Parameters.AddWithValue("@Porcentaje", 1);
-                    Command.Parameters.AddWithValue("@Motivo", " ");
+                    Command.Parameters.AddWithValue("@Descrippcion", " ");
                     Command.Parameters.AddWithValue("@FechaRegistro", DateTime.Now);
                     Command.Parameters.AddWithValue("@Cantidad", detalleordentrabajo.Cantidad);
                     Command.Parameters.AddWithValue("@Id_Solicitud", 1);
                     Command.Parameters.AddWithValue("@Id_Equipo", detalleordentrabajo.IdEquipo);
+                    Command.Parameters.AddWithValue("@FlagEquipo", detalleordentrabajo.Flag);
                     Connection.Open();
-                    Command.ExecuteNonQuery();
+                    id = (Int32)Command.ExecuteScalar();
                 }
                 return "Detalle grabado satisfactoriamente.";
             }
             catch (Exception ex)
             {
+                id = 0;
                 return ex.Message;
             }
             finally

@@ -13,7 +13,6 @@
             <telerik:RadGridView.Columns>                
                 <telerik:GridViewDataColumn Header="Id Equipo" IsReadOnly="True" DataMemberBinding="{Binding Id_Equipo}"/>
                 <telerik:GridViewDataColumn Header="Descripción de Equipo" IsReadOnly="True" DataMemberBinding="{Binding Descripcion}"/>
-                <telerik:GridViewDataColumn Header="Motivo"  DataMemberBinding="{Binding Motivo}"/>
                 <telerik:GridViewDataColumn Header="Cantidad"  DataMemberBinding="{Binding Cantidad}"/>
             </telerik:RadGridView.Columns>
         </telerik:RadGridView>

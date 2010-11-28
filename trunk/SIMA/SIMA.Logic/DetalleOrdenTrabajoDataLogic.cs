@@ -11,13 +11,14 @@ namespace SIMA.Logic
     {
         private DetalleOrdenDeTrabajoDataAccess detallerordentrabajoAccess;
         private EquipoDataAccess equipoAccess;
+        private OrdenTrabajoDataAccess ordentrabajoAccess;
 
         public DetalleOrdenTrabajoDataLogic()
         {
             detallerordentrabajoAccess = new DetalleOrdenDeTrabajoDataAccess();
         }
 
-        public string AgregarDetalleOrdenTrabajo(T_C_DetalleOrdenDeTrabajo detalleordentrabajo)
+        public string AgregarDetalleOrdenTrabajo(T_C_DetalleOrdenDeTrabajo detalleordentrabajo, List<T_C_DetalleOrdenDeTrabajo> detalles)
         {
             try
             {
@@ -35,9 +36,32 @@ namespace SIMA.Logic
                 {
                     return "Ingresar una cantidad mayor a 0.";
                 }
+                else
+                {
+                    int id = 0;
+                    detallerordentrabajoAccess.AgregarDetalleOrdenDeTrabajo(detalleordentrabajo,out id);
 
-                return detallerordentrabajoAccess.AgregarDetalleOrdenDeTrabajo(detalleordentrabajo);
+                    double CostoTotal = 0;
 
+                    foreach (T_C_DetalleOrdenDeTrabajo detalle in detalles)
+                    {
+                        detalle.Id_OrdendeTrabajo = id;
+
+                        if (detalle.Cantidad > equipoAccess.SeleccionarEquipo(detalle.IdEquipo).Stock)
+                        {
+                            return "La cantidad no debe ser mayor a stock.";
+                        }
+
+                        else
+                        {
+                            detalle.Costo = detalle.Cantidad * equipoAccess.SeleccionarEquipo(detalle.IdEquipo).Costo;
+                            detallerordentrabajoAccess.AgregarDetalleOrdenDeTrabajo(detalle, out id);
+                            CostoTotal = CostoTotal + detalle.Costo;
+                        }
+                    }
+
+                    return detallerordentrabajoAccess.AgregarDetalleOrdenDeTrabajo(detalleordentrabajo, out id);
+                }
             }
             catch
             {

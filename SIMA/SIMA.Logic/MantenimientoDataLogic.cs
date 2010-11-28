@@ -63,7 +63,12 @@ namespace SIMA.Logic
 
         public T_C_Mantenimiento SeleccionarMantenimiento(int id_mantenimiento)
         {
-            return SeleccionarMantenimiento(id_mantenimiento);
+            return MantenimientoAccess.SeleccionarMantenimiento(id_mantenimiento);
+        }
+
+        public int BuscaEstadoActivo() 
+        {
+            return MantenimientoAccess.BuscarEstadoActivo();
         }
     }
 }

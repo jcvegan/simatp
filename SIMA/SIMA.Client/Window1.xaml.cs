@@ -125,6 +125,9 @@ namespace SIMA.Client
                 case "Usuarios":
                     item.Content = new frmGestionarUsuarios();
                     break;
+                case "Cerrar Mantenimiento":
+                    item.Content = new frmCerrarMantenimiento();
+                    break;
 
             }
             item.MinimizedHeight = 20;
@@ -163,7 +166,8 @@ namespace SIMA.Client
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             dialogIniciarSesion.Owner = this;
-            dialogIniciarSesion.ShowDialog();            
+            dialogIniciarSesion.ShowDialog();  
+
         }
 
         private void dialogIniciarSesion_UsuarioValidado(object sender, SIMA.Client.Auxiliares.EventArgs.UsuarioEventArgs e)

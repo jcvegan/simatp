@@ -273,8 +273,8 @@ namespace SIMA.DataAccess
                         equipo.Costo = Convert.ToDouble(reader.GetValue(reader.GetOrdinal("Costo")).ToString());
                         equipo.Descripcion = reader.GetValue(reader.GetOrdinal("Descripcion")).ToString();
                         equipo.DiamteroInterno = Convert.ToDecimal(reader.GetValue(reader.GetOrdinal("DiamteroInterno")).ToString());
-                        equipo.Fecha_Adquisicion = Convert.ToDateTime(reader.GetValue(reader.GetOrdinal("Fecha_Adquisicion")).ToString());
-                        equipo.Fecha_Registro = Convert.ToDateTime(reader.GetValue(reader.GetOrdinal("Fecha_Registro")).ToString());
+                        equipo.Fecha_Adquisicion = Convert.ToDateTime(reader.GetValue(reader.GetOrdinal("Fecha_Adquisicion")));
+                        equipo.Fecha_Registro = Convert.ToDateTime(reader.GetValue(reader.GetOrdinal("Fecha_Registro")));
                         equipo.Id_Area = reader.GetValue(reader.GetOrdinal("Id_Area")).ToString();
                         equipo.Area = areaAccess.SeleccionarArea(equipo.Id_Area);
                         equipo.Id_Estado = Convert.ToInt32(reader.GetValue(reader.GetOrdinal("Id_Estado")).ToString());
@@ -333,8 +333,8 @@ namespace SIMA.DataAccess
                         equipo.Descripcion = reader.GetValue(reader.GetOrdinal("Descripcion")).ToString();
                         equipo.DiamteroInterno = Convert.ToDecimal(reader.GetValue(reader.GetOrdinal("DiamteroInterno")).ToString());
 
-                        equipo.Fecha_Adquisicion = Convert.ToDateTime(reader.GetValue(reader.GetOrdinal("Fecha_Adquisicion")).ToString());
-                        equipo.Fecha_Registro = Convert.ToDateTime(reader.GetValue(reader.GetOrdinal("Fecha_Registro")).ToString());
+                        equipo.Fecha_Adquisicion = Convert.ToDateTime(reader.GetValue(reader.GetOrdinal("Fecha_Adquisicion")));
+                        equipo.Fecha_Registro = Convert.ToDateTime(reader.GetValue(reader.GetOrdinal("Fecha_Registro")));
                         equipo.Id_Area = reader.GetValue(reader.GetOrdinal("Id_Area")).ToString();
                         equipo.Area = areaAccess.SeleccionarArea(equipo.Id_Area);
                         equipo.Id_Estado = Convert.ToInt32(reader.GetValue(reader.GetOrdinal("Id_Estado")).ToString());
@@ -361,5 +361,34 @@ namespace SIMA.DataAccess
                 Connection.Close();
             }
         }
+
+        public int BuscarEstadoActivo()
+        {
+            try
+            {
+                int estado=0;
+                using (Command = new System.Data.SqlClient.SqlCommand("T_C_EquipoBuscarEstadoActivo", Connection))
+                {
+                    Command.CommandType = System.Data.CommandType.StoredProcedure;
+                    Connection.Open();
+                    SqlDataReader reader = Command.ExecuteReader();
+                    while (reader.Read())
+                    {
+                        estado = Convert.ToInt32(reader.GetValue(reader.GetOrdinal("Id_Estado")));
+                    }
+                }
+                return estado;
+            }
+            catch (Exception ex)
+            {
+                return 0;
+            }
+            finally
+            {
+                Connection.Close();
+            }
+        }
+
+
     }
 }

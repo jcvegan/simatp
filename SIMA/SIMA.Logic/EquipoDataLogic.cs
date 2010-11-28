@@ -37,5 +37,15 @@ namespace SIMA.Logic
             return equipoAccess.ListarEquiposEnMantenimiento();
         }
 
+        public string ActualizarEquipo(T_C_Equipo equipo) 
+        {
+            return equipoAccess.ActualizarEquipo(equipo);
+        }
+
+        public int BuscaEstadoActivo()
+        {
+            return equipoAccess.BuscarEstadoActivo();
+        }
+
     }
 }

@@ -237,6 +237,7 @@
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
     <Compile Include="Auxiliares\Enums\Enums.cs" />
+    <Compile Include="Auxiliares\EventArgs\Class1.cs" />
     <Compile Include="Auxiliares\EventArgs\ConfirmarMantenimientoEventArgs.cs" />
     <Compile Include="Auxiliares\EventArgs\DetalleOrdenTrabajoEventArgs.cs" />
     <Compile Include="Auxiliares\EventArgs\EquipoPadreEventArgs.cs" />

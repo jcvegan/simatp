@@ -20,6 +20,7 @@ namespace SIMA.DataAccess
         {
             try
             {
+                Connection = new SqlConnection(ConnectionString);
                 using (Command=new System.Data.SqlClient.SqlCommand("T_C_TipoMantenimientoInsert",Connection))
                 {
                     Command.CommandType=System.Data.CommandType.StoredProcedure;                    
@@ -41,8 +42,9 @@ namespace SIMA.DataAccess
         }
 
         public string ActualizarTipoMantenimiento(T_C_TipoMantenimiento TipoMantenimiento) {
-            try 
+            try
             {
+                Connection = new SqlConnection(ConnectionString);
                 using (Command = new System.Data.SqlClient.SqlCommand("T_C_TipoMantenimientoUpdate", Connection))
                 {
                     Command.CommandType = System.Data.CommandType.StoredProcedure;
@@ -70,6 +72,7 @@ namespace SIMA.DataAccess
         {
             try
             {
+                Connection = new SqlConnection(ConnectionString);
                 using (Command = new System.Data.SqlClient.SqlCommand("T_C_TipoMantenimientoDelete", Connection))
                 {
                     Command.CommandType = System.Data.CommandType.StoredProcedure;
@@ -93,6 +96,7 @@ namespace SIMA.DataAccess
         {
             try
             {
+                Connection = new SqlConnection(ConnectionString);
                 T_C_TipoMantenimiento TipoMantenimiento;
                 using (Command = new System.Data.SqlClient.SqlCommand("T_C_TipoMantenimientoSelectAll", Connection))
                 {

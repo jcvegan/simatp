@@ -23,6 +23,7 @@ namespace SIMA.DataAccess
         {
             try
             {
+                Connection = new SqlConnection(ConnectionString);
                 using (Command = new System.Data.SqlClient.SqlCommand("T_C_OrdenTrabajoInsert", Connection))
                 {
                     Command.CommandType = System.Data.CommandType.StoredProcedure;
@@ -52,6 +53,7 @@ namespace SIMA.DataAccess
         {
             try
             {
+                Connection = new SqlConnection(ConnectionString);
                 using (Command = new System.Data.SqlClient.SqlCommand("T_C_OrdenTrabajoUpdate", Connection))
                 {
                     Command.CommandType = System.Data.CommandType.StoredProcedure;
@@ -81,6 +83,7 @@ namespace SIMA.DataAccess
         {
             try
             {
+                Connection = new SqlConnection(ConnectionString);
                 using (Command = new System.Data.SqlClient.SqlCommand("T_C_OrdenTrabajoDelete", Connection))
                 {
                     Command.CommandType = System.Data.CommandType.StoredProcedure;
@@ -104,6 +107,7 @@ namespace SIMA.DataAccess
         {
             try
             {
+                Connection = new SqlConnection(ConnectionString);
                 using (Command = new System.Data.SqlClient.SqlCommand("T_C_OrdenTrabajoDeleteAllById_Estado", Connection))
                 {
                     Command.CommandType = System.Data.CommandType.StoredProcedure;
@@ -127,6 +131,7 @@ namespace SIMA.DataAccess
         {
             try
             {
+                Connection = new SqlConnection(ConnectionString);
                 using (Command = new System.Data.SqlClient.SqlCommand("T_C_OrdenTrabajoDeleteAllById_Usuario", Connection))
                 {
                     Command.CommandType = System.Data.CommandType.StoredProcedure;
@@ -150,6 +155,7 @@ namespace SIMA.DataAccess
         {
             try
             {
+                Connection = new SqlConnection(ConnectionString);
                 List<T_C_OrdenTrabajo> ordenestrabajos;
                 using (Command = new System.Data.SqlClient.SqlCommand("T_C_OrdenTrabajoSelectAll", Connection))
                 {
@@ -186,6 +192,7 @@ namespace SIMA.DataAccess
         {
             try
             {
+                Connection = new SqlConnection(ConnectionString);
                 List<T_C_OrdenTrabajo> ordenestrabajos;
                 using (Command = new System.Data.SqlClient.SqlCommand("T_C_OrdenTrabajoSelect", Connection))
                 {
@@ -223,6 +230,7 @@ namespace SIMA.DataAccess
         {
             try
             {
+                Connection = new SqlConnection(ConnectionString);
                 List<T_C_OrdenTrabajo> ordenestrabajos;
                 using (Command = new System.Data.SqlClient.SqlCommand("T_C_OrdenTrabajoSelectAllById_Estado", Connection))
                 {
@@ -260,6 +268,7 @@ namespace SIMA.DataAccess
         {
             try
             {
+                Connection = new SqlConnection(ConnectionString);
                 List<T_C_OrdenTrabajo> ordenestrabajos;
                 using (Command = new System.Data.SqlClient.SqlCommand("T_C_OrdenTrabajoSelectAllById_Usuario", Connection))
                 {
@@ -297,6 +306,7 @@ namespace SIMA.DataAccess
         {
             try
             {
+                Connection = new SqlConnection(ConnectionString);
                 T_C_OrdenTrabajo ordentrabajo;
                 using (Command = new System.Data.SqlClient.SqlCommand("T_C_OrdenTrabajoSelect", Connection))
                 {
@@ -311,8 +321,8 @@ namespace SIMA.DataAccess
                         ordentrabajo.Id_OrdenTrabajo = Convert.ToInt32(reader.GetValue(reader.GetOrdinal("Id_OrdenTrabajo")).ToString());
                         ordentrabajo.Descripcion = reader.GetValue(reader.GetOrdinal("Descripcion")).ToString();
                         ordentrabajo.CostoTotal = Convert.ToInt32(reader.GetValue(reader.GetOrdinal("CostoTotal")).ToString());
-                        ordentrabajo.FechaRegistro = Convert.ToDateTime(reader.GetValue(reader.GetOrdinal("FechaRegistro")).ToString());
-                        ordentrabajo.UltimaFechaModificacion = Convert.ToDateTime(reader.GetValue(reader.GetOrdinal("UltimaFechaModificacion")).ToString());
+                        ordentrabajo.FechaRegistro = Convert.ToDateTime(reader.GetValue(reader.GetOrdinal("FechaRegistro")));
+                        ordentrabajo.UltimaFechaModificacion = Convert.ToDateTime(reader.GetValue(reader.GetOrdinal("UltimaFechaModificacion")));
                         ordentrabajo.Id_Estado = Convert.ToInt32(reader.GetValue(reader.GetOrdinal("Id_Estado")).ToString());
                         ordentrabajo.Id_Usuario = Convert.ToInt32(reader.GetValue(reader.GetOrdinal("Id_Usuario")).ToString());
                         
@@ -323,6 +333,34 @@ namespace SIMA.DataAccess
             catch (Exception ex)
             {
                 return null;
+            }
+            finally
+            {
+                Connection.Close();
+            }
+        }
+
+        public int BuscarEstadoTerminado()
+        {
+            try
+            {
+                Connection = new SqlConnection(ConnectionString);
+                int estado = 0;
+                using (Command = new System.Data.SqlClient.SqlCommand("T_C_OrdenDeTrabajoBuscarEstadoTerminado", Connection))
+                {
+                    Command.CommandType = System.Data.CommandType.StoredProcedure;
+                    Connection.Open();
+                    SqlDataReader reader = Command.ExecuteReader();
+                    while (reader.Read())
+                    {
+                        estado = Convert.ToInt32(reader.GetValue(reader.GetOrdinal("Id_Estado")));
+                    }
+                }
+                return estado;
+            }
+            catch (Exception ex)
+            {
+                return 0;
             }
             finally
             {

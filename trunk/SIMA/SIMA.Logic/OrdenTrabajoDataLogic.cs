@@ -67,7 +67,7 @@ namespace SIMA.Logic
             {
                 if (ordentrabajo.Descripcion == string.Empty)
                 {
-                    throw new Exception();
+                    //throw new Exception();
                 }
                 //if (ordentrabajo.CostoTotal < 0)
                 //{
@@ -75,7 +75,7 @@ namespace SIMA.Logic
                 //}
                 if (ordentrabajo.Id_Estado <= 0)
                 {
-                    throw new Exception();
+                   // throw new Exception();
                 }
                 return ordentrabajoAccess.ActualizarOrdenTrabajo(ordentrabajo);
             }
@@ -108,6 +108,15 @@ namespace SIMA.Logic
         public List<T_C_OrdenTrabajo> ListarOrdenTrabajo()
         {
             return ordentrabajoAccess.SeleccionarOrdenTrabajo();
+        }
+
+        public int BuscaEstadoTerminado()
+        {
+            return ordentrabajoAccess.BuscarEstadoTerminado();
+        }
+
+        public T_C_OrdenTrabajo SeleccionarOrdenTrabajo(int id_orden) {
+            return ordentrabajoAccess.SeleccionarOrdenTrabajo(id_orden);
         }
     }
 }

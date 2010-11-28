@@ -57,6 +57,7 @@ namespace SIMA.DataAccess
         {
             try
             {
+                Connection = new SqlConnection(ConnectionString);
                 using (Command = new System.Data.SqlClient.SqlCommand("T_C_UsuarioUpdate", Connection))
                 {
                     Command.CommandType = System.Data.CommandType.StoredProcedure;
@@ -90,6 +91,7 @@ namespace SIMA.DataAccess
         {
             try
             {
+                Connection = new SqlConnection(ConnectionString);
                 T_C_Usuario usuario = new T_C_Usuario();
                
                 using (Command = new System.Data.SqlClient.SqlCommand("T_C_UsuarioIniciarSesion", Connection))
@@ -122,6 +124,7 @@ namespace SIMA.DataAccess
             Connection = new SqlConnection(ConnectionString);
             try
             {
+                Connection = new SqlConnection(ConnectionString);
                 T_C_Usuario usuario = new T_C_Usuario();
 
                 using (Command = new System.Data.SqlClient.SqlCommand("T_C_UsuarioIniciarSesion", Connection))

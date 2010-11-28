@@ -66,9 +66,9 @@ namespace SIMA.Logic
             return MantenimientoAccess.SeleccionarMantenimiento(id_mantenimiento);
         }
 
-        public int BuscaEstadoActivo() 
+        public int BuscaEstadoInactivo() 
         {
-            return MantenimientoAccess.BuscarEstadoActivo();
+            return MantenimientoAccess.BuscarEstadoInactivo();
         }
     }
 }

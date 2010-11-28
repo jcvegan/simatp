@@ -10,12 +10,11 @@
             <RowDefinition Height="22"/>
         </Grid.RowDefinitions>
         <telerik:RadGridView Name="gvEquipos" Grid.Row="0" telerik:StyleManager.Theme="Summer" AutoGenerateColumns="False" SelectionMode="Multiple" IsReadOnly="False" ShowGroupPanel="False">
-            <telerik:RadGridView.Columns>
-                
+            <telerik:RadGridView.Columns>                
                 <telerik:GridViewDataColumn Header="Id Equipo" IsReadOnly="True" DataMemberBinding="{Binding Id_Equipo}"/>
                 <telerik:GridViewDataColumn Header="Descripción de Equipo" IsReadOnly="True" DataMemberBinding="{Binding Descripcion}"/>
+                <telerik:GridViewDataColumn Header="Motivo"  DataMemberBinding="{Binding Motivo}"/>
                 <telerik:GridViewDataColumn Header="Cantidad"  DataMemberBinding="{Binding Cantidad}"/>
-                <!--<telerik:GridViewSelectColumn Header="Seleccionar"/>-->
             </telerik:RadGridView.Columns>
         </telerik:RadGridView>
         <StackPanel HorizontalAlignment="Right" VerticalAlignment="Stretch" Grid.Row="1" Orientation="Horizontal">

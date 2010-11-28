@@ -92,7 +92,14 @@ namespace SIMA.Client.Trabajos_de_Mantenimiento
 
         private void gvCerrarMantenimiento_SelectionChanged(object sender, Telerik.Windows.Controls.SelectionChangeEventArgs e)
         {
-
+            if (gvCerrarMantenimiento.SelectedItem == null)
+            {
+                btnCerrarMantenimiento.Visibility = Visibility.Collapsed;
+            }
+            else
+            {
+                btnCerrarMantenimiento.Visibility = Visibility.Visible;
+            }
         }
 
     }

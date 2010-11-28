@@ -164,6 +164,7 @@ namespace SIMA.DataAccess
         {
             try
             {
+                Connection = new SqlConnection(ConnectionString);
                 List<T_C_Mantenimiento> Mantenimientos;
                 using (Command = new System.Data.SqlClient.SqlCommand("T_C_MantenimientoSelectActivo", Connection))
                 {
@@ -252,6 +253,7 @@ namespace SIMA.DataAccess
         {
             try
             {
+                Connection = new SqlConnection(ConnectionString);
                 T_C_Mantenimiento Mantenimiento = new T_C_Mantenimiento();
                 using (Command = new SqlCommand("T_C_Mantenimientoselect", Connection))
                 {
@@ -347,6 +349,7 @@ namespace SIMA.DataAccess
             try
             {
                 T_C_Mantenimiento Mantenimiento;
+                Connection = new SqlConnection(ConnectionString);
                 using (Command = new System.Data.SqlClient.SqlCommand("T_C_MantenimientoSelectPorEquipoEnMantenimiento", Connection))
                 {
                     Command.CommandType = System.Data.CommandType.StoredProcedure;

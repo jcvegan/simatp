@@ -23,7 +23,7 @@
             </Border>
             
             </Grid>
-        <telerik:RadGridView Name="gvCerrarMantenimiento" Grid.Row="1" AutoGenerateColumns="False" IsReadOnly="True" telerik:StyleManager.Theme="Summer" SelectionChanged="gvCerrarMantenimiento_SelectionChanged">
+        <telerik:RadGridView Name="gvCerrarMantenimiento" Grid.Row="0" Grid.RowSpan="2" AutoGenerateColumns="False" IsReadOnly="True" telerik:StyleManager.Theme="Summer" SelectionMode="Single" SelectionChanged="gvCerrarMantenimiento_SelectionChanged" ShowGroupPanel="False">
             <telerik:RadGridView.Columns>
                 <telerik:GridViewDataColumn Header="Fecha trabajo inicio" DataMemberBinding="{Binding fechatrabajoinicio}"/>
                 <telerik:GridViewDataColumn Header="Id equipo" DataMemberBinding="{Binding id_equipo}"/>
@@ -34,9 +34,7 @@
 
         </telerik:RadGridView>
         
-        <Grid>
-            <StackPanel Grid.Column="3" Grid.Row="3" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Orientation="Horizontal"></StackPanel>
-        </Grid>
+       
         <telerik:RadButton Name="btnCerrarMantenimiento" Content="Cerrar Mantenimiento" Click="btnCerrarMantenimiento_Click" Width="128" telerik:StyleManager.Theme="Summer" Height="24" HorizontalAlignment="Right" Grid.Row="1" VerticalAlignment="Bottom" />
     </Grid>
 

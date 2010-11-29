@@ -20,6 +20,7 @@ using SIMA.Entities;
 using SIMA.Logic;
 using System.Threading;
 using System.ComponentModel;
+using SIMA.Client.Auxiliares.EventArgs;
 
 namespace SIMA.Client
 {
@@ -112,7 +113,7 @@ namespace SIMA.Client
                     item.Content = new frmGestionarSolicitud();
                     break;
                 case "Apertura Mantenimiento":
-                    
+                    item.Content = new frmAperturaMantenimiento();
                     break;
                 case "Contraseña":
                     break;
@@ -174,7 +175,15 @@ namespace SIMA.Client
 
         private void dialogIniciarSesion_UsuarioValidado(object sender, SIMA.Client.Auxiliares.EventArgs.UsuarioEventArgs e)
         {
-            this.DataContext = e;
+            if (App.Current.Resources["UsuarioValido"] != null)
+            {
+                App.Current.Resources["UsuarioValido"] = e;
+            }
+            else
+            {
+                App.Current.Resources.Add("UsuarioValido", e);
+            }
+            this.DataContext = App.Current.Resources["UsuarioValido"] as UsuarioEventArgs;
             usuarioValido = e.Usuario;
             biProcesando.BusyContent = "Cargando permisos de usuario";
             biProcesando.IsBusy = true;

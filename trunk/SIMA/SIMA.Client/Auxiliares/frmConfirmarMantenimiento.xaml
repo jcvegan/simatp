@@ -42,19 +42,20 @@
                     <RowDefinition Height="30"/>
                 </Grid.RowDefinitions>
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="120"/>
+                    <ColumnDefinition Width="220"/>
                     <ColumnDefinition/>
                 </Grid.ColumnDefinitions>
 
-                <Label Grid.Column="0" Grid.Row="0" Content="Fecha Inicio" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="25,0,0,0"/>
-                <Label Grid.Column="0" Grid.Row="1" Content="Fecha Fin" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="25,0,0,0"/>
-
-                <telerik:DateTimePicker Name="dtFInicio" Grid.Column="1" Grid.Row="0" VerticalAlignment="Center" Margin="25,0,2,0"  telerik:StyleManager.Theme="Summer" Height="22" />
+                <Label Grid.Column="0" Grid.Row="0" Content="Usuario que apertura" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="25,0,0,0"/>
+                <Label Grid.Column="1" Name="lblUsuarioApertura" Margin="25,5,25,5" />
+                <Label Grid.Column="0" Grid.Row="1" Content="Fecha de Inicio de Mantenimiento" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="25,0,0,0"/>
+                <Label Grid.Column="1" Grid.Row="1" Name="lblFechaInicio" Margin="25,1,25,1" />
+                <!--<telerik:DateTimePicker Name="dtFInicio" Grid.Column="1" Grid.Row="0" VerticalAlignment="Center" Margin="25,0,2,0"  telerik:StyleManager.Theme="Summer" Height="22" />
                 <telerik:DateTimePicker Name="dtFFin" Grid.Column="1" Grid.Row="1" VerticalAlignment="Center" Margin="25,0,2,0" telerik:StyleManager.Theme="Summer" Height="22" />
-                <TextBox Name="txtID" Grid.Column="1" Grid.Row="2" Width="150" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="25,0,0,0" Visibility="Hidden"/>
+                <TextBox Name="txtID" Grid.Column="1" Grid.Row="2" Width="150" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="25,0,0,0" Visibility="Hidden"/>-->
                 
             </Grid>
-            <StackPanel HorizontalAlignment="Right" VerticalAlignment="Stretch" Grid.Row="3" Orientation="Horizontal">
+            <StackPanel HorizontalAlignment="Center" VerticalAlignment="Stretch" Grid.Row="3" Orientation="Horizontal">
                 <telerik:RadButton Name="btnAceptar" Width="100" Content="Aceptar" VerticalAlignment="Stretch" telerik:StyleManager.Theme="Summer" Click="btnAceptar_Click"/>
                 <telerik:RadButton Name="btnCancelar" Width="100" Content="Cancelar" VerticalAlignment="Stretch" telerik:StyleManager.Theme="Summer" Click="btnCancelar_Click" />
             </StackPanel>

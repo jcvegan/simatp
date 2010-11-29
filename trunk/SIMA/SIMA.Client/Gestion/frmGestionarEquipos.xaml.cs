@@ -338,5 +338,10 @@ namespace SIMA.Client.Gestion
             MessageBox.Show(msg);
             biIndicador.IsBusy = false;
         }
+
+        private void cmbAreaEquipo_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
     }
 }

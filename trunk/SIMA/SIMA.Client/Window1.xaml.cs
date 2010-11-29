@@ -120,9 +120,7 @@ namespace SIMA.Client
                 case "Registro Orden":
                     item.Content = new frmGestionarOrdendeTrabajo();
                     break;
-                //case "Consultar Historico Mantenimiento":
-                //    item.Content = new frmConsultarHistoricodeMantenimiento();
-                //    break;     
+           
                 case "Usuarios":
                     item.Content = new frmGestionarUsuarios();
                     break;
@@ -130,6 +128,9 @@ namespace SIMA.Client
                     item.Content = new frmCerrarMantenimiento();
                     break;
 
+                case "Plan de Trabajo de Equipos":
+                    item.Content = new frmGestionarPlandeTrabajodeEquipos();
+                    break;
             }
             item.MinimizedHeight = 20;
             item.TileState = TileViewItemState.Maximized;

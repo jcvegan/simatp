@@ -52,7 +52,7 @@
                     <TextBox Name="txtIdArea" Grid.Column="1" Grid.Row="0" Width="150" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="25,0,0,0" />
                     <TextBox Name="txtNombre" Grid.Column="1" Grid.Row="1" Width="150" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="25,0,0,0" />
                     <TextBox Name="txtDescripción" Grid.Column="1" Grid.Row="2" Width="150" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="25,0,0,0"/>
-                    <telerik:RadComboBox Name="cmbEstado" Grid.Column="1" Grid.Row="3" Width="150" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="25,0,0,0" Visibility="Hidden" telerik:StyleManager.Theme="Summer" DisplayMemberPath="Nombre_Estado" SelectedValuePath="Id_Estado"/>
+                    <telerik:RadComboBox Name="cmbEstado" Grid.Column="1" Grid.Row="3" Width="150" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="25,0,0,0" Visibility="Hidden" telerik:StyleManager.Theme="Summer" DisplayMemberPath="Nombre_Estado" SelectedValuePath="Id_Estado" SelectionChanged="cmbEstado_SelectionChanged" />
                 </Grid>
                 <StackPanel Grid.Row="2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Orientation="Horizontal">
                     <telerik:RadButton Name="btnRegistrar" Content="Registrar" Width="100" Click="btnRegistrar_Click" telerik:StyleManager.Theme="Summer"/>

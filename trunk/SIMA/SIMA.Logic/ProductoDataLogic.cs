@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -9,9 +9,22 @@ namespace SIMA.Logic
 {
     public class ProductoDataLogic
     {
+        ProductoDataAccess productoAccess;
+
+        public ProductoDataLogic()
+        {
+            productoAccess = new ProductoDataAccess();
+        }
+
         public List<T_C_Producto> SeleccionarActivos()
         {
-            return new ProductoDataAccess().SeleccionarActivos();
+            return productoAccess.SeleccionarActivos();
+          
+            
         }
+
+
+        }
+
     }
-}
+

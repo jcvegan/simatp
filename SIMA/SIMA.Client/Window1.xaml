@@ -32,7 +32,8 @@
                         <telerik:RadRibbonToggleButton Name="rbtnGestionarAreas" Tag="Gestionar Áreas" Content="Areas" Checked="rbtnChecked" Unchecked="rbtnUnchecked"/>
                         <telerik:RadRibbonToggleButton Name="rbtnGestionarMarcas" Tag="Gestionar Marcas" Content="Marcas" Checked="rbtnChecked" Unchecked="rbtnUnchecked"/>
                         <telerik:RadRibbonToggleButton Name="rbtnGestionarModelos" Tag="Gestionar Modelos" Content="Modelos" Checked="rbtnChecked" Unchecked="rbtnUnchecked"/>
-                        <telerik:RadRibbonToggleButton Name="rbtnGestionarTipoMantenimientos" Tag="Gestionar Tipos de Mantenimiento" Content="Tipo Mantenimiento" Checked="rbtnChecked" Unchecked="rbtnUnchecked"/>                        
+                        <telerik:RadRibbonToggleButton Name="rbtnGestionarTipoMantenimientos" Tag="Gestionar Tipos de Mantenimiento" Content="Tipo Mantenimiento" Checked="rbtnChecked" Unchecked="rbtnUnchecked"/>
+                        <telerik:RadRibbonToggleButton Name="rbtnGestionarPlandetrabajodeEquipos" Tag="Gestionar Plan de Trabajo de Equipos" Content="Plan de Trabajo de Equipos" Checked="rbtnChecked" Unchecked="rbtnUnchecked"/>
                     </telerik:RadRibbonGroup>
                     <telerik:RadRibbonGroup Header="Sistema">
                         <telerik:RadRibbonToggleButton Name="rbtnGestionarTablas" Tag="Gestionar Tablas" Content="Tablas" Checked="rbtnChecked" Unchecked="rbtnUnchecked"/>

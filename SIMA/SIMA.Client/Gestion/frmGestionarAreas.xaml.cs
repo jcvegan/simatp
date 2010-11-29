@@ -25,6 +25,8 @@ namespace SIMA.Client.Gestion
         BackgroundWorker worker = new BackgroundWorker();
         EstadoDataLogic estadoLogic;
         AreaDataLogic areaLogic;
+        
+        
 
         public frmGestionarAreas()
         {
@@ -132,6 +134,11 @@ namespace SIMA.Client.Gestion
             gvAreas.SelectedItem = null;
             lblEstado.Visibility = Visibility.Hidden;
             cmbEstado.Visibility = Visibility.Hidden;
+        }
+
+        private void cmbEstado_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
         }
     }
 }

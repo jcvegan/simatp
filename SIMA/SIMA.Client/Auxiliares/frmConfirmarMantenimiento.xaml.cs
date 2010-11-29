@@ -30,10 +30,11 @@ namespace SIMA.Client.Auxiliares
         T_C_Mantenimiento mante;        
         public event EventHandler<ConfirmarMantenimientoEventArgs> SeleccionMantenimiento;
 
-        public frmConfirmarMantenimiento()
+        public frmConfirmarMantenimiento(T_C_Mantenimiento mn)
         {
             InitializeComponent();
             matenimiento = new MantenimientoDataLogic();
+            mante = mn;
             //detalles = new List<T_C_Mantenimiento>();
             //mante = new T_C_Mantenimiento();
         }
@@ -42,18 +43,23 @@ namespace SIMA.Client.Auxiliares
         {
             T_C_Mantenimiento manteni = new T_C_Mantenimiento();
             
-            if (txtID.Text != "")
-            {
-                manteni.Id_Mantenimiento = Convert.ToInt32(txtID.Text);
-                manteni.FechaTrabajoInicio = (DateTime)dtFInicio.SelectedDateTime;
-                manteni.FechaTrabajoFin = (DateTime)dtFFin.SelectedDateTime;
-                MessageBox.Show(matenimiento.ActualizarMantenimientoEquipo(manteni));
+            //if (txtID.Text != "")
+            //{
+                //manteni.Id_Mantenimiento = Convert.ToInt32(txtID.Text);
+                //manteni.FechaTrabajoInicio = (DateTime)dtFInicio.SelectedDateTime;
+                //manteni.FechaTrabajoFin = (DateTime)dtFFin.SelectedDateTime;
+                //MessageBox.Show(matenimiento.ActualizarMantenimientoEquipo(manteni));
+                if (SeleccionMantenimiento != null)
+                {
+                   // MessageBox.Show(matenimiento.ActualizarMantenimientoEquipo(manteni));
+                    SeleccionMantenimiento(this, new ConfirmarMantenimientoEventArgs(manteni));
+                }
                 this.Close();
-            }
-            else
-            {
-                MessageBox.Show("Seleccione un Mantenimiento");
-            }
+            //}
+            //else
+            //{
+            //    MessageBox.Show("Seleccione un Mantenimiento");
+            //}
 
         }
 
@@ -61,6 +67,8 @@ namespace SIMA.Client.Auxiliares
         {
             //txtDescripcion.Text = Convert.ToString(mante.Id_Mantenimiento);
             //detalles = matenimiento.SeleccionarMantenimientoEquipo();
+            lblUsuarioApertura.Content = (App.Current.Resources["UsuarioValido"] as UsuarioEventArgs).Usuario.Nombres;
+            lblFechaInicio.Content = DateTime.Now;
         }
 
         private void btnCancelar_Click(object sender, RoutedEventArgs e)

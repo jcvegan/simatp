@@ -49,21 +49,22 @@ namespace SIMA.Client.Trabajos_de_Mantenimiento
                        
         private void btnAgregarDetalle_Click(object sender, RoutedEventArgs e)
         {            
-            if (Convert.ToString(ID) != "0")
-            {
-                frmConfirmarMantenimiento equiposSelector = new frmConfirmarMantenimiento();
-                equiposSelector.txtID.Text = Convert.ToString(ID);                
-                equiposSelector.SeleccionMantenimiento += new EventHandler<SIMA.Client.Auxiliares.EventArgs.ConfirmarMantenimientoEventArgs>(equiposSelector_Resultado);
-                equiposSelector.Show();
-            }
-            else
-            {
-                MessageBox.Show("Seleccione un Mantenimiento");
-            }
+            //if (Convert.ToString(ID) != "0")
+            //{
+            //    frmConfirmarMantenimiento equiposSelector = new frmConfirmarMantenimiento();
+            //    equiposSelector.txtID.Text = Convert.ToString(ID);                
+            //    equiposSelector.SeleccionMantenimiento += new EventHandler<SIMA.Client.Auxiliares.EventArgs.ConfirmarMantenimientoEventArgs>(equiposSelector_Resultado);
+            //    equiposSelector.Show();
+            //}
+            //else
+            //{
+            //    MessageBox.Show("Seleccione un Mantenimiento");
+            //}
         }
 
         void equiposSelector_Resultado(object sender, SIMA.Client.Auxiliares.EventArgs.ConfirmarMantenimientoEventArgs e)
         {
+
             BuscarEquipoMantenimiento();
             //if (e.DetalleOrden.Count > 0)
             //{
@@ -89,6 +90,15 @@ namespace SIMA.Client.Trabajos_de_Mantenimiento
         private void btnBuscar_Click(object sender, RoutedEventArgs e)
         {
             BuscarEquipoMantenimiento();
+        }
+
+        private void gvMantenimiento_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            T_C_Mantenimiento mmm = gvMantenimiento.SelectedItem as T_C_Mantenimiento;
+            frmConfirmarMantenimiento equiposSelector = new frmConfirmarMantenimiento(mmm);
+            
+            equiposSelector.SeleccionMantenimiento += new EventHandler<SIMA.Client.Auxiliares.EventArgs.ConfirmarMantenimientoEventArgs>(equiposSelector_Resultado);
+            equiposSelector.Show();
         }
 
     }

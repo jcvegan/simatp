@@ -1,0 +1,1 @@
+Software desarrollado en WPF para el mantenimiento de equipos de planta.
